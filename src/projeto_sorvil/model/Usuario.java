@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Usuario {
 	private String nome;
+	private String id;
 	private String login;
 	private String senha;
 	private boolean admin;
@@ -67,8 +68,18 @@ public class Usuario {
 		this.estante = estante;
 	}
 	
+	
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public boolean equals(Usuario usuario) {
-		if(usuario != null && usuario.getLogin() == this.login) {
+		if(usuario != null && usuario.getLogin() == this.login && usuario.getId() == this.getId()) {
 			return true;
 		}
 		return false;
