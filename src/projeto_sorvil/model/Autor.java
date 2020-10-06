@@ -34,17 +34,15 @@ public class Autor {
 	
 	
 	public boolean equals(Autor autor) {
-		if(autor != null && autor.getNome() == this.getNome() && autor.getSobrenome() == this.getSobrenome()
-				&& autor.getId() == this.getId()) {
-			return true;
-		}
-		return false;
+		return autor != null && autor.getNome().equals(this.getNome()) && autor.getSobrenome().equals(this.getSobrenome())
+                        && autor.getId().equals(this.getId());
 	}
 
 	public void setId(String id) {
 		this.id = id;
 	}
 	
+        @Override
 	public String toString() {
 		return this.getNome() + " " + this.getSobrenome();
 	}

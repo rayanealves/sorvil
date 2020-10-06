@@ -91,16 +91,14 @@ public class Livro {
 	}
 	
 	public boolean equals(Livro livro) {
-		if(livro != null && this.nome == livro.getNome() && this.id ==  livro.id) {
-			return true;
-		}
-		return false;
+		return livro != null && this.nome.equals(livro.getNome()) && this.id.equals(livro.id);
 	}
 
 	
+        @Override
 	public String toString() {
 		return "Nome: " + nome + "\nID: " + id + "\nEditora: " + editora + "\nAutor: " + autor + "\nGenero:" + genero
-				+ "\nPaginas: " + numPaginas + "\nEdição: " + edicao + " " + this.getAnoPubli();
+				+ "\nPaginas: " + numPaginas + "\nEdiï¿½ï¿½o: " + edicao + " " + this.getAnoPubli();
 	}
 	
 	

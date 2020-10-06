@@ -26,13 +26,11 @@ public class Editora {
 	}
 	
 	public boolean equals(Editora editora) {
-		if(editora != null && editora.getNome() == this.getNome() && 
-				editora.getId() == this.getId()) {
-			return true;
-		}
-		return false;
+		return editora != null && editora.getNome().equals(this.getNome()) && 
+                        editora.getId().equals(this.getId());
 	}
 	
+        @Override
 	public String toString() {
 		return this.nome;
 	}

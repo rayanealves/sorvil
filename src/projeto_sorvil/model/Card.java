@@ -91,13 +91,10 @@ public class Card {
 	}
 	
 	public boolean equals(Card card) {
-		if (card != null && card.getId() == this.id && 
-				card.getDataHora() == this.dataHora && card.getUsuario() == this.usuario ) {
-			return true;
-		}
-		return false;
+		return card != null && card.getId().equals(this.id);
 	}
 
+        @Override
 	public String toString() {
 		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");

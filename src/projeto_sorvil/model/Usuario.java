@@ -79,10 +79,7 @@ public class Usuario {
 	}
 
 	public boolean equals(Usuario usuario) {
-		if(usuario != null && usuario.getLogin() == this.login && usuario.getId() == this.getId()) {
-			return true;
-		}
-		return false;
+		return usuario != null && usuario.getLogin().equals(this.login) && usuario.getId().equals(this.getId());
 	}
 	
 	
