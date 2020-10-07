@@ -1,4 +1,4 @@
-package projeto_sorvil.sistema.controller;
+package projeto_sorvil.controller;
 
 public class ControladorUsuarios {
 
