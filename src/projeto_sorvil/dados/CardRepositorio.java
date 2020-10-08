@@ -10,23 +10,23 @@ import projeto_sorvil.model.Usuario;
 
 public class CardRepositorio implements RepositorioCards{
 	
-	private final ArrayList<Card> cards = new ArrayList<>();
+	private static final ArrayList<Card> cards = new ArrayList<>();
         
 
         @Override
 	public boolean adicionar(Card card) {		
-		return this.cards.add(card);		
+		return cards.add(card);		
 	}
 	
       
         @Override
 	public Card buscar(int indice) {
-		return this.cards.get(indice);
+		return cards.get(indice);
 	}
 	
         @Override
 	public boolean apagar(Card card) {
-		return this.cards.remove(card);
+		return cards.remove(card);
 	}
 
         @Override

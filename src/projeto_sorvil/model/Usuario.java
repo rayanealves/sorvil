@@ -12,8 +12,9 @@ public class Usuario {
 	private LocalDate dataCadastro;
 	private ArrayList <Livro> estante;
 	
-	public Usuario(String nome, String login, String senha, boolean admin, LocalDate dataCadastro) {
+	public Usuario(String nome, String id, String login, String senha, boolean admin, LocalDate dataCadastro) {
 		this.nome = nome;
+                this.id = id;
 		this.login = login;
 		this.senha = senha;
 		this.admin = admin;
