@@ -8,19 +8,19 @@ import projeto_sorvil.model.Usuario;
 public interface RepositorioUsuario {
 	
 	
-	public boolean adicionarUsuario(Usuario user);
+	public boolean adicionar(Usuario user);
 
-	public boolean removerUsuario(Usuario user);
+	public boolean remover(Usuario user);
 	
-	public void editarNomeUsuario(Usuario user, String nome);
+	public void editarNome(Usuario user, String nome);
 	
-	public void editarLoginUsuario(Usuario user, String login);
+	public void editarLogin(Usuario user, String login);
 	
-	public void editarSenhaUsuario(Usuario user, String senha);
+	public void editarSenha(Usuario user, String senha);
 
-	public Usuario buscarUsuario(int index);
+	public Usuario buscar(int index);
 	
-	public List<Usuario> listarUsuarios();
+	public List<Usuario> listar();
 	
 	public List<Livro> listarLivros(Usuario user);
 	
