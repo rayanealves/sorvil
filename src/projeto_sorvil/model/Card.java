@@ -1,9 +1,10 @@
 package projeto_sorvil.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Card {
+public class Card  implements Serializable{
 	private String id;
 	private String titulo;
 	private String texto;

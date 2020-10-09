@@ -2,8 +2,10 @@ package projeto_sorvil.dados;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +24,8 @@ public class CardRepositorio implements RepositorioCards, Serializable{
 		    FileInputStream fis;
 		    ObjectInputStream ois = null;
 		    ArrayList<Card> cds = new ArrayList<>();
-		    try {
+		    
+                    try {
 		      fis = new FileInputStream(in);
 		      ois = new ObjectInputStream(fis);
 		      Object o = ois.readObject();
@@ -41,6 +44,29 @@ public class CardRepositorio implements RepositorioCards, Serializable{
 		    return instanciaLocal;
 		  
     }
+    
+    public void salvarArquivo() {
+	    if (instance == null) {
+	      return;
+	    }
+	    File out = new File("src/cards.dat");
+	    FileOutputStream fos;
+	    ObjectOutputStream oos = null;
+
+	    try {
+	      fos = new FileOutputStream(out);
+	      oos = new ObjectOutputStream(fos);
+	      oos.writeObject(instance);
+	    } catch (IOException e) {
+	    } finally {
+	      if (oos != null) {
+	        try {
+	          oos.close();
+	        } catch (IOException e) {
+	          }
+	      }
+	    }
+	  }
 	
     private ArrayList<Card> cards;
     private static CardRepositorio instance;
