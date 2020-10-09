@@ -79,9 +79,27 @@ public class ControladorCards {
                 .collect(Collectors.toList());
     }
     
+    public boolean deleteCard(Usuario usuario, Card card){
+        if(card != null ){
+            if (usuario.equals(card.getUsuario()) || usuario.isAdmin() == true){
+                return this.repositorioCards.apagar(card);
+            }    
+        }
+        return false;
+    }
     
     
-    
+    public Card buscarPorTitulo(String titulo){
+        Card card = null;
+        if (titulo != null){
+            for(Card crd : this.repositorioCards.listar()){
+                if(crd.getTitulo().equals(titulo)){
+                    card = crd;
+                }
+            }
+        }
+        return card;
+    }
     
     
     

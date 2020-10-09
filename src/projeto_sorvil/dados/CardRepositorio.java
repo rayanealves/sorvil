@@ -95,6 +95,7 @@ public class CardRepositorio implements RepositorioCards, Serializable{
 		return cards.get(indice);
 	}
         
+    @Override
         public boolean idExiste(String id){
             boolean existe = false;
             for(Card card : cards){
