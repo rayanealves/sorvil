@@ -18,6 +18,8 @@ public interface RepositorioCards{
         public List<Card> listar(Usuario usuario);
         
         public List<Card> listar(Livro livro);
+        
+        public boolean idExiste(String id);
   
         
         
