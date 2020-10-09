@@ -10,7 +10,7 @@ public class Card {
 	private Usuario usuario;
 	private Livro livro;
 	private LocalDateTime dataHora;
-	private boolean publico;
+	private boolean publico = false;
 	private int pagina;
 	
 	public Card(String titulo, String id, String texto, Usuario usuario, Livro livro, LocalDateTime dataHora, boolean publico,
@@ -31,7 +31,9 @@ public class Card {
 	}
 	
 	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+            if (titulo != null){
+                this.titulo = titulo;
+            }
 	}
 
 	public String getId() {
@@ -39,7 +41,9 @@ public class Card {
 	}
 
 	public void setId(String id) {
-		this.id = id;
+            if(id != null){
+                this.id = id;
+            }
 	}
 
 	public String getTexto() {
@@ -47,7 +51,10 @@ public class Card {
 	}
 
 	public void setTexto(String texto) {
-		this.texto = texto;
+            if(texto != null){
+                this.texto = texto;
+            }
+		
 	}
 
 	public Usuario getUsuario() {
@@ -55,7 +62,9 @@ public class Card {
 	}
 
 	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+            if(usuario != null){
+                this.usuario = usuario;
+            }
 	}
 
 	public Livro getLivro() {
@@ -63,7 +72,9 @@ public class Card {
 	}
 
 	public void setLivro(Livro livro) {
-		this.livro = livro;
+            if(livro != null){
+                this.livro = livro;
+            }
 	}
 
 	public LocalDateTime getDataHora() {
@@ -71,7 +82,9 @@ public class Card {
 	}
 
 	public void setDataHora(LocalDateTime dataHora) {
-		this.dataHora = dataHora;
+            if (dataHora != null){
+                this.dataHora = dataHora;
+            }
 	}
 
 	public boolean isPublico() {
@@ -91,7 +104,12 @@ public class Card {
 	}
 	
 	public boolean equals(Card card) {
-		return card != null && card.getId().equals(this.id);
+            if(card != null){
+                return card.getUsuario().equals(this.usuario)
+                            && card.getTitulo().equals(this.titulo) 
+                            && card.getDataHora().equals(this.dataHora);
+        }
+        return false;   
 	}
 
         @Override

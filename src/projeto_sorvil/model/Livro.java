@@ -25,6 +25,10 @@ public class Livro {
 		this.edicao = edicao;
 		this.anoPubli = anoP;
 	}
+        
+        public Livro() {
+		
+	}
 
 	public LocalDate getAnoPubli() {
 		return anoPubli;
@@ -91,7 +95,11 @@ public class Livro {
 	}
 	
 	public boolean equals(Livro livro) {
-		return livro != null && this.nome.equals(livro.getNome()) && this.id.equals(livro.id);
+            if(livro != null){
+                return this.nome.equals(livro.getNome())
+                        && livro.getAutor().equals(this.autor);
+            }
+            return false;
 	}
 
 	

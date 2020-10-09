@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package projeto_sorvil.dados;
 
 import java.util.ArrayList;
@@ -13,10 +9,7 @@ import projeto_sorvil.model.Editora;
 import projeto_sorvil.model.Genero;
 import projeto_sorvil.model.Livro;
 
-/**
- *
- * @author Rayan
- */
+
 public class LivroRepositorio implements RepositorioLivro {
     
     private final ArrayList<Livro> livro = new ArrayList<>();

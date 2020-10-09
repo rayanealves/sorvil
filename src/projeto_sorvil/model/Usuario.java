@@ -80,8 +80,11 @@ public class Usuario {
 	}
 
 	public boolean equals(Usuario usuario) {
-		return usuario != null && usuario.getLogin().equals(this.login) && usuario.getId().equals(this.getId());
+		return usuario != null && usuario.getLogin().equals(this.login)
+                        && usuario.getDataCadastro().equals(this.dataCadastro)
+                        && usuario.getNome().equals(this.nome);
 	}
+        
 	
 	
 	

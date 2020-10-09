@@ -17,7 +17,9 @@ public class Autor {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+            if(nome != null){
+                this.nome = nome;
+            }
 	}
 
 	public String getSobrenome() {
@@ -25,7 +27,9 @@ public class Autor {
 	}
 
 	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
+            if(sobrenome != null){
+                this.sobrenome = sobrenome;
+            }
 	}
 
 	public String getId() {
@@ -34,12 +38,14 @@ public class Autor {
 	
 	
 	public boolean equals(Autor autor) {
-		return autor != null && autor.getNome().equals(this.getNome()) && autor.getSobrenome().equals(this.getSobrenome())
-                        && autor.getId().equals(this.getId());
+		return autor != null && autor.getNome().equals(this.getNome())
+                        && autor.getSobrenome().equals(this.getSobrenome());
 	}
 
 	public void setId(String id) {
-		this.id = id;
+            if (id != null){
+                this.id = id;
+            }
 	}
 	
         @Override

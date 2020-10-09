@@ -8,6 +8,7 @@ public class MeuLivro extends Livro{
     
     private int nota;
     private Status status;
+    private boolean favorito = false;
     
     public MeuLivro(String nome, String id,
             Editora editora, Autor autor,
@@ -26,6 +27,10 @@ public class MeuLivro extends Livro{
         super(nome, id, editora, autor, genero, numPaginas, edicao, anoP);
     }
     
+    public MeuLivro() {
+        super();
+    }
+    
     public int getNota(){
         return this.nota;
     }
@@ -36,6 +41,16 @@ public class MeuLivro extends Livro{
     
     public Status getStatus(){
         return this.status;
+    }
+
+
+    public boolean isFavorito() {
+        return favorito;
+    }
+
+   
+    public void setFavorito(boolean favorito) {
+        this.favorito = favorito;
     }
     
     

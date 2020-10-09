@@ -5,7 +5,7 @@ import projeto_sorvil.model.Card;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.Usuario;
 
-public interface RepositorioCards {
+public interface RepositorioCards{
 	
 	boolean adicionar(Card card);
         
@@ -18,8 +18,7 @@ public interface RepositorioCards {
         public List<Card> listar(Usuario usuario);
         
         public List<Card> listar(Livro livro);
-        
-        public List<Card> listar(String titulo);
+  
         
         
         

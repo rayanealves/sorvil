@@ -1,5 +1,10 @@
 package projeto_sorvil.dados;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,9 +13,49 @@ import projeto_sorvil.model.Card;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.Usuario;
 
-public class CardRepositorio implements RepositorioCards{
+public class CardRepositorio implements RepositorioCards, Serializable{
+
+    private static CardRepositorio lerDoArquivo() {
+         CardRepositorio instanciaLocal = null;
+
+		    File in = new File("src/cards.dat");
+		    FileInputStream fis;
+		    ObjectInputStream ois = null;
+		    ArrayList<Card> cds = new ArrayList<>();
+		    try {
+		      fis = new FileInputStream(in);
+		      ois = new ObjectInputStream(fis);
+		      Object o = ois.readObject();
+		      instanciaLocal = (CardRepositorio) o;
+		    } catch (IOException | ClassNotFoundException e) {
+		      instanciaLocal = new CardRepositorio(cds);
+		    } finally {
+		      if (ois != null) {
+		        try {
+		          ois.close();
+		        } catch (IOException e) {
+		        }
+		      }
+		    }
+
+		    return instanciaLocal;
+		  
+    }
 	
-	private static final ArrayList<Card> cards = new ArrayList<>();
+    private ArrayList<Card> cards;
+    private static CardRepositorio instance;
+        
+    public static CardRepositorio getInstance() {
+		    if (instance == null) {
+		      instance = lerDoArquivo();
+		    }
+		    return instance;
+		  }
+
+    public CardRepositorio(ArrayList<Card> cards) {
+        this.cards = cards;
+    }
+        
         
 
         @Override
@@ -47,21 +92,5 @@ public class CardRepositorio implements RepositorioCards{
                     .collect(Collectors.toList());
         }
 
-         @Override
-         public List<Card> listar(String titulo) {
-            return cards.stream()
-                    .filter(card-> card.getTitulo().equals(titulo))
-                    .collect(Collectors.toList());
-        }
-
-    
-	
-	
-
-	
-
-	
-	
-	
 
 }

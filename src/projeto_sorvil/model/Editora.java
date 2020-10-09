@@ -26,8 +26,10 @@ public class Editora {
 	}
 	
 	public boolean equals(Editora editora) {
-		return editora != null && editora.getNome().equals(this.getNome()) && 
-                        editora.getId().equals(this.getId());
+            if(editora != null){
+                return editora.getNome().equals(this.getNome());
+            }
+            return false;
 	}
 	
         @Override
