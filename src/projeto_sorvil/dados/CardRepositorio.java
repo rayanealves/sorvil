@@ -17,7 +17,11 @@ import projeto_sorvil.model.Usuario;
 
 public class CardRepositorio implements RepositorioCards, Serializable{
 
-    private static CardRepositorio lerDoArquivo() {
+	private static final long serialVersionUID = 2206304480631005062L;
+	private ArrayList<Card> cards;
+	private static CardRepositorio instance;
+
+	private static CardRepositorio lerDoArquivo() {
          CardRepositorio instanciaLocal = null;
 
 		    File in = new File("src/cards.dat");
@@ -68,8 +72,7 @@ public class CardRepositorio implements RepositorioCards, Serializable{
 	    }
 	  }
 	
-    private ArrayList<Card> cards;
-    private static CardRepositorio instance;
+ 
         
     public static CardRepositorio getInstance() {
 		    if (instance == null) {
@@ -128,6 +131,11 @@ public class CardRepositorio implements RepositorioCards, Serializable{
                     .filter(card-> card.getLivro().equals(livro))
                     .collect(Collectors.toList());
         }
+
+		@Override
+		public Card buscar(Card card) {
+			return this.buscar(this.cards.indexOf(card));
+		}
 
 
 }

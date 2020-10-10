@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Card  implements Serializable{
+
+	private static final long serialVersionUID = -6306012540272143681L;
 	private String id;
 	private String titulo;
 	private String texto;

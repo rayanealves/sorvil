@@ -23,7 +23,7 @@ public class ControladorUsuarios {
 	
     public void adicionar(Usuario user) {
     	if(user != null) {
-    		repositorioUsuarios.buscar(user.getId();
+    		repositorioUsuarios.buscar(user.getId());
     		
     		
     	}
