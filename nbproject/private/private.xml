@@ -3,9 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/dados/RepositorioUsuarios.java</file>
-            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/dados/RepositorioLivro.java</file>
-            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/dados/LivroRepositorio.java</file>
+            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/controller/ControladorEditora.java</file>
+            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/model/Editora.java</file>
+            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/controller/ControladorLivro.java</file>
         </group>
     </open-files>
 </project-private>

@@ -11,50 +11,72 @@ import projeto_sorvil.model.Livro;
 
 
 public class LivroRepositorio implements RepositorioLivro {
+
+    private static LivroRepositorio instance;
     
-    private final ArrayList<Livro> livro = new ArrayList<>();
+    public static RepositorioLivro getInstance() {
+        if (instance == null) {
+            instance = new LivroRepositorio();
+        }
+        return instance;
+    }
+    
+    private final ArrayList<Livro> livros = new ArrayList<>();
     
     
     @Override
     public boolean adicionar (Livro livro){
-        return this.livro.add(livro);
+        return this.livros.add(livro);
     }
     
     
     @Override
     public Livro buscar(int indice) {
-	return this.livro.get(indice);
-    }  //dúvida nesse
+	return this.livros.get(indice);
+    }
+    
+    @Override
+    public boolean idExiste(String id){
+        boolean existe = false;
+        for(Livro livro : livros){
+            if(livro.getId().equals(id)){
+                existe = true;
+            }
+        }
+        return existe;
+    }
     
     @Override
     public boolean apagar (Livro livro){
-        return this.livro.remove(livro);
+        return this.livros.remove(livro);
     }
     
     @Override
     public List<Livro> listar(){
-        return livro;
+        return livros;
     }
     
     @Override
     public List<Livro> listar(Autor autor) {
-        return livro.stream()
+        return livros.stream()
             .filter(livro-> livro.getAutor().equals(autor))
             .collect(Collectors.toList());
     }
     
     @Override
     public List<Livro> listar(Editora editora) {
-        return livro.stream()
+        return livros.stream()
             .filter(livro-> livro.getEditora().equals(editora))
             .collect(Collectors.toList());
     }
     
     @Override
     public List<Livro> listar(Genero genero) {
-        return livro.stream()
+        return livros.stream()
             .filter(livro-> livro.getGenero().equals(genero))
             .collect(Collectors.toList());
     }
+    
+    
     
 }

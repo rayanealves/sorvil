@@ -30,4 +30,6 @@ public interface RepositorioLivro {
      public List<Livro> listar(Editora editora);
      
      public List<Livro> listar(Genero genero);
+     
+     public boolean idExiste(String id);
 }
