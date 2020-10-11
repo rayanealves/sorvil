@@ -18,12 +18,13 @@ public interface RepositorioUsuario {
 	
 	public void editarSenha(Usuario user, String senha);
 
-	public Usuario buscar(int index);
+	public Usuario buscar(String login);
 	
 	public List<Usuario> listar();
 	
 	public List<Livro> listarLivros(Usuario user);
 	
+	public boolean idExiste(String id);
 	
 	
 

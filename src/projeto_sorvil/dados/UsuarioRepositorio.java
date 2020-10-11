@@ -44,14 +44,10 @@ public class UsuarioRepositorio implements RepositorioUsuario {
 			if(usuarios.get(i).getLogin().equals(login)) {
 				return usuarios.get(i);
 			}
-			else {
-				return null;
-			}
-		
-		}
-		
-		
-		return (Usuario) usuarios.stream().filter(usuario -> usuario.getLogin().equals(login)).limit(1).collect(Collectors.toList());
+
+		}		
+		return null;	
+		//return (Usuario) usuarios.stream().filter(usuario -> usuario.getLogin().equals(login)).limit(1).collect(Collectors.toList());
 	}
 	
 	
@@ -64,7 +60,15 @@ public class UsuarioRepositorio implements RepositorioUsuario {
 	}
 	
 	
-	
+	public boolean idExiste(String id){
+		
+        for(int i =0; i< usuarios.size(); i++){
+            if(usuarios.get(i).getId().equals(id)){
+                return true;
+            }
+        }
+        return false;
+    }
 	
 	
 	
