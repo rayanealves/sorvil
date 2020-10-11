@@ -23,13 +23,13 @@ public interface RepositorioLivro {
     
     public boolean apagar (Livro livro);
     
-     public List<Livro> listar();
+    public List<Livro> listar();
      
-     public List<Livro> listar(Autor autor);
+    public List<Livro> listar(Autor autor);
      
-     public List<Livro> listar(Editora editora);
+    public List<Livro> listar(Editora editora);
      
-     public List<Livro> listar(Genero genero);
+    public List<Livro> listar(Genero genero);
      
-     public boolean idExiste(String id);
+    public boolean idExiste(String id);
 }
