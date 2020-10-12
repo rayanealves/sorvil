@@ -2,6 +2,7 @@ package projeto_sorvil.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Livro {
 	private String nome;
@@ -109,6 +110,7 @@ public class Livro {
 				+ "\nPaginas: " + numPaginas + "\nEdi��o: " + edicao + " " + this.getAnoPubli();
 	}
 
+    
     
 	
 	

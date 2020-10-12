@@ -19,6 +19,8 @@ public interface RepositorioLivro {
     
     public boolean adicionar (Livro livro);
     
+    public boolean adicionar (Livro livro, Genero genero);
+    
     public Livro buscar(int indice);
     
     public Livro buscar (Livro livro);

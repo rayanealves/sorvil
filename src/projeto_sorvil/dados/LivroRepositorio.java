@@ -34,6 +34,11 @@ public class LivroRepositorio implements RepositorioLivro {
     }
     
     @Override
+    public boolean adicionar (Livro livro, Genero genero){
+        return this.buscar(livro).getGenero().add(genero);
+    }
+    
+    @Override
     public Livro buscar(int indice) {
 	return this.livros.get(indice);
     }
@@ -63,7 +68,7 @@ public class LivroRepositorio implements RepositorioLivro {
     public boolean apagar(Livro livro, Genero genero){
         return this.buscar(livro).getGenero().remove(genero);  
     }
-    
+      
     @Override
     public List<Livro> listar(){
         return livros;
