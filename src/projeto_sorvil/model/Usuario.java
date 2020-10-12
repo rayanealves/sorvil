@@ -10,7 +10,7 @@ public class Usuario {
 	private String senha;
 	private boolean admin;
 	private LocalDate dataCadastro;
-	private ArrayList <Livro> estante;
+	private ArrayList <MeuLivro> estante;
 	
 	public Usuario(String nome, String id, String login, String senha, boolean admin, LocalDate dataCadastro) {
 		this.nome = nome;
@@ -61,14 +61,13 @@ public class Usuario {
 		this.dataCadastro = dataCadastro;
 	}
 
-	public ArrayList<Livro> getEstante() {
+	public ArrayList<MeuLivro> getEstante() {
 		return estante;
 	}
 
-	public void setEstante(ArrayList<Livro> estante) {
+	public void setEstante(ArrayList<MeuLivro> estante) {
 		this.estante = estante;
 	}
-	
 	
 	
 	public String getId() {
@@ -86,6 +85,30 @@ public class Usuario {
 	}
         
 	
+	public MeuLivro buscarLivro(String nome) {
+		for(int i=0; i < estante.size() ; i++) { 
+			if(estante.get(i).getNome().equals(nome)) {
+				return estante.get(i);
+			}
+
+		}		
+		return null;	
+	}
+	
+	public void adicionarLivro(MeuLivro livroUser) {
+		
+		estante.add(livroUser);		
+		
+	}
+	
+
+	public void removerLivro(MeuLivro livroUser) {
+		
+		estante.remove(livroUser);		
+		
+	}
+	
+
 	
 	
 }

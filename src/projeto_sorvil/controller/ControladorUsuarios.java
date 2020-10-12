@@ -1,12 +1,12 @@
 package projeto_sorvil.controller;
 
-import projeto_sorvil.model.Livro;
-import projeto_sorvil.model.Usuario;
-
 import java.util.List;
 import java.util.UUID;
 
 import projeto_sorvil.dados.RepositorioUsuario;
+import projeto_sorvil.dados.UsuarioRepositorio;
+import projeto_sorvil.model.MeuLivro;
+import projeto_sorvil.model.Usuario;
 
 public class ControladorUsuarios {
 	
@@ -15,9 +15,7 @@ public class ControladorUsuarios {
     private static ControladorUsuarios instancia = null;
 	
     public ControladorUsuarios() {
-    	if (instancia == null) {
-            instancia = new ControladorUsuarios();
-        }
+    	this.repositorioUsuarios = UsuarioRepositorio.getInstancia();
     }
     
     public static ControladorUsuarios getInstancia() {
@@ -29,6 +27,7 @@ public class ControladorUsuarios {
 	
     public boolean adicionar(Usuario user) {
     	if(user != null) {
+    		user.setId(this.novoID());
     		if (repositorioUsuarios.buscar(user.getLogin()) == user) {
     			return false;
     		}
@@ -44,10 +43,10 @@ public class ControladorUsuarios {
     public boolean remover(Usuario user) {
     	if(user != null) {
     		if (repositorioUsuarios.buscar(user.getLogin()) == user) {
-    			return false;
+    			return repositorioUsuarios.remover(user);
     		}
     		else {
-    			return repositorioUsuarios.adicionar(user);
+    			return false;
     		}
     		 
     	}
@@ -114,12 +113,53 @@ public class ControladorUsuarios {
 		}
 		return null;
 	}
+	
+
+	
+	public boolean adicionarLivro(Usuario user, MeuLivro userLivro){
+		
+		if(userLivro != null) {
+    		if (user.buscarLivro(userLivro.getNome()) == userLivro) {
+    			return false;
+    		}
+    		user.adicionarLivro(userLivro);
+    		return true;
+    	}
+    	else {
+            return false;
+    	}
+
+	}
+	
+	
+	public boolean removerLivro(Usuario user, MeuLivro userLivro){
+		
+		if(userLivro != null) {
+    		if (user.buscarLivro(userLivro.getNome()) == userLivro) {
+    			user.removerLivro(userLivro);
+        		return true;
+    		}
+    		return false;
+    	}
+    	else {
+            return false;
+    	}
+
+	}
+	
+	public MeuLivro buscarLivroUsuario(Usuario user,String nome) {
+		if(!nome.equals(null)  & !nome.equals("") & user != null) {
+			return user.buscarLivro(nome);
+		}
+		return null;
+	}
+	
 
     public List<Usuario> listar() {
         return repositorioUsuarios.listar();
     }
     
-    public List<Livro> listarLivros(Usuario user) {
+    public List<MeuLivro> listarLivrosUsuario(Usuario user) {
     	
     	if(user != null) {
     		if(repositorioUsuarios.getUsuarios().contains(user)){
@@ -133,7 +173,7 @@ public class ControladorUsuarios {
     	return this.repositorioUsuarios.idExiste(id);
 	}
     
-	@SuppressWarnings("unused")
+
 	private String novoID(){
         String id = UUID.randomUUID().toString();
         if(this.confereID(id)){

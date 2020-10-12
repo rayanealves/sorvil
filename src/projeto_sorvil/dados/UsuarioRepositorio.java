@@ -3,7 +3,7 @@ package projeto_sorvil.dados;
 import java.util.ArrayList;
 import java.util.List;
 
-import projeto_sorvil.model.Livro;
+import projeto_sorvil.model.MeuLivro;
 import projeto_sorvil.model.Usuario;
 
 public class UsuarioRepositorio implements RepositorioUsuario {
@@ -77,12 +77,11 @@ public class UsuarioRepositorio implements RepositorioUsuario {
 		
 	}
 	
-	
 	public List<Usuario> listar() {
 		return usuarios.subList(0, usuarios.size());
 	}
 	
-	public List<Livro> listarLivros(Usuario user) {
+	public List<MeuLivro> listarLivros(Usuario user) {
 		return user.getEstante().subList(0 , user.getEstante().size() );
 	}
 	

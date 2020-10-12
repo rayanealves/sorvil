@@ -3,7 +3,7 @@ package projeto_sorvil.dados;
 import java.util.ArrayList;
 import java.util.List;
 
-import projeto_sorvil.model.Livro;
+import projeto_sorvil.model.MeuLivro;
 import projeto_sorvil.model.Usuario;
 
 public interface RepositorioUsuario {
@@ -27,7 +27,7 @@ public interface RepositorioUsuario {
 	
 	public List<Usuario> listar();
 	
-	public List<Livro> listarLivros(Usuario user);
+	public List<MeuLivro> listarLivros(Usuario user);
 	
 	public boolean idExiste(String id);
 	
