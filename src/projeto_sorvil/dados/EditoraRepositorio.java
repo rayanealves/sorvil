@@ -20,12 +20,16 @@ public class EditoraRepositorio implements RepositorioEditora {
     
     public static RepositorioEditora getInstance() {
         if (instance == null) {
-            instance = new EditoraRepositorio();
+            instance = EditorasDAO.lerDoArquivo();
         }
         return instance;
     }
     
-    private final ArrayList<Editora> editoras = new ArrayList<>();
+    private ArrayList<Editora> editoras = new ArrayList<>();
+    
+    public EditoraRepositorio(ArrayList<Editora> editoras){
+    	this.editoras = editoras;
+    }
     
     
     @Override

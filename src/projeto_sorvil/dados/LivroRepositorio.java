@@ -16,12 +16,16 @@ public class LivroRepositorio implements RepositorioLivro {
     
     public static RepositorioLivro getInstance() {
         if (instance == null) {
-            instance = new LivroRepositorio();
+            instance = LivrosDAO.lerDoArquivo();
         }
         return instance;
     }
     
-    private final ArrayList<Livro> livros = new ArrayList<>();
+    private ArrayList<Livro> livros = new ArrayList<>();
+    
+    public LivroRepositorio(ArrayList<Livro> livros) {
+		this.livros = livros;
+	}
     
     
     @Override

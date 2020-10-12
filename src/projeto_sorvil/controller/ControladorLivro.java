@@ -45,7 +45,7 @@ public class ControladorLivro {
         }
     }
     
-    private boolean novoLivro(Livro livro){
+    public boolean novoLivro(Livro livro){
         if(livro != null){
             livro.setId(this.novoID());
             if(!this.repositorioLivro.listar().contains(livro)){
