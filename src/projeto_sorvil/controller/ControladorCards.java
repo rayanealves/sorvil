@@ -102,6 +102,30 @@ public class ControladorCards {
         return card;
     }
     
+    public Card buscar(Card card) {
+    	if(card != null) {
+    		return this.repositorioCards.buscar(card);
+    	}
+    	return null;
+    }
+    
+    public boolean editar(Card card, Usuario usuario, String texto) {
+    	if(texto.equals("") && card.getUsuario().equals(usuario)) {
+    		this.repositorioCards.editar(card, texto);
+    		return true;
+    	}
+    	return false;
+    }
+    
+    public void tornarPublico(Card card) {
+    	this.buscar(card).setPublico(true);
+    }
+    
+    public void tornarPrivado(Card card) {
+    	this.buscar(card).setPublico(false);
+    }
+    
+    
     
     
     

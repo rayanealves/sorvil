@@ -82,5 +82,13 @@ public class CardRepositorio implements RepositorioCards, Serializable{
 			return this.buscar(this.cards.indexOf(card));
 		}
 
+		@Override
+		public void editar(Card card, String texto) {
+			
+			this.buscar(card).setTexto(texto);
+		}
+		
+		
+
 
 }
