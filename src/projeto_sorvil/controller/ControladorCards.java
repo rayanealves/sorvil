@@ -23,7 +23,7 @@ public class ControladorCards {
         return instance;
     }
     
-    private ControladorCards() {
+    public ControladorCards() {
         this.repositorioCards = CardRepositorio.getInstance();
     }
     
