@@ -108,6 +108,8 @@ public class Livro {
 		return "Nome: " + nome + "\nID: " + id + "\nEditora: " + editora + "\nAutor: " + autor + "\nGenero:" + genero
 				+ "\nPaginas: " + numPaginas + "\nEdi��o: " + edicao + " " + this.getAnoPubli();
 	}
+
+    
 	
 	
 }

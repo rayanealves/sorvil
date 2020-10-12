@@ -33,10 +33,14 @@ public class LivroRepositorio implements RepositorioLivro {
         return this.livros.add(livro);
     }
     
-    
     @Override
     public Livro buscar(int indice) {
 	return this.livros.get(indice);
+    }
+    
+    @Override
+    public Livro buscar (Livro livro){
+        return this.buscar(this.livros.indexOf(livro));
     }
     
     @Override
@@ -51,8 +55,13 @@ public class LivroRepositorio implements RepositorioLivro {
     }
     
     @Override
-    public boolean apagar (Livro livro){
+    public boolean apagar(Livro livro){
         return this.livros.remove(livro);
+    }
+    
+    @Override
+    public boolean apagar(Livro livro, Genero genero){
+        return this.buscar(livro).getGenero().remove(genero);  
     }
     
     @Override

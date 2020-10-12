@@ -21,7 +21,11 @@ public interface RepositorioLivro {
     
     public Livro buscar(int indice);
     
+    public Livro buscar (Livro livro);
+    
     public boolean apagar (Livro livro);
+    
+    public boolean apagar (Livro livro, Genero genero);
     
     public List<Livro> listar();
      

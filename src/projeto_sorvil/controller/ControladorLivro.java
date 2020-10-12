@@ -69,6 +69,18 @@ public class ControladorLivro {
         return false;
     }
     
+    public boolean alterarGenero(Usuario usuario, Livro livro, Genero generoDel, Genero generoAdd) {
+        if(livro != null && (generoDel != null || generoAdd != null)){
+            if(usuario.isAdmin() == true && generoDel != null) {
+                if(usuario.isAdmin() == true && generoAdd != null){
+                    
+                }
+                repositorioLivro.apagar(livro, generoDel);
+            }
+        }
+        return false;
+    }
+    
     public Livro buscarLivro(String nome){
         Livro livro = null;
         if (nome != null){
