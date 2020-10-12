@@ -2,7 +2,7 @@ package projeto_sorvil.dados;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 import projeto_sorvil.model.*;
 
@@ -13,6 +13,14 @@ public class UsuarioRepositorio implements RepositorioUsuario {
 	
 	
 	
+	public ArrayList<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(ArrayList<Usuario> usuarios) {
+		UsuarioRepositorio.usuarios = usuarios;
+	}
+
 	public boolean adicionar(Usuario user) {
 		
 		return usuarios.add(user);
@@ -48,6 +56,18 @@ public class UsuarioRepositorio implements RepositorioUsuario {
 		}		
 		return null;	
 		//return (Usuario) usuarios.stream().filter(usuario -> usuario.getLogin().equals(login)).limit(1).collect(Collectors.toList());
+	}
+	
+	public Usuario buscarPeloNome(String nome) {
+		
+		for(int i=0; i < usuarios.size() ; i++) { 
+			if(usuarios.get(i).getNome().equals(nome)) {
+				return usuarios.get(i);
+			}
+
+		}		
+		return null;	
+		
 	}
 	
 	
