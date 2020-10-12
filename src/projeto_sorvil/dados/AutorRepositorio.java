@@ -22,63 +22,13 @@ public class AutorRepositorio implements RepositorioAutor {
 	
 	public static AutorRepositorio getInstance() {
 		if(instance == null) {
-			instance = lerDoArquivo();
+			instance = AutoresDAO.lerDoArquivo();
 		}
 		return instance;
 	}
 	
 	
-	private static AutorRepositorio lerDoArquivo() {
-        AutorRepositorio instanciaLocal = null;
-
-		    File in = new File("src/autores.dat");
-		    FileInputStream fis;
-		    ObjectInputStream ois = null;
-		    ArrayList<Autor> aut = new ArrayList<>();
-		    
-            try {
-		      fis = new FileInputStream(in);
-		      ois = new ObjectInputStream(fis);
-		      Object o = ois.readObject();
-		      instanciaLocal = (AutorRepositorio) o;
-		    } catch (IOException | ClassNotFoundException e) {
-		      instanciaLocal = new AutorRepositorio(aut);
-		    } finally {
-		      if (ois != null) {
-		        try {
-		          ois.close();
-		        } catch (IOException e) {
-		        }
-		      }
-		    }
-
-		    return instanciaLocal;
-		  
-   }
-   
-   public void salvarArquivo() {
-	    if (instance == null) {
-	      return;
-	    }
-	    File out = new File("src/autores.dat");
-	    FileOutputStream fos;
-	    ObjectOutputStream oos = null;
-
-	    try {
-	      fos = new FileOutputStream(out);
-	      oos = new ObjectOutputStream(fos);
-	      oos.writeObject(instance);
-	    } catch (IOException e) {
-	    } finally {
-	      if (oos != null) {
-	        try {
-	          oos.close();
-	        } catch (IOException e) {
-	          }
-	      }
-	    }
-	  }
-	
+		
 
 	@Override
 	public boolean adicionar(Autor autor) {
