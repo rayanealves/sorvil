@@ -43,9 +43,11 @@ class ControladorAutorTest {
 		contAut.novoAutor(autor1);
 		boolean deletado = contAut.delete(autor2, 0);
 		assertTrue(deletado);
-		boolean n_del = contAut.delete(autor2, 0);
+		boolean n_del = contAut.delete(autor3, 3);
 		assertFalse(n_del);
 		
 	}
+	
+	
 
 }
