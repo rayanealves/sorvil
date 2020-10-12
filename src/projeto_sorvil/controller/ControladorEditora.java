@@ -45,7 +45,7 @@ public class ControladorEditora {
         }
     }
     
-    private boolean novaEditora(Editora editora){
+   public boolean novaEditora(Editora editora){
         if(editora != null){
             editora.setId(this.novoID());
             if(!this.respositorioEditora.listar().contains(editora)){
