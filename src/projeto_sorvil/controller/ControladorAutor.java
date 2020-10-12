@@ -59,6 +59,13 @@ public class ControladorAutor {
         return autor;
     }
     
+    public boolean delete(Autor autor, int nLivros) {
+    	if(autor != null && nLivros < 1) {
+    		return this.repositorioAutores.apagar(autor);
+    	}
+    	return false;
+    }
+    
   
 	
 	
