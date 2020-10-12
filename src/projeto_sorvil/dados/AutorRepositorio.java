@@ -1,15 +1,9 @@
 package projeto_sorvil.dados;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
 import projeto_sorvil.model.Autor;
-import projeto_sorvil.model.Card;
 
 public class AutorRepositorio implements RepositorioAutor {
 	

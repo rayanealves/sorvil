@@ -10,8 +10,6 @@ public interface RepositorioUsuario {
 	
 	
 	public ArrayList<Usuario> getUsuarios();
-
-	public void setUsuarios(ArrayList<Usuario> usuarios);
 	
 	public boolean adicionar(Usuario user);
 

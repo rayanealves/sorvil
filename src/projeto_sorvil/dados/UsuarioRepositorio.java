@@ -3,22 +3,29 @@ package projeto_sorvil.dados;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import projeto_sorvil.model.*;
+import projeto_sorvil.model.Livro;
+import projeto_sorvil.model.Usuario;
 
 public class UsuarioRepositorio implements RepositorioUsuario {
 	
 
-	private static ArrayList<Usuario> usuarios = new ArrayList<>();
+	private ArrayList<Usuario> usuarios = new ArrayList<>();
+	private static UsuarioRepositorio instancia;
 	
 	
+	public UsuarioRepositorio(ArrayList<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+		
+	public static UsuarioRepositorio getInstancia() {
+        if (instancia == null) {
+            instancia = UsuariosDAO.lerDoArquivo();
+        }
+        return instancia;
+    }
 	
 	public ArrayList<Usuario> getUsuarios() {
 		return usuarios;
-	}
-
-	public void setUsuarios(ArrayList<Usuario> usuarios) {
-		UsuarioRepositorio.usuarios = usuarios;
 	}
 
 	public boolean adicionar(Usuario user) {

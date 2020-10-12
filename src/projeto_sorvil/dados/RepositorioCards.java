@@ -2,7 +2,6 @@ package projeto_sorvil.dados;
 
 import java.util.List;
 
-import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Card;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.Usuario;
