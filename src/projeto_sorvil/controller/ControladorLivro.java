@@ -69,16 +69,23 @@ public class ControladorLivro {
         return false;
     }
     
-    public boolean alterarGenero(Usuario usuario, Livro livro, Genero generoDel, Genero generoAdd) {
+    public void alterarGenero(Usuario usuario, Livro livro, Genero generoDel, Genero generoAdd) {
         if(livro != null && (generoDel != null || generoAdd != null)){
             if(usuario.isAdmin() == true && generoDel != null) {
                 if(usuario.isAdmin() == true && generoAdd != null){
-                    
+                    repositorioLivro.adicionar(livro, generoAdd);
                 }
                 repositorioLivro.apagar(livro, generoDel);
+            } repositorioLivro.adicionar(livro, generoAdd);
+        }
+    }
+    
+    public void alterarEditora (Usuario usuario, Livro livro, Editora editora){
+        if(livro != null && editora != null) {
+            if(usuario.isAdmin() == true){
+                repositorioLivro.alterarEditora(livro, editora);
             }
         }
-        return false;
     }
     
     public Livro buscarLivro(String nome){

@@ -27,7 +27,6 @@ public class LivroRepositorio implements RepositorioLivro {
 		this.livros = livros;
 	}
     
-    
     @Override
     public boolean adicionar (Livro livro){
         return this.livros.add(livro);
@@ -95,6 +94,9 @@ public class LivroRepositorio implements RepositorioLivro {
             .collect(Collectors.toList());
     }
     
-    
+    @Override
+    public void alterarEditora(Livro livro, Editora editora) {
+       this.buscar(livro).setEditora(editora);
+    }
     
 }
