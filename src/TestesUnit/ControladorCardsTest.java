@@ -11,9 +11,7 @@ class ControladorCardsTest {
 
 	@Test
 	void testNovoCard() {
-		ControladorCards contCard = new ControladorCards();
-		Card card = new Card("Qualquer coisa", null, null, null, null, null, false, 0);
-		boolean resultado = contCard.novoCard(card);
+		
 	}
 
 	@Test

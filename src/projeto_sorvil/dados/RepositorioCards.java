@@ -23,6 +23,8 @@ public interface RepositorioCards{
     public List<Card> listar(Livro livro);
         
     public boolean idExiste(String id);
+    
+    public void editar(Card card, String texto);
   
         
         
