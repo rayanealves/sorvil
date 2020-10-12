@@ -8,7 +8,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-import projeto_sorvil.model.Editora;
+
+import projeto_sorvil.model.Livro;
 
 public class LivrosDAO {
 	
@@ -18,7 +19,7 @@ public class LivrosDAO {
 		    File in = new File("src/livros.dat");
 		    FileInputStream fis;
 		    ObjectInputStream ois = null;
-		    ArrayList<Editora> edt = new ArrayList<>();
+		    ArrayList<Livro> lvr = new ArrayList<>();
 		    
             try {
 		      fis = new FileInputStream(in);
@@ -26,7 +27,7 @@ public class LivrosDAO {
 		      Object o = ois.readObject();
 		      instanciaLocal = (LivroRepositorio) o;
 		    } catch (IOException | ClassNotFoundException e) {
-		      instanciaLocal = new LivroRepositorio(edt);
+		      instanciaLocal = new LivroRepositorio(lvr);
 		    } finally {
 		      if (ois != null) {
 		        try {
