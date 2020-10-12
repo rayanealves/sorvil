@@ -77,7 +77,7 @@ public class LivroRepositorio implements RepositorioLivro {
     @Override
     public List<Livro> listar(Genero genero) {
         return livros.stream()
-            .filter(livro-> livro.getGenero().equals(genero))
+            .filter(livro-> livro.getGenero().contains(genero))
             .collect(Collectors.toList());
     }
     

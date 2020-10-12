@@ -5,9 +5,13 @@
  */
 package projeto_sorvil.controller;
 
+import java.util.List;
 import java.util.UUID;
 import projeto_sorvil.dados.LivroRepositorio;
 import projeto_sorvil.dados.RepositorioLivro;
+import projeto_sorvil.model.Autor;
+import projeto_sorvil.model.Editora;
+import projeto_sorvil.model.Genero;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.Usuario;
 
@@ -75,6 +79,27 @@ public class ControladorLivro {
             }
         }
         return livro;
+    }
+    
+    public List<Livro> listarPorEditora (Editora editora) {
+        if (editora != null){
+            return this.repositorioLivro.listar(editora);
+        }
+        return null;
+    }
+    
+    public List<Livro> listarPorAutor (Autor autor){
+        if (autor != null) {
+            return this.repositorioLivro.listar(autor);
+        }
+        return null;
+    }
+    
+    public List<Livro> listarPorGenero (Genero genero){
+        if (genero != null) {
+            return this.repositorioLivro.listar(genero);
+        }
+        return null;
     }
     
 }
