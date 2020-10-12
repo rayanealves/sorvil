@@ -65,7 +65,7 @@ public class ControladorLivro {
         return false;
     }
     
-    public Livro buscarPorNome(String nome){
+    public Livro buscarLivro(String nome){
         Livro livro = null;
         if (nome != null){
             for(Livro lvr : this.repositorioLivro.listar()){

@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/dados/EditoraRepositorio.java</file>
-=======
-            <file>file:/C:/Users/casaf/sorvil/src/projeto_sorvil/controller/ControladorCards.java</file>
-            <file>file:/C:/Users/casaf/sorvil/src/projeto_sorvil/controller/ControladorUsuarios.java</file>
->>>>>>> 057bb4249d4b25386443d8bbd829145fc40656ec
+            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/controller/ControladorEditora.java</file>
+            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/dados/RepositorioEditora.java</file>
+            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/controller/ControladorLivro.java</file>
         </group>
     </open-files>
 </project-private>

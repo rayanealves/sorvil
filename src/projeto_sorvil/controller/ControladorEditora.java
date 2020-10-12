@@ -5,8 +5,11 @@
  */
 package projeto_sorvil.controller;
 
+import java.util.UUID;
 import projeto_sorvil.dados.EditoraRepositorio;
 import projeto_sorvil.dados.RepositorioEditora;
+import projeto_sorvil.model.Editora;
+import projeto_sorvil.model.Usuario;
 
 /**
  *
@@ -30,5 +33,47 @@ public class ControladorEditora {
     
     private boolean confereID(String id){
         return this.respositorioEditora.idExiste(id);
+    }
+    
+    private String novoID(){
+        String idProvi = UUID.randomUUID().toString();
+        if(this.confereID(idProvi)){
+            return novoID();
+        }
+        else{
+            return idProvi;
+        }
+    }
+    
+    private boolean novaEditora(Editora editora){
+        if(editora != null){
+            editora.setId(this.novoID());
+            if(!this.respositorioEditora.listar().contains(editora)){
+               return this.respositorioEditora.adicionar(editora); 
+            }
+        }
+        
+        return false;
+    }
+    
+    public boolean deleteEditora(Usuario usuario, Editora editora){
+        if(editora != null ){
+            if (!this.respositorioEditora.listar().contains(editora) && usuario.isAdmin() == true){
+                return this.respositorioEditora.apagar(editora);
+            }    
+        }
+        return false;
+    }
+    
+    public Editora buscarEditora(String nome){
+        Editora editora = null;
+        if (nome != null){
+            for(Editora edt : this.respositorioEditora.listar()){
+                if(edt.getNome().equals(nome)){
+                    editora = edt;
+                }
+            }
+        }
+        return editora;
     }
 }
