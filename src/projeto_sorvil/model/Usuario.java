@@ -12,6 +12,19 @@ public class Usuario {
 	private LocalDate dataCadastro;
 	private ArrayList <MeuLivro> estante;
 	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dataCadastro == null) ? 0 : dataCadastro.hashCode());
+		result = prime * result + ((login == null) ? 0 : login.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		
+		return result;
+	}
+
+	
+
 	public Usuario(String nome, String id, String login, String senha, boolean admin, LocalDate dataCadastro) {
 		this.nome = nome;
                 this.id = id;

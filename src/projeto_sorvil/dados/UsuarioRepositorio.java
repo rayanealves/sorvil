@@ -62,13 +62,12 @@ public class UsuarioRepositorio implements RepositorioUsuario {
 
 		}		
 		return null;	
-		//return (Usuario) usuarios.stream().filter(usuario -> usuario.getLogin().equals(login)).limit(1).collect(Collectors.toList());
 	}
 	
 	public Usuario buscarPeloNome(String nome) {
 		
 		for(int i=0; i < usuarios.size() ; i++) { 
-			if(usuarios.get(i).getNome().equals(nome)) {
+			if(usuarios.get(i).getNome().compareToIgnoreCase(nome) < 2) {
 				return usuarios.get(i);
 			}
 

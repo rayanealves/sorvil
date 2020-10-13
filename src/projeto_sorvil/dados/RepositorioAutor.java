@@ -20,5 +20,5 @@ public interface RepositorioAutor {
     
     public boolean idExiste(String id);
         
-  
+    public List<Autor> listarPrimeiroNome(String nome);
 }

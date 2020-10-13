@@ -1,6 +1,10 @@
 package projeto_sorvil.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import projeto_sorvil.dados.AutorRepositorio;
 import projeto_sorvil.dados.RepositorioAutor;
@@ -11,6 +15,20 @@ public class ControladorAutor {
 	
 	private RepositorioAutor repositorioAutores;
 	private static ControladorAutor instance;
+	
+	private  String[] separarNome(String nome){
+		String[] nomeSeparado = nome.split(" ");
+		return nomeSeparado;
+	}
+	
+	private String juntarSobrenome(String[] nomeSep) {
+		String sobrenome = "";
+		for (int i = 1; i < nomeSep.length; i++) {
+			sobrenome += nomeSep[i] + " ";
+		}
+		return sobrenome;
+	}
+	
 	
 	public ControladorAutor() {
 		this.repositorioAutores = AutorRepositorio.getInstance();
@@ -47,16 +65,23 @@ public class ControladorAutor {
         return false;
     }
     
-    public Autor buscarPorNome(String nome){
-        Autor autor = null;
-        if (nome != null){
-            for(Autor aut : this.repositorioAutores.listar()){
-                if(aut.getNome().equals(nome)){
-                    autor = aut;
-                }
-            }
-        }
-        return autor;
+    public Autor bucarPorNome(String nome) {
+    	String[] nomeCompleto = this.separarNome(nome);
+    	ArrayList<Autor> autoresPorNome = (ArrayList<Autor>) this.buscarPrimeiroNome(nomeCompleto[0]);
+    	Autor correto = this.buscarSobrenome(autoresPorNome, this.juntarSobrenome(nomeCompleto));
+    	return correto;
+    	
+    }
+    
+    public List<Autor> buscarPrimeiroNome(String nome){
+        return this.repositorioAutores.listarPrimeiroNome(nome);
+    }
+    
+    public Autor buscarSobrenome(List<Autor> autoresPorNome, String sobrenome){
+    
+    	return (Autor) autoresPorNome.stream()
+    			.filter(autor-> autor.getSobrenome().compareToIgnoreCase(sobrenome) < 2)
+    			.collect(Collectors.toSet());
     }
     
     public boolean delete(Autor autor, int nLivros) {

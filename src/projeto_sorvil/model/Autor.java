@@ -1,6 +1,16 @@
 package projeto_sorvil.model;
 
 public class Autor {
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((sobrenome == null) ? 0 : sobrenome.hashCode());
+		return result;
+	}
+
+	
 	private String nome;
 	private String sobrenome;
 	private String id;

@@ -1,6 +1,7 @@
 package projeto_sorvil.model;
 
 public class Editora {
+	
 	private String nome;
 	private String id;
 	
@@ -31,6 +32,15 @@ public class Editora {
             }
             return false;
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		return result;
+	}
+
 	
         @Override
 	public String toString() {

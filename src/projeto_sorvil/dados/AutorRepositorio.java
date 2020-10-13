@@ -2,8 +2,11 @@ package projeto_sorvil.dados;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import projeto_sorvil.model.Autor;
+import projeto_sorvil.model.Card;
+import projeto_sorvil.model.Usuario;
 
 public class AutorRepositorio implements RepositorioAutor {
 	
@@ -47,6 +50,12 @@ public class AutorRepositorio implements RepositorioAutor {
 	public List<Autor> listar() {
 		return this.autores;
 	}
+	
+	public List<Autor> listarPrimeiroNome(String nome) {
+         return autores.stream()
+                 .filter(autor-> autor.getNome().equals(nome))
+                 .collect(Collectors.toList());
+     }
 	
 	 @Override
      public boolean idExiste(String id){

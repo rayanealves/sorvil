@@ -79,6 +79,16 @@ public class Livro {
 		this.genero = genero;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		return result;
+	}
+
+	
 	public int getNumPaginas() {
 		return numPaginas;
 	}

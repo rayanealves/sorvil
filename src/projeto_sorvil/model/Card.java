@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Card  implements Serializable{
 
+
 	private static final long serialVersionUID = -6306012540272143681L;
 	private String id;
 	private String titulo;
@@ -110,10 +111,23 @@ public class Card  implements Serializable{
             if(card != null){
                 return card.getUsuario().equals(this.usuario)
                             && card.getTitulo().equals(this.titulo) 
-                            && card.getDataHora().equals(this.dataHora);
+                            && card.getDataHora().equals(this.dataHora) 
+                            && card.getLivro().equals(this.livro);
         }
         return false;   
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dataHora == null) ? 0 : dataHora.hashCode());
+		result = prime * result + ((livro == null) ? 0 : livro.hashCode());
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
+		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
+		return result;
+	}
+
 
         @Override
 	public String toString() {
