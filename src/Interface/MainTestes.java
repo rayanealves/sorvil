@@ -37,8 +37,8 @@ public class MainTestes extends Application {
     		 */
         
         
-    		stage.setScene(cenaTelaLogin);
-    		stage.show();
+    		estagioPrimario.setScene(cenaTelaLogin);
+    		estagioPrimario.show();
     		
     	} catch(Exception e) {
 			e.printStackTrace();
@@ -56,6 +56,26 @@ public class MainTestes extends Application {
         
         
     }
+    
+    
+    public static void escolherTela(int opcao) {
+    	
+    	switch (opcao){
+    		case 0:
+    			estagioPrimario.close();
+    			
+    		break;
+    	
+    	
+    		
+    		default:
+    			
+    	}
+    	
+    	
+    }
+    
+    
     
 }
 

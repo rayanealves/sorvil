@@ -62,7 +62,7 @@ public class TelaLoginController  implements Initializable {
 
 	 @FXML
 	 void fecharPrograma(ActionEvent event) {
-		
+		MainTestes.escolherTela(0);
 	 }
 
 	 @FXML
