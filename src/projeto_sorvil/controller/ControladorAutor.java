@@ -3,9 +3,7 @@ package projeto_sorvil.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-
 import projeto_sorvil.dados.AutorRepositorio;
 import projeto_sorvil.dados.RepositorioAutor;
 import projeto_sorvil.model.Autor;
@@ -68,6 +66,9 @@ public class ControladorAutor {
     public Autor bucarPorNome(String nome) {
     	String[] nomeCompleto = this.separarNome(nome);
     	ArrayList<Autor> autoresPorNome = (ArrayList<Autor>) this.buscarPrimeiroNome(nomeCompleto[0]);
+    	if(autoresPorNome.size() < 2 && this.juntarSobrenome(nomeCompleto) == "") {
+    		return autoresPorNome.get(0);
+    	}
     	Autor correto = this.buscarSobrenome(autoresPorNome, this.juntarSobrenome(nomeCompleto));
     	return correto;
     	
@@ -81,7 +82,7 @@ public class ControladorAutor {
     
     	return (Autor) autoresPorNome.stream()
     			.filter(autor-> autor.getSobrenome().compareToIgnoreCase(sobrenome) < 2)
-    			.collect(Collectors.toSet());
+    			.collect(Collectors.toList());
     }
     
     public boolean delete(Autor autor, int nLivros) {

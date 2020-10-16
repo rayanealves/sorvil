@@ -1,6 +1,13 @@
 package projeto_sorvil.model;
 
-public class Autor {
+import java.io.Serializable;
+
+public class Autor implements Comparable<Autor>, Serializable {
+	
+
+	private static final long serialVersionUID = -3427491444864579533L;
+	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -62,6 +69,12 @@ public class Autor {
 	public String toString() {
 		return this.getNome() + " " + this.getSobrenome();
 	}
+
+		@Override
+		public int compareTo(Autor o) {
+			
+			return this.nome.compareToIgnoreCase(o.getNome());
+		}
 	
 	
 

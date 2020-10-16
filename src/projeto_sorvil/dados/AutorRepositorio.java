@@ -5,8 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import projeto_sorvil.model.Autor;
-import projeto_sorvil.model.Card;
-import projeto_sorvil.model.Usuario;
+
 
 public class AutorRepositorio implements RepositorioAutor {
 	

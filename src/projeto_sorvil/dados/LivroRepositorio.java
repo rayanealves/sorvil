@@ -1,6 +1,7 @@
 
 package projeto_sorvil.dados;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,7 +11,7 @@ import projeto_sorvil.model.Genero;
 import projeto_sorvil.model.Livro;
 
 
-public class LivroRepositorio implements RepositorioLivro {
+public class LivroRepositorio implements RepositorioLivro, Serializable {
 
     private static LivroRepositorio instance;
     

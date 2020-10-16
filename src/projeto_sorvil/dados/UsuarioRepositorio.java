@@ -1,12 +1,13 @@
 package projeto_sorvil.dados;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import projeto_sorvil.model.MeuLivro;
 import projeto_sorvil.model.Usuario;
 
-public class UsuarioRepositorio implements RepositorioUsuario {
+public class UsuarioRepositorio implements RepositorioUsuario, Serializable {
 	
 
 	private ArrayList<Usuario> usuarios = new ArrayList<>();

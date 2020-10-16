@@ -1,10 +1,11 @@
 package projeto_sorvil.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 
-public class Livro {
+
+public class Livro implements Serializable{
 	private String nome;
 	private String id;
 	private Editora editora;

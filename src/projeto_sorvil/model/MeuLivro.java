@@ -1,10 +1,11 @@
 
 package projeto_sorvil.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class MeuLivro extends Livro{
+public class MeuLivro extends Livro implements Serializable{
     
     private int nota;
     private Status status;

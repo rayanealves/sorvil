@@ -1,6 +1,8 @@
 package projeto_sorvil.model;
 
-public class Editora {
+import java.io.Serializable;
+
+public class Editora implements Serializable {
 	
 	private String nome;
 	private String id;

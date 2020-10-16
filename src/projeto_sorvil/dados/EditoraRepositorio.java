@@ -5,6 +5,7 @@
  */
 package projeto_sorvil.dados;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import projeto_sorvil.model.Editora;
@@ -14,7 +15,7 @@ import projeto_sorvil.model.Editora;
  *
  * @author Rayan
  */
-public class EditoraRepositorio implements RepositorioEditora {
+public class EditoraRepositorio implements RepositorioEditora, Serializable {
     
     private static EditoraRepositorio instance;
     
