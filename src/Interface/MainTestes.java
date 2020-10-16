@@ -15,30 +15,35 @@ public class MainTestes extends Application {
 	
     @Override
     public void start(Stage stage) throws Exception {
+    	try {
+    		Parent telaLogin = FXMLLoader.load(getClass().getResource("/Interface/TelaLogin.fxml"));
+    		//FXMLLoader telaCadastro = new FXMLLoader(getClass().getResource("TelaCadastro.fxml"));
+    		estagioPrimario = stage;
+    	
+    		estagioPrimario.setTitle("SORVIL");
+    	
+    	
+    		//Parent parentTelaLogin = telaLogin.load();
+    		//Parent parentTelaCadastro = telaCadastro.load();
+    	
+    		cenaTelaLogin = new Scene(telaLogin);
+    		//cenaTelaCadastro = new Scene(parentTelaCadastro);
+    	
+    	
+    		/*
+    		Parent root = FXMLLoader.load(getClass().getResource("Botao.fxml"));
+        	@SuppressWarnings("unused")
+			Scene scene = new Scene(root);
+    		 */
         
-    	FXMLLoader telaLogin = new FXMLLoader(getClass().getResource("TelaLogin.fxml"));
-    	FXMLLoader telaCadastro = new FXMLLoader(getClass().getResource("TelaCadastro.fxml"));
-    	estagioPrimario = stage;
-    	
-    	estagioPrimario.setTitle("SORVIL");
-    	
-    	
-    	Parent parentTelaLogin = telaLogin.load();
-    	Parent parentTelaCadastro = telaCadastro.load();
-    	
-    	cenaTelaLogin = new Scene(parentTelaLogin, 480,480);
-    	cenaTelaCadastro = new Scene(parentTelaCadastro, 480,480);
-    	
-    	
-    	/*
-    	Parent root = FXMLLoader.load(getClass().getResource("Botao.fxml"));
-        @SuppressWarnings("unused")
-		Scene scene = new Scene(root);
-        */
         
-        
-        stage.setScene(cenaTelaLogin);
-        stage.show();
+    		stage.setScene(cenaTelaLogin);
+    		stage.show();
+    		
+    	} catch(Exception e) {
+			e.printStackTrace();
+		}
+    	
     }
 
    

@@ -41,6 +41,13 @@ public class TelaCadastroController {
 
     @FXML
     private ToggleGroup tipoDeUsuario;
+    
+    @FXML
+    private RadioButton radiopadrao;
+    
+    @FXML
+    private RadioButton radioadm;
+
 
 
   

@@ -24,7 +24,7 @@
       </Text>
       <Button fx:id="Cadastrar" layoutX="199.0" layoutY="328.0" mnemonicParsing="false" onAction="#irParaCadastro" prefHeight="25.0" prefWidth="82.0" text="Cadastrar" />
       <Label fx:id="TelaLogin" layoutX="226.0" layoutY="246.0" text="Label" />
-      <PasswordField fx:id="senhatxt" layoutX="166.0" layoutY="196.0" onAction="#verificarUsuario" />
+      <PasswordField fx:id="senha" layoutX="166.0" layoutY="196.0" onAction="#verificarUsuario" />
       <Button fx:id="sair" layoutX="220.0" layoutY="392.0" mnemonicParsing="false" onAction="#fecharPrograma" prefHeight="25.0" prefWidth="41.0" text="Sair" />
     </children>
 </AnchorPane>

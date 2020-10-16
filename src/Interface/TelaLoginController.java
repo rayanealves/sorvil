@@ -34,7 +34,8 @@ public class TelaLoginController  implements Initializable {
     private Button Cadastrar;
     @FXML
     private Label TelaLogin;
-
+    @FXML
+    private Button sair;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
