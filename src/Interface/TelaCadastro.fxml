@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interface.TelaCadastroController">
+   <children>
+      <TextField fx:id="login" layoutX="169.0" layoutY="91.0" />
+      <TextField fx:id="nome" layoutX="169.0" layoutY="150.0" prefHeight="25.0" prefWidth="149.0" />
+      <Text layoutX="138.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faca seu cadastro no SORVIL" wrappingWidth="194.2880859375">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="logintxt" layoutX="169.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite um login:" />
+      <Text fx:id="nometxt" layoutX="169.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite seu nome:" />
+      <Text fx:id="senhatxt" layoutX="166.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite uma senha:" />
+      <Label fx:id="mensagem" layoutX="183.0" layoutY="245.0" prefHeight="25.0" prefWidth="121.0" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="cadastrar" layoutX="171.0" layoutY="343.0" mnemonicParsing="false" onAction="#cadastrarUsuario" text="Cadastrar nova conta" />
+      <Button fx:id="voltar" layoutX="211.0" layoutY="393.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
+      <PasswordField fx:id="senha" layoutX="167.0" layoutY="212.0" />
+      <RadioButton fx:id="radioadm" layoutX="171.0" layoutY="292.0" mnemonicParsing="false" selected="true" text="Usuario administrador">
+         <toggleGroup>
+            <ToggleGroup fx:id="tipoDeUsuario" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="radiopadrao" layoutX="169.0" layoutY="262.0" mnemonicParsing="false" selected="true" text="Usuario padrão" toggleGroup="$tipoDeUsuario" />
+   </children>
+</AnchorPane>
