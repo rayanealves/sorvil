@@ -1,4 +1,4 @@
-package Interface;
+package projeto_sorvil.gui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -1,4 +1,4 @@
-package Interface;
+package projeto_sorvil.gui;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -59,7 +59,8 @@ public class TelaAdicionarLivroController {
     @FXML
     private Button btnAdicionar;
     
-    private ObservableList<Genero> obsGenero;
+    @SuppressWarnings("unused")
+	private ObservableList<Genero> obsGenero;
             
     public void carregarGenero(){
         cbGenero.setItems(FXCollections.observableArrayList(Genero.values()));
