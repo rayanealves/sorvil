@@ -69,12 +69,17 @@ public class TelaCadastroController {
     	diaCadastro = LocalDate.now();
     	Usuario user = new Usuario(nome.getText(), null, login.getText(), senha.getText(), tipo, diaCadastro );
     	System.out.println(controladorUsers.adicionar(user));
-   
+    	senha.clear();
+		login.clear();
+		nome.clear();
     	MainTestes.escolherTela(1);
     }
 
     @FXML
     void voltar(ActionEvent event) {
+    	senha.clear();
+		login.clear();
+		nome.clear();
     	MainTestes.escolherTela(1);
     }
 

@@ -54,6 +54,8 @@ public class TelaLoginController  implements Initializable {
 		if(user != null) {
 			if(user.getSenha().equals(senha.getText())) {
 				usuarioLogado = user;
+				senha.clear();
+				login.clear();
 				MainTestes.escolherTela(3);
 				
 				

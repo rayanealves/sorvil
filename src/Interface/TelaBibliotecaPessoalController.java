@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.SwipeEvent;
 import javafx.scene.layout.AnchorPane;
 import projeto_sorvil.model.Usuario;
 
@@ -51,7 +52,9 @@ public class TelaBibliotecaPessoalController {
 
     @FXML
     void fechar(ActionEvent event) {
+    	TelaBibliotecaPessoalController.usuarioLogado = null;
     	MainTestes.escolherTela(1);
+    	
     }
 
 
@@ -59,12 +62,6 @@ public class TelaBibliotecaPessoalController {
 		return usuarioLogado;
 	}
 
-
-
-
-	public static void setUsuarioLogado(Usuario usuarioLogado) {
-		TelaBibliotecaPessoalController.usuarioLogado = usuarioLogado;
-	}
 	
 	
 	
