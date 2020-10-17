@@ -1,6 +1,7 @@
 package Interface;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -25,7 +26,7 @@ public class TelaLoginController  implements Initializable {
     @FXML
     private PasswordField senha;
     @FXML
-    private TextField Login;
+    private TextField login;
     @FXML
     private Text senhatxt;
     @FXML
@@ -36,29 +37,30 @@ public class TelaLoginController  implements Initializable {
     private Label TelaLogin;
     @FXML
     private Button sair;
+    
+    private static Usuario usuarioLogado;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		
+			
 	}
 	
 	
 
 	@FXML
-	void verificarUsuario(ActionEvent event) {
-		Usuario user = userController.buscar(logintxt.getText());
+	void fazerLogin(ActionEvent event) throws IOException {
+		Usuario user = userController.buscar(login.getText());
 		if(user != null) {
-			if(user.getSenha().equals(senhatxt.getText())) {
+			if(user.getSenha().equals(senha.getText())) {
+				usuarioLogado = user;
+				MainTestes.escolherTela(3);
+				
 				
 			}
 		}
 	}
 
-	@FXML
-	void fazerLogin(ActionEvent event) {
-
-	 }
 
 	 @FXML
 	 void fecharPrograma(ActionEvent event) {
@@ -67,8 +69,20 @@ public class TelaLoginController  implements Initializable {
 
 	 @FXML
 	 void irParaCadastro(ActionEvent event) {
-
+		 MainTestes.escolherTela(2);
 	 }
+
+
+
+	public static Usuario getUsuarioLogado() {
+		return usuarioLogado;
+	}
+
+
+
+	public static void setUsuarioLogado(Usuario user) {
+		TelaLoginController.usuarioLogado = user;
+	}
 
 
    

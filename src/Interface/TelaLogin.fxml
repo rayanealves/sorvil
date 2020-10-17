@@ -11,7 +11,7 @@
 <AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interface.TelaLoginController">
     <children>
         <Button fx:id="Entrar" layoutX="199.0" layoutY="282.0" onAction="#fazerLogin" prefHeight="19.0" prefWidth="82.0" text="Entrar" />
-      <TextField fx:id="Login" layoutX="166.0" layoutY="131.0" onAction="#verificarUsuario" />
+      <TextField fx:id="login" layoutX="166.0" layoutY="131.0" />
       <Text fx:id="senhatxt" layoutX="166.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha :">
          <font>
             <Font size="14.0" />
@@ -24,7 +24,7 @@
       </Text>
       <Button fx:id="Cadastrar" layoutX="199.0" layoutY="328.0" mnemonicParsing="false" onAction="#irParaCadastro" prefHeight="25.0" prefWidth="82.0" text="Cadastrar" />
       <Label fx:id="TelaLogin" layoutX="226.0" layoutY="246.0" text="Label" />
-      <PasswordField fx:id="senha" layoutX="166.0" layoutY="196.0" onAction="#verificarUsuario" />
+      <PasswordField fx:id="senha" layoutX="166.0" layoutY="196.0" />
       <Button fx:id="sair" layoutX="220.0" layoutY="392.0" mnemonicParsing="false" onAction="#fecharPrograma" prefHeight="25.0" prefWidth="41.0" text="Sair" />
     </children>
 </AnchorPane>

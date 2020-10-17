@@ -1,5 +1,7 @@
 package Interface;
 
+import java.time.LocalDate;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,23 +11,25 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
+import projeto_sorvil.controller.ControladorUsuarios;
+import projeto_sorvil.model.Usuario;
 
 public class TelaCadastroController {
 
     @FXML
-    private TextField logintxt;
+    private TextField login;
 
     @FXML
-    private TextField nometxt;
+    private TextField nome;
 
     @FXML
-    private Text login;
+    private Text logintxt;
 
     @FXML
-    private Text nome;
+    private Text nometxt;
 
     @FXML
-    private Text senha;
+    private Text senhatxt;
 
     @FXML
     private Label mensagem;
@@ -37,7 +41,7 @@ public class TelaCadastroController {
     private Button voltar;
 
     @FXML
-    private PasswordField senhatxt;
+    private PasswordField senha;
 
     @FXML
     private ToggleGroup tipoDeUsuario;
@@ -48,26 +52,30 @@ public class TelaCadastroController {
     @FXML
     private RadioButton radioadm;
 
+    LocalDate diaCadastro;
 
-
+    ControladorUsuarios controladorUsers = new ControladorUsuarios();
   
+
+   
 
     @FXML
     void cadastrarUsuario(ActionEvent event) {
-    	@SuppressWarnings("unused")
-		RadioButton tipoDeUser = (RadioButton) tipoDeUsuario.getSelectedToggle(); 
-    	
-    	
-    }
-
-    @FXML
-    void criarNovaConta(ActionEvent event) {
-
+    	RadioButton tipoDeUser = (RadioButton) tipoDeUsuario.getSelectedToggle();
+    	boolean tipo = false;
+    	if(tipoDeUser.equals(radioadm)) {
+    		tipo = true;
+    	}
+    	diaCadastro = LocalDate.now();
+    	Usuario user = new Usuario(nome.getText(), null, login.getText(), senha.getText(), tipo, diaCadastro );
+    	System.out.println(controladorUsers.adicionar(user));
+   
+    	MainTestes.escolherTela(1);
     }
 
     @FXML
     void voltar(ActionEvent event) {
-
+    	MainTestes.escolherTela(1);
     }
 
 }
