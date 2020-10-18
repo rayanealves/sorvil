@@ -2,34 +2,19 @@
 package projeto_sorvil.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.ArrayList;
 
-public class MeuLivro extends Livro implements Serializable{
-    
+public class MeuLivro implements Serializable{
+
     private int nota;
     private Status status;
     private boolean favorito = false;
+    private Livro livro;
     
-    public MeuLivro(String nome, String id,
-            Editora editora, Autor autor,
-            ArrayList<Genero> genero, int numPaginas,
-            int edicao, LocalDate anoP, Status status, int nota) {
-        super(nome, id, editora, autor, genero, numPaginas, edicao, anoP);
+    public MeuLivro(Livro livro, Status status, int nota) {
         
         this.status = status;
         this.nota = nota;
-    }
-    
-    public MeuLivro(String nome, String id,
-            Editora editora, Autor autor,
-            ArrayList<Genero> genero, int numPaginas,
-            int edicao, LocalDate anoP) {
-        super(nome, id, editora, autor, genero, numPaginas, edicao, anoP);
-    }
-    
-    public MeuLivro() {
-        super();
+        this.livro = livro;
     }
     
     public int getNota(){
@@ -49,10 +34,16 @@ public class MeuLivro extends Livro implements Serializable{
         return favorito;
     }
 
-   
     public void setFavorito(boolean favorito) {
         this.favorito = favorito;
     }
     
+    public Livro getLivro() {
+        return livro;
+    }
+    
+    public void setLivro(Livro livro) {
+        this.livro = livro;
+    }
     
 }

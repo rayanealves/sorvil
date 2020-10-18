@@ -1,10 +1,8 @@
 package projeto_sorvil.gui;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -51,7 +49,7 @@ public class TelaAdicionarLivroController {
     private TextField txtPaginas;
 
     @FXML
-    private ComboBox<Genero> cbGenero;
+    private ChoiceBox<Genero> chGenero;
     
     @FXML
     private Button btnCancelar;
@@ -59,10 +57,8 @@ public class TelaAdicionarLivroController {
     @FXML
     private Button btnAdicionar;
     
-    @SuppressWarnings("unused")
-	private ObservableList<Genero> obsGenero;
-            
-    public void carregarGenero(){
-        cbGenero.setItems(FXCollections.observableArrayList(Genero.values()));
+    @FXML
+    public void initialize() {
+        this.chGenero.getItems().addAll(Genero.values());
     }
 }
