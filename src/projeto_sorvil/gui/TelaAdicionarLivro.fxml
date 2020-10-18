@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane fx:id="telaAdicionarLivro" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="telaAdicionarLivro" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" vgap="2.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="179.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="256.0" minWidth="10.0" prefWidth="256.0" />
@@ -19,6 +19,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -38,13 +39,38 @@
       <Text fx:id="ano" strokeType="OUTSIDE" strokeWidth="0.0" text="Ano de Publicação" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
       <Text fx:id="paginas" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de Páginas" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
       <Text fx:id="genero" strokeType="OUTSIDE" strokeWidth="0.0" text="Genero" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="TOP" />
-      <Button fx:id="btnCancelar" mnemonicParsing="false" text="Cancelar" GridPane.columnIndex="1" GridPane.rowIndex="8" GridPane.valignment="TOP" />
-      <Button fx:id="btnEnviar" mnemonicParsing="false" text="Enviar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8" GridPane.valignment="TOP" />
-      <ChoiceBox fx:id="chGenero" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" GridPane.valignment="TOP" />
+      <TextField fx:id="txtLivro" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <TextField fx:id="txtAutor" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+      <TextField fx:id="txtEditora" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+      <TextField fx:id="txtAno" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+      <TextField fx:id="txtPaginas" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+      <Button fx:id="btnCancelar" mnemonicParsing="false" text="Cancelar" GridPane.columnIndex="1" GridPane.rowIndex="9" GridPane.valignment="TOP" />
+      <Button fx:id="btnEnviar" mnemonicParsing="false" text="Enviar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="9" GridPane.valignment="TOP" />
+      <CheckBox fx:id="adm" mnemonicParsing="false" text="Administração" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+      <CheckBox fx:id="artes" mnemonicParsing="false" text="Artes" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="aventura" mnemonicParsing="false" text="Aventura" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="auto" mnemonicParsing="false" text="Autoajuda" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+      <CheckBox fx:id="bio" mnemonicParsing="false" text="Biografia" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <CheckBox fx:id="conto" mnemonicParsing="false" text="Conto" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="dicionario" mnemonicParsing="false" text="Dicionario" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <CheckBox fx:id="economia" mnemonicParsing="false" text="Economia" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+      <CheckBox fx:id="ficci" mnemonicParsing="false" text="Ficção Científica" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+      <CheckBox fx:id="geo" mnemonicParsing="false" text="Geografia" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+      <CheckBox fx:id="humor" mnemonicParsing="false" text="Humor" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+      <CheckBox fx:id="med" mnemonicParsing="false" text="Medicina" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+      <CheckBox fx:id="direito" mnemonicParsing="false" text="Direito" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="fantasia" mnemonicParsing="false" text="Fantasia" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="filosofia" mnemonicParsing="false" text="Filosofia" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="historia" mnemonicParsing="false" text="História" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="ling" mnemonicParsing="false" text="Linguistica" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="poesia" mnemonicParsing="false" text="Poesia" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="policial" mnemonicParsing="false" text="Policial" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+      <CheckBox fx:id="psi" mnemonicParsing="false" text="Psicologia" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="religiao" mnemonicParsing="false" text="Religião" GridPane.columnIndex="2" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+      <CheckBox fx:id="suspense" mnemonicParsing="false" text="Suspense" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+      <CheckBox fx:id="romance" mnemonicParsing="false" text="Romance" GridPane.columnIndex="2" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="terror" mnemonicParsing="false" text="Terror" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="turismo" mnemonicParsing="false" text="Turismo" GridPane.columnIndex="2" GridPane.rowIndex="7" GridPane.valignment="TOP" />
+      <Button fx:id="btnAbrir" mnemonicParsing="false" text="Abrir" GridPane.columnIndex="1" GridPane.rowIndex="7" />
    </children>
 </GridPane>

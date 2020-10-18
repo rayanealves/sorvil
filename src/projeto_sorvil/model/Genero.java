@@ -1,5 +1,9 @@
 package projeto_sorvil.model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 public enum Genero {
 	ADMINISTRACAO("Administração"), ARTES("Artes"), AUTOAJUDA("Autoajuda"), 
@@ -24,6 +28,10 @@ public enum Genero {
             this.nome = nome;
         }
         
-        
-
+        public static List<Genero> listaCidades(){
+    	List<Genero> generos = new ArrayList<Genero>();
+    	generos.addAll(Arrays.asList(Genero.values()));
+    	return generos;
+    }
 }
+        
