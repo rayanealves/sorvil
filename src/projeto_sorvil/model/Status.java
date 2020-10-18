@@ -2,5 +2,15 @@
 package projeto_sorvil.model;
 
 public enum Status {
-    LIDO, LENDO, QUERO_LER, ABANDONADO;
+    LIDO("Lido"), LENDO("Lendo"), QUERO_LER("Quero ler"), ABANDONADO("Abandonei");
+    
+ 
+    Status(String nome){
+        this.status = nome;
+    }
+    String status; 
+    
+    public String getStatus(){
+        return this.status;
+    }
 }
