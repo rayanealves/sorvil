@@ -41,7 +41,7 @@ public class UsuariosDAO {
 		  
    }
    
-   public void salvarArquivo(UsuarioRepositorio instancia) {
+   public static void salvarArquivo(UsuarioRepositorio instancia) {
 	    if (instancia == null) {
 	      return;
 	    }

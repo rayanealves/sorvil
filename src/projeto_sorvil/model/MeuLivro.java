@@ -5,7 +5,11 @@ import java.io.Serializable;
 
 public class MeuLivro implements Serializable{
 
-    private int nota;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1955524342716143140L;
+	private int nota;
     private Status status;
     private boolean favorito = false;
     private Livro livro;

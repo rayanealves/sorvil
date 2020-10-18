@@ -72,6 +72,7 @@ public class TelaCadastroController {
     	senha.clear();
 		login.clear();
 		nome.clear();
+		System.out.println(controladorUsers.listar().size());
     	MainTestes.escolherTela(1);
     }
 

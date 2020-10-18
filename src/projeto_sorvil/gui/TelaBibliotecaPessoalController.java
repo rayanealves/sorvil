@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.SwipeEvent;
 import javafx.scene.layout.AnchorPane;
 import projeto_sorvil.model.MeuLivro;
 import projeto_sorvil.model.Usuario;
@@ -29,6 +28,7 @@ public class TelaBibliotecaPessoalController {
     
 	private static Usuario usuarioLogado = null;
 	
+	@SuppressWarnings("unused")
 	private static MeuLivro onLivro = null;
 
 	

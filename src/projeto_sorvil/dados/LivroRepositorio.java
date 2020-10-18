@@ -13,7 +13,11 @@ import projeto_sorvil.model.Livro;
 
 public class LivroRepositorio implements RepositorioLivro, Serializable {
 
-    private static LivroRepositorio instance;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 771305092283466252L;
+	private static LivroRepositorio instance;
     
     public static RepositorioLivro getInstance() {
         if (instance == null) {

@@ -16,34 +16,34 @@ public class MainTestes extends Application {
 	
     public void start(Stage stage) throws Exception {
     	try {
-    		//FXMLLoader telaLogin = new FXMLLoader(getClass().getResource("/Interface/TelaLogin.fxml"));
-    		Parent telaLogin =FXMLLoader.load(getClass().getResource("/Interface/TelaLogin.fxml"));
+    		//FXMLLoader telaLogin = new FXMLLoader(getClass().getResource("/projeto_sorvil.gui/TelaLogin.fxml"));
+    		Parent telaLogin = FXMLLoader.load(getClass().getResource("TelaLogin.fxml"));
     		//Parent parentTelaLogin = telaLogin.load();
     		cenaTelaLogin = new Scene(telaLogin);
     		
-    		//FXMLLoader telaCadastro = new FXMLLoader(getClass().getResource("/Interface/TelaCadastro.fxml"));
-    		Parent telaCadastro =FXMLLoader.load(getClass().getResource("/Interface/TelaCadastro.fxml"));
+    		//FXMLLoader telaCadastro = new FXMLLoader(getClass().getResource("/projeto_sorvil.gui/TelaCadastro.fxml"));
+    		Parent telaCadastro =FXMLLoader.load(getClass().getResource("TelaCadastro.fxml"));
     		//Parent parentTelaCadastro = telaCadastro.load();
     		cenaTelaCadastro = new Scene(telaCadastro);
     		
-    		Parent telaAdicionarLivro = FXMLLoader.load(getClass().getResource("/Interface/TelaAdicionarLivro.fxml"));
+    		Parent telaAdicionarLivro = FXMLLoader.load(getClass().getResource("TelaAdicionarLivro.fxml"));
     		cenaTelaAdicionarLivro = new Scene(telaAdicionarLivro);
     		
-    		//FXMLLoader telaBibliotecaPessoal = new FXMLLoader(getClass().getResource("/Interface/TelaBibliotecaPessoal.fxml"));
-    		Parent telaBibliotecaPessoal = FXMLLoader.load(getClass().getResource("/Interface/TelaBibliotecaPessoal.fxml"));
+    		//FXMLLoader telaBibliotecaPessoal = new FXMLLoader(getClass().getResource("/projeto_sorvil.gui/TelaBibliotecaPessoal.fxml"));
+    		Parent telaBibliotecaPessoal = FXMLLoader.load(getClass().getResource("TelaBibliotecaPessoal.fxml"));
     		//Parent parentTelaBibliotecaPessoal = telaBibliotecaPessoal.load();
     		cenaTelaBibliotecaPessoal = new Scene(telaBibliotecaPessoal);
     		
-    		Parent telaCards = FXMLLoader.load(getClass().getResource("/Interface/TelaCards.fxml"));
+    		Parent telaCards = FXMLLoader.load(getClass().getResource("TelaCards.fxml"));
     		cenaTelaCards = new Scene(telaCards);
     		
-    		Parent telaCriacaoCards = FXMLLoader.load(getClass().getResource("/Interface/TelaCriacaoCards.fxml"));
+    		Parent telaCriacaoCards = FXMLLoader.load(getClass().getResource("TelaCriacaoCards.fxml"));
     		cenaTelaCriacaoCards = new Scene(telaCriacaoCards);
     		
-    		Parent telaEditarUsuario = FXMLLoader.load(getClass().getResource("/Interface/TelaEditarUsuario.fxml"));
+    		Parent telaEditarUsuario = FXMLLoader.load(getClass().getResource("TelaEditarUsuario.fxml"));
     		cenaTelaEditarUsuario = new Scene(telaEditarUsuario);
     		
-    		Parent telaLivros = FXMLLoader.load(getClass().getResource("/Interface/TelaLivros.fxml"));
+    		Parent telaLivros = FXMLLoader.load(getClass().getResource("TelaLivros.fxml"));
     		cenaTelaLivros = new Scene(telaLivros);
 
     		
