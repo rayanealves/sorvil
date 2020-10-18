@@ -40,7 +40,7 @@ public class AutoresDAO {
 		  
    }
    
-   public void salvarArquivo(AutorRepositorio instance) {
+   public static void salvarArquivo(AutorRepositorio instance) {
 	    if (instance == null) {
 	      return;
 	    }

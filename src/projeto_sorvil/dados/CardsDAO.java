@@ -40,7 +40,7 @@ public class CardsDAO {
 		  
    }
    
-   public void salvarArquivo(CardRepositorio instance) {
+   public static void salvarArquivo(CardRepositorio instance) {
 	    if (instance == null) {
 	      return;
 	    }

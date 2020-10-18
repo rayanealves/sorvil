@@ -40,7 +40,7 @@ public class EditorasDAO {
 		  
    }
    
-   public void salvarArquivo(EditoraRepositorio instance) {
+   public static void salvarArquivo(EditoraRepositorio instance) {
 	    if (instance == null) {
 	      return;
 	    }
