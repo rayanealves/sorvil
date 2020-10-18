@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class Editora implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4061835516033978330L;
 	private String nome;
 	private String id;
 	

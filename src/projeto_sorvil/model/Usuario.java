@@ -5,6 +5,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Usuario implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5605302189536462010L;
 	private String nome;
 	private String id;
 	private String login;
@@ -101,7 +105,7 @@ public class Usuario implements Serializable{
 	
 	public MeuLivro buscarLivro(String nome) {
 		for(int i=0; i < estante.size() ; i++) { 
-			if(estante.get(i).getNome().equals(nome)) {
+			if(estante.get(i).getLivro().getNome().equals(nome)) {
 				return estante.get(i);
 			}
 

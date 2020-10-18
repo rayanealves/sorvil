@@ -6,6 +6,10 @@ import java.util.ArrayList;
 
 
 public class Livro implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1617802494947681773L;
 	private String nome;
 	private String id;
 	private Editora editora;

@@ -22,7 +22,7 @@ public class TelaLoginController  implements Initializable {
 	ControladorUsuarios userController = new ControladorUsuarios();
 	
 	@FXML
-    private Button Entrar;
+    private Button botaoentrar;
     @FXML
     private PasswordField senha;
     @FXML
@@ -38,7 +38,7 @@ public class TelaLoginController  implements Initializable {
     @FXML
     private Button sair;
     
-    private static Usuario usuarioLogado;
+    private static Usuario usuarioLogado = null;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

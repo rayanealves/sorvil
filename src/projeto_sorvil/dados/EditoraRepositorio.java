@@ -17,7 +17,11 @@ import projeto_sorvil.model.Editora;
  */
 public class EditoraRepositorio implements RepositorioEditora, Serializable {
     
-    private static EditoraRepositorio instance;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -3143520935641433330L;
+	private static EditoraRepositorio instance;
     
     public static RepositorioEditora getInstance() {
         if (instance == null) {

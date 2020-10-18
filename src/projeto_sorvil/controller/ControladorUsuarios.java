@@ -28,7 +28,7 @@ public class ControladorUsuarios {
     public boolean adicionar(Usuario user) {
     	if(user != null) {
     		user.setId(this.novoID());
-    		if (repositorioUsuarios.buscar(user.getLogin()) == user) {
+    		if (user.equals(repositorioUsuarios.buscar(user.getLogin()))) {
     			return false;
     		}
     		 
@@ -119,7 +119,7 @@ public class ControladorUsuarios {
 	public boolean adicionarLivro(Usuario user, MeuLivro userLivro){
 		
 		if(userLivro != null) {
-    		if (user.buscarLivro(userLivro.getNome()) == userLivro) {
+    		if (user.buscarLivro(userLivro.getLivro().getNome()) == userLivro) {
     			return false;
     		}
     		user.adicionarLivro(userLivro);
@@ -135,7 +135,7 @@ public class ControladorUsuarios {
 	public boolean removerLivro(Usuario user, MeuLivro userLivro){
 		
 		if(userLivro != null) {
-    		if (user.buscarLivro(userLivro.getNome()) == userLivro) {
+    		if (user.buscarLivro(userLivro.getLivro().getNome()) == userLivro) {
     			user.removerLivro(userLivro);
         		return true;
     		}

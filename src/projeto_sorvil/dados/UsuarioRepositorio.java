@@ -10,6 +10,10 @@ import projeto_sorvil.model.Usuario;
 public class UsuarioRepositorio implements RepositorioUsuario, Serializable {
 	
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5084589120456372224L;
 	private ArrayList<Usuario> usuarios = new ArrayList<>();
 	private static UsuarioRepositorio instancia;
 	
@@ -30,8 +34,11 @@ public class UsuarioRepositorio implements RepositorioUsuario, Serializable {
 	}
 
 	public boolean adicionar(Usuario user) {
+		boolean retorno = usuarios.add(user);
 		
-		return usuarios.add(user);
+		UsuariosDAO.salvarArquivo(instancia);
+		return retorno;
+		
 	}
 
 	public boolean remover(Usuario user) {
