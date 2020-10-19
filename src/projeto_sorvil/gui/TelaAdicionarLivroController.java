@@ -4,7 +4,7 @@ package projeto_sorvil.gui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -24,7 +24,7 @@ public class TelaAdicionarLivroController {
     @FXML
     private Text adicionar;
     
-  @FXML
+    @FXML
     private Text nometxt;
 
     @FXML
@@ -42,8 +42,8 @@ public class TelaAdicionarLivroController {
     @FXML
     private Text generotxt;
 
-   @FXML
-    private TextField nome;
+    @FXML
+    private TextField livro;
 
     @FXML
     private TextField autor;
@@ -64,8 +64,11 @@ public class TelaAdicionarLivroController {
     private Button botaoCriar;
     
     @FXML
-    private CheckBox adm;
+    private CheckBox Genero;
 
+    @FXML
+    private CheckBox adm;
+    
     @FXML
     private CheckBox artes;
 
@@ -140,8 +143,9 @@ public class TelaAdicionarLivroController {
     
     @FXML
     private Button btnAbrir;
+    
 
-    private ControladorEditora controladorEditora = new ControladorEditora();
+    //private ControladorEditora controladorEditora = new ControladorEditora();
     
     private ControladorAutor controladorAutor = new ControladorAutor();
     
@@ -169,13 +173,71 @@ public class TelaAdicionarLivroController {
     }
 
     @FXML
-    void voltar(ActionEvent event) {
-    	nome.clear();
-    	autor.clear();
+    void voltar(ActionEvent e) {
+        this.fecharGeneros();
+    	livro.clear();
+        autor.clear();
     	editora.clear();
     	anoPub.clear();
     	numPag.clear();
     	MainTestes.escolherTela(3);
+    }
+    
+    @FXML
+    void abrirGeneros(ActionEvent event){
+        adm.setVisible(true);
+        artes.setVisible(true);
+        aventura.setVisible(true);
+        auto.setVisible(true);
+        bio.setVisible(true);
+        conto.setVisible(true);
+        dicionario.setVisible(true);
+        economia.setVisible(true);  
+        ficci.setVisible(true);  
+        geo.setVisible(true); 
+        humor.setVisible(true);
+        med.setVisible(true);
+        direito.setVisible(true);
+        fantasia.setVisible(true);
+        filosofia.setVisible(true);
+        historia.setVisible(true);
+        ling.setVisible(true);
+        poesia.setVisible(true);
+        policial.setVisible(true);
+        psi.setVisible(true);
+        religiao.setVisible(true);
+        suspense.setVisible(true);
+        romance.setVisible(true);
+        terror.setVisible(true);
+        turismo.setVisible(true);
+    }
+    
+    public void fecharGeneros(){
+        adm.setVisible(false);
+        artes.setVisible(false);
+        aventura.setVisible(false);
+        auto.setVisible(false);
+        bio.setVisible(false);
+        conto.setVisible(false);
+        dicionario.setVisible(false);
+        economia.setVisible(false);  
+        ficci.setVisible(false);  
+        geo.setVisible(false); 
+        humor.setVisible(false);
+        med.setVisible(false);
+        direito.setVisible(false);
+        fantasia.setVisible(false);
+        filosofia.setVisible(false);
+        historia.setVisible(false);
+        ling.setVisible(false);
+        poesia.setVisible(false);
+        policial.setVisible(false);
+        psi.setVisible(false);
+        religiao.setVisible(false);
+        suspense.setVisible(false);
+        romance.setVisible(false);
+        terror.setVisible(false);
+        turismo.setVisible(false);
     }
   
 }

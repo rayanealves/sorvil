@@ -46,31 +46,31 @@
       <TextField fx:id="numPag" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="TOP" />
       <Button fx:id="botaoCancelar" mnemonicParsing="false" onAction="#voltar" text="Cancelar" GridPane.columnIndex="1" GridPane.rowIndex="9" GridPane.valignment="TOP" />
       <Button fx:id="botaoCriar" mnemonicParsing="false" onAction="#criarLivro" text="Enviar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="9" GridPane.valignment="TOP" />
-      <CheckBox fx:id="adm" mnemonicParsing="false" text="Administração" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-      <CheckBox fx:id="artes" mnemonicParsing="false" text="Artes" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-      <CheckBox fx:id="aventura" mnemonicParsing="false" text="Aventura" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-      <CheckBox fx:id="auto" mnemonicParsing="false" text="Autoajuda" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-      <CheckBox fx:id="bio" mnemonicParsing="false" text="Biografia" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-      <CheckBox fx:id="conto" mnemonicParsing="false" text="Conto" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-      <CheckBox fx:id="dicionario" mnemonicParsing="false" text="Dicionario" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-      <CheckBox fx:id="economia" mnemonicParsing="false" text="Economia" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="TOP" />
-      <CheckBox fx:id="ficci" mnemonicParsing="false" text="Ficção Científica" GridPane.rowIndex="3" GridPane.valignment="TOP" />
-      <CheckBox fx:id="geo" mnemonicParsing="false" text="Geografia" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="TOP" />
-      <CheckBox fx:id="humor" mnemonicParsing="false" text="Humor" GridPane.rowIndex="4" GridPane.valignment="TOP" />
-      <CheckBox fx:id="med" mnemonicParsing="false" text="Medicina" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-      <CheckBox fx:id="direito" mnemonicParsing="false" text="Direito" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-      <CheckBox fx:id="fantasia" mnemonicParsing="false" text="Fantasia" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
-      <CheckBox fx:id="filosofia" mnemonicParsing="false" text="Filosofia" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
-      <CheckBox fx:id="historia" mnemonicParsing="false" text="História" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
-      <CheckBox fx:id="ling" mnemonicParsing="false" text="Linguistica" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
-      <CheckBox fx:id="poesia" mnemonicParsing="false" text="Poesia" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
-      <CheckBox fx:id="policial" mnemonicParsing="false" text="Policial" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-      <CheckBox fx:id="psi" mnemonicParsing="false" text="Psicologia" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
-      <CheckBox fx:id="religiao" mnemonicParsing="false" text="Religião" GridPane.columnIndex="2" GridPane.rowIndex="6" GridPane.valignment="TOP" />
-      <CheckBox fx:id="suspense" mnemonicParsing="false" text="Suspense" GridPane.rowIndex="6" GridPane.valignment="TOP" />
-      <CheckBox fx:id="romance" mnemonicParsing="false" text="Romance" GridPane.columnIndex="2" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
-      <CheckBox fx:id="terror" mnemonicParsing="false" text="Terror" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
-      <CheckBox fx:id="turismo" mnemonicParsing="false" text="Turismo" GridPane.columnIndex="2" GridPane.rowIndex="7" GridPane.valignment="TOP" />
-      <Button fx:id="btnAbrir" mnemonicParsing="false" text="Abrir" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <CheckBox fx:id="adm" mnemonicParsing="false" text="Administração" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+      <CheckBox fx:id="artes" mnemonicParsing="false" text="Artes" visible="false" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="aventura" mnemonicParsing="false" text="Aventura" visible="false" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="auto" mnemonicParsing="false" text="Autoajuda" visible="false" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+      <CheckBox fx:id="bio" mnemonicParsing="false" text="Biografia" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <CheckBox fx:id="conto" mnemonicParsing="false" text="Conto" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="dicionario" mnemonicParsing="false" text="Dicionario" visible="false" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <CheckBox fx:id="economia" mnemonicParsing="false" text="Economia" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+      <CheckBox fx:id="ficci" mnemonicParsing="false" text="Ficção Científica" visible="false" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+      <CheckBox fx:id="geo" mnemonicParsing="false" text="Geografia" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+      <CheckBox fx:id="humor" mnemonicParsing="false" text="Humor" visible="false" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+      <CheckBox fx:id="med" mnemonicParsing="false" text="Medicina" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+      <CheckBox fx:id="direito" mnemonicParsing="false" text="Direito" visible="false" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="fantasia" mnemonicParsing="false" text="Fantasia" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="filosofia" mnemonicParsing="false" text="Filosofia" visible="false" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="historia" mnemonicParsing="false" text="História" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="ling" mnemonicParsing="false" text="Linguistica" visible="false" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="poesia" mnemonicParsing="false" text="Poesia" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="policial" mnemonicParsing="false" text="Policial" visible="false" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+      <CheckBox fx:id="psi" mnemonicParsing="false" text="Psicologia" visible="false" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="religiao" mnemonicParsing="false" text="Religião" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+      <CheckBox fx:id="suspense" mnemonicParsing="false" text="Suspense" visible="false" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+      <CheckBox fx:id="romance" mnemonicParsing="false" text="Romance" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="terror" mnemonicParsing="false" text="Terror" visible="false" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
+      <CheckBox fx:id="turismo" mnemonicParsing="false" text="Turismo" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="7" GridPane.valignment="TOP" />
+      <Button fx:id="btnAbrir" mnemonicParsing="false" onAction="#abrirGeneros" text="Abrir" GridPane.columnIndex="1" GridPane.rowIndex="7" />
    </children>
 </GridPane>
