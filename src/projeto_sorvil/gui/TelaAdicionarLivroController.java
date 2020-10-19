@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -44,7 +45,7 @@ public class TelaAdicionarLivroController {
     private Text generotxt;
 
     @FXML
-    private TextField livro;
+    private TextField nomeLivro;
 
     @FXML
     private TextField autor;
@@ -64,9 +65,6 @@ public class TelaAdicionarLivroController {
     @FXML
     private Button botaoCriar;
     
-    @FXML
-    private CheckBox Genero;
-
     @FXML
     private CheckBox adm;
     
@@ -145,6 +143,7 @@ public class TelaAdicionarLivroController {
     @FXML
     private Button btnAbrir;
     
+    @FXML  ChoiceBox < Genero > boxGenero;
 
     private ControladorEditora controladorEditora = ControladorEditora.getInstance();
     
@@ -155,7 +154,8 @@ public class TelaAdicionarLivroController {
     
     @FXML
     public void initialize() {
-      
+
+    	this.boxGenero.getItems().addAll(Genero.values());
     }
     
     
@@ -172,7 +172,7 @@ public class TelaAdicionarLivroController {
         int numeroPag = Integer.parseInt(numPag.getText());
     	
     	
-    	Livro livroAdicionado = new Livro(livro.getText(), null , novaEditora, null, null,numeroPag ,
+    	Livro livroAdicionado = new Livro(nomeLivro.getText(), null , novaEditora, null, null,numeroPag ,
     			0, anoPublica);
         controladorLivro.novoLivro(livroAdicionado);
         System.out.println(anoPublica);
@@ -183,9 +183,9 @@ public class TelaAdicionarLivroController {
     }
 
     @FXML
-    void voltar(ActionEvent e) {
+    void voltar(ActionEvent event) {
         this.fecharGeneros();
-    	livro.clear();
+        nomeLivro.clear();
         autor.clear();
     	editora.clear();
     	anoPub.clear();

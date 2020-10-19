@@ -12,6 +12,9 @@ public class TelaLivrosController {
     @FXML
     private Button botaoVoltar;
     
+    @FXML
+    private Button botaoCriarCard;
+    
     private static MeuLivro onLivro = null;
 
     @FXML
@@ -22,6 +25,10 @@ public class TelaLivrosController {
     	
     }
     
+    @FXML
+    void TelacriarCard(ActionEvent event) {
+    	MainTestes.escolherTela(8);
+    }
     
     @FXML
     void voltar(ActionEvent event) {

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -39,7 +40,7 @@
       <Text fx:id="anotxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Ano de Publicação" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
       <Text fx:id="paginastxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de Páginas" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
       <Text fx:id="generotxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Genero" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
-      <TextField fx:id="livro" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <TextField fx:id="nomeLivro" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
       <TextField fx:id="autor" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP" />
       <TextField fx:id="editora" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP" />
       <TextField fx:id="anoPub" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="TOP" />
@@ -72,5 +73,6 @@
       <CheckBox fx:id="terror" mnemonicParsing="false" text="Terror" visible="false" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
       <CheckBox fx:id="turismo" mnemonicParsing="false" text="Turismo" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="7" GridPane.valignment="TOP" />
       <Button fx:id="btnAbrir" mnemonicParsing="false" onAction="#abrirGeneros" text="Abrir" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <ChoiceBox fx:id="boxGenero" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
    </children>
 </GridPane>

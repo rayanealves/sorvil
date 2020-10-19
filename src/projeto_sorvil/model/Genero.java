@@ -14,7 +14,7 @@ public enum Genero {
         PSICOLOGIA("Psicologia"), RELIGIAO("Religião"), ROMANCE("Romance"), SUSPENSE("Suspense"), 
         TERROR("Terror"), TURISMO("Turismo");
   
-        private String nome;
+        public String nome;
         
         Genero(String nome){
             this.nome = nome;
@@ -26,12 +26,15 @@ public enum Genero {
 
         public void setNome(String nome) {
             this.nome = nome;
+
         }
         
-        public static List<Genero> listaCidades(){
+        public static List<Genero> listar(){
     	List<Genero> generos = new ArrayList<Genero>();
     	generos.addAll(Arrays.asList(Genero.values()));
     	return generos;
     }
+        
+       
 }
         

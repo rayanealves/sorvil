@@ -9,10 +9,10 @@ import javafx.scene.control.TextField;
 public class TelaCriacaoCardsController {
 
     @FXML
-    private Button criarCard;
+    private Button botaoCriarCard;
 
     @FXML
-    private Button cancelar;
+    private Button botaoCancelar;
 
     @FXML
     private TextField tituloCard;
