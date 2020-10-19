@@ -145,9 +145,9 @@ public class TelaAdicionarLivroController {
     private Button btnAbrir;
     
 
-    //private ControladorEditora controladorEditora = new ControladorEditora();
+    private ControladorEditora controladorEditora = ControladorEditora.getInstance();
     
-    private ControladorAutor controladorAutor = new ControladorAutor();
+    private ControladorAutor controladorAutor = ControladorAutor.getInstance();
     
     
     @FXML
