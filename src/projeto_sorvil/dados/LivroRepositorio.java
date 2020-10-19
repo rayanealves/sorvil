@@ -9,6 +9,7 @@ import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Editora;
 import projeto_sorvil.model.Genero;
 import projeto_sorvil.model.Livro;
+import projeto_sorvil.model.Usuario;
 
 
 public class LivroRepositorio implements RepositorioLivro, Serializable {
@@ -18,10 +19,15 @@ public class LivroRepositorio implements RepositorioLivro, Serializable {
 	 */
 	private static final long serialVersionUID = 771305092283466252L;
 	private static LivroRepositorio instance;
+        private static final String ROTA = "src/livros.dat";
     
     public static RepositorioLivro getInstance() {
         if (instance == null) {
-            instance = LivrosDAO.lerDoArquivo();
+            instance = (LivroRepositorio) DAO.lerDoArquivo(ROTA);
+             if(instance == null){
+                ArrayList<Livro> novoArq = new ArrayList<>();
+                instance = new LivroRepositorio(novoArq);
+            }
         }
         return instance;
     }
@@ -34,12 +40,17 @@ public class LivroRepositorio implements RepositorioLivro, Serializable {
     
     @Override
     public boolean adicionar (Livro livro){
-        return this.livros.add(livro);
+        boolean retorno = this.livros.add(livro);
+        DAO.salvarArquivo(instance, ROTA);
+        return retorno;
+        
     }
     
     @Override
     public boolean adicionar (Livro livro, Genero genero){
-        return this.buscar(livro).getGenero().add(genero);
+        boolean retorno = this.buscar(livro).getGenero().add(genero);
+        DAO.salvarArquivo(instance, ROTA);
+        return retorno;
     }
     
     @Override
@@ -65,12 +76,16 @@ public class LivroRepositorio implements RepositorioLivro, Serializable {
     
     @Override
     public boolean apagar(Livro livro){
-        return this.livros.remove(livro);
+        boolean retorno = this.livros.remove(livro);
+        DAO.salvarArquivo(instance, ROTA);
+        return retorno;
     }
     
     @Override
     public boolean apagar(Livro livro, Genero genero){
-        return this.buscar(livro).getGenero().remove(genero);  
+        boolean retorno = this.buscar(livro).getGenero().remove(genero);
+        DAO.salvarArquivo(instance, ROTA);
+        return retorno;
     }
       
     @Override
@@ -102,6 +117,7 @@ public class LivroRepositorio implements RepositorioLivro, Serializable {
     @Override
     public void alterarEditora(Livro livro, Editora editora) {
        this.buscar(livro).setEditora(editora);
+       DAO.salvarArquivo(instance, ROTA);
     }
     
 }

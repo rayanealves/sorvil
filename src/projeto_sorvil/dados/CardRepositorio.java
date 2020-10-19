@@ -15,13 +15,18 @@ public class CardRepositorio implements RepositorioCards, Serializable{
 	private static final long serialVersionUID = 2206304480631005062L;
 	private ArrayList<Card> cards;
 	private static CardRepositorio instance;
+        private static final String ROTA = "src/cards.dat";
 
 		
  
         
     public static CardRepositorio getInstance() {
 		    if (instance == null) {
-		      instance = CardsDAO.lerDoArquivo();
+		      instance = (CardRepositorio)DAO.lerDoArquivo(ROTA);
+                       if(instance == null){
+                        ArrayList<Card> novoArq = new ArrayList<>();
+                        instance = new CardRepositorio(novoArq);
+            }
 		    }
 		    return instance;
 		  }
@@ -34,7 +39,9 @@ public class CardRepositorio implements RepositorioCards, Serializable{
 
         @Override
 	public boolean adicionar(Card card) {		
-		return cards.add(card);		
+		boolean retorno = cards.add(card);
+                DAO.salvarArquivo(instance, ROTA);
+                return retorno;
 	}
 	
       
@@ -56,7 +63,9 @@ public class CardRepositorio implements RepositorioCards, Serializable{
         
         @Override
 	public boolean apagar(Card card) {
-		return cards.remove(card);
+		boolean retorno = cards.remove(card);
+                DAO.salvarArquivo(instance, ROTA);
+                return retorno;
 	}
 
         @Override
@@ -86,6 +95,7 @@ public class CardRepositorio implements RepositorioCards, Serializable{
 		public void editar(Card card, String texto) {
 			
 			this.buscar(card).setTexto(texto);
+                        DAO.salvarArquivo(instance, texto);
 		}
 		
 		

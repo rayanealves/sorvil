@@ -16,6 +16,7 @@ public class UsuarioRepositorio implements RepositorioUsuario, Serializable {
 	private static final long serialVersionUID = -5084589120456372224L;
 	private ArrayList<Usuario> usuarios = new ArrayList<>();
 	private static UsuarioRepositorio instancia;
+        private static final String ROTA = "src/usuarios.dat";
 	
 	
 	public UsuarioRepositorio(ArrayList<Usuario> usuarios) {
@@ -24,43 +25,56 @@ public class UsuarioRepositorio implements RepositorioUsuario, Serializable {
 		
 	public static UsuarioRepositorio getInstancia() {
         if (instancia == null) {
-            instancia = UsuariosDAO.lerDoArquivo();
+            instancia = (UsuarioRepositorio) DAO.lerDoArquivo(ROTA);
+            if(instancia == null){
+                ArrayList<Usuario> novoArq = new ArrayList<>();
+                instancia = new UsuarioRepositorio(novoArq);
+            }
         }
         return instancia;
     }
 	
+        @Override
 	public ArrayList<Usuario> getUsuarios() {
 		return usuarios;
 	}
 
+        @Override
 	public boolean adicionar(Usuario user) {
 		boolean retorno = usuarios.add(user);
-		
-		UsuariosDAO.salvarArquivo(instancia);
+                DAO.salvarArquivo(instancia, ROTA);
 		return retorno;
 		
 	}
 
+        @Override
 	public boolean remover(Usuario user) {
 			
-			return usuarios.remove(user);
+		boolean retorno = usuarios.remove(user);
+                DAO.salvarArquivo(instancia, ROTA);
+                return retorno;
+                        
 	}
 	
+        @Override
 	public void editarNome(Usuario user, String nome) {
 		
 		 user.setNome(nome);
 	}
 	
+        @Override
 	public void editarLogin(Usuario user, String login) {
 		
 		 user.setLogin(login);
 	}
 	
+        @Override
 	public void editarSenha(Usuario user, String senha) {
 		
 		 user.setSenha(senha);
 	}
 	
+        @Override
 	public Usuario buscar(String login) {
 		
 		for(int i=0; i < usuarios.size() ; i++) { 
@@ -72,6 +86,7 @@ public class UsuarioRepositorio implements RepositorioUsuario, Serializable {
 		return null;	
 	}
 	
+        @Override
 	public Usuario buscarPeloNome(String nome) {
 		
 		for(int i=0; i < usuarios.size() ; i++) { 
@@ -84,15 +99,18 @@ public class UsuarioRepositorio implements RepositorioUsuario, Serializable {
 		
 	}
 	
+        @Override
 	public List<Usuario> listar() {
 		return usuarios.subList(0, usuarios.size());
 	}
 	
+        @Override
 	public List<MeuLivro> listarLivros(Usuario user) {
 		return user.getEstante().subList(0 , user.getEstante().size() );
 	}
 	
 	
+        @Override
 	public boolean idExiste(String id){
 		
         for(int i =0; i< usuarios.size(); i++){

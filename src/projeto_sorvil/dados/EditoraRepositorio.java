@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import projeto_sorvil.model.Editora;
+import projeto_sorvil.model.Usuario;
 
 
 /**
@@ -22,10 +23,15 @@ public class EditoraRepositorio implements RepositorioEditora, Serializable {
 	 */
 	private static final long serialVersionUID = -3143520935641433330L;
 	private static EditoraRepositorio instance;
+        private static final String ROTA = "src/editoras.dat";
     
     public static RepositorioEditora getInstance() {
         if (instance == null) {
-            instance = EditorasDAO.lerDoArquivo();
+            instance = (EditoraRepositorio)DAO.lerDoArquivo(ROTA);
+             if(instance == null){
+                ArrayList<Editora> novoArq = new ArrayList<>();
+                instance = new EditoraRepositorio(novoArq);
+            }
         }
         return instance;
     }
@@ -39,7 +45,9 @@ public class EditoraRepositorio implements RepositorioEditora, Serializable {
     
     @Override
     public boolean adicionar (Editora editora){
-        return this.editoras.add(editora);
+        boolean retorno = this.editoras.add(editora);
+        DAO.salvarArquivo(instance, ROTA);
+        return retorno;
     }
     
     @Override
@@ -60,7 +68,9 @@ public class EditoraRepositorio implements RepositorioEditora, Serializable {
     
     @Override
     public boolean apagar (Editora editora){
-        return this.editoras.remove(editora);
+        boolean retorno = this.editoras.remove(editora);
+        DAO.salvarArquivo(instance, ROTA);
+        return retorno;
     }
     
     @Override

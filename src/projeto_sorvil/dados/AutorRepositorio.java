@@ -1,5 +1,6 @@
 package projeto_sorvil.dados;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,18 +8,23 @@ import java.util.stream.Collectors;
 import projeto_sorvil.model.Autor;
 
 
-public class AutorRepositorio implements RepositorioAutor {
+public class AutorRepositorio implements RepositorioAutor, Serializable {
 	
 	private ArrayList<Autor> autores;
 	private static AutorRepositorio instance;
+        private static final String ROTA = "src/autores.dat";
 	
-	public AutorRepositorio(ArrayList<Autor> autores) {
-		this.autores = autores;
+	public AutorRepositorio(ArrayList<Autor> aut) {
+		autores = aut;
 	}
 	
 	public static AutorRepositorio getInstance() {
 		if(instance == null) {
-			instance = AutoresDAO.lerDoArquivo();
+			instance = (AutorRepositorio)DAO.lerDoArquivo(ROTA);
+                        if (instance == null){
+                            ArrayList<Autor> novoRep = new ArrayList<>(); 
+                            instance = new AutorRepositorio(novoRep);
+                        }
 		}
 		return instance;
 	}
@@ -28,28 +34,37 @@ public class AutorRepositorio implements RepositorioAutor {
 
 	@Override
 	public boolean adicionar(Autor autor) {
-		return this.autores.add(autor);
+		boolean retorno = autores.add(autor);
+                System.out.println("aqui");
+                DAO.salvarArquivo(instance, ROTA);
+                System.out.println(retorno);
+                System.out.println(instance.listar());
+                return retorno;
 	}
 
 	@Override
 	public Autor buscar(int indice) {
-		return this.autores.get(indice);
+		return autores.get(indice);
 	}
 	
+        @Override
 	public Autor buscar(Autor autor) {
-		return this.buscar(this.autores.indexOf(autor));
+		return this.buscar(autores.indexOf(autor));
 	}
 
 	@Override
 	public boolean apagar(Autor autor) {
-		return this.autores.remove(autor);
+		boolean retorno = autores.remove(autor);
+                DAO.salvarArquivo(instance, ROTA);
+                return retorno;
 	}
 
 	@Override
 	public List<Autor> listar() {
-		return this.autores;
+		return autores;
 	}
 	
+        @Override
 	public List<Autor> listarPrimeiroNome(String nome) {
          return autores.stream()
                  .filter(autor-> autor.getNome().equals(nome))
