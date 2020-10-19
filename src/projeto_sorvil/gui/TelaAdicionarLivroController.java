@@ -10,6 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.ControladorAutor;
 import projeto_sorvil.controller.ControladorEditora;
+import projeto_sorvil.controller.ControladorLivro;
 import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Editora;
 import projeto_sorvil.model.Genero;
@@ -149,27 +150,36 @@ public class TelaAdicionarLivroController {
     
     private ControladorAutor controladorAutor = ControladorAutor.getInstance();
     
+    private ControladorLivro controladorLivro = ControladorLivro.getInstance();
+    
     
     @FXML
     public void initialize() {
       
     }
+    
+    
 
     @FXML
     void criarLivro(ActionEvent event) {
-    	/*
+    	
     	Editora novaEditora = new Editora(editora.getText(), null);
     	controladorEditora.novaEditora(novaEditora);
     	novaEditora = controladorEditora.buscarEditora(editora.getText());
-    	Autor(String nome, String sobrenome, String id)
+    	//Autor(String nome, String sobrenome, String id);
+    	
+    	int anoPublica = Integer.parseInt(anoPub.getText());
+        int numeroPag = Integer.parseInt(numPag.getText());
     	
     	
-    	//int num = (int) numPag.
-    	
-    	Livro livroAdicionado = new Livro(nome.getText(), null , novaEditora,  autor, null,numPag ,
-    			edicao,LocalDate anoP )
+    	Livro livroAdicionado = new Livro(livro.getText(), null , novaEditora, null, null,numeroPag ,
+    			0, anoPublica);
+        controladorLivro.novoLivro(livroAdicionado);
+        System.out.println(anoPublica);
+        System.out.println(numeroPag);
+        
     			
-    			*/
+    			
     }
 
     @FXML
@@ -239,5 +249,6 @@ public class TelaAdicionarLivroController {
         terror.setVisible(false);
         turismo.setVisible(false);
     }
-  
+    
+    
 }

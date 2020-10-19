@@ -6,9 +6,8 @@ import java.util.ArrayList;
 
 
 public class Livro implements Serializable{
-	/**
-	 * 
-	 */
+
+   
 	private static final long serialVersionUID = -1617802494947681773L;
 	private String nome;
 	private String id;
@@ -17,10 +16,11 @@ public class Livro implements Serializable{
 	private ArrayList <Genero> genero = new ArrayList<>();
 	private int numPaginas;
 	private int edicao;
-	private LocalDate anoPubli;
+	//private LocalDate anoPubli;
+        private int anoPubli;
 	
 	public Livro(String nome, String id, Editora editora, Autor autor, ArrayList<Genero> genero, int numPaginas,
-			int edicao,LocalDate anoP ) {
+			int edicao,int anoP ) {
 		
 		this.nome = nome;
 		this.id = id;
@@ -35,14 +35,23 @@ public class Livro implements Serializable{
         public Livro() {
 		
 	}
+        
+        public int getAnoPubli() {
+            return anoPubli;
+        }
 
-	public LocalDate getAnoPubli() {
+    
+        public void setAnoPubli(int anoPubli) {
+            this.anoPubli = anoPubli;
+        }
+
+	/*public LocalDate getAnoPubli() {
 		return anoPubli;
 	}
 
 	public void setAnoPubli(LocalDate anoPubli) {
 		this.anoPubli = anoPubli;
-	}
+	}*/
 
 	public String getNome() {
 		return nome;
