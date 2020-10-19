@@ -1,9 +1,12 @@
 package projeto_sorvil.gui;
 
 
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -11,6 +14,7 @@ import javafx.scene.text.Text;
 import projeto_sorvil.controller.ControladorAutor;
 import projeto_sorvil.controller.ControladorEditora;
 import projeto_sorvil.controller.ControladorLivro;
+import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Editora;
 import projeto_sorvil.model.Genero;
@@ -64,46 +68,46 @@ public class TelaAdicionarLivroController {
     @FXML
     private Button botaoCriar;
     
-    @FXML  ChoiceBox <Genero> boxGenero;
-    
-    @FXML
-    private Text edicao;
-
     @FXML
     private TextField anoEd;
+    
+    @FXML
+    private Button btnAbrir;
+    
+    @FXML  ChoiceBox <Genero> boxGenero;
 
-    private ControladorEditora controladorEditora = ControladorEditora.getInstance();
-    
-    private ControladorAutor controladorAutor = ControladorAutor.getInstance();
-    
-    private ControladorLivro controladorLivro = ControladorLivro.getInstance();
-    
     
     @FXML
     public void initialize() {
+
     	this.boxGenero.getItems().addAll(Genero.values());
+
     }
+    
     
 
     @FXML
     void criarLivro(ActionEvent event) {
     	
     	Editora novaEditora = new Editora(editora.getText(), null);
-    	controladorEditora.novaEditora(novaEditora);
-    	novaEditora = controladorEditora.buscarEditora(editora.getText());
-    	//Autor(String nome, String sobrenome, String id);
+    	FachadaController.getInstance().novaEditora(novaEditora);
     	
+    	Autor novoAutor = new Autor(autor.getText() ,null, null);
+    	FachadaController.getInstance().novoAutor(novoAutor);
+    	
+    	Genero onGenero = boxGenero.getValue();
+    	int anoEdicao = Integer.parseInt(anoEd.getText());
     	int anoPublica = Integer.parseInt(anoPub.getText());
         int numeroPag = Integer.parseInt(numPag.getText());
-        int anoEdicao = Integer.parseInt(anoEd.getText());
-        
     	
     	
-    	Livro livroAdicionado = new Livro(nomeLivro.getText(), null , novaEditora, null, null,numeroPag ,
-        anoEdicao, anoPublica);
-        controladorLivro.novoLivro(livroAdicionado);
+    	Livro livroAdicionado = new Livro(nomeLivro.getText(), null , novaEditora, novoAutor, onGenero ,numeroPag ,
+    			anoEdicao, anoPublica);
+    	
+    	FachadaController.getInstance().novoLivro(livroAdicionado);
         System.out.println(anoPublica);
         System.out.println(numeroPag);
+        
         
     			
     			
@@ -111,11 +115,11 @@ public class TelaAdicionarLivroController {
 
     @FXML
     void voltar(ActionEvent event) {
-        limparcampos();
+        this.limparCampos();
     	MainTestes.escolherTela(3);
     }
     
-    public void limparcampos(){
+    public void limparCampos(){
         nomeLivro.clear();
         autor.clear();
     	editora.clear();
@@ -124,5 +128,5 @@ public class TelaAdicionarLivroController {
         anoEd.clear();
         this.boxGenero.getSelectionModel().clearSelection();
     }
-      
+    
 }
