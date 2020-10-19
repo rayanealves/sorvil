@@ -65,6 +65,12 @@ public class TelaAdicionarLivroController {
     private Button botaoCriar;
     
     @FXML  ChoiceBox <Genero> boxGenero;
+    
+    @FXML
+    private Text edicao;
+
+    @FXML
+    private TextField anoEd;
 
     private ControladorEditora controladorEditora = ControladorEditora.getInstance();
     
@@ -89,10 +95,12 @@ public class TelaAdicionarLivroController {
     	
     	int anoPublica = Integer.parseInt(anoPub.getText());
         int numeroPag = Integer.parseInt(numPag.getText());
+        int anoEdicao = Integer.parseInt(anoEd.getText());
+        
     	
     	
     	Livro livroAdicionado = new Livro(nomeLivro.getText(), null , novaEditora, null, null,numeroPag ,
-    			0, anoPublica);
+        anoEdicao, anoPublica);
         controladorLivro.novoLivro(livroAdicionado);
         System.out.println(anoPublica);
         System.out.println(numeroPag);
@@ -103,12 +111,18 @@ public class TelaAdicionarLivroController {
 
     @FXML
     void voltar(ActionEvent event) {
+        limparcampos();
+    	MainTestes.escolherTela(3);
+    }
+    
+    public void limparcampos(){
         nomeLivro.clear();
         autor.clear();
     	editora.clear();
     	anoPub.clear();
     	numPag.clear();
-    	MainTestes.escolherTela(3);
+        anoEd.clear();
+        this.boxGenero.getSelectionModel().clearSelection();
     }
       
 }
