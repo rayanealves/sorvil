@@ -27,6 +27,9 @@ public class TelaCardsController {
 
     @FXML
     private Button voltar;
+    
+    
+    
 
     @FXML
     void editarCard(ActionEvent event) {

@@ -6,9 +6,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import projeto_sorvil.controller.FachadaController;
+import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.MeuLivro;
 import projeto_sorvil.model.Usuario;
 
+@SuppressWarnings("unused")
 public class TelaBibliotecaPessoalController {
 
 
@@ -38,9 +41,7 @@ public class TelaBibliotecaPessoalController {
     
     
 	private static Usuario usuarioLogado = null;
-	
-	@SuppressWarnings("unused")
-	private static MeuLivro onLivro = null;
+
 
 	
 
@@ -49,7 +50,7 @@ public class TelaBibliotecaPessoalController {
     @FXML
     void iniciar(MouseEvent event) {
     	if(TelaBibliotecaPessoalController.usuarioLogado == null) {
-    		TelaBibliotecaPessoalController.usuarioLogado = Fachada.getUsuarioLogado();
+    		TelaBibliotecaPessoalController.usuarioLogado = FachadaController.getUsuarioLogado();
     	}
     	vamover.setText(TelaBibliotecaPessoalController.usuarioLogado.getNome());
     }
@@ -66,6 +67,7 @@ public class TelaBibliotecaPessoalController {
 
     @FXML
     void fechar(ActionEvent event) {
+    	FachadaController.setUsuarioLogado(null);
     	TelaBibliotecaPessoalController.usuarioLogado = null;
     	MainTestes.escolherTela(1);
     	
@@ -74,6 +76,9 @@ public class TelaBibliotecaPessoalController {
 
     @FXML
     void irParaLivro(ActionEvent event) {
+    	
+    	MeuLivro onLivro = new MeuLivro(null, null, 0);
+    	FachadaController.setOnLivro(onLivro);
     	MainTestes.escolherTela(6);
     }
 
@@ -86,13 +91,6 @@ public class TelaBibliotecaPessoalController {
     void telaEditarUsuario(ActionEvent event) {
     	MainTestes.escolherTela(5);
     }
-    
-    
-    
-    
-    
-    
-    
     
     
     

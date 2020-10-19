@@ -19,6 +19,12 @@ public class TelaEditarUsuarioController {
 
     @FXML
     private TextField login;
+    
+    @FXML
+    private TextField nome;
+    		
+    @FXML
+    private TextField senha;
 
     @FXML
     private Text telaedicaousuariotxt;
@@ -31,11 +37,18 @@ public class TelaEditarUsuarioController {
 
     @FXML
     void cancelar(ActionEvent event) {
+    	login.clear();
+    	nome.clear();
+    	senha.clear();
     	MainTestes.escolherTela(3);
     }
 
     @FXML
     void editar(ActionEvent event) {
+    	if(nome.getText() != null & nome.getText() != "") {
+    		
+    	}
+    	
 
     }
 

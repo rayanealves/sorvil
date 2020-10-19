@@ -14,6 +14,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.ControladorUsuarios;
+import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.model.Usuario;
 
 
@@ -52,7 +53,7 @@ public class TelaLoginController  implements Initializable {
 		Usuario user = userController.buscar(login.getText());
 		if(user != null) {
 			if(user.getSenha().equals(senha.getText())) {
-				Fachada.setUsuarioLogado(user);
+				FachadaController.setUsuarioLogado(user);
 				senha.clear();
 				login.clear();
 				MainTestes.escolherTela(3);
