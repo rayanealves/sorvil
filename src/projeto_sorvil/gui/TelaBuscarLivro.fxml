@@ -27,9 +27,9 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do livro:" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Label text="Livro não existe!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-      <Button mnemonicParsing="false" text="Buscar" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+      <Text fx:id="nometxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do livro:" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+      <TextField fx:id="livro" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label fx:id="aviso" text="Livro não existe!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Button fx:id="btnBuscar" mnemonicParsing="false" text="Buscar" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
    </children>
 </GridPane>
