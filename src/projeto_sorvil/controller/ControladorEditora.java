@@ -27,7 +27,7 @@ public class ControladorEditora {
         return instance;
     }
     
-    private ControladorEditora(){
+    public ControladorEditora(){
         this.respositorioEditora = EditoraRepositorio.getInstance();
     }
     

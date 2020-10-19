@@ -1,10 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projeto_sorvil.controller;
 
+import projeto_sorvil.model.Card;
+import projeto_sorvil.model.Livro;
+import projeto_sorvil.model.MeuLivro;
 import projeto_sorvil.model.Usuario;
 
 
@@ -14,6 +12,11 @@ import projeto_sorvil.model.Usuario;
  * @author usuario
  */
 public class FachadaController {
+	
+	private static Usuario usuarioLogado = null;
+	private static MeuLivro onLivro = null;
+	private static Livro livroBuscado = null;
+	private static Card onCard =null;
     private ControladorAutor controladorAutor;
     private ControladorCards controladorCards;
     private ControladorEditora controladorEditora;
@@ -41,5 +44,32 @@ public class FachadaController {
     }
     
     
+    
+    
+    
+    public static Usuario getUsuarioLogado() {
+		return usuarioLogado;
+	}
+	public static void setUsuarioLogado(Usuario usuarioLogado) {
+		FachadaController.usuarioLogado = usuarioLogado;
+	}
+	public static MeuLivro getOnLivro() {
+		return onLivro;
+	}
+	public static void setOnLivro(MeuLivro onLivro) {
+		FachadaController.onLivro = onLivro;
+	}
+	public static Livro getLivroBuscado() {
+		return livroBuscado;
+	}
+	public static void setLivroBuscado(Livro livroBuscado) {
+		FachadaController.livroBuscado = livroBuscado;
+	}
+	public static Card getOnCard() {
+		return onCard;
+	}
+	public static void setOnCard(Card onCard) {
+		FachadaController.onCard = onCard;
+	}
     
 }
