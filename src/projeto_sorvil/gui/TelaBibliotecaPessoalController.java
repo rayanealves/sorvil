@@ -26,6 +26,17 @@ public class TelaBibliotecaPessoalController {
     @FXML
     private Button printar;
     
+
+    @FXML
+    private Button botaoEditarUsuario;
+
+    @FXML
+    private Button botaoAdicionarLivro;
+
+    @FXML
+    private Button botaoTesteLivro;
+    
+    
 	private static Usuario usuarioLogado = null;
 	
 	@SuppressWarnings("unused")
@@ -38,7 +49,7 @@ public class TelaBibliotecaPessoalController {
     @FXML
     void iniciar(MouseEvent event) {
     	if(TelaBibliotecaPessoalController.usuarioLogado == null) {
-    		TelaBibliotecaPessoalController.usuarioLogado = TelaLoginController.getUsuarioLogado();
+    		TelaBibliotecaPessoalController.usuarioLogado = Fachada.getUsuarioLogado();
     	}
     	vamover.setText(TelaBibliotecaPessoalController.usuarioLogado.getNome());
     }
@@ -61,6 +72,30 @@ public class TelaBibliotecaPessoalController {
     }
 
 
+    @FXML
+    void irParaLivro(ActionEvent event) {
+    	MainTestes.escolherTela(6);
+    }
+
+    @FXML
+    void telaAdicionarLivro(ActionEvent event) {
+    	MainTestes.escolherTela(4);
+    }
+
+    @FXML
+    void telaEditarUsuario(ActionEvent event) {
+    	MainTestes.escolherTela(5);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 	public static Usuario getUsuarioLogado() {
 		return usuarioLogado;
 	}

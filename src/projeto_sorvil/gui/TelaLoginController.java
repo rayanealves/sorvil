@@ -38,8 +38,7 @@ public class TelaLoginController  implements Initializable {
     @FXML
     private Button sair;
     
-    private static Usuario usuarioLogado = null;
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -53,7 +52,7 @@ public class TelaLoginController  implements Initializable {
 		Usuario user = userController.buscar(login.getText());
 		if(user != null) {
 			if(user.getSenha().equals(senha.getText())) {
-				usuarioLogado = user;
+				Fachada.setUsuarioLogado(user);
 				senha.clear();
 				login.clear();
 				MainTestes.escolherTela(3);
@@ -66,25 +65,17 @@ public class TelaLoginController  implements Initializable {
 
 	 @FXML
 	 void fecharPrograma(ActionEvent event) {
+		senha.clear();
+		login.clear();
 		MainTestes.escolherTela(0);
 	 }
 
 	 @FXML
 	 void irParaCadastro(ActionEvent event) {
+		 senha.clear();
+		 login.clear();
 		 MainTestes.escolherTela(2);
 	 }
-
-
-
-	public static Usuario getUsuarioLogado() {
-		return usuarioLogado;
-	}
-
-
-
-	public static void setUsuarioLogado(Usuario user) {
-		TelaLoginController.usuarioLogado = user;
-	}
 
 
    

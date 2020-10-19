@@ -10,8 +10,8 @@
       <Button fx:id="botao" layoutX="124.0" layoutY="310.0" mnemonicParsing="false" onAction="#vamo" onMouseEntered="#vamo" onMousePressed="#vamo" text="label" />
       <Button fx:id="fechar" layoutX="28.0" layoutY="310.0" mnemonicParsing="false" onAction="#fechar" text="fechar" />
       <Button fx:id="printar" layoutX="228.0" layoutY="310.0" mnemonicParsing="false" onAction="#vamo" text="printar" />
-      <Button fx:id="botaoEditarUsuario" layoutX="308.0" layoutY="310.0" mnemonicParsing="false" onAction="#telaEditarUsuario" text="Editar Usuario" />
-      <Button layoutX="424.0" layoutY="310.0" mnemonicParsing="false" text="Button" />
-      <Button layoutX="503.0" layoutY="310.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="botaoEditarUsuario" layoutX="425.0" layoutY="323.0" mnemonicParsing="false" onAction="#telaEditarUsuario" text="Editar Usuario" />
+      <Button fx:id="botaoAdicionarLivro" layoutX="423.0" layoutY="269.0" mnemonicParsing="false" onAction="#telaAdicionarLivro" text="Adicionar Livro" />
+      <Button fx:id="botaoTesteLivro" layoutX="379.0" layoutY="212.0" mnemonicParsing="false" onAction="#irParaLivro" text="Livro tal (obs: nao vai ser assim)" />
    </children>
 </AnchorPane>

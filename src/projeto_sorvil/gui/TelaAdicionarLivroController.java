@@ -1,12 +1,19 @@
 package projeto_sorvil.gui;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
+import projeto_sorvil.controller.ControladorAutor;
+import projeto_sorvil.controller.ControladorEditora;
+import projeto_sorvil.model.Autor;
+import projeto_sorvil.model.Editora;
+import projeto_sorvil.model.Genero;
+import projeto_sorvil.model.Livro;
 
 
 public class TelaAdicionarLivroController {
@@ -17,44 +24,44 @@ public class TelaAdicionarLivroController {
     @FXML
     private Text adicionar;
     
-    @FXML
-    private Text nome;
+  @FXML
+    private Text nometxt;
 
     @FXML
-    private Text autor;
+    private Text autortxt;
 
     @FXML
-    private Text editora;
+    private Text editoratxt;
 
     @FXML
-    private Text ano;
+    private Text anoPubtxt;
 
     @FXML
-    private Text paginas;
+    private Text numPagtxt;
 
     @FXML
-    private Text genero;
+    private Text generotxt;
+
+   @FXML
+    private TextField nome;
 
     @FXML
-    private TextField txtLivro;
+    private TextField autor;
 
     @FXML
-    private TextField txtAutor;
+    private TextField editora;
 
     @FXML
-    private TextField txtEditora;
+    private TextField anoPub;
 
     @FXML
-    private TextField txtAno;
+    private TextField numPag;
 
     @FXML
-    private TextField txtPaginas;
-    
-    @FXML
-    private Button btnCancelar;
+    private Button botaoCancelar;
 
     @FXML
-    private Button btnAdicionar;
+    private Button botaoCriar;
     
     @FXML
     private CheckBox adm;
@@ -133,11 +140,42 @@ public class TelaAdicionarLivroController {
     
     @FXML
     private Button btnAbrir;
+
+    private ControladorEditora controladorEditora = new ControladorEditora();
+    
+    private ControladorAutor controladorAutor = new ControladorAutor();
     
     
     @FXML
     public void initialize() {
       
+    }
+
+    @FXML
+    void criarLivro(ActionEvent event) {
+    	/*
+    	Editora novaEditora = new Editora(editora.getText(), null);
+    	controladorEditora.novaEditora(novaEditora);
+    	novaEditora = controladorEditora.buscarEditora(editora.getText());
+    	Autor(String nome, String sobrenome, String id)
+    	
+    	
+    	//int num = (int) numPag.
+    	
+    	Livro livroAdicionado = new Livro(nome.getText(), null , novaEditora,  autor, null,numPag ,
+    			edicao,LocalDate anoP )
+    			
+    			*/
+    }
+
+    @FXML
+    void voltar(ActionEvent event) {
+    	nome.clear();
+    	autor.clear();
+    	editora.clear();
+    	anoPub.clear();
+    	numPag.clear();
+    	MainTestes.escolherTela(3);
     }
   
 }

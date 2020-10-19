@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane fx:id="telaAdicionarLivro" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" vgap="2.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="telaAdicionarLivro" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" vgap="2.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_sorvil.gui.TelaAdicionarLivroController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="179.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="256.0" minWidth="10.0" prefWidth="256.0" />
@@ -33,19 +33,19 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="nome" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-      <Text fx:id="autor" strokeType="OUTSIDE" strokeWidth="0.0" text="Autor" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-      <Text fx:id="editora" strokeType="OUTSIDE" strokeWidth="0.0" text="Editora" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
-      <Text fx:id="ano" strokeType="OUTSIDE" strokeWidth="0.0" text="Ano de Publicação" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
-      <Text fx:id="paginas" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de Páginas" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
-      <Text fx:id="genero" strokeType="OUTSIDE" strokeWidth="0.0" text="Genero" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
-      <TextField fx:id="txtLivro" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-      <TextField fx:id="txtAutor" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP" />
-      <TextField fx:id="txtEditora" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP" />
-      <TextField fx:id="txtAno" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-      <TextField fx:id="txtPaginas" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="TOP" />
-      <Button fx:id="btnCancelar" mnemonicParsing="false" text="Cancelar" GridPane.columnIndex="1" GridPane.rowIndex="9" GridPane.valignment="TOP" />
-      <Button fx:id="btnEnviar" mnemonicParsing="false" text="Enviar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="9" GridPane.valignment="TOP" />
+      <Text fx:id="nometxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+      <Text fx:id="autortxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Autor" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+      <Text fx:id="editoratxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Editora" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+      <Text fx:id="anotxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Ano de Publicação" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+      <Text fx:id="paginastxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de Páginas" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
+      <Text fx:id="generotxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Genero" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
+      <TextField fx:id="livro" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <TextField fx:id="autor" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+      <TextField fx:id="editora" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+      <TextField fx:id="anoPub" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+      <TextField fx:id="numPag" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+      <Button fx:id="botaoCancelar" mnemonicParsing="false" onAction="#voltar" text="Cancelar" GridPane.columnIndex="1" GridPane.rowIndex="9" GridPane.valignment="TOP" />
+      <Button fx:id="botaoCriar" mnemonicParsing="false" onAction="#criarLivro" text="Enviar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="9" GridPane.valignment="TOP" />
       <CheckBox fx:id="adm" mnemonicParsing="false" text="Administração" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP" />
       <CheckBox fx:id="artes" mnemonicParsing="false" text="Artes" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
       <CheckBox fx:id="aventura" mnemonicParsing="false" text="Aventura" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
