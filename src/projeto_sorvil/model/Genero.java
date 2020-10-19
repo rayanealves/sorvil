@@ -23,17 +23,6 @@ public enum Genero {
         public String getNome() {
             return nome;
         }
-
-        public void setNome(String nome) {
-            this.nome = nome;
-
-        }
-        
-        public static List<Genero> listar(){
-    	List<Genero> generos = new ArrayList<Genero>();
-    	generos.addAll(Arrays.asList(Genero.values()));
-    	return generos;
-    }
         
        
 }
