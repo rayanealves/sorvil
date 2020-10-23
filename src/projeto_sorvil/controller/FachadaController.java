@@ -1,7 +1,11 @@
 package projeto_sorvil.controller;
 
+import java.util.List;
+
+import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Card;
 import projeto_sorvil.model.Editora;
+import projeto_sorvil.model.Genero;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.MeuLivro;
 import projeto_sorvil.model.Usuario;
@@ -42,22 +46,6 @@ public class FachadaController {
         boolean adicionar = this.controladorUsuario.adicionar(user);
     }
     
-    
-  
-    
-    public boolean novaEditora(Editora editora) {
-		return controladorEditora.novaEditora(editora);
-	}
-
-	public boolean deleteEditora(Usuario usuario, Editora editora) {
-		return controladorEditora.deleteEditora(usuario, editora);
-	}
-
-	public Editora buscarEditora(String nome) {
-		return controladorEditora.buscarEditora(nome);
-	}
-
-	
 	
 	
 	public static Usuario getUsuarioLogado() {

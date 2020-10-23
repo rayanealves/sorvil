@@ -1,4 +1,4 @@
-package exceptions;
+package projeto_sorvil.exceptions;
 
 public class JaExisteException extends Exception {
 	

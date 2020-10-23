@@ -1,4 +1,4 @@
-package exceptions;
+package projeto_sorvil.exceptions;
 
 public class NaoExisteException extends Exception{
 	private static final long serialVersionUID = -7579257249288556574L;

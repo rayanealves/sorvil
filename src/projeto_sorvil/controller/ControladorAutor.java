@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
+
+
 import projeto_sorvil.dados.AutorRepositorio;
 import projeto_sorvil.dados.RepositorioAutor;
+import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.model.Autor;
 
 
@@ -53,11 +56,14 @@ public class ControladorAutor {
         }
     }
     
-    public boolean novoAutor(Autor autor){
+    public boolean novoAutor(Autor autor) throws JaExisteException{
         if (autor != null){
             autor.setId(this.novoID());
             if(!this.repositorioAutores.listar().contains(autor)){
                 return this.repositorioAutores.adicionar(autor);
+            }
+            else {
+            	throw new JaExisteException(autor);
             }
         }
         return false;
