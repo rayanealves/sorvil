@@ -1,8 +1,6 @@
 package projeto_sorvil.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.ArrayList;
 
 
 public class Livro implements Serializable{
@@ -13,13 +11,13 @@ public class Livro implements Serializable{
 	private String id;
 	private Editora editora;
 	private Autor autor;
-	private ArrayList <Genero> genero = new ArrayList<>();
+	private Genero genero;
 	private int numPaginas;
 	private int edicao;
 	//private LocalDate anoPubli;
         private int anoPubli;
 	
-	public Livro(String nome, String id, Editora editora, Autor autor, ArrayList<Genero> genero, int numPaginas,
+	public Livro(String nome, String id, Editora editora, Autor autor, Genero genero, int numPaginas,
 			int edicao,int anoP ) {
 		
 		this.nome = nome;
@@ -85,11 +83,11 @@ public class Livro implements Serializable{
 		this.autor = autor;
 	}
 
-	public ArrayList<Genero> getGenero() {
+	public Genero getGenero() {
 		return genero;
 	}
 
-	public void setGenero(ArrayList<Genero> genero) {
+	public void setGenero(Genero genero) {
 		this.genero = genero;
 	}
 

@@ -1,10 +1,5 @@
 package projeto_sorvil.model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-
 public enum Genero {
 	ADMINISTRACAO("Administração"), ARTES("Artes"), AUTOAJUDA("Autoajuda"), 
         AVENTURA("Aventura"), BIOGRAFIA("Biografia"), CONTO("Conto"), DICIONARIO("Dicionario"), 

@@ -1,20 +1,15 @@
 package projeto_sorvil.gui;
 
 
-import java.util.ArrayList;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import projeto_sorvil.controller.ControladorAutor;
-import projeto_sorvil.controller.ControladorEditora;
-import projeto_sorvil.controller.ControladorLivro;
 import projeto_sorvil.controller.FachadaController;
+import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Editora;
 import projeto_sorvil.model.Genero;
@@ -87,7 +82,7 @@ public class TelaAdicionarLivroController {
     
 
     @FXML
-    void criarLivro(ActionEvent event) {
+    void criarLivro(ActionEvent event) throws JaExisteException {
     	
     	Editora novaEditora = new Editora(editora.getText(), null);
     	FachadaController.getInstance().novaEditora(novaEditora);

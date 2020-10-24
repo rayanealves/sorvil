@@ -8,6 +8,7 @@ package projeto_sorvil.gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +17,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.Usuario;
 
@@ -53,6 +56,19 @@ public class TelaBuscarLivroController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    }
+    
+    @FXML
+    void iniciar(MouseEvent event) {
+    	if(TelaBuscarLivroController.usuarioLogado == null) {
+    		TelaBuscarLivroController.usuarioLogado = FachadaController.getUsuarioLogado();
+    	}
+	if( this.obsList == null){
+    		this.obsList = FXCollections.observableArrayList();					
+
+    		lvLivrosBuscados.setItems(obsList);
+    	}
+    	
     }
     
  
