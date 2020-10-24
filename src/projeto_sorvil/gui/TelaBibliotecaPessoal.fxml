@@ -14,6 +14,6 @@
       <Button fx:id="botaoEditarUsuario" layoutX="425.0" layoutY="323.0" mnemonicParsing="false" onAction="#telaEditarUsuario" text="Editar Usuario" />
       <Button fx:id="botaoAdicionarLivro" layoutX="423.0" layoutY="269.0" mnemonicParsing="false" onAction="#telaAdicionarLivro" text="Adicionar Livro" />
       <Button fx:id="botaoTesteLivro" layoutX="379.0" layoutY="212.0" mnemonicParsing="false" onAction="#irParaLivro" text="Livro tal (obs: nao vai ser assim)" />
-      <ListView prefHeight="400.0" prefWidth="228.0" />
+      <ListView fx:id="lvListaPessoalLivros" prefHeight="400.0" prefWidth="228.0" />
    </children>
 </AnchorPane>

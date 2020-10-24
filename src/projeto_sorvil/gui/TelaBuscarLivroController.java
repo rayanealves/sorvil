@@ -7,18 +7,20 @@ package projeto_sorvil.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import projeto_sorvil.model.Livro;
+import projeto_sorvil.model.Usuario;
 
-/**
- * FXML Controller class
- *
- * @author Rayan
- */
+
 public class TelaBuscarLivroController implements Initializable {
 
      @FXML
@@ -33,9 +35,42 @@ public class TelaBuscarLivroController implements Initializable {
     @FXML
     private Button btnBuscar;
     
+    @FXML
+    private Button btnADDMinhaBiblioteca;
+
+    @FXML
+    private Button btnADDSorvil;
+    
+    @FXML
+    private ListView<Livro> lvLivrosBuscados;
+    
+    private static Usuario usuarioLogado = null;
+
+    private ObservableList<Livro> obsList = null;
+    
+
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
+    
+ 
+    @FXML
+    void buscarLivro(ActionEvent event) {
+    	
+    	
+    }
+    
+    
+    @FXML
+    void AdicionarLivroPessoal(ActionEvent event) {
+
+    }
+
+    @FXML
+    void adicionarLivroSorvil(ActionEvent event) {
+    	MainTestes.escolherTela(4);
+    }
     
 }

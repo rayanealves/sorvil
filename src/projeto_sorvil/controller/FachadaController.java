@@ -2,6 +2,7 @@ package projeto_sorvil.controller;
 
 import java.util.List;
 
+import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Card;
 import projeto_sorvil.model.Editora;
@@ -40,12 +41,6 @@ public class FachadaController {
         return instance;
     }
     
-    
-    
-    public void novoUsuario(Usuario user){
-        boolean adicionar = this.controladorUsuario.adicionar(user);
-    }
-    
 	
 	
 	public static Usuario getUsuarioLogado() {
@@ -81,7 +76,7 @@ public class FachadaController {
 		FachadaController.onEditora = onEditora;
 	}
 	
-	public boolean novoAutor(Autor autor) {
+	public boolean novoAutor(Autor autor) throws JaExisteException {
 		return controladorAutor.novoAutor(autor);
 	}
 
@@ -233,8 +228,8 @@ public class FachadaController {
 		return controladorUsuario.listar();
 	}
 
-	public List<MeuLivro> listarLivrosUsuario(Usuario user) {
-		return controladorUsuario.listarLivrosUsuario(user);
+	public static List<MeuLivro> listarLivrosUsuario(Usuario user) {
+		return ControladorUsuarios.getInstancia().listarLivrosUsuario(user);
 	}
     
 }

@@ -9,7 +9,9 @@ import javafx.stage.Stage;
 public class MainTestes extends Application {
     
 	
-	private static Scene cenaTelaAdicionarLivro, cenaTelaBibliotecaPessoal,cenaTelaCadastro, cenaTelaCards, cenaTelaCriacaoCards, cenaTelaEditarUsuario, cenaTelaLivros, cenaTelaLogin ;
+	private static Scene cenaTelaAdicionarLivro, cenaTelaBibliotecaPessoal,cenaTelaCadastro
+	, cenaTelaCards , cenaTelaCriacaoCards, cenaTelaEditarUsuario, cenaTelaLivros
+	, cenaTelaLogin, cenaTelaBuscarLivro ;
 	private static Stage estagioPrimario;
 	static FXMLLoader telaBibliotecaPessoal;
 	
@@ -45,6 +47,9 @@ public class MainTestes extends Application {
     		
     		Parent telaLivros = FXMLLoader.load(getClass().getResource("TelaLivros.fxml"));
     		cenaTelaLivros = new Scene(telaLivros);
+    		
+    		Parent telaBuscarLivro = FXMLLoader.load(getClass().getResource("TelaBuscarLivro.fxml"));
+    		cenaTelaBuscarLivro = new Scene(telaBuscarLivro);
 
     		
     		
@@ -73,9 +78,7 @@ public class MainTestes extends Application {
    
     public static void main(String[] args) {
         launch(args);
-        
-       // Usuario user = new Usuario( nome, String id, String login, String senha, boolean admin, LocalDate dataCadastro)
-        
+                
         
         
         
@@ -113,6 +116,10 @@ public class MainTestes extends Application {
     		case 8:
     			estagioPrimario.setScene(cenaTelaCriacaoCards);
     			break;
+    		case 9:
+    			estagioPrimario.setScene(cenaTelaBuscarLivro);
+    			break;	
+ 
     		default:
     			
     	}

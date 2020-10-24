@@ -1,9 +1,12 @@
 package projeto_sorvil.gui;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import projeto_sorvil.controller.FachadaController;
@@ -17,6 +20,7 @@ public class TelaBibliotecaPessoalController {
 
     @FXML
     private AnchorPane tela;
+    
     @FXML
     private Label vamover;
 
@@ -29,7 +33,6 @@ public class TelaBibliotecaPessoalController {
     @FXML
     private Button printar;
     
-
     @FXML
     private Button botaoEditarUsuario;
 
@@ -38,9 +41,13 @@ public class TelaBibliotecaPessoalController {
 
     @FXML
     private Button botaoTesteLivro;
+	
+    @FXML
+    private ListView<MeuLivro> lvListaPessoalLivros;
     
-    
-	private static Usuario usuarioLogado = null;
+    private static Usuario usuarioLogado = null;
+
+    private ObservableList<MeuLivro> obsList = null;
 
 
 	
@@ -51,8 +58,14 @@ public class TelaBibliotecaPessoalController {
     void iniciar(MouseEvent event) {
     	if(TelaBibliotecaPessoalController.usuarioLogado == null) {
     		TelaBibliotecaPessoalController.usuarioLogado = FachadaController.getUsuarioLogado();
+		vamover.setText(TelaBibliotecaPessoalController.usuarioLogado.getNome());
     	}
-    	vamover.setText(TelaBibliotecaPessoalController.usuarioLogado.getNome());
+	if( obsList == null){
+    		obsList = FXCollections.observableArrayList(FachadaController.listarLivrosUsuario(usuarioLogado));					
+
+    		lvListaPessoalLivros.setItems(obsList);
+    	}
+    	
     }
 
     @FXML
@@ -84,7 +97,7 @@ public class TelaBibliotecaPessoalController {
 
     @FXML
     void telaAdicionarLivro(ActionEvent event) {
-    	MainTestes.escolherTela(4);
+    	MainTestes.escolherTela(9);
     }
 
     @FXML
