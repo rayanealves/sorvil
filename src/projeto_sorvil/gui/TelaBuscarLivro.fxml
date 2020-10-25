@@ -25,7 +25,7 @@
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Buscar Livro" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Text>
       <Text fx:id="nometxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do livro:" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">

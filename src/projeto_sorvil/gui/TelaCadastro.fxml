@@ -14,9 +14,9 @@
    <children>
       <TextField fx:id="login" layoutX="169.0" layoutY="91.0" />
       <TextField fx:id="nome" layoutX="169.0" layoutY="150.0" prefHeight="25.0" prefWidth="149.0" />
-      <Text layoutX="138.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faca seu cadastro no SORVIL" wrappingWidth="194.2880859375">
+      <Text layoutX="116.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faca seu cadastro no SORVIL" textAlignment="CENTER" wrappingWidth="274.2880859375">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Text>
       <Text fx:id="logintxt" layoutX="169.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite um login:" />

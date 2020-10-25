@@ -7,8 +7,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.MeuLivro;
@@ -20,30 +22,27 @@ public class TelaBibliotecaPessoalController {
 
     @FXML
     private AnchorPane tela;
-    
-    @FXML
-    private Label vamover;
 
     @FXML
-    private Button botao;
+    private Button btnDeletarLivro;
 
     @FXML
-    private Button fechar;
+    private Button btnSair;
 
     @FXML
-    private Button printar;
-    
-    @FXML
-    private Button botaoEditarUsuario;
+    private Button btnEditarUsuario;
 
     @FXML
-    private Button botaoAdicionarLivro;
+    private Button btnAdicionarLivro;
 
-    @FXML
-    private Button botaoTesteLivro;
-	
     @FXML
     private ListView<MeuLivro> lvListaPessoalLivros;
+
+    @FXML
+    private TextField txtLivro;
+
+    @FXML
+    private Text titulo;
     
     private static Usuario usuarioLogado = null;
 
