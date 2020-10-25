@@ -4,7 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import projeto_sorvil.controller.FachadaController;
+import projeto_sorvil.model.Usuario;
 
 public class TelaEditarUsuarioController {
 
@@ -35,6 +38,16 @@ public class TelaEditarUsuarioController {
     @FXML
     private Button botaoEditar;
 
+    private static Usuario usuarioLogado = null;
+    
+
+    @FXML
+    void iniciar(MouseEvent event) {
+    	if(TelaEditarUsuarioController.usuarioLogado == null) {
+    		TelaEditarUsuarioController.usuarioLogado = FachadaController.getUsuarioLogado();
+    	}	
+    }
+    
     @FXML
     void cancelar(ActionEvent event) {
     	login.clear();
@@ -46,10 +59,19 @@ public class TelaEditarUsuarioController {
     @FXML
     void editar(ActionEvent event) {
     	if(nome.getText() != null & nome.getText() != "") {
-    		
+    		FachadaController.editarNomeUsuario(TelaEditarUsuarioController.usuarioLogado, nome.getText());  					
+    	}
+    	if(login.getText() != null & login.getText() != "") {
+    		FachadaController.editarLoginUsuario(TelaEditarUsuarioController.usuarioLogado, login.getText());  					
+    	}
+    	if(senha.getText() != null & senha.getText() != "") {
+    		FachadaController.editarSenhaUsuario(TelaEditarUsuarioController.usuarioLogado, senha.getText());  					
     	}
     	
-
+    	login.clear();
+    	nome.clear();
+    	senha.clear();
+    	MainTestes.escolherTela(3);
     }
 
 }

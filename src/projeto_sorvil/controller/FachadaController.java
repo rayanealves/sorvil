@@ -196,16 +196,16 @@ public class FachadaController {
 		return controladorUsuario.remover(user);
 	}
 
-	public boolean editarNomeUsuario(Usuario user, String nome) {
-		return controladorUsuario.editarNome(user, nome);
+	public static boolean editarNomeUsuario(Usuario user, String nome) {
+		return ControladorUsuarios.getInstancia().editarNome(user, nome);
 	}
 
-	public boolean editarLoginUsuario(Usuario user, String login) {
-		return controladorUsuario.editarLogin(user, login);
+	public static boolean editarLoginUsuario(Usuario user, String login) {
+		return ControladorUsuarios.getInstancia().editarLogin(user, login);
 	}
 
-	public boolean editarSenhaUsuario(Usuario user, String senha) {
-		return controladorUsuario.editarSenha(user, senha);
+	public static boolean editarSenhaUsuario(Usuario user, String senha) {
+		return ControladorUsuarios.getInstancia().editarSenha(user, senha);
 	}
 
 	public Usuario buscarUsuario(String login) {

@@ -45,6 +45,10 @@ public class TelaBuscarLivroController implements Initializable {
     private Button btnADDSorvil;
     
     @FXML
+    private Button btnVoltar;
+
+    
+    @FXML
     private ListView<Livro> lvLivrosBuscados;
     
     private static Usuario usuarioLogado = null;
@@ -87,6 +91,13 @@ public class TelaBuscarLivroController implements Initializable {
     @FXML
     void adicionarLivroSorvil(ActionEvent event) {
     	MainTestes.escolherTela(4);
+    }
+    
+    
+    @FXML
+    void voltar(ActionEvent event) {
+    	livro.clear();
+    	MainTestes.escolherTela(3);
     }
     
 }
