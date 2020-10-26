@@ -7,7 +7,7 @@ import java.util.List;
 import projeto_sorvil.model.MeuLivro;
 import projeto_sorvil.model.Usuario;
 
-public class UsuarioRepositorio implements RepositorioUsuario, Serializable {
+public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
 	
 
 	/**

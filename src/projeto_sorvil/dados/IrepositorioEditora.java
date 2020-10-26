@@ -12,7 +12,7 @@ import projeto_sorvil.model.Editora;
  *
  * @author Rayan
  */
-public interface RepositorioEditora {
+public interface IrepositorioEditora {
     
     public boolean adicionar (Editora editora);
     

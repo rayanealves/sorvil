@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_sorvil.gui.TelaCriacaoCardsController">
+  <columnConstraints>
+    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="228.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="305.0" minWidth="10.0" prefWidth="127.0" />
+    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="291.0" minWidth="10.0" prefWidth="245.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="129.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="302.0" minHeight="10.0" prefHeight="236.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <content>
+            <TextArea prefHeight="257.0" prefWidth="230.0" />
+         </content>
+      </ScrollPane>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comentarios e Resenhas:" wrappingWidth="212.13671875" GridPane.columnIndex="2" GridPane.valignment="BOTTOM">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo do Card:" wrappingWidth="138.150390625" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tituloCard" onAction="#criarCard" prefHeight="25.0" prefWidth="137.0" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets top="40.0" />
+         </GridPane.margin>
+      </TextField>
+      <TextField fx:id="paginaAtual" onAction="#criarCard" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+         <GridPane.margin>
+            <Insets bottom="20.0" />
+         </GridPane.margin>
+      </TextField>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pagina em que esta" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="100.0" />
+         </GridPane.margin>
+      </Text>
+      <Button fx:id="botaoCancelar" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <Button fx:id="botaoCriarCard" mnemonicParsing="false" onAction="#criarCard" text="Criar Novo Card" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tela de criação de " GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cards:" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+   </children>
+</GridPane>

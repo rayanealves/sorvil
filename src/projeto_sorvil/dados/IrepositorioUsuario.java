@@ -6,7 +6,7 @@ import java.util.List;
 import projeto_sorvil.model.MeuLivro;
 import projeto_sorvil.model.Usuario;
 
-public interface RepositorioUsuario {
+public interface IrepositorioUsuario {
 	
 	
 	public ArrayList<Usuario> getUsuarios();

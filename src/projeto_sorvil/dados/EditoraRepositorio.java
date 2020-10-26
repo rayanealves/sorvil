@@ -16,7 +16,7 @@ import projeto_sorvil.model.Usuario;
  *
  * @author Rayan
  */
-public class EditoraRepositorio implements RepositorioEditora, Serializable {
+public class EditoraRepositorio implements IrepositorioEditora, Serializable {
     
     /**
 	 * 
@@ -25,7 +25,7 @@ public class EditoraRepositorio implements RepositorioEditora, Serializable {
 	private static EditoraRepositorio instance;
         private static final String ROTA = "src/editoras.dat";
     
-    public static RepositorioEditora getInstance() {
+    public static IrepositorioEditora getInstance() {
         if (instance == null) {
             instance = (EditoraRepositorio)DAO.lerDoArquivo(ROTA);
              if(instance == null){

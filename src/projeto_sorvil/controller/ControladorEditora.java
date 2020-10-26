@@ -7,7 +7,7 @@ package projeto_sorvil.controller;
 
 import java.util.UUID;
 import projeto_sorvil.dados.EditoraRepositorio;
-import projeto_sorvil.dados.RepositorioEditora;
+import projeto_sorvil.dados.IrepositorioEditora;
 import projeto_sorvil.model.Editora;
 import projeto_sorvil.model.Usuario;
 
@@ -17,7 +17,7 @@ import projeto_sorvil.model.Usuario;
  */
 public class ControladorEditora {
     
-    private RepositorioEditora respositorioEditora;
+    private IrepositorioEditora respositorioEditora;
     private static ControladorEditora instance;
     
     public static ControladorEditora getInstance() {

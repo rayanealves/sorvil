@@ -6,7 +6,7 @@ import projeto_sorvil.model.Card;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.Usuario;
 
-public interface RepositorioCards{
+public interface IrepositorioCards{
 	
 	boolean adicionar(Card card);
         

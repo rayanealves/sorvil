@@ -6,7 +6,7 @@ import projeto_sorvil.model.Autor;
 
 
 
-public interface RepositorioAutor {
+public interface IrepositorioAutor {
 	
 	boolean adicionar(Autor autor);
     

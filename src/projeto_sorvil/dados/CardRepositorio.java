@@ -10,7 +10,7 @@ import projeto_sorvil.model.Card;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.Usuario;
 
-public class CardRepositorio implements RepositorioCards, Serializable{
+public class CardRepositorio implements IrepositorioCards, Serializable{
 
 	private static final long serialVersionUID = 2206304480631005062L;
 	private ArrayList<Card> cards;

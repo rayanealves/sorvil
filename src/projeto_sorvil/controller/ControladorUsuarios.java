@@ -3,7 +3,7 @@ package projeto_sorvil.controller;
 import java.util.List;
 import java.util.UUID;
 
-import projeto_sorvil.dados.RepositorioUsuario;
+import projeto_sorvil.dados.IrepositorioUsuario;
 import projeto_sorvil.dados.UsuarioRepositorio;
 import projeto_sorvil.model.MeuLivro;
 import projeto_sorvil.model.Usuario;
@@ -11,7 +11,7 @@ import projeto_sorvil.model.Usuario;
 public class ControladorUsuarios {
 	
 
-    private RepositorioUsuario repositorioUsuarios;
+    private IrepositorioUsuario repositorioUsuarios;
     private static ControladorUsuarios instancia = null;
 	
     public ControladorUsuarios() {

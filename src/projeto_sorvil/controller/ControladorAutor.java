@@ -7,14 +7,14 @@ import java.util.stream.Collectors;
 
 
 import projeto_sorvil.dados.AutorRepositorio;
-import projeto_sorvil.dados.RepositorioAutor;
+import projeto_sorvil.dados.IrepositorioAutor;
 import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.model.Autor;
 
 
 public class ControladorAutor {
 	
-	private RepositorioAutor repositorioAutores;
+	private IrepositorioAutor repositorioAutores;
 	private static ControladorAutor instance;
 	
 	private  String[] separarNome(String nome){

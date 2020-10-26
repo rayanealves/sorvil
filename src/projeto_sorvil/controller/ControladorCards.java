@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import projeto_sorvil.dados.CardRepositorio;
-import projeto_sorvil.dados.RepositorioCards;
+import projeto_sorvil.dados.IrepositorioCards;
 import projeto_sorvil.model.Card;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.Usuario;
@@ -13,7 +13,7 @@ import projeto_sorvil.model.Usuario;
 
 public class ControladorCards {
     
-    private RepositorioCards repositorioCards;
+    private IrepositorioCards repositorioCards;
     private static ControladorCards instance;
     
     public static ControladorCards getInstance() {

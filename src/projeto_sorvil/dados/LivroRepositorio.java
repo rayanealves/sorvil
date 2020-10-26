@@ -12,7 +12,7 @@ import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.Usuario;
 
 
-public class LivroRepositorio implements RepositorioLivro, Serializable {
+public class LivroRepositorio implements IrepositorioLivro, Serializable {
 
     /**
 	 * 
@@ -21,7 +21,7 @@ public class LivroRepositorio implements RepositorioLivro, Serializable {
 	private static LivroRepositorio instance;
         private static final String ROTA = "src/livros.dat";
     
-    public static RepositorioLivro getInstance() {
+    public static IrepositorioLivro getInstance() {
         if (instance == null) {
             instance = (LivroRepositorio) DAO.lerDoArquivo(ROTA);
              if(instance == null){
@@ -44,13 +44,6 @@ public class LivroRepositorio implements RepositorioLivro, Serializable {
         DAO.salvarArquivo(instance, ROTA);
         return retorno;
         
-    }
-    
-    @Override
-    public boolean adicionar (Livro livro, Genero genero){
-        boolean retorno = this.buscar(livro).getGenero().add(genero);
-        DAO.salvarArquivo(instance, ROTA);
-        return retorno;
     }
     
     @Override
@@ -81,12 +74,7 @@ public class LivroRepositorio implements RepositorioLivro, Serializable {
         return retorno;
     }
     
-    @Override
-    public boolean apagar(Livro livro, Genero genero){
-        boolean retorno = this.buscar(livro).getGenero().remove(genero);
-        DAO.salvarArquivo(instance, ROTA);
-        return retorno;
-    }
+   
       
     @Override
     public List<Livro> listar(){
@@ -110,7 +98,7 @@ public class LivroRepositorio implements RepositorioLivro, Serializable {
     @Override
     public List<Livro> listar(Genero genero) {
         return livros.stream()
-            .filter(livro-> livro.getGenero().contains(genero))
+            .filter(livro-> livro.getGenero().equals(genero))
             .collect(Collectors.toList());
     }
     

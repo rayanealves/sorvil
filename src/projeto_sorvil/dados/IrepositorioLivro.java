@@ -15,19 +15,16 @@ import projeto_sorvil.model.Livro;
  *
  * @author Rayan
  */
-public interface RepositorioLivro {
+public interface IrepositorioLivro {
     
     public boolean adicionar (Livro livro);
     
-    public boolean adicionar (Livro livro, Genero genero);
-    
+   
     public Livro buscar(int indice);
     
     public Livro buscar (Livro livro);
     
     public boolean apagar (Livro livro);
-    
-    public boolean apagar (Livro livro, Genero genero);
     
     public List<Livro> listar();
      

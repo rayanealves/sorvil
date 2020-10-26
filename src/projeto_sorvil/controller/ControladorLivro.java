@@ -8,7 +8,7 @@ package projeto_sorvil.controller;
 import java.util.List;
 import java.util.UUID;
 import projeto_sorvil.dados.LivroRepositorio;
-import projeto_sorvil.dados.RepositorioLivro;
+import projeto_sorvil.dados.IrepositorioLivro;
 import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Editora;
 import projeto_sorvil.model.Genero;
@@ -21,7 +21,7 @@ import projeto_sorvil.model.Usuario;
  */
 public class ControladorLivro {
     
-    private RepositorioLivro repositorioLivro;
+    private IrepositorioLivro repositorioLivro;
     private static ControladorLivro instance;
     
     public static ControladorLivro getInstance() {

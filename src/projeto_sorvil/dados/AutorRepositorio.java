@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import projeto_sorvil.model.Autor;
 
 
-public class AutorRepositorio implements RepositorioAutor, Serializable {
+public class AutorRepositorio implements IrepositorioAutor, Serializable {
 	
 	private ArrayList<Autor> autores;
 	private static AutorRepositorio instance;
