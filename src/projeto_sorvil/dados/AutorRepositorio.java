@@ -84,4 +84,9 @@ public class AutorRepositorio implements IrepositorioAutor, Serializable {
          return existe;
      }
 
+	@Override
+	public boolean autorExiste(Autor autor) {
+		return this.autores.contains(autor);
+	}
+
 }

@@ -3,6 +3,8 @@ package projeto_sorvil.controller;
 import java.util.List;
 
 import projeto_sorvil.exceptions.JaExisteException;
+import projeto_sorvil.exceptions.NaoExisteException;
+import projeto_sorvil.exceptions.NaoPodeException;
 import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Card;
 import projeto_sorvil.model.Editora;
@@ -92,7 +94,7 @@ public class FachadaController {
 		return controladorAutor.buscarSobrenome(autoresPorNome, sobrenome);
 	}
 
-	public boolean deleteAutor(Autor autor, int nLivros) {
+	public boolean deleteAutor(Autor autor, int nLivros) throws NaoExisteException {
 		return controladorAutor.delete(autor, nLivros);
 	}
 
@@ -164,8 +166,8 @@ public class FachadaController {
 		return controladorLivro.deleteLivro(usuario, livro);
 	}
 
-	public void alterarGenero(Usuario usuario, Livro livro, Genero generoDel, Genero generoAdd) {
-		controladorLivro.alterarGenero(usuario, livro, generoDel, generoAdd);
+	public void alterarGenero(Usuario usuario, Livro livro, Genero generoAdd) throws NaoPodeException {
+		controladorLivro.alterarGenero(usuario, livro, generoAdd);
 	}
 
 	public void alterarEditora(Usuario usuario, Livro livro, Editora editora) {

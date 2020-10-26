@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import projeto_sorvil.dados.AutorRepositorio;
 import projeto_sorvil.dados.IrepositorioAutor;
 import projeto_sorvil.exceptions.JaExisteException;
+import projeto_sorvil.exceptions.NaoExisteException;
 import projeto_sorvil.model.Autor;
 
 
@@ -91,11 +92,13 @@ public class ControladorAutor {
     			.collect(Collectors.toList());
     }
     
-    public boolean delete(Autor autor, int nLivros) {
-    	if(autor != null && nLivros < 1) {
+    public boolean delete(Autor autor, int nLivros) throws NaoExisteException {
+    	if(this.repositorioAutores.autorExiste(autor)) {
     		return this.repositorioAutores.apagar(autor);
     	}
-    	return false;
+    	else {
+    		throw new NaoExisteException(autor);
+    	}
     }
     
   
