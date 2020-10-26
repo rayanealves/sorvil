@@ -28,7 +28,7 @@
       <Label fx:id="TelaLogin" layoutX="226.0" layoutY="280.0" text="Label" />
       <PasswordField fx:id="senha" layoutX="166.0" layoutY="240.0" />
       <Button fx:id="sair" layoutX="220.0" layoutY="422.0" mnemonicParsing="false" onAction="#fecharPrograma" prefHeight="25.0" prefWidth="41.0" text="Sair" />
-      <ImageView fitHeight="165.0" fitWidth="181.0" layoutX="165.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageSorvil" fitHeight="165.0" fitWidth="181.0" layoutX="165.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Downloads/SORVIL%20(2)%20(1).png" />
          </image>

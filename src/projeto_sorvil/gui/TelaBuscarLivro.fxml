@@ -54,7 +54,7 @@
             <Insets />
          </GridPane.margin>
       </Button>
-      <Button fx:id="btnADDSorvil" mnemonicParsing="false" onAction="#adicionarLivroSorvil" text="Adicionar a biblioteca do sorvil" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+      <Button fx:id="btnADDSorvil" mnemonicParsing="false" onAction="#adicionarLivroSorvil" text="Adicionar a biblioteca do Sorvil" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="15.0" />
          </GridPane.margin>
