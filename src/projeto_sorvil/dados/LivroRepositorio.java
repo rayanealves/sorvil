@@ -47,6 +47,15 @@ public class LivroRepositorio implements IrepositorioLivro, Serializable {
     }
     
     @Override
+    public void alterarGenero (Livro livro, Genero genero){
+        
+        	this.buscar(livro).setGenero(genero);
+        	DAO.salvarArquivo(instance, ROTA);
+
+        
+    }
+    
+    @Override
     public Livro buscar(int indice) {
 	return this.livros.get(indice);
     }
@@ -74,7 +83,6 @@ public class LivroRepositorio implements IrepositorioLivro, Serializable {
         return retorno;
     }
     
-   
       
     @Override
     public List<Livro> listar(){
@@ -107,5 +115,7 @@ public class LivroRepositorio implements IrepositorioLivro, Serializable {
        this.buscar(livro).setEditora(editora);
        DAO.salvarArquivo(instance, ROTA);
     }
+
+	
     
 }

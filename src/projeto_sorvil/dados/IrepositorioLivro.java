@@ -10,6 +10,7 @@ import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Editora;
 import projeto_sorvil.model.Genero;
 import projeto_sorvil.model.Livro;
+import projeto_sorvil.model.Usuario;
 
 /**
  *
@@ -19,13 +20,15 @@ public interface IrepositorioLivro {
     
     public boolean adicionar (Livro livro);
     
-   
+    public void alterarGenero (Livro livro, Genero genero);
+    
     public Livro buscar(int indice);
     
     public Livro buscar (Livro livro);
     
     public boolean apagar (Livro livro);
     
+
     public List<Livro> listar();
      
     public List<Livro> listar(Autor autor);

@@ -40,9 +40,9 @@
          <GridPane.margin>
             <Insets bottom="20.0" />
          </GridPane.margin></Label>
-      <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#buscarLivro" text="Buscar" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#buscarLivro" text="Buscar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <GridPane.margin>
-            <Insets left="125.0" />
+            <Insets right="60.0" />
          </GridPane.margin></Button>
       <ListView fx:id="lvLivrosBuscados" prefHeight="157.0" prefWidth="300.0" GridPane.rowSpan="2147483647">
          <GridPane.margin>
@@ -57,6 +57,11 @@
       <Button fx:id="btnADDSorvil" mnemonicParsing="false" onAction="#adicionarLivroSorvil" text="Adicionar a biblioteca do sorvil" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="15.0" />
+         </GridPane.margin>
+      </Button>
+      <Button fx:id="btnVoltar" mnemonicParsing="false" onAction="#voltar" text="Voltar" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+         <GridPane.margin>
+            <Insets left="60.0" />
          </GridPane.margin>
       </Button>
    </children>

@@ -8,6 +8,7 @@ package projeto_sorvil.controller;
 import java.util.List;
 import java.util.UUID;
 import projeto_sorvil.dados.LivroRepositorio;
+import projeto_sorvil.exceptions.NaoExisteException;
 import projeto_sorvil.dados.IrepositorioLivro;
 import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Editora;
@@ -15,10 +16,6 @@ import projeto_sorvil.model.Genero;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.Usuario;
 
-/**
- *
- * @author Rayan
- */
 public class ControladorLivro {
     
     private IrepositorioLivro repositorioLivro;
@@ -69,16 +66,16 @@ public class ControladorLivro {
         return false;
     }
     
-    public void alterarGenero(Usuario usuario, Livro livro, Genero generoDel, Genero generoAdd) {
-        if(livro != null && (generoDel != null || generoAdd != null)){
-            if(usuario.isAdmin() == true && generoDel != null) {
-                if(usuario.isAdmin() == true && generoAdd != null){
-                    repositorioLivro.adicionar(livro, generoAdd);
-                }
-                repositorioLivro.apagar(livro, generoDel);
-            } repositorioLivro.adicionar(livro, generoAdd);
-        }
+    public void alterarGenero(Usuario usuario, Livro livro, Genero generoAdd)  {
+       
+            if(usuario.isAdmin() == true && generoAdd != null) {
+            	this.repositorioLivro.alterarGenero(livro, generoAdd);
+            } 
+           
+        
     }
+
+
     
     public void alterarEditora (Usuario usuario, Livro livro, Editora editora){
         if(livro != null && editora != null) {

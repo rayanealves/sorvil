@@ -10,6 +10,8 @@ import projeto_sorvil.model.Autor;
 
 public class AutorRepositorio implements IrepositorioAutor, Serializable {
 	
+	
+	private static final long serialVersionUID = -1917041256616276329L;
 	private ArrayList<Autor> autores;
 	private static AutorRepositorio instance;
         private static final String ROTA = "src/autores.dat";
@@ -67,7 +69,7 @@ public class AutorRepositorio implements IrepositorioAutor, Serializable {
         @Override
 	public List<Autor> listarPrimeiroNome(String nome) {
          return autores.stream()
-                 .filter(autor-> autor.getNome().equals(nome))
+                 .filter(autor-> autor.getNome().equalsIgnoreCase(nome))
                  .collect(Collectors.toList());
      }
 	
