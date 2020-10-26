@@ -68,9 +68,7 @@ public class ControladorLivro {
     
     public void alterarGenero(Usuario usuario, Livro livro, Genero generoAdd)  {
        
-            if(usuario.isAdmin() == true && generoAdd != null) {
-            	this.repositorioLivro.alterarGenero(livro, generoAdd);
-            } 
+            this.repositorioLivro.alterarGenero(livro, generoAdd); 
            
         
     }
