@@ -17,6 +17,7 @@ public class ControladorAutor {
 	
 	private IrepositorioAutor repositorioAutores;
 	private static ControladorAutor instance;
+	private Autor autor;
 	
 	private  String[] separarNome(String nome){
 		String[] nomeSeparado = nome.split(" ");
@@ -92,8 +93,9 @@ public class ControladorAutor {
     			.collect(Collectors.toList());
     }
     
-    public boolean delete(Autor autor, int nLivros) throws NaoExisteException {
-    	if(this.repositorioAutores.autorExiste(autor)) {
+    public boolean delete(Autor autor) throws NaoExisteException {
+    	
+		if(this.repositorioAutores.autorExiste(autor)) {
     		return this.repositorioAutores.apagar(autor);
     	}
     	else {

@@ -94,8 +94,14 @@ public class FachadaController {
 		return controladorAutor.buscarSobrenome(autoresPorNome, sobrenome);
 	}
 
-	public boolean deleteAutor(Autor autor, int nLivros) throws NaoExisteException {
-		return controladorAutor.delete(autor, nLivros);
+	public boolean deleteAutor(Autor autor) throws NaoExisteException, NaoPodeException {
+		if(this.listarPorAutor(autor).size() > 0) {
+			return controladorAutor.delete(autor);
+		}
+		else {
+			throw new NaoPodeException(autor);
+		}
+		
 	}
 
 	public boolean novoCard(Card card) {
