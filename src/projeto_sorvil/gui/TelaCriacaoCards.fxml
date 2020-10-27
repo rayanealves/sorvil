@@ -27,28 +27,31 @@
          <content>
             <TextArea prefHeight="257.0" prefWidth="230.0" />
          </content>
+         <GridPane.margin>
+            <Insets right="5.0" />
+         </GridPane.margin>
       </ScrollPane>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comentarios e Resenhas:" wrappingWidth="212.13671875" GridPane.columnIndex="2" GridPane.valignment="BOTTOM">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comentarios e Resenhas:" textAlignment="CENTER" wrappingWidth="212.13671875" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo do Card:" wrappingWidth="138.150390625" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo do Card:" textAlignment="CENTER" wrappingWidth="138.150390625" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
       <TextField fx:id="tituloCard" onAction="#criarCard" prefHeight="25.0" prefWidth="137.0" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets top="40.0" />
+            <Insets left="5.0" top="40.0" />
          </GridPane.margin>
       </TextField>
       <TextField fx:id="paginaAtual" onAction="#criarCard" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <GridPane.margin>
-            <Insets bottom="20.0" />
+            <Insets bottom="20.0" left="5.0" />
          </GridPane.margin>
       </TextField>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pagina em que esta" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Página em que esta:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>
@@ -58,14 +61,9 @@
       </Text>
       <Button fx:id="botaoCancelar" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
       <Button fx:id="botaoCriarCard" mnemonicParsing="false" onAction="#criarCard" text="Criar Novo Card" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tela de criação de " GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Criação de Card" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
          <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cards:" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="TOP">
-         <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Text>
    </children>

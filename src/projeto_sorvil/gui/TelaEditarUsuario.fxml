@@ -14,9 +14,9 @@
       <TextField fx:id="login" layoutX="166.0" layoutY="149.0" onAction="#editar" />
       <TextField fx:id="nome" layoutX="166.0" layoutY="215.0" onAction="#editar" />
       <TextField fx:id="senha" layoutX="166.0" layoutY="280.0" onAction="#editar" />
-      <Text fx:id="telaedicaousuariotxt" layoutX="139.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tela de edição de usuario">
+      <Text fx:id="telaedicaousuariotxt" layoutX="178.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Usuário">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Text>
       <Button fx:id="cancelar" layoutX="209.0" layoutY="388.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />

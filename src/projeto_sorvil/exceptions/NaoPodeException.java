@@ -12,6 +12,10 @@ package projeto_sorvil.exceptions;
 public class NaoPodeException extends Exception{
     
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7162052118898576922L;
 	private Object objeto;
 	
 	public NaoPodeException(Object obj) {

@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.ControladorUsuarios;
 import projeto_sorvil.controller.FachadaController;
@@ -20,9 +21,9 @@ import projeto_sorvil.model.Usuario;
 
 public class TelaLoginController  implements Initializable {
 	
-	ControladorUsuarios userController = new ControladorUsuarios();
+    ControladorUsuarios userController = new ControladorUsuarios();
 	
-	@FXML
+    @FXML
     private Button botaoentrar;
     @FXML
     private PasswordField senha;
@@ -39,10 +40,14 @@ public class TelaLoginController  implements Initializable {
     @FXML
     private Button sair;
     
+    @FXML
+    private ImageView imageSorvil;
+    
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		//imageSorvil.applyCss();
+		//imageSorvil.setImage(null);
 			
 	}
 	
