@@ -174,8 +174,8 @@ public class FachadaController {
 		controladorLivro.alterarEditora(usuario, livro, editora);
 	}
 
-	public Livro buscarLivro(String nome) {
-		return controladorLivro.buscarLivro(nome);
+	public static Livro buscarLivro(String nome) {
+		return ControladorLivro.getInstance().buscarLivro(nome);
 	}
 
 	public List<Livro> listarPorEditora(Editora editora) {
@@ -210,8 +210,8 @@ public class FachadaController {
 		return ControladorUsuarios.getInstancia().editarSenha(user, senha);
 	}
 
-	public Usuario buscarUsuario(String login) {
-		return controladorUsuario.buscar(login);
+	public static Usuario buscarUsuario(String login) {
+		return ControladorUsuarios.getInstancia().buscar(login);
 	}
 
 	public boolean adicionarLivroUsuario(Usuario user, MeuLivro userLivro) {

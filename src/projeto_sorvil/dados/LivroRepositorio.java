@@ -5,11 +5,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Editora;
 import projeto_sorvil.model.Genero;
 import projeto_sorvil.model.Livro;
-import projeto_sorvil.model.Usuario;
 
 
 public class LivroRepositorio implements IrepositorioLivro, Serializable {

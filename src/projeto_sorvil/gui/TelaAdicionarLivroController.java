@@ -103,7 +103,7 @@ public class TelaAdicionarLivroController {
         System.out.println(anoPublica);
         System.out.println(numeroPag);
         
-        
+        MainTestes.escolherTela(9);
     			
     			
     }
@@ -111,7 +111,7 @@ public class TelaAdicionarLivroController {
     @FXML
     void voltar(ActionEvent event) {
         this.limparCampos();
-    	MainTestes.escolherTela(3);
+    	MainTestes.escolherTela(9);
     }
     
     public void limparCampos(){

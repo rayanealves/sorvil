@@ -59,7 +59,7 @@ public class TelaBibliotecaPessoalController {
     		TelaBibliotecaPessoalController.usuarioLogado = FachadaController.getUsuarioLogado();
 	
     	}
-    if( obsList == null){
+    if( obsList == null & usuarioLogado.getEstante() != null){
     		obsList = FXCollections.observableArrayList(FachadaController.listarLivrosUsuario(usuarioLogado));					
 
     		lvListaPessoalLivros.setItems(obsList);
@@ -91,16 +91,20 @@ public class TelaBibliotecaPessoalController {
 
     @FXML
     void DeletarLivroPessoal(ActionEvent event) {
-
+    	
+    	obsList = null;
+    	
     }
 
     @FXML
     void telaAdicionarLivro(ActionEvent event) {
+    	obsList = null;
     	MainTestes.escolherTela(9);
     }
 
     @FXML
     void telaEditarUsuario(ActionEvent event) {
+    	obsList = null;
     	MainTestes.escolherTela(5);
     }
     

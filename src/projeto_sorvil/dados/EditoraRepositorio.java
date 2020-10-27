@@ -8,8 +8,8 @@ package projeto_sorvil.dados;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import projeto_sorvil.model.Editora;
-import projeto_sorvil.model.Usuario;
 
 
 /**

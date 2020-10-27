@@ -46,7 +46,8 @@ public class TelaLoginController  implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		//imageSorvil.applyCss();
+		//imageSorvil.setImage(null);
 			
 	}
 	

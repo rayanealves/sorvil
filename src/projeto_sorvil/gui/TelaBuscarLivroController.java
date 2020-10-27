@@ -21,6 +21,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.model.Livro;
+import projeto_sorvil.model.MeuLivro;
+import projeto_sorvil.model.Status;
 import projeto_sorvil.model.Usuario;
 
 
@@ -53,7 +55,9 @@ public class TelaBuscarLivroController implements Initializable {
     
     private static Usuario usuarioLogado = null;
 
-    private ObservableList<Livro> obsList = null;
+    private ObservableList<Livro> obsList =  FXCollections.observableArrayList();
+    
+    private static Livro livroBuscado = null;
     
 
     
@@ -67,25 +71,33 @@ public class TelaBuscarLivroController implements Initializable {
     	if(TelaBuscarLivroController.usuarioLogado == null) {
     		TelaBuscarLivroController.usuarioLogado = FachadaController.getUsuarioLogado();
     	}
-	if( this.obsList == null){
-    		this.obsList = FXCollections.observableArrayList();					
 
-    		lvLivrosBuscados.setItems(obsList);
-    	}
     	
     }
     
  
     @FXML
     void buscarLivro(ActionEvent event) {
-    	
+    	livroBuscado = FachadaController.buscarLivro(livro.getText());
+    	obsList.add(livroBuscado); 
+    	lvLivrosBuscados.setItems(obsList);
     	
     }
     
     
     @FXML
     void AdicionarLivroPessoal(ActionEvent event) {
-
+    	System.out.println(lvLivrosBuscados.getSelectionModel().getSelectedItem().getNome());
+    	livroBuscado = lvLivrosBuscados.getSelectionModel().getSelectedItem();
+    	Status status = null;
+    	MeuLivro livroUser = new MeuLivro(livroBuscado, status , 0);
+    	FachadaController.buscarUsuario(FachadaController.getUsuarioLogado().getLogin()).adicionarLivro(livroUser);
+    	
+    	livroBuscado = null;
+    	obsList.clear();
+    	lvLivrosBuscados = null;
+    	livro.clear();
+    	MainTestes.escolherTela(3);
     }
 
     @FXML
@@ -96,6 +108,9 @@ public class TelaBuscarLivroController implements Initializable {
     
     @FXML
     void voltar(ActionEvent event) {
+    	livroBuscado = null;
+    	obsList.clear();
+    	lvLivrosBuscados = null;
     	livro.clear();
     	MainTestes.escolherTela(3);
     }
