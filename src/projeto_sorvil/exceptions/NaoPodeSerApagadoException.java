@@ -3,7 +3,10 @@ package projeto_sorvil.exceptions;
 public class NaoPodeSerApagadoException extends Exception {
 
 
-	private static final long serialVersionUID = 5414038924740559497L;
+
+	private static final long serialVersionUID = 3337620851656674074L;
+
+	
 	
 	private Object objeto;
 	

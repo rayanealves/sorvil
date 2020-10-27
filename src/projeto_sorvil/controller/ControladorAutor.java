@@ -17,7 +17,7 @@ public class ControladorAutor {
 	
 	private IrepositorioAutor repositorioAutores;
 	private static ControladorAutor instance;
-	private Autor autor;
+	
 	
 	private  String[] separarNome(String nome){
 		String[] nomeSeparado = nome.split(" ");
