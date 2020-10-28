@@ -14,14 +14,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-import projeto_sorvil.controller.ControladorUsuarios;
 import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.model.Usuario;
 
 
 public class TelaLoginController  implements Initializable {
-	
-    ControladorUsuarios userController = new ControladorUsuarios();
+
 	
     @FXML
     private Button botaoentrar;
@@ -55,7 +53,7 @@ public class TelaLoginController  implements Initializable {
 
 	@FXML
 	void fazerLogin(ActionEvent event) throws IOException, Exception {
-		Usuario user = userController.buscar(login.getText());
+		Usuario user = FachadaController.buscarUsuario(login.getText());
 		if(user != null) {
 			if(user.getSenha().equals(senha.getText())) {
 				FachadaController.setUsuarioLogado(user);

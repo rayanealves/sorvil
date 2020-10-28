@@ -13,12 +13,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
-import projeto_sorvil.controller.ControladorUsuarios;
-<<<<<<< HEAD
-import projeto_sorvil.exceptions.JaExisteException;
-=======
 import projeto_sorvil.controller.FachadaController;
->>>>>>> d67718a85693628502ec7c1fd34f369e64c7155e
+import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.model.Usuario;
 
 public class TelaCadastroController {
@@ -74,15 +70,18 @@ public class TelaCadastroController {
     	}
     	diaCadastro = LocalDate.now();
     	Usuario user = new Usuario(nome.getText(), null, login.getText(), senha.getText(), tipo, diaCadastro );
-<<<<<<< HEAD
+//<<<<<<< HEAD
         try {
-            System.out.println(controladorUsers.adicionar(user));
+        	FachadaController.adicionarUsuario(user);
         } catch (JaExisteException ex) {
             Logger.getLogger(TelaCadastroController.class.getName()).log(Level.SEVERE, null, ex);
         }
+/*
 =======
     	System.out.println(FachadaController.adicionarUsuario(user));
 >>>>>>> d67718a85693628502ec7c1fd34f369e64c7155e
+
+ */
     	senha.clear();
 		login.clear();
 		nome.clear();

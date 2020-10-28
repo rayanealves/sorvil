@@ -104,7 +104,7 @@ public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
 		return usuarios.subList(0, usuarios.size());
 	}
 	
-        @Override
+
 	public ArrayList<MeuLivro> listarLivros(Usuario user) {
 		int index = usuarios.indexOf(user);
 		return usuarios.get(index).getEstante();

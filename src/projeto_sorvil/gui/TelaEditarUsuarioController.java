@@ -7,6 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
+import projeto_sorvil.exceptions.JaExisteException;
+import projeto_sorvil.exceptions.NaoPodeException;
 import projeto_sorvil.model.Usuario;
 
 public class TelaEditarUsuarioController {
@@ -57,7 +59,7 @@ public class TelaEditarUsuarioController {
     }
 
     @FXML
-    void editar(ActionEvent event) {
+    void editar(ActionEvent event) throws NaoPodeException, JaExisteException {
     	if(nome.getText() != null & nome.getText() != "") {
     		FachadaController.editarNomeUsuario(TelaEditarUsuarioController.usuarioLogado, nome.getText());  					
     	}
