@@ -1,5 +1,6 @@
 package projeto_sorvil.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import projeto_sorvil.exceptions.JaExisteException;
@@ -25,7 +26,8 @@ public class FachadaController {
     private ControladorCards controladorCards;
     private ControladorEditora controladorEditora;
     private ControladorLivro controladorLivro;
-    private ControladorUsuarios controladorUsuario;
+    @SuppressWarnings("unused")
+	private ControladorUsuarios controladorUsuario;
     private static FachadaController instance;
     
     private FachadaController(){
@@ -196,12 +198,21 @@ public class FachadaController {
 		return controladorLivro.listarPorGenero(genero);
 	}
 
+<<<<<<< HEAD
 	public boolean adicionarUsuario(Usuario user) throws JaExisteException {
 		return controladorUsuario.adicionar(user);
 	}
 
 	public boolean removerUsuario(Usuario user) throws NaoPodeException {
 		return controladorUsuario.remover(user);
+=======
+	public static boolean adicionarUsuario(Usuario user) {
+		return ControladorUsuarios.getInstancia().adicionar(user);
+	}
+
+	public static boolean removerUsuario(Usuario user) {
+		return ControladorUsuarios.getInstancia().remover(user);
+>>>>>>> d67718a85693628502ec7c1fd34f369e64c7155e
 	}
 
 	public static boolean editarNomeUsuario(Usuario user, String nome) throws NaoPodeException {
@@ -220,23 +231,23 @@ public class FachadaController {
 		return ControladorUsuarios.getInstancia().buscar(login);
 	}
 
-	public boolean adicionarLivroUsuario(Usuario user, MeuLivro userLivro) {
-		return controladorUsuario.adicionarLivro(user, userLivro);
+	public static boolean adicionarLivroUsuario(Usuario user, MeuLivro userLivro) {
+		return ControladorUsuarios.getInstancia().adicionarLivroUsuario(user, userLivro);
 	}
 
-	public boolean removerLivroUsuario(Usuario user, MeuLivro userLivro) {
-		return controladorUsuario.removerLivro(user, userLivro);
+	public static boolean removerLivroUsuario(Usuario user, MeuLivro userLivro) {
+		return ControladorUsuarios.getInstancia().removerLivroUsuario(user, userLivro);
 	}
 
 	public MeuLivro buscarLivroUsuario(Usuario user, String nome) {
-		return controladorUsuario.buscarLivroUsuario(user, nome);
+		return ControladorUsuarios.getInstancia().buscarLivroUsuario(user, nome);
 	}
 
 	public List<Usuario> listarUsuario() {
-		return controladorUsuario.listar();
+		return ControladorUsuarios.getInstancia().listar();
 	}
 
-	public static List<MeuLivro> listarLivrosUsuario(Usuario user) {
+	public static ArrayList<MeuLivro> listarLivrosUsuario(Usuario user) {
 		return ControladorUsuarios.getInstancia().listarLivrosUsuario(user);
 	}
     

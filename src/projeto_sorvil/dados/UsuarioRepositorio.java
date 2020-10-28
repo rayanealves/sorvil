@@ -58,20 +58,20 @@ public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
 	
         @Override
 	public void editarNome(Usuario user, String nome) {
-		
 		 user.setNome(nome);
+		 DAO.salvarArquivo(instancia, ROTA);
 	}
 	
         @Override
 	public void editarLogin(Usuario user, String login) {
-		
 		 user.setLogin(login);
+		 DAO.salvarArquivo(instancia, ROTA);
 	}
 	
         @Override
 	public void editarSenha(Usuario user, String senha) {
-		
 		 user.setSenha(senha);
+		 DAO.salvarArquivo(instancia, ROTA);
 	}
 	
         @Override
@@ -105,8 +105,9 @@ public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
 	}
 	
         @Override
-	public List<MeuLivro> listarLivros(Usuario user) {
-		return user.getEstante().subList(0 , user.getEstante().size() );
+	public ArrayList<MeuLivro> listarLivros(Usuario user) {
+		int index = usuarios.indexOf(user);
+		return usuarios.get(index).getEstante();
 	}
 	
 	
@@ -121,10 +122,28 @@ public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
         return false;
     }
 	
+    	public boolean adicionarLivro(Usuario user, MeuLivro livroUser) {
+    		int index = usuarios.indexOf(user);
+    		user.adicionarLivro(livroUser);
+    		if(index > -1){
+                usuarios.add(index, user);
+                return true;
+            }
+    		
+    		return false;	
+    	}
 	
 	
-	
-	
+    	public boolean removerLivro(Usuario user, MeuLivro livroUser) {
+    		int index = usuarios.indexOf(user);
+    		user.removerLivro(livroUser);
+    		if(index > -1){
+                usuarios.add(index, user);
+                return true;
+            }
+    		
+    		return false;	
+    	}
 	
 	
 	

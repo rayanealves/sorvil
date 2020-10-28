@@ -1,5 +1,6 @@
 package projeto_sorvil.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -129,14 +130,21 @@ public class ControladorUsuarios {
 	
 
 	
-	public boolean adicionarLivro(Usuario user, MeuLivro userLivro){
+	public boolean adicionarLivroUsuario(Usuario user, MeuLivro userLivro){
 		
 		if(userLivro != null) {
-    		if (user.buscarLivro(userLivro.getLivro().getNome()) == userLivro) {
-    			return false;
-    		}
-    		user.adicionarLivro(userLivro);
-    		return true;
+			Usuario buscado  = repositorioUsuarios.buscar(user.getLogin());
+			MeuLivro buscado2 = buscado.buscarLivro(userLivro.getLivro().getNome());
+			if (buscado2 == null || buscado2.getLivro() == null ) {
+	    		repositorioUsuarios.adicionarLivro(user, userLivro);
+	    		return true;
+			}
+			else if (userLivro.getLivro().equals(buscado2.getLivro())){
+				return false;
+			}
+			else {
+				return false;
+			}
     	}
     	else {
             return false;
@@ -145,11 +153,13 @@ public class ControladorUsuarios {
 	}
 	
 	
-	public boolean removerLivro(Usuario user, MeuLivro userLivro){
+	public boolean removerLivroUsuario(Usuario user, MeuLivro userLivro){
 		
 		if(userLivro != null) {
-    		if (user.buscarLivro(userLivro.getLivro().getNome()) == userLivro) {
-    			user.removerLivro(userLivro);
+			Usuario buscado  = repositorioUsuarios.buscar(user.getLogin());
+			MeuLivro buscado2 = buscado.buscarLivro(userLivro.getLivro().getNome());
+    		if (userLivro.getLivro().equals(buscado2.getLivro())) {
+    			repositorioUsuarios.removerLivro(user, userLivro);
         		return true;
     		}
     		return false;
@@ -172,7 +182,7 @@ public class ControladorUsuarios {
         return repositorioUsuarios.listar();
     }
     
-    public List<MeuLivro> listarLivrosUsuario(Usuario user) {
+    public ArrayList<MeuLivro> listarLivrosUsuario(Usuario user) {
     	
     	if(user != null) {
     		if(repositorioUsuarios.getUsuarios().contains(user)){

@@ -2,7 +2,7 @@
 package projeto_sorvil.model;
 
 public enum Status {
-    LIDO("Lido"), LENDO("Lendo"), QUERO_LER("Quero ler"), ABANDONADO("Abandonei");
+    LIDO("Lido"), LENDO("Lendo"), QUERO_LER("Quero ler"), ABANDONADO("Abandonei"), EM_BRANCO("EM_BRANCO");
     
  
     Status(String nome){
