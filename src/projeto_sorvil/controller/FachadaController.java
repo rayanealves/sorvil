@@ -199,7 +199,7 @@ public class FachadaController {
 	}
 
 <<<<<<< HEAD
-	public boolean adicionarUsuario(Usuario user) throws JaExisteException {
+	public boolean adicionarUsuario(Usuario user) throws JaExisteException, JaExisteException {
 		return controladorUsuario.adicionar(user);
 	}
 
@@ -231,15 +231,15 @@ public class FachadaController {
 		return ControladorUsuarios.getInstancia().buscar(login);
 	}
 
-	public static boolean adicionarLivroUsuario(Usuario user, MeuLivro userLivro) {
+	public static boolean adicionarLivroUsuario(Usuario user, MeuLivro userLivro) throws JaExisteException {
 		return ControladorUsuarios.getInstancia().adicionarLivroUsuario(user, userLivro);
 	}
 
-	public static boolean removerLivroUsuario(Usuario user, MeuLivro userLivro) {
+	public static boolean removerLivroUsuario(Usuario user, MeuLivro userLivro) throws NaoExisteException {
 		return ControladorUsuarios.getInstancia().removerLivroUsuario(user, userLivro);
 	}
 
-	public MeuLivro buscarLivroUsuario(Usuario user, String nome) {
+	public MeuLivro buscarLivroUsuario(Usuario user, String nome) throws NaoExisteException {
 		return ControladorUsuarios.getInstancia().buscarLivroUsuario(user, nome);
 	}
 

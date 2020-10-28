@@ -7,6 +7,7 @@ import java.util.UUID;
 import projeto_sorvil.dados.IrepositorioUsuario;
 import projeto_sorvil.dados.UsuarioRepositorio;
 import projeto_sorvil.exceptions.JaExisteException;
+import projeto_sorvil.exceptions.NaoExisteException;
 import projeto_sorvil.exceptions.NaoPodeException;
 import projeto_sorvil.model.MeuLivro;
 import projeto_sorvil.model.Usuario;
@@ -116,21 +117,21 @@ public class ControladorUsuarios {
 	}
 	
 	
-	public Usuario buscar(String login) throws Exception {
+	public Usuario buscar(String login) throws NaoExisteException  {
             Usuario encontrado = null;
 		if(!login.equals(null)  & !login.equals("") ) {
 			encontrado = repositorioUsuarios.buscar(login);
                         if(encontrado != null){
                             return encontrado;
                         }
-                        else throw NaoPodeException(login);
+                        else throw new NaoExisteException(login);
 		}
 		return null;
 	}
 	
 
 	
-	public boolean adicionarLivroUsuario(Usuario user, MeuLivro userLivro){
+	public boolean adicionarLivroUsuario(Usuario user, MeuLivro userLivro) throws JaExisteException{
 		
 		if(userLivro != null) {
 			Usuario buscado  = repositorioUsuarios.buscar(user.getLogin());
@@ -140,7 +141,7 @@ public class ControladorUsuarios {
 	    		return true;
 			}
 			else if (userLivro.getLivro().equals(buscado2.getLivro())){
-				return false;
+				throw new JaExisteException(userLivro);
 			}
 			else {
 				return false;
@@ -153,7 +154,7 @@ public class ControladorUsuarios {
 	}
 	
 	
-	public boolean removerLivroUsuario(Usuario user, MeuLivro userLivro){
+	public boolean removerLivroUsuario(Usuario user, MeuLivro userLivro) throws NaoExisteException{
 		
 		if(userLivro != null) {
 			Usuario buscado  = repositorioUsuarios.buscar(user.getLogin());
@@ -162,7 +163,9 @@ public class ControladorUsuarios {
     			repositorioUsuarios.removerLivro(user, userLivro);
         		return true;
     		}
-    		return false;
+                else{
+                    throw new NaoExisteException(userLivro);
+                }
     	}
     	else {
             return false;
@@ -170,9 +173,15 @@ public class ControladorUsuarios {
 
 	}
 	
-	public MeuLivro buscarLivroUsuario(Usuario user,String nome) {
+	public MeuLivro buscarLivroUsuario(Usuario user,String nome) throws NaoExisteException {
 		if(!nome.equals(null)  & !nome.equals("") & user != null) {
-			return user.buscarLivro(nome);
+                    MeuLivro livro = user.buscarLivro(nome);
+                    if(livro != null){
+                        return livro;
+                    }
+                    else{
+                        throw new NaoExisteException(nome);
+                    }
 		}
 		return null;
 	}
@@ -206,9 +215,7 @@ public class ControladorUsuarios {
  
     }
 
-    private Exception NaoPodeException(String login) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
 	
 	
