@@ -1,6 +1,8 @@
 package projeto_sorvil.gui;
 
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.ControladorUsuarios;
+import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.model.Usuario;
 
 public class TelaCadastroController {
@@ -68,7 +71,11 @@ public class TelaCadastroController {
     	}
     	diaCadastro = LocalDate.now();
     	Usuario user = new Usuario(nome.getText(), null, login.getText(), senha.getText(), tipo, diaCadastro );
-    	System.out.println(controladorUsers.adicionar(user));
+        try {
+            System.out.println(controladorUsers.adicionar(user));
+        } catch (JaExisteException ex) {
+            Logger.getLogger(TelaCadastroController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     	senha.clear();
 		login.clear();
 		nome.clear();

@@ -82,11 +82,11 @@ public class FachadaController {
 		return controladorAutor.novoAutor(autor);
 	}
 
-	public Autor bucarAutorPorNome(String nome) {
+	public Autor bucarAutorPorNome(String nome) throws NaoExisteException {
 		return controladorAutor.bucarPorNome(nome);
 	}
 
-	public List<Autor> buscarAutorPrimeiroNome(String nome) {
+	public List<Autor> buscarAutorPrimeiroNome(String nome) throws NaoExisteException {
 		return controladorAutor.buscarPrimeiroNome(nome);
 	}
 
@@ -104,7 +104,7 @@ public class FachadaController {
 		
 	}
 
-	public boolean novoCard(Card card) {
+	public boolean novoCard(Card card) throws JaExisteException {
 		return controladorCards.novoCard(card);
 	}
 
@@ -128,15 +128,15 @@ public class FachadaController {
 		return controladorCards.listarCardsLivroUsuario(usuario, livro);
 	}
 
-	public boolean deleteCard(Usuario usuario, Card card) {
+	public boolean deleteCard(Usuario usuario, Card card) throws NaoPodeException {
 		return controladorCards.deleteCard(usuario, card);
 	}
 
-	public Card buscarCardPorTitulo(String titulo) {
+	public Card buscarCardPorTitulo(String titulo) throws NaoExisteException {
 		return controladorCards.buscarPorTitulo(titulo);
 	}
 
-	public Card buscarCard(Card card) {
+	public Card buscarCard(Card card) throws NaoExisteException {
 		return controladorCards.buscar(card);
 	}
 
@@ -144,31 +144,31 @@ public class FachadaController {
 		return controladorCards.editar(card, usuario, texto);
 	}
 
-	public void tornarCardPublico(Card card) {
+	public void tornarCardPublico(Card card) throws NaoExisteException {
 		controladorCards.tornarPublico(card);
 	}
 
-	public void tornarCardPrivado(Card card) {
+	public void tornarCardPrivado(Card card) throws NaoExisteException {
 		controladorCards.tornarPrivado(card);
 	}
 
-	public boolean novaEditora(Editora editora) {
+	public boolean novaEditora(Editora editora) throws JaExisteException {
 		return controladorEditora.novaEditora(editora);
 	}
 
-	public boolean deleteEditora(Usuario usuario, Editora editora) {
+	public boolean deleteEditora(Usuario usuario, Editora editora) throws NaoPodeException {
 		return controladorEditora.deleteEditora(usuario, editora);
 	}
 
-	public Editora buscarEditora(String nome) {
+	public Editora buscarEditora(String nome) throws NaoExisteException {
 		return controladorEditora.buscarEditora(nome);
 	}
 
-	public boolean novoLivro(Livro livro) {
+	public boolean novoLivro(Livro livro) throws JaExisteException {
 		return controladorLivro.novoLivro(livro);
 	}
 
-	public boolean deleteLivro(Usuario usuario, Livro livro) {
+	public boolean deleteLivro(Usuario usuario, Livro livro) throws NaoPodeException {
 		return controladorLivro.deleteLivro(usuario, livro);
 	}
 
@@ -176,11 +176,11 @@ public class FachadaController {
 		controladorLivro.alterarGenero(usuario, livro, generoAdd);
 	}
 
-	public void alterarEditora(Usuario usuario, Livro livro, Editora editora) {
+	public void alterarEditora(Usuario usuario, Livro livro, Editora editora) throws NaoPodeException {
 		controladorLivro.alterarEditora(usuario, livro, editora);
 	}
 
-	public static Livro buscarLivro(String nome) {
+	public static Livro buscarLivro(String nome) throws NaoPodeException {
 		return ControladorLivro.getInstance().buscarLivro(nome);
 	}
 
@@ -196,27 +196,27 @@ public class FachadaController {
 		return controladorLivro.listarPorGenero(genero);
 	}
 
-	public boolean adicionarUsuario(Usuario user) {
+	public boolean adicionarUsuario(Usuario user) throws JaExisteException {
 		return controladorUsuario.adicionar(user);
 	}
 
-	public boolean removerUsuario(Usuario user) {
+	public boolean removerUsuario(Usuario user) throws NaoPodeException {
 		return controladorUsuario.remover(user);
 	}
 
-	public static boolean editarNomeUsuario(Usuario user, String nome) {
+	public static boolean editarNomeUsuario(Usuario user, String nome) throws NaoPodeException {
 		return ControladorUsuarios.getInstancia().editarNome(user, nome);
 	}
 
-	public static boolean editarLoginUsuario(Usuario user, String login) {
+	public static boolean editarLoginUsuario(Usuario user, String login) throws NaoPodeException, JaExisteException {
 		return ControladorUsuarios.getInstancia().editarLogin(user, login);
 	}
 
-	public static boolean editarSenhaUsuario(Usuario user, String senha) {
+	public static boolean editarSenhaUsuario(Usuario user, String senha) throws NaoPodeException {
 		return ControladorUsuarios.getInstancia().editarSenha(user, senha);
 	}
 
-	public static Usuario buscarUsuario(String login) {
+	public static Usuario buscarUsuario(String login) throws Exception {
 		return ControladorUsuarios.getInstancia().buscar(login);
 	}
 

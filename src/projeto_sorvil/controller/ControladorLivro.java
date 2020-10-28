@@ -10,6 +10,7 @@ import java.util.UUID;
 
 import projeto_sorvil.dados.IrepositorioLivro;
 import projeto_sorvil.dados.LivroRepositorio;
+import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.exceptions.NaoPodeException;
 import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Editora;
@@ -47,22 +48,28 @@ public class ControladorLivro {
         }
     }
     
-    public boolean novoLivro(Livro livro){
+    public boolean novoLivro(Livro livro) throws JaExisteException{
         if(livro != null){
             livro.setId(this.novoID());
             if(!this.repositorioLivro.listar().contains(livro)){
                return this.repositorioLivro.adicionar(livro); 
+            }
+            else{
+                throw new JaExisteException(livro);
             }
         }
         
         return false;
     }
     
-    public boolean deleteLivro(Usuario usuario, Livro livro){
+    public boolean deleteLivro(Usuario usuario, Livro livro) throws NaoPodeException{
         if(livro != null ){
             if (!this.repositorioLivro.listar().contains(livro) && usuario.isAdmin() == true){
                 return this.repositorioLivro.apagar(livro);
-            }    
+            }
+            else{
+                throw new NaoPodeException(usuario);
+            }
         }
         return false;
     }
@@ -80,15 +87,18 @@ public class ControladorLivro {
 
 
     
-    public void alterarEditora (Usuario usuario, Livro livro, Editora editora){
+    public void alterarEditora (Usuario usuario, Livro livro, Editora editora) throws NaoPodeException{
         if(livro != null && editora != null) {
             if(usuario.isAdmin() == true){
                 repositorioLivro.alterarEditora(livro, editora);
             }
+            else{
+                throw new NaoPodeException(usuario);
+            }
         }
     }
     
-    public Livro buscarLivro(String nome){
+    public Livro buscarLivro(String nome) throws NaoPodeException{
         Livro livro = null;
         if (nome != null){
             for(Livro lvr : this.repositorioLivro.listar()){
@@ -97,7 +107,13 @@ public class ControladorLivro {
                 }
             }
         }
-        return livro;
+        if(livro != null){
+            return livro;
+        }
+        else{
+            throw new NaoPodeException(nome);
+        }
+        
     }
     
     public List<Livro> listarPorEditora (Editora editora) {

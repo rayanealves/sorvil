@@ -6,6 +6,9 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 import projeto_sorvil.dados.CardRepositorio;
 import projeto_sorvil.dados.IrepositorioCards;
+import projeto_sorvil.exceptions.JaExisteException;
+import projeto_sorvil.exceptions.NaoExisteException;
+import projeto_sorvil.exceptions.NaoPodeException;
 import projeto_sorvil.model.Card;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.Usuario;
@@ -41,11 +44,14 @@ public class ControladorCards {
         }
     }
     
-    public boolean novoCard(Card card){
+    public boolean novoCard(Card card) throws JaExisteException{
         if (card != null){
             card.setId(this.novoID());
             if(!this.repositorioCards.listar().contains(card)){
                 return this.repositorioCards.adicionar(card);
+            }
+            else{
+                throw new JaExisteException(card);
             }
         }
         return false;
@@ -80,31 +86,47 @@ public class ControladorCards {
                 .collect(Collectors.toList());
     }
     
-    public boolean deleteCard(Usuario usuario, Card card){
+    public boolean deleteCard(Usuario usuario, Card card) throws NaoPodeException{
         if(card != null ){
             if (usuario.equals(card.getUsuario()) || usuario.isAdmin() == true){
                 return this.repositorioCards.apagar(card);
-            }    
+            }
+            else{
+                throw new NaoPodeException(card);
+            }
         }
         return false;
     }
     
     
-    public Card buscarPorTitulo(String titulo){
+    public Card buscarPorTitulo(String titulo) throws NaoExisteException{
         Card card = null;
         if (titulo != null){
             for(Card crd : this.repositorioCards.listar()){
-                if(crd.getTitulo().equals(titulo)){
+                if(crd.getTitulo().equalsIgnoreCase(titulo)){
                     card = crd;
                 }
+            }
+            if (card != null){
+                return card;
+            }
+            else{
+                throw new NaoExisteException(card);
             }
         }
         return card;
     }
     
-    public Card buscar(Card card) {
-    	if(card != null) {
-    		return this.repositorioCards.buscar(card);
+    public Card buscar(Card card) throws NaoExisteException {
+    	Card encontrado;
+        if(card != null) {
+    		encontrado = this.repositorioCards.buscar(card);
+                if(encontrado != null){
+                    return encontrado;
+                }
+                else{
+                    throw new NaoExisteException(card);
+                }
     	}
     	return null;
     }
@@ -117,11 +139,11 @@ public class ControladorCards {
     	return false;
     }
     
-    public void tornarPublico(Card card) {
+    public void tornarPublico(Card card) throws NaoExisteException {
     	this.buscar(card).setPublico(true);
     }
     
-    public void tornarPrivado(Card card) {
+    public void tornarPrivado(Card card) throws NaoExisteException {
     	this.buscar(card).setPublico(false);
     }
     

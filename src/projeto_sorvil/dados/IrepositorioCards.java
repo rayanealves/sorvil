@@ -25,6 +25,8 @@ public interface IrepositorioCards{
     public boolean idExiste(String id);
     
     public void editar(Card card, String texto);
+    
+    public boolean cardExist(Card card);
   
         
         

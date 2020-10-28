@@ -71,7 +71,7 @@ public class ControladorAutor {
         return false;
     }
     
-    public Autor bucarPorNome(String nome) {
+    public Autor bucarPorNome(String nome) throws NaoExisteException {
     	String[] nomeCompleto = this.separarNome(nome);
     	ArrayList<Autor> autoresPorNome = (ArrayList<Autor>) this.buscarPrimeiroNome(nomeCompleto[0]);
     	if(autoresPorNome.size() < 2 && this.juntarSobrenome(nomeCompleto) == "") {
@@ -82,8 +82,14 @@ public class ControladorAutor {
     	
     }
     
-    public List<Autor> buscarPrimeiroNome(String nome){
-        return this.repositorioAutores.listarPrimeiroNome(nome);
+    public List<Autor> buscarPrimeiroNome(String nome) throws NaoExisteException{
+        List<Autor> resultado = this.repositorioAutores.listarPrimeiroNome(nome);
+        if(resultado.size() > 0){
+            return resultado;
+        }
+        else{
+            throw new NaoExisteException(nome);
+        }
     }
     
     public Autor buscarSobrenome(List<Autor> autoresPorNome, String sobrenome){

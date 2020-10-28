@@ -97,6 +97,14 @@ public class CardRepositorio implements IrepositorioCards, Serializable{
 			this.buscar(card).setTexto(texto);
                         DAO.salvarArquivo(instance, texto);
 		}
+
+    @Override
+    public boolean cardExist(Card card) {
+        if (this.buscar(card) != null){
+            return true;
+        }
+        return false;
+    }
 		
 		
 

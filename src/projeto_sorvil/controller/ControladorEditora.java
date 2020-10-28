@@ -10,6 +10,9 @@ import projeto_sorvil.dados.EditoraRepositorio;
 import projeto_sorvil.dados.IrepositorioEditora;
 import projeto_sorvil.model.Editora;
 import projeto_sorvil.model.Usuario;
+import projeto_sorvil.exceptions.JaExisteException;
+import projeto_sorvil.exceptions.NaoExisteException;
+import projeto_sorvil.exceptions.NaoPodeException;
 
 /**
  *
@@ -45,33 +48,45 @@ public class ControladorEditora {
         }
     }
     
-   public boolean novaEditora(Editora editora){
+   public boolean novaEditora(Editora editora) throws JaExisteException{
         if(editora != null){
             editora.setId(this.novoID());
             if(!this.respositorioEditora.listar().contains(editora)){
                return this.respositorioEditora.adicionar(editora); 
+            }
+            else{
+                throw new JaExisteException(editora);
             }
         }
         
         return false;
     }
     
-    public boolean deleteEditora(Usuario usuario, Editora editora){
+    public boolean deleteEditora(Usuario usuario, Editora editora) throws NaoPodeException{
         if(editora != null ){
             if (!this.respositorioEditora.listar().contains(editora) && usuario.isAdmin() == true){
                 return this.respositorioEditora.apagar(editora);
-            }    
+            }
+            else{
+                throw new NaoPodeException(usuario);
+            }
         }
         return false;
     }
     
-    public Editora buscarEditora(String nome){
+    public Editora buscarEditora(String nome) throws NaoExisteException{
         Editora editora = null;
         if (nome != null){
             for(Editora edt : this.respositorioEditora.listar()){
                 if(edt.getNome().equals(nome)){
                     editora = edt;
                 }
+            }
+            if( editora != null){
+                return editora;
+            }
+            else{
+                throw new NaoExisteException(nome);
             }
         }
         return editora;

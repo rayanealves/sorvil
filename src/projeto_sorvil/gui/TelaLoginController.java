@@ -54,7 +54,7 @@ public class TelaLoginController  implements Initializable {
 	
 
 	@FXML
-	void fazerLogin(ActionEvent event) throws IOException {
+	void fazerLogin(ActionEvent event) throws IOException, Exception {
 		Usuario user = userController.buscar(login.getText());
 		if(user != null) {
 			if(user.getSenha().equals(senha.getText())) {

@@ -5,6 +5,8 @@ import java.util.UUID;
 
 import projeto_sorvil.dados.IrepositorioUsuario;
 import projeto_sorvil.dados.UsuarioRepositorio;
+import projeto_sorvil.exceptions.JaExisteException;
+import projeto_sorvil.exceptions.NaoPodeException;
 import projeto_sorvil.model.MeuLivro;
 import projeto_sorvil.model.Usuario;
 
@@ -25,11 +27,11 @@ public class ControladorUsuarios {
         return instancia;
     }	
 	
-    public boolean adicionar(Usuario user) {
+    public boolean adicionar(Usuario user) throws JaExisteException {
     	if(user != null) {
     		user.setId(this.novoID());
     		if (user.equals(repositorioUsuarios.buscar(user.getLogin()))) {
-    			return false;
+    			throw new JaExisteException(user);
     		}
     		 
     	}
@@ -40,13 +42,13 @@ public class ControladorUsuarios {
     	
     }
     
-    public boolean remover(Usuario user) {
+    public boolean remover(Usuario user) throws NaoPodeException {
     	if(user != null) {
     		if (repositorioUsuarios.buscar(user.getLogin()) == user) {
     			return repositorioUsuarios.remover(user);
     		}
     		else {
-    			return false;
+    			throw new NaoPodeException(user);
     		}
     		 
     	}
@@ -56,15 +58,15 @@ public class ControladorUsuarios {
     }
     
     
-    public boolean  editarNome(Usuario user, String nome) {
+    public boolean  editarNome(Usuario user, String nome) throws NaoPodeException {
     	
     	if(user != null & nome != null & !nome.equals("")) {
-    		if (repositorioUsuarios.buscar(user.getLogin()) == user & repositorioUsuarios.buscarPeloNome(nome) == null) {
+    		if (repositorioUsuarios.buscar(user.getLogin()) == user) {
     			repositorioUsuarios.editarNome(user, nome);
     			return true;
     		}
     		else {
-    			return false;
+    			throw new NaoPodeException(user);
     		}
     	}
     	else {
@@ -73,15 +75,21 @@ public class ControladorUsuarios {
     			
 	}
 	
-	public boolean editarLogin(Usuario user, String login) {
+	public boolean editarLogin(Usuario user, String login) throws NaoPodeException, JaExisteException {
     	
 		if(user != null & login != null & !login.equals("") ) {
-    		if (repositorioUsuarios.buscar(user.getLogin()) == user & repositorioUsuarios.buscar(login) == null) {
-    			repositorioUsuarios.editarLogin(user, login);
+    		if (repositorioUsuarios.buscar(user.getLogin()) == user) {
+                    if(repositorioUsuarios.buscar(login) == null){
+                        repositorioUsuarios.editarLogin(user, login);
     			return true;
+                    }
+                    else{
+                        throw new JaExisteException(login);
+                    }
+    			
     		}
     		else {
-    			return false;
+    			throw new NaoPodeException(user);
     		}
     	}
     	else {
@@ -90,7 +98,7 @@ public class ControladorUsuarios {
     	
 	}
 	
-	public boolean editarSenha(Usuario user, String senha) {
+	public boolean editarSenha(Usuario user, String senha) throws NaoPodeException {
 		
 		if(user != null & senha != null & !senha.equals("")) {
     		if (repositorioUsuarios.buscar(user.getLogin()) == user ) {
@@ -98,7 +106,7 @@ public class ControladorUsuarios {
     			return true;
     		}
     		else {
-    			return false;
+    			throw new NaoPodeException(user);
     		}
     	}
     	else {
@@ -107,9 +115,14 @@ public class ControladorUsuarios {
 	}
 	
 	
-	public Usuario buscar(String login) {
+	public Usuario buscar(String login) throws Exception {
+            Usuario encontrado = null;
 		if(!login.equals(null)  & !login.equals("") ) {
-			return repositorioUsuarios.buscar(login);
+			encontrado = repositorioUsuarios.buscar(login);
+                        if(encontrado != null){
+                            return encontrado;
+                        }
+                        else throw NaoPodeException(login);
 		}
 		return null;
 	}
@@ -181,6 +194,10 @@ public class ControladorUsuarios {
         }
             return id;
  
+    }
+
+    private Exception NaoPodeException(String login) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 	
