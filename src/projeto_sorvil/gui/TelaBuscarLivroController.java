@@ -46,6 +46,9 @@ public class TelaBuscarLivroController implements Initializable {
     
     @FXML
     private Button btnVoltar;
+    
+    @FXML
+    private Button btnExcluir;
 
     
     @FXML
@@ -104,6 +107,11 @@ public class TelaBuscarLivroController implements Initializable {
     	lvLivrosBuscados = null;
     	livro.clear();
     	MainTestes.escolherTela(3);
+    }
+    
+    @FXML
+    void excluirLivro(ActionEvent event) {
+
     }
     
 }

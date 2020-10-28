@@ -49,19 +49,24 @@
             <Insets />
          </GridPane.margin>
       </ListView>
-      <Button fx:id="btnADDMinhaBiblioteca" mnemonicParsing="false" onAction="#AdicionarLivroPessoal" text="Adicionar a minha biblioteca" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+      <Button fx:id="btnADDMinhaBiblioteca" mnemonicParsing="false" onAction="#AdicionarLivroPessoal" text="Adicionar à minha biblioteca" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <GridPane.margin>
-            <Insets />
+            <Insets bottom="5.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="btnADDSorvil" mnemonicParsing="false" onAction="#adicionarLivroSorvil" text="Adicionar a biblioteca do Sorvil" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+      <Button fx:id="btnADDSorvil" mnemonicParsing="false" onAction="#adicionarLivroSorvil" text="Adicionar a biblioteca do Sorvil" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets bottom="15.0" />
+            <Insets bottom="15.0" top="5.0" />
          </GridPane.margin>
       </Button>
       <Button fx:id="btnVoltar" mnemonicParsing="false" onAction="#voltar" text="Voltar" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets left="60.0" />
+         </GridPane.margin>
+      </Button>
+      <Button fx:id="btnExcluir" mnemonicParsing="false" onAction="#excluirLivro" text="Excluir Livro" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+         <GridPane.margin>
+            <Insets bottom="10.0" />
          </GridPane.margin>
       </Button>
    </children>
