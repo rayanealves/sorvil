@@ -59,7 +59,7 @@ public class TelaBibliotecaPessoalController {
     		TelaBibliotecaPessoalController.usuarioLogado = FachadaController.getUsuarioLogado();
 	
     	}
-    if( obsList == null & usuarioLogado.getEstante() != null){
+    if( obsList == null ){
     		obsList = FXCollections.observableArrayList(FachadaController.listarLivrosUsuario(usuarioLogado));					
 
     		lvListaPessoalLivros.setItems(obsList);

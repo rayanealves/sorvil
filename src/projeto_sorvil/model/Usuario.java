@@ -37,6 +37,7 @@ public class Usuario implements Serializable{
 		this.senha = senha;
 		this.admin = admin;
 		this.dataCadastro = dataCadastro;
+		this.estante = new ArrayList<MeuLivro>();
 	}
 
 	public String getNome() {
@@ -113,9 +114,9 @@ public class Usuario implements Serializable{
 		return null;	
 	}
 	
-	public void adicionarLivro(MeuLivro livroUser) {
+	public Boolean adicionarLivro(MeuLivro livroUser) {
 		
-		estante.add(livroUser);		
+		return estante.add(livroUser);
 		
 	}
 	

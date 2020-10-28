@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.ControladorUsuarios;
+import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.model.Usuario;
 
 public class TelaCadastroController {
@@ -54,7 +55,6 @@ public class TelaCadastroController {
 
     LocalDate diaCadastro;
 
-    ControladorUsuarios controladorUsers = new ControladorUsuarios();
   
 
    
@@ -68,11 +68,11 @@ public class TelaCadastroController {
     	}
     	diaCadastro = LocalDate.now();
     	Usuario user = new Usuario(nome.getText(), null, login.getText(), senha.getText(), tipo, diaCadastro );
-    	System.out.println(controladorUsers.adicionar(user));
+    	System.out.println(FachadaController.adicionarUsuario(user));
     	senha.clear();
 		login.clear();
 		nome.clear();
-		System.out.println(controladorUsers.listar().size());
+		System.out.println(FachadaController.listarLivrosUsuario(user).size());
     	MainTestes.escolherTela(1);
     }
     

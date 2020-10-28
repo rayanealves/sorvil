@@ -27,10 +27,12 @@ public interface IrepositorioUsuario {
 	
 	public List<Usuario> listar();
 	
-	public List<MeuLivro> listarLivros(Usuario user);
+	public ArrayList<MeuLivro> listarLivros(Usuario user);
 	
 	public boolean idExiste(String id);
 	
-	
+	public boolean adicionarLivro(Usuario user, MeuLivro livroUser);
+
+	public boolean removerLivro(Usuario user, MeuLivro livroUser);
 
 }

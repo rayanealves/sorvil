@@ -117,12 +117,15 @@ public class Livro implements Serializable{
 		this.edicao = edicao;
 	}
 	
+
 	public boolean equals(Livro livro) {
             if(livro != null){
                 return this.nome.equals(livro.getNome())
                         && livro.getAutor().equals(this.autor);
             }
-            return false;
+            else {
+            	return false;
+            }
 	}
 
 	
