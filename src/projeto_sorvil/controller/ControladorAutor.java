@@ -60,8 +60,12 @@ public class ControladorAutor {
     
     public boolean novoAutor(Autor autor) throws JaExisteException{
         if (autor != null){
-            autor.setId(this.novoID());
-            if(!this.repositorioAutores.listar().contains(autor)){
+            String[] nomeCompleto = this.separarNome(autor.getNome());
+            String nome = nomeCompleto[0];
+            String sobrenome = this.juntarSobrenome(nomeCompleto);
+            Autor autorCompleto = new Autor(nome, sobrenome, null);
+            autorCompleto.setId(this.novoID());
+            if(!this.repositorioAutores.listar().contains(autorCompleto)){
                 return this.repositorioAutores.adicionar(autor);
             }
             else {
@@ -96,6 +100,7 @@ public class ControladorAutor {
     
     	return (Autor) autoresPorNome.stream()
     			.filter(autor-> autor.getSobrenome().compareToIgnoreCase(sobrenome) < 2)
+    			.limit(1)
     			.collect(Collectors.toList());
     }
     
