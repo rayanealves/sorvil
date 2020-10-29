@@ -9,10 +9,10 @@
 
 <AnchorPane fx:id="tela" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#iniciar" onMouseDragged="#iniciar" onMouseEntered="#iniciar" onMouseExited="#iniciar" onMouseMoved="#iniciar" onMousePressed="#iniciar" onMouseReleased="#iniciar" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_sorvil.gui.TelaBibliotecaPessoalController">
    <children>
-      <Button fx:id="btnDeletarLivro" layoutX="401.0" layoutY="146.0" mnemonicParsing="false" onAction="#DeletarLivroPessoal" text="Deletar Livro" />
+      <Button fx:id="btnDeletarLivro" layoutX="401.0" layoutY="200.0" mnemonicParsing="false" onAction="#DeletarLivroPessoal" text="Deletar Livro" />
       <Button fx:id="btnSair" layoutX="425.0" layoutY="347.0" mnemonicParsing="false" onAction="#fechar" text="Sair" />
-      <Button fx:id="btnEditarUsuario" layoutX="396.0" layoutY="256.0" mnemonicParsing="false" onAction="#telaEditarUsuario" text="Editar Usuario" />
-      <Button fx:id="btnAdicionarLivro" layoutX="395.0" layoutY="200.0" mnemonicParsing="false" onAction="#telaAdicionarLivro" text="Adicionar Livro" />
+      <Button fx:id="btnEditarUsuario" layoutX="396.0" layoutY="287.0" mnemonicParsing="false" onAction="#telaEditarUsuario" text="Editar Usuario" />
+      <Button fx:id="btnAdicionarLivro" layoutX="394.0" layoutY="242.0" mnemonicParsing="false" onAction="#telaAdicionarLivro" text="Adicionar Livro" />
       <ListView fx:id="lvListaPessoalLivros" prefHeight="400.0" prefWidth="228.0" />
       <TextField fx:id="txtLivro" layoutX="328.0" layoutY="84.0" prefHeight="25.0" prefWidth="228.0" />
       <Text fx:id="titulo" layoutX="366.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Biblioteca Pessoal" textAlignment="CENTER">
@@ -20,5 +20,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
+      <Button fx:id="btnVerLivro" layoutX="412.0" layoutY="155.0" mnemonicParsing="false" onAction="#irParaLivro" text="Ver Livro" />
    </children>
 </AnchorPane>

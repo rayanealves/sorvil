@@ -41,6 +41,8 @@ public class TelaBibliotecaPessoalController {
     @FXML
     private Text titulo;
     
+    @FXML
+    private Button btnVerLivro;
 
     private static ObservableList<MeuLivro> obsListPessoal = null;
 
