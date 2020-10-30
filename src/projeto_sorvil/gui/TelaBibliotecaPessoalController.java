@@ -42,7 +42,14 @@ public class TelaBibliotecaPessoalController {
     private Text titulo;
     
     @FXML
-    private Button btnVerLivro;
+    private Button btnBuscarNome;
+
+    @FXML
+    private Button btnBuscarAutor;
+
+    @FXML
+    private Button btnBuscarEditora;
+
 
     private static ObservableList<MeuLivro> obsListPessoal = null;
 
@@ -104,11 +111,19 @@ public class TelaBibliotecaPessoalController {
     	MainTestes.escolherTela(5);
     }
     
-    
-	
-	
-	
-	
-	
+     @FXML
+    void mostrarLivroAutor(ActionEvent event) {
 
+    }
+
+    @FXML
+    void mostrarLivroEditora(ActionEvent event) {
+
+    }
+
+    @FXML
+    void mostrarLivroNome(ActionEvent event) {
+
+    }
+    
 }

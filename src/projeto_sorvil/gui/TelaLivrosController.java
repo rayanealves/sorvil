@@ -53,6 +53,9 @@ public class TelaLivrosController {
     @FXML
     private ChoiceBox<?> chboxStatus;
     
+    @FXML
+    private Button btnVerCard;
+    
     private static MeuLivro onLivro = null;
 
     @FXML
@@ -73,6 +76,11 @@ public class TelaLivrosController {
     	FachadaController.setOnLivro(null);
     	onLivro = null;
     	MainTestes.escolherTela(3);
+    }
+    
+    @FXML
+    void verCard(ActionEvent event) {
+        MainTestes.escolherTela(7);
     }
 
 }

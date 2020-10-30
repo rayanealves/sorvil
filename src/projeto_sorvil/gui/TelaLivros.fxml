@@ -24,7 +24,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="botaoVoltar" mnemonicParsing="false" onAction="#voltar" text="Voltar" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <Button fx:id="botaoVoltar" mnemonicParsing="false" onAction="#voltar" text="Voltar" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
       <Button fx:id="botaoCriarCard" mnemonicParsing="false" onAction="#TelacriarCard" text="Criar Novo Card" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
       <Text fx:id="txtStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
          <GridPane.margin>
@@ -64,5 +64,6 @@
             <Insets right="5.0" />
          </padding>
       </TextArea>
+      <Button fx:id="btnVerCard" mnemonicParsing="false" onAction="#verCard" text="Ver Cards" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
    </children>
 </GridPane>

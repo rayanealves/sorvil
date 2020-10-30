@@ -3,6 +3,7 @@ package projeto_sorvil.gui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -22,7 +23,14 @@ public class TelaCriacaoCardsController {
 
     @FXML
     private TextArea textoDoCard;
-
+    
+    @FXML
+    private Label txtLivro;
+    
+    /*public void initialize() {
+        txt
+    }*/
+    
     @FXML
     void cancelar(ActionEvent event) {
     	MainTestes.escolherTela(6);

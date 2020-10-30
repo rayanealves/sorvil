@@ -23,9 +23,9 @@
     <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <ScrollPane fx:id="rolarCard" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <content>
-            <TextArea prefHeight="257.0" prefWidth="230.0" />
+            <TextArea fx:id="textoDoCard" prefHeight="257.0" prefWidth="230.0" />
          </content>
          <GridPane.margin>
             <Insets right="5.0" />

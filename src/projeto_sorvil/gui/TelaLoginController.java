@@ -48,8 +48,6 @@ public class TelaLoginController  implements Initializable {
 		//imageSorvil.setImage(null);
 			
 	}
-	
-	
 
 	@FXML
 	void fazerLogin(ActionEvent event) throws IOException, Exception {
