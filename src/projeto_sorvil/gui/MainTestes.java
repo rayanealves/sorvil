@@ -1,10 +1,16 @@
 package projeto_sorvil.gui;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+import projeto_sorvil.controller.FachadaController;
+import projeto_sorvil.dados.UsuarioRepositorio;
+import projeto_sorvil.model.MeuLivro;
 
 public class MainTestes extends Application {
     
@@ -77,6 +83,9 @@ public class MainTestes extends Application {
 
    
     public static void main(String[] args) {
+    	//UsuarioRepositorio.getInstancia().getUsuarios().clear();
+    	//DAO.salvarArquivo(UsuarioRepositorio.getInstancia(), "src/usuarios.dat");
+    	System.out.println(UsuarioRepositorio.getInstancia().getUsuarios().size());
         launch(args);
 
         
@@ -126,6 +135,20 @@ public class MainTestes extends Application {
     	
     	
     }
+    
+    
+    
+  	public  ListView<MeuLivro> atualizarListaPessoal() {
+      	
+  		ObservableList<MeuLivro> obsListPessoal =  FXCollections.observableArrayList(FachadaController.listarLivrosUsuario(FachadaController.getUsuarioLogado()));
+         
+  		ListView<MeuLivro> lv = new ListView<MeuLivro>();
+  		lv.setItems(obsListPessoal);
+         
+  		return lv;	
+      	
+      	 	
+      }
     
     
 }

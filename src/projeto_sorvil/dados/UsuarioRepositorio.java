@@ -127,6 +127,7 @@ public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
     		user.adicionarLivro(livroUser);
     		if(index > -1){
                 usuarios.add(index, user);
+       		 	DAO.salvarArquivo(instancia, ROTA);
                 return true;
             }
     		
@@ -139,6 +140,7 @@ public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
     		user.removerLivro(livroUser);
     		if(index > -1){
                 usuarios.add(index, user);
+       		 	DAO.salvarArquivo(instancia, ROTA);
                 return true;
             }
     		

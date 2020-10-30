@@ -73,16 +73,17 @@ public class TelaBuscarLivroController implements Initializable {
  
     @FXML
     void buscarLivro(ActionEvent event) throws NaoPodeException {
-    	TelaBuscarLivroController.livroBuscado = FachadaController.buscarLivro(livro.getText());
-    	TelaBuscarLivroController.obsListBuscada.add(livroBuscado); 
-    	lvLivrosBuscados.setItems(TelaBuscarLivroController.obsListBuscada);
+    	livroBuscado = FachadaController.buscarLivro(livro.getText());
+    	obsListBuscada.add(livroBuscado); 
+    	lvLivrosBuscados.setItems(obsListBuscada);
     	
     }
     
     
     @FXML
     void AdicionarLivroPessoal(ActionEvent event) throws JaExisteException {
-    	
+    	//tabelaContas.getSelectionModel (). selectedItemProperty () .addListener ((observable, oldValue, newValue) -> mostrarDetalhesConta (newValue));
+
     	TelaBuscarLivroController.livroBuscado = lvLivrosBuscados.getSelectionModel().getSelectedItem();
 
     	Status status =  Status.EM_BRANCO;
@@ -106,7 +107,7 @@ public class TelaBuscarLivroController implements Initializable {
     void voltar(ActionEvent event) {
     	TelaBuscarLivroController.livroBuscado = null;
     	TelaBuscarLivroController.obsListBuscada.clear();
-    	lvLivrosBuscados = null;
+    	lvLivrosBuscados.setItems(obsListBuscada);
     	livro.clear();
     	MainTestes.escolherTela(3);
     }

@@ -32,15 +32,16 @@ public class ControladorUsuarios {
     public boolean adicionar(Usuario user) throws JaExisteException {
     	if(user != null) {
     		user.setId(this.novoID());
-    		if (user.equals(repositorioUsuarios.buscar(user.getLogin()))) {
-    			throw new JaExisteException(user);
+    		if (!user.equals(repositorioUsuarios.buscar(user.getLogin()))) {
+    			return repositorioUsuarios.adicionar(user);
     		}
     		 
     	}
     	else {
-            return false;
+    		 throw new JaExisteException(user);
+          
     	}
-    	return repositorioUsuarios.adicionar(user);
+		return false;
     	
     }
     
@@ -136,7 +137,7 @@ public class ControladorUsuarios {
 		if(userLivro != null) {
 			Usuario buscado  = repositorioUsuarios.buscar(user.getLogin());
 			MeuLivro buscado2 = buscado.buscarLivro(userLivro.getLivro().getNome());
-			if (buscado2 == null || buscado2.getLivro() == null ) {
+			if (buscado2 == null ) {
 	    		repositorioUsuarios.adicionarLivro(user, userLivro);
 	    		return true;
 			}
