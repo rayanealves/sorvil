@@ -57,7 +57,7 @@ public class TelaBibliotecaPessoalController {
 
     private static ObservableList<MeuLivro> obsListPessoal = null;
     
-    private static MeuLivro livroBuscado = null;
+    private static Livro livroBuscado = null;
     
     private static Editora editoraBuscada = null;
     
@@ -123,9 +123,9 @@ public class TelaBibliotecaPessoalController {
 
     }
 
-    /*@FXML
+    @FXML
     void mostrarLivroNome(ActionEvent event) throws NaoPodeException {
          
-    }*/
+    }
     
 }

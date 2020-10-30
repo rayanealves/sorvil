@@ -55,11 +55,13 @@ public class TelaCadastroController {
     @FXML
     private RadioButton radioadm;
 
+    @FXML
+    private Text cpftxt;
+    
+    @FXML
+    private TextField cpf;
+    
     LocalDate diaCadastro;
-
-  
-
-   
 
     @FXML
     void cadastrarUsuario(ActionEvent event) {

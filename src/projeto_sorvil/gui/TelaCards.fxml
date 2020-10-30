@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -29,5 +31,11 @@
       <TextArea fx:id="card" layoutX="344.0" layoutY="75.0" prefHeight="130.0" prefWidth="253.0" />
       <Button fx:id="btnExcluir" layoutX="520.0" layoutY="236.0" mnemonicParsing="false" onAction="#excluirCard" text="Excluir card" />
       <Button fx:id="btnSalvar" layoutX="445.0" layoutY="274.0" mnemonicParsing="false" onAction="#salvarEdicao" text="Salvar" />
+      <MenuButton fx:id="menuPublicoPrivado" layoutX="73.0" layoutY="39.0" mnemonicParsing="false" onAction="#selecionarCards" text="MenuButton">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
    </children>
 </AnchorPane>

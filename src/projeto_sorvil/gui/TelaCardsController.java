@@ -1,15 +1,22 @@
 package projeto_sorvil.gui;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import projeto_sorvil.controller.FachadaController;
+import projeto_sorvil.model.Card;
 
 public class TelaCardsController {
 
@@ -29,7 +36,7 @@ public class TelaCardsController {
     private ScrollPane scrollCard;
 
     @FXML
-    private ListView<?> listCard;
+    private ListView<Card> listCard;
 
     @FXML
     private TextArea card;
@@ -41,8 +48,25 @@ public class TelaCardsController {
     private Button btnSalvar;
     
     @FXML
-    void iniciar(MouseEvent event) {
+    private MenuButton menuPublicoPrivado;
+    
+    MenuItem item1 = new MenuItem("Privado");
+    MenuItem item2 = new MenuItem("Publico");
+    
+    //MenuButton menuPublicoPrivado = new MenuButton("Selecione", null, item1,item2);
+    
+    
+    
+    private static ObservableList<Card> obsListCards =  FXCollections.observableArrayList();
+    
+  
+    /*public void initialize(URL url, ResourceBundle rb) {
         
+    }*/
+    
+    @FXML
+    void iniciar(MouseEvent event) {
+        menuPublicoPrivado.getItems().addAll(item1,item2);
     }
     
     @FXML
@@ -63,6 +87,11 @@ public class TelaCardsController {
     @FXML
     void salvarEdicao(ActionEvent event) {
 
+    }
+    
+    @FXML
+    void selecionarCards(ActionEvent event) {
+        
     }
 
 }
