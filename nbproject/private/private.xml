@@ -4,7 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/controller/FachadaController.java</file>
-            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/controller/ControladorUsuarios.java</file>
+            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/dados/UsuarioRepositorio.java</file>
             <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/gui/TelaBuscarLivroController.java</file>
             <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/gui/TelaLivrosController.java</file>
         </group>

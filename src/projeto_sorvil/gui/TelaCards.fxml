@@ -31,7 +31,7 @@
       <TextArea fx:id="card" layoutX="344.0" layoutY="75.0" prefHeight="130.0" prefWidth="253.0" />
       <Button fx:id="btnExcluir" layoutX="520.0" layoutY="236.0" mnemonicParsing="false" onAction="#excluirCard" text="Excluir card" />
       <Button fx:id="btnSalvar" layoutX="445.0" layoutY="274.0" mnemonicParsing="false" onAction="#salvarEdicao" text="Salvar" />
-      <MenuButton fx:id="menuPublicoPrivado" layoutX="73.0" layoutY="39.0" mnemonicParsing="false" onAction="#selecionarCards" text="MenuButton">
+      <MenuButton fx:id="menuPublicoPrivado" layoutX="73.0" layoutY="39.0" mnemonicParsing="false" onAction="#selecionarCards" text="Selecione">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />

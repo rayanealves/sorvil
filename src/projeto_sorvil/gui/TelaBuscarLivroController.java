@@ -20,7 +20,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.exceptions.JaExisteException;
+import projeto_sorvil.exceptions.NaoExisteException;
 import projeto_sorvil.exceptions.NaoPodeException;
+import projeto_sorvil.model.Autor;
+import projeto_sorvil.model.Editora;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.MeuLivro;
 import projeto_sorvil.model.Status;
@@ -52,17 +55,22 @@ public class TelaBuscarLivroController implements Initializable {
     @FXML
     private Button btnExcluir;
 
-    
     @FXML
     private ListView<Livro> lvLivrosBuscados;
+    
+    @FXML
+    private Button btnPorAutor;
 
+    @FXML
+    private Button btnPorEditora;
 
-    private static ObservableList<Livro> obsListBuscada =  FXCollections.observableArrayList();
+    private static final ObservableList<Livro> obsListBuscada =  FXCollections.observableArrayList();
     
     private static Livro livroBuscado = null;
     
-
-    
+    private static Autor autorBuscado = null;
+  
+    private static Editora editoraBuscada;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -75,10 +83,20 @@ public class TelaBuscarLivroController implements Initializable {
     void buscarLivro(ActionEvent event) throws NaoPodeException {
     	livroBuscado = FachadaController.buscarLivro(livro.getText());
     	obsListBuscada.add(livroBuscado); 
-    	lvLivrosBuscados.setItems(obsListBuscada);
-    	
+    	lvLivrosBuscados.setItems(obsListBuscada);	
     }
     
+    @FXML
+    void buscarPorAutor(ActionEvent event) throws NaoExisteException {
+        autorBuscado = FachadaController.getInstance().bucarAutorPorNome(livro.getText());
+        obsListBuscada.addAll(FXCollections.observableArrayList(FachadaController.getInstance().listarPorAutor(autorBuscado)));
+        lvLivrosBuscados.setItems(obsListBuscada);
+    }
+
+    @FXML
+    void buscarPorEditora(ActionEvent event) {
+
+    }
     
     @FXML
     void AdicionarLivroPessoal(ActionEvent event) throws JaExisteException {
