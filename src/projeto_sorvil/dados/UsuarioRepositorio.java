@@ -105,23 +105,24 @@ public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
 	}
 	
 
+        @Override
 	public ArrayList<MeuLivro> listarLivros(Usuario user) {
-		int index = usuarios.indexOf(user);
-		return usuarios.get(index).getEstante();
+		return usuarios.get(usuarios.indexOf(user)).getEstante();
 	}
 	
 	
         @Override
-	public boolean idExiste(String id){
+	public boolean cpfExiste(String cpf){
 		
         for(int i =0; i< usuarios.size(); i++){
-            if(usuarios.get(i).getId().equals(id)){
+            if(usuarios.get(i).getCPF().equals(cpf)){
                 return true;
             }
         }
         return false;
     }
 	
+        @Override
     	public boolean adicionarLivro(Usuario user, MeuLivro livroUser) {
     		int index = usuarios.indexOf(user);
     		user.adicionarLivro(livroUser);
@@ -135,6 +136,7 @@ public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
     	}
 	
 	
+        @Override
     	public boolean removerLivro(Usuario user, MeuLivro livroUser) {
     		int index = usuarios.indexOf(user);
     		user.removerLivro(livroUser);

@@ -2,10 +2,11 @@ package projeto_sorvil.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+
 
 import projeto_sorvil.dados.IrepositorioUsuario;
 import projeto_sorvil.dados.UsuarioRepositorio;
+import projeto_sorvil.exceptions.CPFinvalidoExeption;
 import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.exceptions.NaoExisteException;
 import projeto_sorvil.exceptions.NaoPodeException;
@@ -29,18 +30,19 @@ public class ControladorUsuarios {
         return instancia;
     }	
 	
-    public boolean adicionar(Usuario user) throws JaExisteException {
-    	if(user != null) {
-    		user.setId(this.novoID());
+    public boolean adicionar(Usuario user) throws JaExisteException, CPFinvalidoExeption {
+    	if(user != null && this.validarCPF(user.getCPF())) {
+    	
     		if (!user.equals(repositorioUsuarios.buscar(user.getLogin()))) {
     			return repositorioUsuarios.adicionar(user);
     		}
-    		 
-    	}
-    	else {
+                else {
     		 throw new JaExisteException(user);
           
+                }
+    		 
     	}
+    	
 		return false;
     	
     }
@@ -119,8 +121,8 @@ public class ControladorUsuarios {
 	
 	
 	public Usuario buscar(String login) throws NaoExisteException  {
-            Usuario encontrado = null;
-		if(!login.equals(null)  & !login.equals("") ) {
+            Usuario encontrado;
+		if( login != null  & !login.equals("") ) {
 			encontrado = repositorioUsuarios.buscar(login);
                         if(encontrado != null){
                             return encontrado;
@@ -135,13 +137,13 @@ public class ControladorUsuarios {
 	public boolean adicionarLivroUsuario(Usuario user, MeuLivro userLivro) throws JaExisteException{
 		
 		if(userLivro != null) {
-			Usuario buscado  = repositorioUsuarios.buscar(user.getLogin());
-			MeuLivro buscado2 = buscado.buscarLivro(userLivro.getLivro().getNome());
-			if (buscado2 == null ) {
+			Usuario usuario  = repositorioUsuarios.buscar(user.getLogin());
+			MeuLivro livroBuscado = usuario.buscarLivro(userLivro.getLivro().getNome());
+			if (livroBuscado == null ) {
 	    		repositorioUsuarios.adicionarLivro(user, userLivro);
 	    		return true;
 			}
-			else if (userLivro.getLivro().equals(buscado2.getLivro())){
+			else if (userLivro.getLivro().equals(livroBuscado.getLivro())){
 				throw new JaExisteException(userLivro);
 			}
 			else {
@@ -158,9 +160,9 @@ public class ControladorUsuarios {
 	public boolean removerLivroUsuario(Usuario user, MeuLivro userLivro) throws NaoExisteException{
 		
 		if(userLivro != null) {
-			Usuario buscado  = repositorioUsuarios.buscar(user.getLogin());
-			MeuLivro buscado2 = buscado.buscarLivro(userLivro.getLivro().getNome());
-    		if (userLivro.getLivro().equals(buscado2.getLivro())) {
+			Usuario usuario  = repositorioUsuarios.buscar(user.getLogin());
+			MeuLivro livroDel = usuario.buscarLivro(userLivro.getLivro().getNome());
+    		if (userLivro.getLivro().equals(livroDel.getLivro())) {
     			repositorioUsuarios.removerLivro(user, userLivro);
         		return true;
     		}
@@ -175,7 +177,7 @@ public class ControladorUsuarios {
 	}
 	
 	public MeuLivro buscarLivroUsuario(Usuario user,String nome) throws NaoExisteException {
-		if(!nome.equals(null)  & !nome.equals("") & user != null) {
+		if( nome != null  & !nome.equals("") & user != null) {
                     MeuLivro livro = user.buscarLivro(nome);
                     if(livro != null){
                         return livro;
@@ -202,17 +204,20 @@ public class ControladorUsuarios {
     	return null;
     }
     
-    private boolean confereID(String id) {
-    	return this.repositorioUsuarios.idExiste(id);
+    private boolean confereCPF(String cpf) {
+    	return this.repositorioUsuarios.cpfExiste(cpf);
 	}
     
 
-	private String novoID(){
-        String id = UUID.randomUUID().toString();
-        if(this.confereID(id)){
-            return novoID();
+	private boolean validarCPF(String cpf) throws CPFinvalidoExeption{
+        if(cpf.substring(0).matches("[0-9]*") && cpf.length() == 11){
+             if(this.confereCPF(cpf)){
+                return true;
+            }
+             else throw new CPFinvalidoExeption(cpf);
         }
-            return id;
+       
+            return false;
  
     }
 

@@ -2,6 +2,7 @@ package projeto_sorvil.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import projeto_sorvil.exceptions.CPFinvalidoExeption;
 
 import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.exceptions.NaoExisteException;
@@ -27,7 +28,7 @@ public class FachadaController {
     private ControladorEditora controladorEditora;
     private ControladorLivro controladorLivro;
     @SuppressWarnings("unused")
-	private ControladorUsuarios controladorUsuario;
+    private ControladorUsuarios controladorUsuario;
     private static FachadaController instance;
     
     private FachadaController(){
@@ -207,7 +208,7 @@ public class FachadaController {
 		return controladorUsuario.remover(user);
 ======= */
 	
-	public static boolean adicionarUsuario(Usuario user) throws JaExisteException {
+	public static boolean adicionarUsuario(Usuario user) throws JaExisteException, CPFinvalidoExeption {
 		return ControladorUsuarios.getInstancia().adicionar(user);
 	}
 
