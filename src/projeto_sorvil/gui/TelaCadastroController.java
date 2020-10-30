@@ -3,7 +3,6 @@ package projeto_sorvil.gui;
 import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
+import projeto_sorvil.exceptions.CPFinvalidoExeption;
 import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.model.Usuario;
 
@@ -73,7 +73,7 @@ public class TelaCadastroController {
 //<<<<<<< HEAD
         try {
         	FachadaController.adicionarUsuario(user);
-        } catch (JaExisteException ex) {
+        } catch (JaExisteException | CPFinvalidoExeption ex) {
             Logger.getLogger(TelaCadastroController.class.getName()).log(Level.SEVERE, null, ex);
         }
 /*

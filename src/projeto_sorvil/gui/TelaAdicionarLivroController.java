@@ -102,7 +102,7 @@ public class TelaAdicionarLivroController {
         int numeroPag = Integer.parseInt(numPag.getText());
     	
     	
-    	Livro livroAdicionado = new Livro(nomeLivro.getText(), null , novaEditora, novoAutor, onGenero ,numeroPag ,
+    	Livro livroAdicionado = new Livro(nomeLivro.getText(), isbn.getText() , novaEditora, novoAutor, onGenero ,numeroPag ,
     			anoEdicao, anoPublica);
     	
     	FachadaController.getInstance().novoLivro(livroAdicionado);
