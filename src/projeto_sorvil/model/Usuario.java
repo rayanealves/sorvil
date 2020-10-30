@@ -27,9 +27,9 @@ public class Usuario implements Serializable{
 
 	
 
-	public Usuario(String nome, String id, String login, String senha, boolean admin, LocalDate dataCadastro) {
+	public Usuario(String nome, String cpf, String login, String senha, boolean admin, LocalDate dataCadastro) {
 		this.nome = nome;
-                this.cpf = id;
+                this.cpf = cpf;
 		this.login = login;
 		this.senha = senha;
 		this.admin = admin;
