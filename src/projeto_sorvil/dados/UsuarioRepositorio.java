@@ -3,6 +3,7 @@ package projeto_sorvil.dados;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import projeto_sorvil.model.MeuLivro;
 import projeto_sorvil.model.Usuario;
@@ -112,14 +113,15 @@ public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
 	
 	
         @Override
-	public boolean cpfExiste(String cpf){
-		
-        for(int i =0; i< usuarios.size(); i++){
-            if(usuarios.get(i).getCPF().equals(cpf)){
-                return true;
-            }
-        }
-        return false;
+	public boolean cpfExiste(String cpf){            
+           boolean existe = false;
+           
+           for(Usuario usuario: usuarios ){
+               if(usuario.getCPF().equals(cpf)){
+                   existe = true;
+               }
+           }
+           return existe;
     }
 	
         @Override

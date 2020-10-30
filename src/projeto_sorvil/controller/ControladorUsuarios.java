@@ -209,15 +209,18 @@ public class ControladorUsuarios {
 	}
     
 
-	private boolean validarCPF(String cpf) throws CPFinvalidoExeption{
-        if(cpf.substring(0).matches("[0-9]*") && cpf.length() == 11){
-             if(this.confereCPF(cpf)){
-                return true;
-            }
-             else throw new CPFinvalidoExeption(cpf);
-        }
-       
-            return false;
+	private boolean validarCPF(String cpf) throws CPFinvalidoExeption, JaExisteException{
+        
+            boolean retorno = this.confereCPF(cpf);
+            if(cpf.matches("[0-9]*") && cpf.length() == 11){
+            
+                if(!retorno){
+                   return !retorno;
+               }
+                else throw new JaExisteException(cpf);
+                
+             }
+            else throw new CPFinvalidoExeption(cpf);
  
     }
 

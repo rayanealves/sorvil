@@ -67,27 +67,26 @@ public class TelaCadastroController {
     void cadastrarUsuario(ActionEvent event) {
     	RadioButton tipoDeUser = (RadioButton) tipoDeUsuario.getSelectedToggle();
     	boolean tipo = false;
+        
     	if(tipoDeUser.equals(radioadm)) {
     		tipo = true;
     	}
     	diaCadastro = LocalDate.now();
-    	Usuario user = new Usuario(nome.getText(), null, login.getText(), senha.getText(), tipo, diaCadastro );
+        System.out.println(FachadaController.getInstance().listarUsuario().size());
+    	Usuario user = new Usuario(nome.getText(), cpf.getText(), login.getText(), senha.getText(), tipo, diaCadastro );
 //<<<<<<< HEAD
         try {
         	FachadaController.adicionarUsuario(user);
+                System.out.println(FachadaController.getInstance().listarUsuario().size());
         } catch (JaExisteException | CPFinvalidoExeption ex) {
             Logger.getLogger(TelaCadastroController.class.getName()).log(Level.SEVERE, null, ex);
         }
-/*
-=======
-    	System.out.println(FachadaController.adicionarUsuario(user));
->>>>>>> d67718a85693628502ec7c1fd34f369e64c7155e
 
- */
     	senha.clear();
-		login.clear();
-		nome.clear();
-		System.out.println(FachadaController.listarLivrosUsuario(user).size());
+	login.clear();
+	nome.clear();
+        cpf.clear();
+	System.out.println(FachadaController.listarLivrosUsuario(user).size());
     	MainTestes.escolherTela(1);
     }
     
