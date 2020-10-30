@@ -28,7 +28,7 @@ import projeto_sorvil.model.Status;
 
 public class TelaBuscarLivroController implements Initializable {
 
-     @FXML
+    @FXML
     private Text nometxt;
 
     @FXML

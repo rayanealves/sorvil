@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TextField?>
@@ -28,20 +29,23 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Text fx:id="adicionar" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Livro" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Text fx:id="adicionar" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Livro" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
+         <GridPane.margin>
+            <Insets top="2.0" />
+         </GridPane.margin>
       </Text>
-      <Text fx:id="nometxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-      <Text fx:id="autortxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Autor" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-      <Text fx:id="editoratxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Editora" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+      <Text fx:id="nometxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
+      <Text fx:id="autortxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Autor" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+      <Text fx:id="editoratxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Editora" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
       <Text fx:id="anotxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Ano de Publicação" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
       <Text fx:id="paginastxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de Páginas" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
       <Text fx:id="generotxt" strokeType="OUTSIDE" strokeWidth="0.0" text="Genero" GridPane.columnIndex="1" GridPane.rowIndex="7" GridPane.valignment="BOTTOM" />
-      <TextField fx:id="nomeLivro" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-      <TextField fx:id="autor" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP" />
-      <TextField fx:id="editora" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+      <TextField fx:id="nomeLivro" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+      <TextField fx:id="autor" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <TextField fx:id="editora" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP" />
       <TextField fx:id="anoPub" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="TOP" />
       <TextField fx:id="numPag" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="TOP" />
       <Button fx:id="botaoCancelar" mnemonicParsing="false" onAction="#voltar" text="Cancelar" GridPane.columnIndex="1" GridPane.rowIndex="9" GridPane.valignment="TOP" />
@@ -49,5 +53,7 @@
       <ChoiceBox fx:id="boxGenero" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8" GridPane.valignment="TOP" />
       <Text fx:id="edicao" strokeType="OUTSIDE" strokeWidth="0.0" text="Edição" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
       <TextField fx:id="anoEd" GridPane.columnIndex="1" GridPane.rowIndex="7" GridPane.valignment="TOP" />
+      <Text fx:id="isbntxt" strokeType="OUTSIDE" strokeWidth="0.0" text="ISBN" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+      <TextField fx:id="isbn" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP" />
    </children>
 </GridPane>

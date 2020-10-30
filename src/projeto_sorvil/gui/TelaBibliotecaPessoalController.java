@@ -11,6 +11,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
+import projeto_sorvil.exceptions.NaoPodeException;
+import projeto_sorvil.model.Autor;
+import projeto_sorvil.model.Editora;
+import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.MeuLivro;
 
 
@@ -49,14 +53,15 @@ public class TelaBibliotecaPessoalController {
 
     @FXML
     private Button btnBuscarEditora;
-
+    
 
     private static ObservableList<MeuLivro> obsListPessoal = null;
-
-
-	
-
-	
+    
+    private static MeuLivro livroBuscado = null;
+    
+    private static Editora editoraBuscada = null;
+    
+    private static Autor autorBuscado = null;
 
     @FXML
     void iniciar(MouseEvent event) {
@@ -68,10 +73,6 @@ public class TelaBibliotecaPessoalController {
     	}
     	
     }
-
-    
-
-
 
     @FXML
     void fechar(ActionEvent event) {
@@ -121,9 +122,9 @@ public class TelaBibliotecaPessoalController {
 
     }
 
-    @FXML
-    void mostrarLivroNome(ActionEvent event) {
-
-    }
+    /*@FXML
+    void mostrarLivroNome(ActionEvent event) throws NaoPodeException {
+         
+    }*/
     
 }

@@ -70,6 +70,12 @@ public class TelaAdicionarLivroController {
     private Button btnAbrir;
     
     @FXML  ChoiceBox <Genero> boxGenero;
+    
+    @FXML
+    private Text isbntxt;
+
+    @FXML
+    private TextField isbn;
 
     
     @FXML
@@ -121,6 +127,7 @@ public class TelaAdicionarLivroController {
     	anoPub.clear();
     	numPag.clear();
         anoEd.clear();
+        isbn.clear();
         this.boxGenero.getSelectionModel().clearSelection();
     }
     
