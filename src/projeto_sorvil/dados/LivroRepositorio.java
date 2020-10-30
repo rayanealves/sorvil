@@ -69,7 +69,7 @@ public class LivroRepositorio implements IrepositorioLivro, Serializable {
     public boolean idExiste(String id){
         boolean existe = false;
         for(Livro livro : livros){
-            if(livro.getId().equals(id)){
+            if(livro.getISBN().equals(id)){
                 existe = true;
             }
         }

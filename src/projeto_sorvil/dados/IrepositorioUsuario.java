@@ -29,7 +29,7 @@ public interface IrepositorioUsuario {
 	
 	public ArrayList<MeuLivro> listarLivros(Usuario user);
 	
-	public boolean idExiste(String id);
+	public boolean cpfExiste(String id);
 	
 	public boolean adicionarLivro(Usuario user, MeuLivro livroUser);
 

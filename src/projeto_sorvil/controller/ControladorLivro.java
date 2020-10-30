@@ -6,7 +6,7 @@
 package projeto_sorvil.controller;
 
 import java.util.List;
-import java.util.UUID;
+
 
 import projeto_sorvil.dados.IrepositorioLivro;
 import projeto_sorvil.dados.LivroRepositorio;
@@ -34,23 +34,10 @@ public class ControladorLivro {
         this.repositorioLivro = LivroRepositorio.getInstance();
     }
     
-    private boolean confereID(String id){
-        return this.repositorioLivro.idExiste(id);
-    }
-    
-    private String novoID(){
-        String idProvi = UUID.randomUUID().toString();
-        if(this.confereID(idProvi)){
-            return novoID();
-        }
-        else{
-            return idProvi;
-        }
-    }
+   
     
     public boolean novoLivro(Livro livro) throws JaExisteException{
         if(livro != null){
-            livro.setId(this.novoID());
             if(!this.repositorioLivro.listar().contains(livro)){
                return this.repositorioLivro.adicionar(livro); 
             }

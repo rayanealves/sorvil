@@ -1,6 +1,7 @@
 package projeto_sorvil.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 
 public class Livro implements Serializable{
@@ -8,7 +9,7 @@ public class Livro implements Serializable{
    
 	private static final long serialVersionUID = -1617802494947681773L;
 	private String nome;
-	private String id;
+	private String ISBN;
 	private Editora editora;
 	private Autor autor;
 	private Genero genero;
@@ -17,11 +18,11 @@ public class Livro implements Serializable{
 	//private LocalDate anoPubli;
         private int anoPubli;
 	
-	public Livro(String nome, String id, Editora editora, Autor autor, Genero genero, int numPaginas,
+	public Livro(String nome, String isbn, Editora editora, Autor autor, Genero genero, int numPaginas,
 			int edicao,int anoP ) {
 		
 		this.nome = nome;
-		this.id = id;
+		this.ISBN = isbn;
 		this.editora = editora;
 		this.autor = autor;
 		this.genero = genero;
@@ -59,12 +60,12 @@ public class Livro implements Serializable{
 		this.nome = nome;
 	}
 
-	public String getId() {
-		return id;
+	public String getISBN() {
+		return ISBN;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setISBN(String isbn) {
+		this.ISBN = isbn;
 	}
 
 	public Editora getEditora() {
@@ -95,8 +96,7 @@ public class Livro implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((this.ISBN == null) ? 0 : this.ISBN.hashCode());
 		return result;
 	}
 
@@ -117,11 +117,9 @@ public class Livro implements Serializable{
 		this.edicao = edicao;
 	}
 	
-
 	public boolean equals(Livro livro) {
             if(livro != null){
-                return this.nome.equals(livro.getNome())
-                        && livro.getAutor().equals(this.autor);
+                return this.ISBN.equals(livro.ISBN);
             }
             else {
             	return false;
@@ -131,7 +129,7 @@ public class Livro implements Serializable{
 	
         @Override
 	public String toString() {
-		return "Nome: " + nome + "\nID: " + id + "\nEditora: " + editora + "\nAutor: " + autor + "\nGenero:" + genero
+		return "Nome: " + nome + "\nID: " + ISBN + "\nEditora: " + editora + "\nAutor: " + autor + "\nGenero:" + genero
 				+ "\nPaginas: " + numPaginas + "\nEdi��o: " + edicao + " " + this.getAnoPubli();
 	}
 

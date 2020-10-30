@@ -10,7 +10,7 @@ public class Usuario implements Serializable{
 	 */
 	private static final long serialVersionUID = -5605302189536462010L;
 	private String nome;
-	private String id;
+	private String cpf;
 	private String login;
 	private String senha;
 	private boolean admin;
@@ -21,23 +21,20 @@ public class Usuario implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((dataCadastro == null) ? 0 : dataCadastro.hashCode());
-		result = prime * result + ((login == null) ? 0 : login.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		
+		result = prime * result + ((this.cpf == null) ? 0 : this.cpf.hashCode());
 		return result;
 	}
 
 	
 
-	public Usuario(String nome, String id, String login, String senha, boolean admin, LocalDate dataCadastro) {
+	public Usuario(String nome, String cpf, String login, String senha, boolean admin, LocalDate dataCadastro) {
 		this.nome = nome;
-                this.id = id;
+                this.cpf = cpf;
 		this.login = login;
 		this.senha = senha;
 		this.admin = admin;
 		this.dataCadastro = dataCadastro;
-		this.estante = new ArrayList<MeuLivro>();
+		this.estante = new ArrayList<>();
 	}
 
 	public String getNome() {
@@ -89,19 +86,17 @@ public class Usuario implements Serializable{
 	}
 	
 	
-	public String getId() {
-		return id;
+	public String getCPF() {
+		return cpf;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setCPF(String id) {
+		this.cpf = id;
 	}
 
 	public boolean equals(Usuario usuario) {
-		return usuario != null && usuario.getLogin().equals(this.login)
-                        && usuario.getDataCadastro().equals(this.dataCadastro)
-                        && usuario.getNome().equals(this.nome);
-	}
+		return usuario != null && usuario.cpf.equals(usuario.getCPF());
+                }
         
 	
 	public MeuLivro buscarLivro(String nome) {

@@ -66,11 +66,12 @@ public class TelaBibliotecaPessoalController {
     @FXML
     void iniciar(MouseEvent event) {
 
-    	if( obsListPessoal == null ){
-    		obsListPessoal = FXCollections.observableArrayList(FachadaController.listarLivrosUsuario(FachadaController.getUsuarioLogado()));					
+    	System.out.println("chamada iniciar");
+		obsListPessoal = FXCollections.observableArrayList(FachadaController.listarLivrosUsuario(FachadaController.getUsuarioLogado()));					
 
-    		lvListaPessoalLivros.setItems(obsListPessoal);
-    	}
+
+		lvListaPessoalLivros.setItems(obsListPessoal);
+		lvListaPessoalLivros.refresh();
     	
     }
 
