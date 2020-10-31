@@ -4,6 +4,8 @@ package projeto_sorvil.gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +17,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.exceptions.JaExisteException;
+import projeto_sorvil.exceptions.NaoExisteException;
 import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Editora;
 import projeto_sorvil.model.Genero;
@@ -98,14 +101,13 @@ public class TelaAdicionarLivroController implements Initializable {
     
 
     @FXML
-    void criarLivro(ActionEvent event) throws JaExisteException, IOException {
+    void criarLivro(ActionEvent event) throws IOException{
     	
-    	Editora novaEditora = new Editora(editora.getText(), null);
-    	FachadaController.getInstance().novaEditora(novaEditora);
-    	
-    	Autor novoAutor = new Autor(autor.getText() ,null, null);
-    	FachadaController.getInstance().novoAutor(novoAutor);
-    	
+        Editora novaEditora;
+        novaEditora = FachadaController.getInstance().novaEditoraNome(editora.getText());   
+        Autor novoAutor = FachadaController
+                .getInstance()
+                .novoAutorNome(autor.getText());
     	Genero onGenero = boxGenero.getValue();
     	int anoEdicao = Integer.parseInt(anoEd.getText());
     	int anoPublica = Integer.parseInt(anoPub.getText());
@@ -115,7 +117,12 @@ public class TelaAdicionarLivroController implements Initializable {
     	Livro livroAdicionado = new Livro(nomeLivro.getText(), isbn.getText() , novaEditora, novoAutor, onGenero ,numeroPag ,
     			anoEdicao, anoPublica);
     	
-    	FachadaController.getInstance().novoLivro(livroAdicionado);
+        try {
+            FachadaController.getInstance().novoLivro(livroAdicionado);
+        } catch (JaExisteException ex) {
+            AlertBox.display("Você não pode adicionar esse liivro", ex.getMessage());
+            Logger.getLogger(TelaAdicionarLivroController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.out.println(anoPublica);
         System.out.println(numeroPag);
         

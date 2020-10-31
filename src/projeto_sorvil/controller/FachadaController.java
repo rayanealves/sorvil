@@ -2,11 +2,14 @@ package projeto_sorvil.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import projeto_sorvil.exceptions.CPFinvalidoExeption;
 
 import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.exceptions.NaoExisteException;
 import projeto_sorvil.exceptions.NaoPodeException;
+import projeto_sorvil.gui.TelaAdicionarLivroController;
 import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Card;
 import projeto_sorvil.model.Editora;
@@ -84,6 +87,21 @@ public class FachadaController {
 	public boolean novoAutor(Autor autor) throws JaExisteException {
 		return controladorAutor.novoAutor(autor);
 	}
+        
+        public Autor novoAutorNome(String autor){
+            Autor novoAutor = new Autor(autor, null, null);
+            try {
+            Autor buscaAutor = FachadaController
+                        .getInstance()
+                        .bucarAutorPorNome(autor); 
+                if(buscaAutor == null){
+                    FachadaController.getInstance().novoAutor(novoAutor);
+                }
+            } catch (NaoExisteException | JaExisteException ex) {
+                Logger.getLogger(TelaAdicionarLivroController.class.getName()).log(Level.SEVERE, null, ex);
+            }  
+            return novoAutor;
+	}
 
 	public Autor bucarAutorPorNome(String nome) throws NaoExisteException {
 		return controladorAutor.bucarPorNome(nome);
@@ -155,8 +173,29 @@ public class FachadaController {
 		controladorCards.tornarPrivado(card);
 	}
 
-	public boolean novaEditora(Editora editora) throws JaExisteException {
-		return controladorEditora.novaEditora(editora);
+	public Editora novaEditoraNome(String nome){
+              
+            Editora novaEditora = new Editora(nome,null);
+            try {
+                Editora buscaEditora = FachadaController
+                        .getInstance()
+                        .buscarEditora(nome);  
+                    if(buscaEditora == null){
+                        FachadaController.getInstance().novaEditora(novaEditora);
+                    }
+            } catch (NaoExisteException ex) {
+                Logger.getLogger(FachadaController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return novaEditora;
+	}
+        
+        public boolean novaEditora(Editora editora){
+            try {
+                return controladorEditora.novaEditora(editora);
+            } catch (JaExisteException ex) {
+                Logger.getLogger(FachadaController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return false;
 	}
 
 	public boolean deleteEditora(Usuario usuario, Editora editora) throws NaoPodeException {
@@ -164,6 +203,7 @@ public class FachadaController {
 	}
 
 	public Editora buscarEditora(String nome) throws NaoExisteException {
+         
 		return controladorEditora.buscarEditora(nome);
 	}
 
