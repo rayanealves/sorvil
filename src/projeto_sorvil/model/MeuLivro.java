@@ -46,5 +46,12 @@ public class MeuLivro implements Serializable{
     public void setLivro(Livro livro) {
         this.livro = livro;
     }
+
+	@Override
+	public String toString() {
+		return  livro.toString() + "\n nota=" + nota + ", status=" + status + "\n, favorito=" + favorito;
+	}
+    
+    
     
 }

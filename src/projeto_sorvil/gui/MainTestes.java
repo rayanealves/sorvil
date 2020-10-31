@@ -29,7 +29,7 @@ public class MainTestes extends Application {
 	}
 	return instance;
     }
-		
+	
 
     public void start(Stage stage) throws Exception {
     	try {
@@ -82,27 +82,23 @@ public class MainTestes extends Application {
     				estagioPrimario.setScene(cenaTelaLogin);			
     				break;
     			case 2:
-        			//Parent telaCadastro =FXMLLoader.load(getClass().getResource("TelaCadastro.fxml"));
-        			
-        			
-        			//cenaTelaCadastro = new Scene(telaCadastro);
+        			Parent telaCadastro =FXMLLoader.load(getClass().getResource("TelaCadastro.fxml"));
+        			cenaTelaCadastro = new Scene(telaCadastro);
         			estagioPrimario.setScene(cenaTelaCadastro);
     				break;
     			case 3:
-	    			//Parent telaBibliotecaPessoal = FXMLLoader.load(getClass().getResource("TelaBibliotecaPessoal.fxml"));
-	    			
+	    						
 	        		FXMLLoader telaBibliotecaPessoal = new FXMLLoader(getClass().getResource("TelaBibliotecaPessoal.fxml"));
-	        		
 	        		telaBibliotecaPessoal.setController(new TelaBibliotecaPessoalController(atualizarListaPessoal()));
-	        		
 	        		Parent parentTelaBibliotecaPessoal = telaBibliotecaPessoal.load();
 	    			cenaTelaBibliotecaPessoal = new Scene(parentTelaBibliotecaPessoal);
     				estagioPrimario.setScene(cenaTelaBibliotecaPessoal);
     				break;
     			case 4:
-    				Parent telaAdicionarLivro = FXMLLoader.load(getClass().getResource("TelaAdicionarLivro.fxml"));
-    	    		
-    				cenaTelaAdicionarLivro = new Scene(telaAdicionarLivro);
+    				FXMLLoader telaAdicionarLivro = new FXMLLoader(getClass().getResource("TelaAdicionarLivro.fxml"));
+    				telaAdicionarLivro.setController(new TelaAdicionarLivroController());
+    				Parent parentTelaAdicionarLivro = telaAdicionarLivro.load();
+    				cenaTelaAdicionarLivro = new Scene( parentTelaAdicionarLivro);
     				estagioPrimario.setScene(cenaTelaAdicionarLivro);
     				break;
     			case 5:

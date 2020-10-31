@@ -87,13 +87,12 @@ public class TelaAdicionarLivroController implements Initializable {
 	
 	public TelaAdicionarLivroController() {
 		this.maintestes = MainTestes.getInstance();
-		this.boxGenero.getItems().addAll(Genero.values());
 	}
 
     
     
     public void initialize(URL location, ResourceBundle resources) {
-
+    	this.boxGenero.getItems().addAll(Genero.values());
     }
     
     
