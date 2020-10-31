@@ -20,49 +20,34 @@ public class TelaLivrosController implements Initializable{
 
     @FXML
     private GridPane telaLivro ;
-    
     @FXML
     private Button botaoVoltar;
-
     @FXML
     private Button botaoCriarCard;
-
     @FXML
     private Text txtStatus;
-
     @FXML
     private Text txtNota;
-
     @FXML
     private Text txtNotaGeral;
-
     @FXML
     private Button botaoGuardar;
-
     @FXML
     private Text txtInforma;
-
     @FXML
     private Text txtLivro;
-    
     @FXML
     private TextField minhaNota;
-
     @FXML
     private Label notaGeral;
-    
     @FXML
     private Label informacoes;
-    
     @FXML
     private ChoiceBox<Status> chboxStatus;
-    
     @FXML
     private Button btnVerCard;
-    
     @FXML
     private CheckBox chFavorito;
-    
     private FachadaController fachada;
     private MainTestes maintestes;
     
@@ -82,8 +67,9 @@ public class TelaLivrosController implements Initializable{
         informacoes = new Label();
         chboxStatus = new  ChoiceBox<Status>();
         btnVerCard = new Button();
-	this.fachada = FachadaController.getInstance();
-	this.maintestes = MainTestes.getInstance();
+        chFavorito = new CheckBox();
+        this.fachada = FachadaController.getInstance();
+        this.maintestes = MainTestes.getInstance();
 		
     	System.out.println("estou no controle");
 		
@@ -92,8 +78,10 @@ public class TelaLivrosController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
     	this.informacoes.setText(fachada.getOnLivro().getLivro().toString());
     	this.chboxStatus.getItems().addAll(Status.values());
+    	this.chboxStatus.setValue(fachada.getOnLivro().getStatus());
     	String nota = String.valueOf(fachada.getOnLivro().getNota());
     	this.minhaNota.setText(nota);
+    	chFavorito.
     	
     	System.out.println("estou iniciando");
     }

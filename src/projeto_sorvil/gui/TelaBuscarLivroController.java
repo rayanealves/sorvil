@@ -27,7 +27,6 @@ import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Editora;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.MeuLivro;
-import projeto_sorvil.model.Status;
 
 
 public class TelaBuscarLivroController implements Initializable {
@@ -115,9 +114,8 @@ public class TelaBuscarLivroController implements Initializable {
     	//tabelaContas.getSelectionModel (). selectedItemProperty () .addListener ((observable, oldValue, newValue) -> mostrarDetalhesConta (newValue));
 
     	TelaBuscarLivroController.livroBuscado = lvLivrosBuscados.getSelectionModel().getSelectedItem();
-
-    	Status status =  Status.EM_BRANCO;
-    	MeuLivro livroUser = new MeuLivro(TelaBuscarLivroController.livroBuscado, status , 0);
+    	
+    	MeuLivro livroUser = new MeuLivro(TelaBuscarLivroController.livroBuscado);
     	fachada.adicionarLivroUsuario(fachada.getUsuarioLogado(), livroUser);
     	//FachadaController.getUsuarioLogado().adicionarLivro(livroUser);
     	TelaBuscarLivroController.livroBuscado = null;
