@@ -67,9 +67,9 @@ public class AutorRepositorio implements IrepositorioAutor, Serializable {
 	}
 	
         @Override
-	public List<Autor> listarPrimeiroNome(String nome) {
+	public List<Autor> listarAutoresPorNome(String nome) {
          return autores.stream()
-                 .filter(autor-> autor.getNome().equalsIgnoreCase(nome))
+                 .filter(autor-> autor.getNome().toLowerCase().contains(nome))
                  .collect(Collectors.toList());
      }
 	

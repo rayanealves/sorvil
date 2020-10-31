@@ -1,6 +1,7 @@
 package projeto_sorvil.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Autor implements Comparable<Autor>, Serializable {
 	
@@ -13,19 +14,34 @@ public class Autor implements Comparable<Autor>, Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((sobrenome == null) ? 0 : sobrenome.hashCode());
 		return result;
 	}
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Autor other = (Autor) obj;
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        return true;
+    }
+
 	
 	private String nome;
-	private String sobrenome;
 	private String id;
 	
-	public Autor(String nome, String sobrenome, String id) {
+	public Autor(String nome, String id) {
 		
 		this.nome = nome;
-		this.sobrenome = sobrenome;
 		this.id = id;
 	}
 
@@ -39,25 +55,14 @@ public class Autor implements Comparable<Autor>, Serializable {
             }
 	}
 
-	public String getSobrenome() {
-		return sobrenome;
-	}
-
-	public void setSobrenome(String sobrenome) {
-            if(sobrenome != null){
-                this.sobrenome = sobrenome;
-            }
-	}
+	
 
 	public String getId() {
 		return id;
 	}
 	
 	
-	public boolean equals(Autor autor) {
-		return autor != null && autor.getNome().equals(this.getNome())
-                        && autor.getSobrenome().equals(this.getSobrenome());
-	}
+	
 
 	public void setId(String id) {
             if (id != null){
@@ -67,7 +72,7 @@ public class Autor implements Comparable<Autor>, Serializable {
 	
         @Override
 	public String toString() {
-		return this.getNome() + " " + this.getSobrenome();
+		return this.getNome();
 	}
 
 		@Override

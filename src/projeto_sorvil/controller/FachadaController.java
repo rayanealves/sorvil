@@ -48,9 +48,7 @@ public class FachadaController {
         }
         return instance;
     }
-    
-	
-	
+    	
 	public static Usuario getUsuarioLogado() {
 		return usuarioLogado;
 	}
@@ -89,7 +87,7 @@ public class FachadaController {
 	}
         
         public Autor novoAutorNome(String autor){
-            Autor novoAutor = new Autor(autor, null, null);
+            Autor novoAutor = new Autor(autor, null);
             try {
             Autor buscaAutor = FachadaController
                         .getInstance()
@@ -107,13 +105,9 @@ public class FachadaController {
 		return controladorAutor.bucarPorNome(nome);
 	}
 
-	public List<Autor> buscarAutorPrimeiroNome(String nome) throws NaoExisteException {
-		return controladorAutor.buscarPrimeiroNome(nome);
-	}
+	
 
-	public Autor buscarAutorSobrenome(List<Autor> autoresPorNome, String sobrenome) {
-		return controladorAutor.buscarSobrenome(autoresPorNome, sobrenome);
-	}
+	
 
 	public boolean deleteAutor(Autor autor) throws NaoExisteException, NaoPodeException {
 		if(this.listarPorAutor(autor).size() > 0) {

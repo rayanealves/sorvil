@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
-
-
 import projeto_sorvil.dados.AutorRepositorio;
 import projeto_sorvil.dados.IrepositorioAutor;
 import projeto_sorvil.exceptions.JaExisteException;
@@ -59,50 +57,36 @@ public class ControladorAutor {
     }
     
     public boolean novoAutor(Autor autor) throws JaExisteException{
-        if (autor != null){
-            String[] nomeCompleto = this.separarNome(autor.getNome());
-            String nome = nomeCompleto[0];
-            String sobrenome = this.juntarSobrenome(nomeCompleto);
-            Autor autorCompleto = new Autor(nome, sobrenome, null);
-            autorCompleto.setId(this.novoID());
-            if(!this.repositorioAutores.listar().contains(autorCompleto)){
+     
+            autor.setId(this.novoID());
+            if(!this.repositorioAutores.listar().contains(autor)){
                 return this.repositorioAutores.adicionar(autor);
             }
             else {
             	throw new JaExisteException(autor);
             }
         }
-        return false;
-    }
+    
     
     public Autor bucarPorNome(String nome) throws NaoExisteException {
-    	String[] nomeCompleto = this.separarNome(nome);
-    	ArrayList<Autor> autoresPorNome = (ArrayList<Autor>) this.buscarPrimeiroNome(nomeCompleto[0]);
-    	if(autoresPorNome.size() < 2 && this.juntarSobrenome(nomeCompleto) == "") {
-    		return autoresPorNome.get(0);
-    	}
-    	Autor correto = this.buscarSobrenome(autoresPorNome, this.juntarSobrenome(nomeCompleto));
-    	return correto;
     	
-    }
-    
-    public List<Autor> buscarPrimeiroNome(String nome) throws NaoExisteException{
-        List<Autor> resultado = this.repositorioAutores.listarPrimeiroNome(nome);
+        List<Autor> resultado = this.repositorioAutores.listarAutoresPorNome(nome);
+        Autor saida;
         if(resultado.size() > 0){
-            return resultado;
+            saida = (Autor)resultado.stream()
+                    .filter(autor -> autor.getNome().equalsIgnoreCase(nome))
+                    .limit(1)
+                    .collect(Collectors.toList());
         }
         else{
             throw new NaoExisteException(nome);
         }
+    	return saida;
     }
     
-    public Autor buscarSobrenome(List<Autor> autoresPorNome, String sobrenome){
+   
     
-    	return (Autor) autoresPorNome.stream()
-    			.filter(autor-> autor.getSobrenome().compareToIgnoreCase(sobrenome) < 2)
-    			.limit(1)
-    			.collect(Collectors.toList());
-    }
+  
     
     public boolean delete(Autor autor) throws NaoExisteException {
     	

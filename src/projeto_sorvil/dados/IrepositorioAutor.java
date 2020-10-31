@@ -20,7 +20,7 @@ public interface IrepositorioAutor {
     
     public boolean idExiste(String id);
         
-    public List<Autor> listarPrimeiroNome(String nome);
+    public List<Autor> listarAutoresPorNome(String nome);
     
     public boolean autorExiste(Autor autor);
 }
