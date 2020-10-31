@@ -107,8 +107,10 @@ public class MainTestes extends Application {
     				estagioPrimario.setScene(cenaTelaEditarUsuario);
     				break;	
     			case 6:
-    				Parent telaLivros = FXMLLoader.load(getClass().getResource("TelaLivros.fxml"));
-    	    		cenaTelaLivros = new Scene(telaLivros);
+    				FXMLLoader telaLivros = new FXMLLoader(getClass().getResource("TelaLivros.fxml"));
+    				telaLivros.setController(new TelaLivrosController());
+    				Parent parentTelaLivros = telaLivros.load();
+    	    		cenaTelaLivros = new Scene(parentTelaLivros);
     				estagioPrimario.setScene(cenaTelaLivros);
     				break;	
     			case 7:
