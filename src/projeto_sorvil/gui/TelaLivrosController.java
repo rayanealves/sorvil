@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -58,8 +59,12 @@ public class TelaLivrosController implements Initializable{
     
     @FXML
     private Button btnVerCard;
+    
+    @FXML
+    private CheckBox chFavorito;
+    
     private FachadaController fachada;
-	private MainTestes maintestes;
+    private MainTestes maintestes;
     
 
     public TelaLivrosController() {
@@ -77,8 +82,8 @@ public class TelaLivrosController implements Initializable{
         informacoes = new Label();
         chboxStatus = new  ChoiceBox<Status>();
         btnVerCard = new Button();
-		this.fachada = FachadaController.getInstance();
-		this.maintestes = MainTestes.getInstance();
+	this.fachada = FachadaController.getInstance();
+	this.maintestes = MainTestes.getInstance();
 		
     	System.out.println("estou no controle");
 		
@@ -115,6 +120,7 @@ public class TelaLivrosController implements Initializable{
     	int nota =  Integer.parseInt(minhaNota.getText());
     	fachada.getUsuarioLogado().getEstante().get(index).setNota(nota);
     	fachada.getUsuarioLogado().getEstante().get(index).setStatus(chboxStatus.getValue());
+        //chboxStatus.getSelectionModel();
     	
     	fachada.setOnLivro(null);
     	maintestes.escolherTela(3);
