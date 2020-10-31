@@ -3,18 +3,19 @@ package projeto_sorvil.gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
@@ -36,13 +37,17 @@ public class TelaCardsController implements Initializable {
     @FXML
     private ListView<Card> lvCards;
     @FXML
-    private TextArea card;
+    private TextArea comentarioCard;
     @FXML
     private Button btnExcluir;
     @FXML
     private Button btnSalvar;
     @FXML
     private Button btnVerCard;
+    @FXML
+    private Label tituloCard;
+    @FXML
+    private TextField pagAtual;
     @FXML
     private MenuButton menuPublicoPrivado;
 	private FachadaController fachada;
@@ -84,11 +89,6 @@ public class TelaCardsController implements Initializable {
     }
     
     @FXML
-    void salvarEdicao(ActionEvent event) {
-
-    }
-    
-    @FXML
     void selecionarTipoCards(ActionEvent event) {
         if(item1.getText().equals(menuPublicoPrivado.getText())) {
         	
@@ -104,7 +104,10 @@ public class TelaCardsController implements Initializable {
     void verCard(ActionEvent event) {
     	Card onCard = lvCards.getSelectionModel().getSelectedItem();
         fachada.setOnCard(onCard);
-        this.card.setText(fachada.getOnCard().toString());
+        this.tituloCard.setText(fachada.getOnCard().getTitulo());
+        this.comentarioCard.setText(fachada.getOnCard().getTexto());
+        String pag = String.valueOf(fachada.getOnCard().getPagina());
+        this.pagAtual.setText(pag);
     }
     
 
