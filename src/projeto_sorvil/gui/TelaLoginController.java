@@ -37,11 +37,16 @@ public class TelaLoginController  implements Initializable {
     private Label TelaLogin;
     @FXML
     private Button sair;
-    
     @FXML
     private ImageView imageSorvil;
+	
+	private MainTestes maintestes;
     
 
+	public TelaLoginController() {
+		this.maintestes = MainTestes.getInstance();
+	}
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		//imageSorvil.applyCss();
@@ -57,7 +62,7 @@ public class TelaLoginController  implements Initializable {
 				FachadaController.setUsuarioLogado(user);
 				senha.clear();
 				login.clear();
-				MainTestes.escolherTela(3);
+				maintestes.escolherTela(3);
 				
 				
 			}
@@ -66,17 +71,17 @@ public class TelaLoginController  implements Initializable {
 
 
 	 @FXML
-	 void fecharPrograma(ActionEvent event) {
+	 void fecharPrograma(ActionEvent event) throws IOException {
 		senha.clear();
 		login.clear();
-		MainTestes.escolherTela(0);
+		maintestes.escolherTela(0);
 	 }
 
 	 @FXML
-	 void irParaCadastro(ActionEvent event) {
+	 void irParaCadastro(ActionEvent event) throws IOException {
 		 senha.clear();
 		 login.clear();
-		 MainTestes.escolherTela(2);
+		 maintestes.escolherTela(2);
 	 }
 
 

@@ -1,8 +1,13 @@
 package projeto_sorvil.gui;
 
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -16,7 +21,7 @@ import projeto_sorvil.model.Genero;
 import projeto_sorvil.model.Livro;
 
 
-public class TelaAdicionarLivroController {
+public class TelaAdicionarLivroController implements Initializable {
     
     @FXML
     private GridPane telaAdicionarLivro;
@@ -77,18 +82,24 @@ public class TelaAdicionarLivroController {
     @FXML
     private TextField isbn;
 
-    
-    @FXML
-    public void initialize() {
+	private MainTestes maintestes;
 
-    	this.boxGenero.getItems().addAll(Genero.values());
+	
+	public TelaAdicionarLivroController() {
+		this.maintestes = MainTestes.getInstance();
+		this.boxGenero.getItems().addAll(Genero.values());
+	}
+
+    
+    
+    public void initialize(URL location, ResourceBundle resources) {
 
     }
     
     
 
     @FXML
-    void criarLivro(ActionEvent event) throws JaExisteException {
+    void criarLivro(ActionEvent event) throws JaExisteException, IOException {
     	
     	Editora novaEditora = new Editora(editora.getText(), null);
     	FachadaController.getInstance().novaEditora(novaEditora);
@@ -109,15 +120,15 @@ public class TelaAdicionarLivroController {
         System.out.println(anoPublica);
         System.out.println(numeroPag);
         
-        MainTestes.escolherTela(9);
+        maintestes.escolherTela(9);
     			
     			
     }
 
     @FXML
-    void voltar(ActionEvent event) {
+    void voltar(ActionEvent event) throws IOException {
         this.limparCampos();
-    	MainTestes.escolherTela(9);
+        maintestes.escolherTela(9);
     }
     
     public void limparCampos(){
@@ -130,5 +141,7 @@ public class TelaAdicionarLivroController {
         isbn.clear();
         this.boxGenero.getSelectionModel().clearSelection();
     }
-    
+
+
+
 }

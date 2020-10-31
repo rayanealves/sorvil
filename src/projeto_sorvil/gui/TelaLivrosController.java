@@ -1,16 +1,18 @@
 package projeto_sorvil.gui;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
-import projeto_sorvil.model.MeuLivro;
 
 public class TelaLivrosController {
 
@@ -55,32 +57,33 @@ public class TelaLivrosController {
     
     @FXML
     private Button btnVerCard;
+	
+	private MainTestes maintestes;
     
-    private static MeuLivro onLivro = null;
 
-    @FXML
-    void iniciar(MouseEvent event) {
-    	if(TelaLivrosController.onLivro == null) {
-    		TelaLivrosController.onLivro = FachadaController.getOnLivro();
-    	}
+    public TelaLivrosController() {
+		this.maintestes = MainTestes.getInstance();
+    }
+    
+    public void initialize(URL url, ResourceBundle rb) {
+    	
     	
     }
     
     @FXML
-    void TelacriarCard(ActionEvent event) {
-    	MainTestes.escolherTela(8);
+    void TelacriarCard(ActionEvent event) throws IOException {
+    	maintestes.escolherTela(8);
     }
     
     @FXML
-    void voltar(ActionEvent event) {
+    void voltar(ActionEvent event) throws IOException {
     	FachadaController.setOnLivro(null);
-    	onLivro = null;
-    	MainTestes.escolherTela(3);
+    	maintestes.escolherTela(3);
     }
     
     @FXML
-    void verCard(ActionEvent event) {
-        MainTestes.escolherTela(7);
+    void verCard(ActionEvent event) throws IOException {
+    	maintestes.escolherTela(7);
     }
 
 }

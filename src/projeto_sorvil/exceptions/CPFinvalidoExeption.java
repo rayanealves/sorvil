@@ -7,7 +7,11 @@ package projeto_sorvil.exceptions;
 
 
 public class CPFinvalidoExeption extends Exception{
-    private Object objeto;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8106249242645718877L;
+	private Object objeto;
     
     public CPFinvalidoExeption(String obj) {
         super("Formato Invalido");

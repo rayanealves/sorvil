@@ -1,6 +1,9 @@
 package projeto_sorvil.gui;
 
+import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -60,11 +63,22 @@ public class TelaCadastroController {
     
     @FXML
     private TextField cpf;
+	
+	private MainTestes maintestes;
     
     LocalDate diaCadastro;
+	
+	
+	public TelaCadastroController() {
+		this.maintestes = MainTestes.getInstance();
+	}
+    
+    public void initialize(URL location, ResourceBundle resources) {
+    	
+    }
 
     @FXML
-    void cadastrarUsuario(ActionEvent event) {
+    void cadastrarUsuario(ActionEvent event) throws IOException {
     	RadioButton tipoDeUser = (RadioButton) tipoDeUsuario.getSelectedToggle();
     	boolean tipo = false;
         
@@ -74,7 +88,7 @@ public class TelaCadastroController {
     	diaCadastro = LocalDate.now();
         System.out.println(FachadaController.getInstance().listarUsuario().size());
     	Usuario user = new Usuario(nome.getText(), cpf.getText(), login.getText(), senha.getText(), tipo, diaCadastro );
-//<<<<<<< HEAD
+
         try {
         	FachadaController.adicionarUsuario(user);
                 System.out.println(FachadaController.getInstance().listarUsuario().size());
@@ -83,19 +97,19 @@ public class TelaCadastroController {
         }
 
     	senha.clear();
-	login.clear();
-	nome.clear();
+    	login.clear();
+    	nome.clear();
         cpf.clear();
-	System.out.println(FachadaController.listarLivrosUsuario(user).size());
-    	MainTestes.escolherTela(1);
+        System.out.println(FachadaController.listarLivrosUsuario(user).size());
+        maintestes.escolherTela(1);
     }
     
     @FXML
-    void voltar(ActionEvent event) {
+    void voltar(ActionEvent event) throws IOException {
     	senha.clear();
 		login.clear();
 		nome.clear();
-    	MainTestes.escolherTela(1);
+		maintestes.escolherTela(1);
     }
 
 }

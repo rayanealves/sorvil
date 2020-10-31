@@ -5,6 +5,7 @@
  */
 package projeto_sorvil.gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -63,6 +64,8 @@ public class TelaBuscarLivroController implements Initializable {
 
     @FXML
     private Button btnPorEditora;
+	
+	private MainTestes maintestes;
 
     private static final ObservableList<Livro> obsListBuscada =  FXCollections.observableArrayList();
     
@@ -70,13 +73,20 @@ public class TelaBuscarLivroController implements Initializable {
     
     private static Autor autorBuscado = null;
   
-    private static Editora editoraBuscada;
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }
+    @SuppressWarnings("unused")
+	private static Editora editoraBuscada = null;
+	
+	
+    public TelaBuscarLivroController() {
+		this.maintestes = MainTestes.getInstance();
+	}
     
 
+    @Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+	}
     
  
     @FXML
@@ -99,7 +109,7 @@ public class TelaBuscarLivroController implements Initializable {
     }
     
     @FXML
-    void AdicionarLivroPessoal(ActionEvent event) throws JaExisteException {
+    void AdicionarLivroPessoal(ActionEvent event) throws JaExisteException, IOException {
     	//tabelaContas.getSelectionModel (). selectedItemProperty () .addListener ((observable, oldValue, newValue) -> mostrarDetalhesConta (newValue));
 
     	TelaBuscarLivroController.livroBuscado = lvLivrosBuscados.getSelectionModel().getSelectedItem();
@@ -112,22 +122,22 @@ public class TelaBuscarLivroController implements Initializable {
     	TelaBuscarLivroController.obsListBuscada.clear();
     	lvLivrosBuscados = null;
     	livro.clear();
-    	MainTestes.escolherTela(3);
+    	maintestes.escolherTela(3);
     }
 
     @FXML
-    void adicionarLivroSorvil(ActionEvent event) {
-    	MainTestes.escolherTela(4);
+    void adicionarLivroSorvil(ActionEvent event) throws IOException {
+    	maintestes.escolherTela(4);
     }
     
     
     @FXML
-    void voltar(ActionEvent event) {
+    void voltar(ActionEvent event) throws IOException {
     	TelaBuscarLivroController.livroBuscado = null;
     	TelaBuscarLivroController.obsListBuscada.clear();
     	lvLivrosBuscados.setItems(obsListBuscada);
     	livro.clear();
-    	MainTestes.escolherTela(3);
+    	maintestes.escolherTela(3);
     }
     
     @FXML

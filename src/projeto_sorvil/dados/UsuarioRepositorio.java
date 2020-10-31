@@ -3,7 +3,6 @@ package projeto_sorvil.dados;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import projeto_sorvil.model.MeuLivro;
 import projeto_sorvil.model.Usuario;

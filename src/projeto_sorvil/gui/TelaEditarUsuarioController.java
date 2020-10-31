@@ -1,5 +1,9 @@
 package projeto_sorvil.gui;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -39,10 +43,19 @@ public class TelaEditarUsuarioController {
 
     @FXML
     private Button botaoEditar;
+	
+	private MainTestes maintestes;
 
     private static Usuario usuarioLogado = null;
     
+	public TelaEditarUsuarioController() {
+		this.maintestes = MainTestes.getInstance();
+    }
 
+    public void initialize(URL location, ResourceBundle resources) {
+    	
+    }
+	
     @FXML
     void iniciar(MouseEvent event) {
     	if(TelaEditarUsuarioController.usuarioLogado == null) {
@@ -51,15 +64,15 @@ public class TelaEditarUsuarioController {
     }
     
     @FXML
-    void cancelar(ActionEvent event) {
+    void cancelar(ActionEvent event) throws IOException {
     	login.clear();
     	nome.clear();
     	senha.clear();
-    	MainTestes.escolherTela(3);
+    	maintestes.escolherTela(3);
     }
 
     @FXML
-    void editar(ActionEvent event) throws NaoPodeException, JaExisteException {
+    void editar(ActionEvent event) throws NaoPodeException, JaExisteException, IOException {
     	if(nome.getText() != null & nome.getText() != "") {
     		FachadaController.editarNomeUsuario(TelaEditarUsuarioController.usuarioLogado, nome.getText());  					
     	}
@@ -73,7 +86,7 @@ public class TelaEditarUsuarioController {
     	login.clear();
     	nome.clear();
     	senha.clear();
-    	MainTestes.escolherTela(3);
+    	maintestes.escolherTela(3);
     }
 
 }

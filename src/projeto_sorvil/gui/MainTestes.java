@@ -1,12 +1,14 @@
 package projeto_sorvil.gui;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.dados.UsuarioRepositorio;
@@ -19,45 +21,21 @@ public class MainTestes extends Application {
 	, cenaTelaCards , cenaTelaCriacaoCards, cenaTelaEditarUsuario, cenaTelaLivros
 	, cenaTelaLogin, cenaTelaBuscarLivro ;
 	private static Stage estagioPrimario;
-	static FXMLLoader telaBibliotecaPessoal;
+	private static MainTestes instance;
 	
-	
+    public static MainTestes getInstance() {
+	if(instance == null) {
+		instance = new MainTestes();
+	}
+	return instance;
+    }
+		
+
     public void start(Stage stage) throws Exception {
     	try {
-    		//FXMLLoader telaLogin = new FXMLLoader(getClass().getResource("/projeto_sorvil.gui/TelaLogin.fxml"));
-    		Parent telaLogin = FXMLLoader.load(getClass().getResource("TelaLogin.fxml"));
-    		//Parent parentTelaLogin = telaLogin.load();
-    		cenaTelaLogin = new Scene(telaLogin);
-    		
-    		//FXMLLoader telaCadastro = new FXMLLoader(getClass().getResource("/projeto_sorvil.gui/TelaCadastro.fxml"));
-    		Parent telaCadastro =FXMLLoader.load(getClass().getResource("TelaCadastro.fxml"));
-    		//Parent parentTelaCadastro = telaCadastro.load();
-    		cenaTelaCadastro = new Scene(telaCadastro);
-    		
-    		Parent telaAdicionarLivro = FXMLLoader.load(getClass().getResource("TelaAdicionarLivro.fxml"));
-    		cenaTelaAdicionarLivro = new Scene(telaAdicionarLivro);
-    		
-    		//FXMLLoader telaBibliotecaPessoal = new FXMLLoader(getClass().getResource("/projeto_sorvil.gui/TelaBibliotecaPessoal.fxml"));
-    		Parent telaBibliotecaPessoal = FXMLLoader.load(getClass().getResource("TelaBibliotecaPessoal.fxml"));
-    		//Parent parentTelaBibliotecaPessoal = telaBibliotecaPessoal.load();
-    		cenaTelaBibliotecaPessoal = new Scene(telaBibliotecaPessoal);
-    		
-    		Parent telaCards = FXMLLoader.load(getClass().getResource("TelaCards.fxml"));
-    		cenaTelaCards = new Scene(telaCards);
-    		
-    		Parent telaCriacaoCards = FXMLLoader.load(getClass().getResource("TelaCriacaoCards.fxml"));
-    		cenaTelaCriacaoCards = new Scene(telaCriacaoCards);
-    		
-    		Parent telaEditarUsuario = FXMLLoader.load(getClass().getResource("TelaEditarUsuario.fxml"));
-    		cenaTelaEditarUsuario = new Scene(telaEditarUsuario);
-    		
-    		Parent telaLivros = FXMLLoader.load(getClass().getResource("TelaLivros.fxml"));
-    		cenaTelaLivros = new Scene(telaLivros);
-    		
-    		Parent telaBuscarLivro = FXMLLoader.load(getClass().getResource("TelaBuscarLivro.fxml"));
-    		cenaTelaBuscarLivro = new Scene(telaBuscarLivro);
-
-    		
+    		FXMLLoader telaLogin = new FXMLLoader(getClass().getResource("TelaLogin.fxml"));
+    		Parent parentTelaLogin = telaLogin.load();
+    		cenaTelaLogin = new Scene(parentTelaLogin);
     		
     		
     		estagioPrimario = stage;
@@ -94,61 +72,89 @@ public class MainTestes extends Application {
     }
     
     
-    public static void escolherTela(int opcao) {
-    	
-    	switch (opcao){
-    		case 0:
-    			estagioPrimario.close();		
-    		break;
-    		case 1:
-    			estagioPrimario.setScene(cenaTelaLogin);
-    			
+    public void escolherTela(int opcao) throws IOException {
+    	try{
+    		switch (opcao){
+    			case 0:
+    				estagioPrimario.close();		
     			break;
-    		case 2:
-    			estagioPrimario.setScene(cenaTelaCadastro);
-    			break;
-    		case 3:
-    			estagioPrimario.setScene(cenaTelaBibliotecaPessoal);
-    			break;
-    		case 4:
-    			estagioPrimario.setScene(cenaTelaAdicionarLivro);
-    			break;
-    		case 5:
-    			estagioPrimario.setScene(cenaTelaEditarUsuario);
-    			break;	
-    		case 6:
-    			estagioPrimario.setScene(cenaTelaLivros);
-    			break;	
-    		case 7:
-    			estagioPrimario.setScene(cenaTelaCards);
-    			break;
-    		case 8:
-    			estagioPrimario.setScene(cenaTelaCriacaoCards);
-    			break;
-    		case 9:
-    			estagioPrimario.setScene(cenaTelaBuscarLivro);
-    			break;	
+    			case 1:
+    				estagioPrimario.setScene(cenaTelaLogin);			
+    				break;
+    			case 2:
+        			//Parent telaCadastro =FXMLLoader.load(getClass().getResource("TelaCadastro.fxml"));
+        			
+        			
+        			//cenaTelaCadastro = new Scene(telaCadastro);
+        			estagioPrimario.setScene(cenaTelaCadastro);
+    				break;
+    			case 3:
+	    			//Parent telaBibliotecaPessoal = FXMLLoader.load(getClass().getResource("TelaBibliotecaPessoal.fxml"));
+	    			
+	        		FXMLLoader telaBibliotecaPessoal = new FXMLLoader(getClass().getResource("TelaBibliotecaPessoal.fxml"));
+	        		
+	        		telaBibliotecaPessoal.setController(new TelaBibliotecaPessoalController(atualizarListaPessoal()));
+	        		
+	        		Parent parentTelaBibliotecaPessoal = telaBibliotecaPessoal.load();
+	    			cenaTelaBibliotecaPessoal = new Scene(parentTelaBibliotecaPessoal);
+    				estagioPrimario.setScene(cenaTelaBibliotecaPessoal);
+    				break;
+    			case 4:
+    				Parent telaAdicionarLivro = FXMLLoader.load(getClass().getResource("TelaAdicionarLivro.fxml"));
+    	    		
+    				cenaTelaAdicionarLivro = new Scene(telaAdicionarLivro);
+    				estagioPrimario.setScene(cenaTelaAdicionarLivro);
+    				break;
+    			case 5:
+    				Parent telaEditarUsuario = FXMLLoader.load(getClass().getResource("TelaEditarUsuario.fxml"));
+    	    		cenaTelaEditarUsuario = new Scene(telaEditarUsuario);
+    				estagioPrimario.setScene(cenaTelaEditarUsuario);
+    				break;	
+    			case 6:
+    				Parent telaLivros = FXMLLoader.load(getClass().getResource("TelaLivros.fxml"));
+    	    		cenaTelaLivros = new Scene(telaLivros);
+    				estagioPrimario.setScene(cenaTelaLivros);
+    				break;	
+    			case 7:
+    				Parent telaCards = FXMLLoader.load(getClass().getResource("TelaCards.fxml"));
+    	    		cenaTelaCards = new Scene(telaCards);
+    				estagioPrimario.setScene(cenaTelaCards);
+    				break;
+    			case 8:
+    				Parent telaCriacaoCards = FXMLLoader.load(getClass().getResource("TelaCriacaoCards.fxml"));
+    	    		cenaTelaCriacaoCards = new Scene(telaCriacaoCards);
+    				estagioPrimario.setScene(cenaTelaCriacaoCards);
+    				break;
+    			case 9:
+    				Parent telaBuscarLivro = FXMLLoader.load(getClass().getResource("TelaBuscarLivro.fxml"));
+    	    		cenaTelaBuscarLivro = new Scene(telaBuscarLivro);
+    				estagioPrimario.setScene(cenaTelaBuscarLivro);
+    				break;	
  
-    		default:
+    			default:
     			
-    	}
+    		}
     	
-    	
+    	} catch(Exception e){
+			e.printStackTrace();
+		}
     }
     
     
     
-  	public  ListView<MeuLivro> atualizarListaPessoal() {
+  	public  ObservableList<MeuLivro> atualizarListaPessoal() {
       	
-  		ObservableList<MeuLivro> obsListPessoal =  FXCollections.observableArrayList(FachadaController.listarLivrosUsuario(FachadaController.getUsuarioLogado()));
+  		ArrayList<MeuLivro> estante = new ArrayList<MeuLivro>(FachadaController.listarLivrosUsuario(FachadaController.getUsuarioLogado()));
+  		//estante = FachadaController.listarLivrosUsuario(FachadaController.getUsuarioLogado());
+  		ObservableList<MeuLivro> obsListPessoal =  FXCollections.observableArrayList(estante);
+  		
+  		
          
-  		ListView<MeuLivro> lv = new ListView<MeuLivro>();
-  		lv.setItems(obsListPessoal);
-         
-  		return lv;	
+  		return obsListPessoal;
       	
       	 	
-      }
+    }
+  	
     
     
 }

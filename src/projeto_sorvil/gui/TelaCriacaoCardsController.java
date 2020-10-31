@@ -1,5 +1,9 @@
 package projeto_sorvil.gui;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -26,11 +30,22 @@ public class TelaCriacaoCardsController {
     
     @FXML
     private Label txtLivro;
+	
+	
+	private MainTestes maintestes;
+	
+	
+    public TelaCriacaoCardsController() {
+    	this.maintestes = MainTestes.getInstance();
+	}
     
-    
+	public void initialize(URL location, ResourceBundle resources) {
+		
+	}
+	
     @FXML
-    void cancelar(ActionEvent event) {
-    	MainTestes.escolherTela(6);
+    void cancelar(ActionEvent event) throws IOException {
+    	maintestes.escolherTela(6);
     }
 
     @FXML

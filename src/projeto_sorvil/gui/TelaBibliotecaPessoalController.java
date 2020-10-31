@@ -1,26 +1,25 @@
 package projeto_sorvil.gui;
 
-import javafx.collections.FXCollections;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.exceptions.NaoExisteException;
-import projeto_sorvil.exceptions.NaoPodeException;
-import projeto_sorvil.model.Autor;
-import projeto_sorvil.model.Editora;
-import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.MeuLivro;
 
 
 
-public class TelaBibliotecaPessoalController {
+public class TelaBibliotecaPessoalController implements Initializable {
 
     @FXML
     private AnchorPane tela;
@@ -38,7 +37,7 @@ public class TelaBibliotecaPessoalController {
     private Button btnAdicionarLivro;
 
     @FXML
-    private ListView<MeuLivro> lvListaPessoalLivros;
+    private ListView<MeuLivro> lvListaPessoalLivros = new ListView<MeuLivro>();;
 
     @FXML
     private TextField txtLivro;
@@ -48,38 +47,43 @@ public class TelaBibliotecaPessoalController {
     
     @FXML
     private Button btnBuscarNome;
+	
+	private MainTestes maintestes;
+	
+	private MeuLivro livroBuscado;
     
-    private static ObservableList<MeuLivro> obsListPessoal = null;
+    private static ObservableList<MeuLivro> obsListPessoal;
     
-    private static MeuLivro livroBuscado = null;
+    
+	public TelaBibliotecaPessoalController(ObservableList<MeuLivro> ob) {
+		this.maintestes = MainTestes.getInstance();
+		obsListPessoal = ob;
+		
+	}
+	
+    
+   
+    public void initialize(URL url, ResourceBundle rb) {
+    	this.lvListaPessoalLivros.setItems(obsListPessoal);
+		this.lvListaPessoalLivros.refresh();
 
-    @FXML
-    void iniciar(MouseEvent event) {
-
-    	System.out.println("chamada iniciar");
-		obsListPessoal = FXCollections.observableArrayList(FachadaController.listarLivrosUsuario(FachadaController.getUsuarioLogado()));					
-
-
-		lvListaPessoalLivros.setItems(obsListPessoal);
-		lvListaPessoalLivros.refresh();
-    	
     }
 
     @FXML
-    void fechar(ActionEvent event) {
+    void fechar(ActionEvent event) throws IOException {
     	obsListPessoal = null;
     	lvListaPessoalLivros.setItems(obsListPessoal);
     	FachadaController.setUsuarioLogado(null);
-    	MainTestes.escolherTela(1);
+    	maintestes.escolherTela(1);
     	
     }
 
 
     @FXML
-    void irParaLivro(ActionEvent event) {
+    void irParaLivro(ActionEvent event) throws IOException {
     	MeuLivro onLivro = new MeuLivro(null, null, 0);
     	FachadaController.setOnLivro(onLivro);
-    	MainTestes.escolherTela(6);
+    	maintestes.escolherTela(6);
     }
     
 
@@ -90,15 +94,15 @@ public class TelaBibliotecaPessoalController {
     }
 
     @FXML
-    void telaAdicionarLivro(ActionEvent event) {
+    void telaAdicionarLivro(ActionEvent event) throws IOException {
     	obsListPessoal = null;
-    	MainTestes.escolherTela(9);
+    	maintestes.escolherTela(9);
     }
 
     @FXML
-    void telaEditarUsuario(ActionEvent event) {
+    void telaEditarUsuario(ActionEvent event) throws IOException {
     	obsListPessoal  = null;
-    	MainTestes.escolherTela(5);
+    	maintestes.escolherTela(5);
     }
 
     @FXML
