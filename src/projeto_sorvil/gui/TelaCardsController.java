@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
@@ -19,7 +20,7 @@ import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.model.Card;
 
-public class TelaCardsController {
+public class TelaCardsController implements Initializable {
 
     @FXML
     private AnchorPane tela;
@@ -32,7 +33,7 @@ public class TelaCardsController {
     @FXML
     private ScrollPane scrollCard;
     @FXML
-    private ListView<Card> listCard;
+    private ListView<Card> lvCards;
     @FXML
     private TextArea card;
     @FXML
@@ -58,6 +59,7 @@ public class TelaCardsController {
     
   
     public TelaCardsController(ObservableList<Card> ob) {
+    	lvCards = new ListView<Card>();
 		this.fachada = FachadaController.getInstance();
 		this.maintestes = MainTestes.getInstance();
 		
@@ -65,6 +67,8 @@ public class TelaCardsController {
 	}
   
     public void initialize(URL url, ResourceBundle rb) {
+    	
+    	
     	menuPublicoPrivado.getItems().addAll(item1,item2);
     }
     
