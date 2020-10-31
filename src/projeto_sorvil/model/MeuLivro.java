@@ -8,6 +8,10 @@ public class MeuLivro implements Serializable{
     private static final long serialVersionUID = 1955524342716143140L;
     private int nota;
     private Status status;
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
     private boolean favorito = false;
     private Livro livro;
     
