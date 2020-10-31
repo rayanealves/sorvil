@@ -18,6 +18,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
+import projeto_sorvil.exceptions.NaoPodeException;
 import projeto_sorvil.model.Card;
 
 public class TelaCardsController implements Initializable {
@@ -25,7 +26,7 @@ public class TelaCardsController implements Initializable {
     @FXML
     private AnchorPane tela;
     @FXML
-    private Button botaoEditar;
+    private Button btnEditar;
     @FXML
     private Text cardtxt;
     @FXML
@@ -42,19 +43,14 @@ public class TelaCardsController implements Initializable {
     private Button btnSalvar;
     @FXML
     private Button btnVerCard;
-
-    
     @FXML
     private MenuButton menuPublicoPrivado;
-    @SuppressWarnings("unused")
 	private FachadaController fachada;
 	private MainTestes maintestes;
     
     MenuItem item1 = new MenuItem("Privado");
     MenuItem item2 = new MenuItem("Publico");
     //MenuButton menuPublicoPrivado = new MenuButton("Selecione", null, item1,item2);
-
-	@SuppressWarnings("unused")
 	private ObservableList<Card> obsListCards =  FXCollections.observableArrayList();
     
   
@@ -67,8 +63,8 @@ public class TelaCardsController implements Initializable {
 	}
   
     public void initialize(URL url, ResourceBundle rb) {
-    	
-    	
+    	lvCards.setItems(obsListCards);
+    	lvCards.refresh();
     	menuPublicoPrivado.getItems().addAll(item1,item2);
     }
     
@@ -83,8 +79,8 @@ public class TelaCardsController implements Initializable {
     }
     
      @FXML
-    void excluirCard(ActionEvent event) {
-
+    void excluirCard(ActionEvent event) throws NaoPodeException {
+    	 fachada.deleteCard(fachada.getUsuarioLogado(), fachada.getOnCard() );
     }
     
     @FXML
@@ -94,12 +90,21 @@ public class TelaCardsController implements Initializable {
     
     @FXML
     void selecionarTipoCards(ActionEvent event) {
+        if(item1.getText().equals(menuPublicoPrivado.getText())) {
+        	
         
+        }
+        else if(item2.getText().equals(menuPublicoPrivado.getText())) {
+        	
+        
+        }
     }
     
     @FXML
     void verCard(ActionEvent event) {
-        
+    	Card onCard = lvCards.getSelectionModel().getSelectedItem();
+        fachada.setOnCard(onCard);
+        this.card.setText(fachada.getOnCard().toString());
     }
     
 

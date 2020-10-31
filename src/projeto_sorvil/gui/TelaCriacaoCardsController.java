@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import projeto_sorvil.controller.FachadaController;
+import projeto_sorvil.model.MeuLivro;
 
 public class TelaCriacaoCardsController {
 
@@ -22,16 +23,12 @@ public class TelaCriacaoCardsController {
 
     @FXML
     private TextField tituloCard;
-
     @FXML
     private TextField paginaAtual;
-
     @FXML
     private TextArea textoDoCard;
-    
     @FXML
-    private Label txtLivro;
-    @SuppressWarnings("unused")
+    private Label txtLivro; 
 	private FachadaController fachada;
 	private MainTestes maintestes;
 	
@@ -52,7 +49,8 @@ public class TelaCriacaoCardsController {
 
     @FXML
     void criarCard(ActionEvent event) {
-
+    	MeuLivro livro = fachada.getOnLivro();
+    	livro.getLivro();
     }
 
 }

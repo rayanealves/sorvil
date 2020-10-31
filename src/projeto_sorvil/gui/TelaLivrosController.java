@@ -81,8 +81,7 @@ public class TelaLivrosController implements Initializable{
     	this.chboxStatus.setValue(fachada.getOnLivro().getStatus());
     	String nota = String.valueOf(fachada.getOnLivro().getNota());
     	this.minhaNota.setText(nota);
-    	chFavorito.
-    	
+    	chFavorito.selectedProperty().setValue(fachada.getOnLivro().getFavorito());
     	System.out.println("estou iniciando");
     }
     
@@ -108,8 +107,8 @@ public class TelaLivrosController implements Initializable{
     	int nota =  Integer.parseInt(minhaNota.getText());
     	fachada.getUsuarioLogado().getEstante().get(index).setNota(nota);
     	fachada.getUsuarioLogado().getEstante().get(index).setStatus(chboxStatus.getValue());
-        boolean favorito = chFavorito.selectedProperty().getValue();
-    	fachada.getUsuarioLogado().getEstante().get(index).setFavorito(favorito);
+        //chboxStatus.getSelectionModel();
+    	
     	fachada.setOnLivro(null);
     	maintestes.escolherTela(3);
     }

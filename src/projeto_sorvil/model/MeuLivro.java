@@ -34,7 +34,7 @@ public class MeuLivro implements Serializable{
 		this.status = status;
 	}
 
-	public boolean isFavorito() {
+	public boolean getFavorito() {
         return favorito;
     }
 

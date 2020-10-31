@@ -30,7 +30,7 @@
       <Button fx:id="sair" layoutX="220.0" layoutY="422.0" mnemonicParsing="false" onAction="#fecharPrograma" prefHeight="25.0" prefWidth="41.0" text="Sair" />
       <ImageView fx:id="imageSorvil" fitHeight="165.0" fitWidth="181.0" layoutX="165.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@SORVIL%20(2)%20(1).png" />
+            <Image url="@uSORVIL%20(2)%20(1).png" />
          </image>
       </ImageView>
     </children>
