@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import projeto_sorvil.controller.FachadaController;
 
 public class TelaCriacaoCardsController {
 
@@ -30,12 +31,13 @@ public class TelaCriacaoCardsController {
     
     @FXML
     private Label txtLivro;
-	
-	
+    @SuppressWarnings("unused")
+	private FachadaController fachada;
 	private MainTestes maintestes;
 	
 	
     public TelaCriacaoCardsController() {
+		this.fachada = FachadaController.getInstance();
     	this.maintestes = MainTestes.getInstance();
 	}
     

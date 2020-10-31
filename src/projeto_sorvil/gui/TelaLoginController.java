@@ -39,11 +39,12 @@ public class TelaLoginController  implements Initializable {
     private Button sair;
     @FXML
     private ImageView imageSorvil;
-	
+    private FachadaController fachada;
 	private MainTestes maintestes;
     
 
 	public TelaLoginController() {
+		this.fachada = FachadaController.getInstance();
 		this.maintestes = MainTestes.getInstance();
 	}
 	
@@ -56,10 +57,10 @@ public class TelaLoginController  implements Initializable {
 
 	@FXML
 	void fazerLogin(ActionEvent event) throws IOException, Exception {
-		Usuario user = FachadaController.buscarUsuario(login.getText());
+		Usuario user = fachada.buscarUsuario(login.getText());
 		if(user != null) {
 			if(user.getSenha().equals(senha.getText())) {
-				FachadaController.setUsuarioLogado(user);
+				fachada.setUsuarioLogado(user);
 				senha.clear();
 				login.clear();
 				maintestes.escolherTela(3);

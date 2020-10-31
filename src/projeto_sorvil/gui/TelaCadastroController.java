@@ -63,13 +63,14 @@ public class TelaCadastroController {
     
     @FXML
     private TextField cpf;
-	
+    private FachadaController fachada;
 	private MainTestes maintestes;
     
     LocalDate diaCadastro;
 	
 	
 	public TelaCadastroController() {
+		this.fachada = FachadaController.getInstance();
 		this.maintestes = MainTestes.getInstance();
 	}
     
@@ -86,12 +87,12 @@ public class TelaCadastroController {
     		tipo = true;
     	}
     	diaCadastro = LocalDate.now();
-        System.out.println(FachadaController.getInstance().listarUsuario().size());
+        System.out.println(fachada.listarUsuario().size());
     	Usuario user = new Usuario(nome.getText(), cpf.getText(), login.getText(), senha.getText(), tipo, diaCadastro );
 
         try {
-        	FachadaController.adicionarUsuario(user);
-                System.out.println(FachadaController.getInstance().listarUsuario().size());
+        	fachada.adicionarUsuario(user);
+                System.out.println(fachada.listarUsuario().size());
         } catch (JaExisteException | CPFinvalidoExeption ex) {
             Logger.getLogger(TelaCadastroController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -100,7 +101,7 @@ public class TelaCadastroController {
     	login.clear();
     	nome.clear();
         cpf.clear();
-        System.out.println(FachadaController.listarLivrosUsuario(user).size());
+        System.out.println(fachada.listarLivrosUsuario(user).size());
         maintestes.escolherTela(1);
     }
     

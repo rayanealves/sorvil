@@ -16,53 +16,52 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.model.Card;
 
 public class TelaCardsController {
 
     @FXML
     private AnchorPane tela;
-
     @FXML
     private Button botaoEditar;
-
     @FXML
     private Text cardtxt;
-
     @FXML
     private Button btnVoltar;
-
     @FXML
     private ScrollPane scrollCard;
-
     @FXML
     private ListView<Card> listCard;
-
     @FXML
     private TextArea card;
-
     @FXML
     private Button btnExcluir;
-
     @FXML
     private Button btnSalvar;
+    @FXML
+    private Button btnVerCard;
+
     
     @FXML
     private MenuButton menuPublicoPrivado;
-	
+    @SuppressWarnings("unused")
+	private FachadaController fachada;
 	private MainTestes maintestes;
     
     MenuItem item1 = new MenuItem("Privado");
     MenuItem item2 = new MenuItem("Publico");
-    
     //MenuButton menuPublicoPrivado = new MenuButton("Selecione", null, item1,item2);
 
-    @SuppressWarnings("unused")
-	private static ObservableList<Card> obsListCards =  FXCollections.observableArrayList();
+	@SuppressWarnings("unused")
+	private ObservableList<Card> obsListCards =  FXCollections.observableArrayList();
     
   
-    public TelaCardsController() {
+    public TelaCardsController(ObservableList<Card> ob) {
+		this.fachada = FachadaController.getInstance();
 		this.maintestes = MainTestes.getInstance();
+		
+		this.obsListCards = ob;
 	}
   
     public void initialize(URL url, ResourceBundle rb) {
@@ -90,8 +89,14 @@ public class TelaCardsController {
     }
     
     @FXML
-    void selecionarCards(ActionEvent event) {
+    void selecionarTipoCards(ActionEvent event) {
         
     }
+    
+    @FXML
+    void verCard(ActionEvent event) {
+        
+    }
+    
 
 }

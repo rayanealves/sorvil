@@ -64,20 +64,22 @@ public class TelaBuscarLivroController implements Initializable {
 
     @FXML
     private Button btnPorEditora;
-	
+    private FachadaController fachada;
+
 	private MainTestes maintestes;
 
-    private static final ObservableList<Livro> obsListBuscada =  FXCollections.observableArrayList();
+    private ObservableList<Livro> obsListBuscada =  FXCollections.observableArrayList();
     
     private static Livro livroBuscado = null;
     
     private static Autor autorBuscado = null;
   
-    @SuppressWarnings("unused")
+	@SuppressWarnings("unused")
 	private static Editora editoraBuscada = null;
 	
 	
     public TelaBuscarLivroController() {
+		this.fachada = FachadaController.getInstance();
 		this.maintestes = MainTestes.getInstance();
 	}
     
@@ -91,15 +93,15 @@ public class TelaBuscarLivroController implements Initializable {
  
     @FXML
     void buscarLivro(ActionEvent event) throws NaoPodeException {
-    	livroBuscado = FachadaController.buscarLivro(livro.getText());
+    	livroBuscado = fachada.buscarLivro(livro.getText());
     	obsListBuscada.add(livroBuscado); 
     	lvLivrosBuscados.setItems(obsListBuscada);	
     }
     
     @FXML
     void buscarPorAutor(ActionEvent event) throws NaoExisteException {
-        autorBuscado = FachadaController.getInstance().bucarAutorPorNome(livro.getText());
-        obsListBuscada.addAll(FXCollections.observableArrayList(FachadaController.getInstance().listarPorAutor(autorBuscado)));
+        autorBuscado = fachada.bucarAutorPorNome(livro.getText());
+        obsListBuscada.addAll(FXCollections.observableArrayList(fachada.listarPorAutor(autorBuscado)));
         lvLivrosBuscados.setItems(obsListBuscada);
     }
 
@@ -116,10 +118,10 @@ public class TelaBuscarLivroController implements Initializable {
 
     	Status status =  Status.EM_BRANCO;
     	MeuLivro livroUser = new MeuLivro(TelaBuscarLivroController.livroBuscado, status , 0);
-    	FachadaController.adicionarLivroUsuario(FachadaController.getUsuarioLogado(), livroUser);
+    	fachada.adicionarLivroUsuario(fachada.getUsuarioLogado(), livroUser);
     	//FachadaController.getUsuarioLogado().adicionarLivro(livroUser);
     	TelaBuscarLivroController.livroBuscado = null;
-    	TelaBuscarLivroController.obsListBuscada.clear();
+    	this.obsListBuscada.clear();
     	lvLivrosBuscados = null;
     	livro.clear();
     	maintestes.escolherTela(3);
@@ -134,7 +136,7 @@ public class TelaBuscarLivroController implements Initializable {
     @FXML
     void voltar(ActionEvent event) throws IOException {
     	TelaBuscarLivroController.livroBuscado = null;
-    	TelaBuscarLivroController.obsListBuscada.clear();
+    	this.obsListBuscada.clear();
     	lvLivrosBuscados.setItems(obsListBuscada);
     	livro.clear();
     	maintestes.escolherTela(3);

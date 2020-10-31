@@ -30,7 +30,6 @@ public class FachadaController {
     private ControladorCards controladorCards;
     private ControladorEditora controladorEditora;
     private ControladorLivro controladorLivro;
-    @SuppressWarnings("unused")
     private ControladorUsuarios controladorUsuario;
     private static FachadaController instance;
     
@@ -49,36 +48,36 @@ public class FachadaController {
         return instance;
     }
     	
-	public static Usuario getUsuarioLogado() {
+	public Usuario getUsuarioLogado() {
 		return usuarioLogado;
 	}
-	public static void setUsuarioLogado(Usuario usuarioLogado) {
+	public void setUsuarioLogado(Usuario usuarioLogado) {
 		FachadaController.usuarioLogado = usuarioLogado;
 	}
-	public static MeuLivro getOnLivro() {
+	public MeuLivro getOnLivro() {
 		return onLivro;
 	}
-	public static void setOnLivro(MeuLivro onLivro) {
+	public void setOnLivro(MeuLivro onLivro) {
 		FachadaController.onLivro = onLivro;
 	}
-	public static Livro getLivroBuscado() {
+	public  Livro getLivroBuscado() {
 		return livroBuscado;
 	}
-	public static void setLivroBuscado(Livro livroBuscado) {
+	public void setLivroBuscado(Livro livroBuscado) {
 		FachadaController.livroBuscado = livroBuscado;
 	}
-	public static Card getOnCard() {
+	public Card getOnCard() {
 		return onCard;
 	}
-	public static void setOnCard(Card onCard) {
+	public void setOnCard(Card onCard) {
 		FachadaController.onCard = onCard;
 	}
 
-	public static Editora getOnEditora() {
+	public Editora getOnEditora() {
 		return onEditora;
 	}
 
-	public static void setOnEditora(Editora onEditora) {
+	public void setOnEditora(Editora onEditora) {
 		FachadaController.onEditora = onEditora;
 	}
 	
@@ -86,28 +85,22 @@ public class FachadaController {
 		return controladorAutor.novoAutor(autor);
 	}
         
-        public Autor novoAutorNome(String autor){
-            Autor novoAutor = new Autor(autor, null);
-            try {
-            Autor buscaAutor = FachadaController
-                        .getInstance()
-                        .bucarAutorPorNome(autor); 
+	public Autor novoAutorNome(String autor){
+        Autor novoAutor = new Autor(autor, null);
+        try {
+        	Autor buscaAutor = FachadaController.getInstance().bucarAutorPorNome(autor); 
                 if(buscaAutor == null){
                     FachadaController.getInstance().novoAutor(novoAutor);
                 }
-            } catch (NaoExisteException | JaExisteException ex) {
-                Logger.getLogger(TelaAdicionarLivroController.class.getName()).log(Level.SEVERE, null, ex);
-            }  
-            return novoAutor;
+        } catch (NaoExisteException | JaExisteException ex) {
+            Logger.getLogger(TelaAdicionarLivroController.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+        return novoAutor;
 	}
 
 	public Autor bucarAutorPorNome(String nome) throws NaoExisteException {
 		return controladorAutor.bucarPorNome(nome);
 	}
-
-	
-
-	
 
 	public boolean deleteAutor(Autor autor) throws NaoExisteException, NaoPodeException {
 		if(this.listarPorAutor(autor).size() > 0) {
@@ -168,32 +161,29 @@ public class FachadaController {
 	}
 
 	public Editora novaEditoraNome(String nome){
-              
-            Editora novaEditora = new Editora(nome,null);
-            try {
-                Editora buscaEditora = FachadaController
-                        .getInstance()
-                        .buscarEditora(nome);  
-                    if(buscaEditora == null){
-                        FachadaController.getInstance().novaEditora(novaEditora);
-                    }
-            } catch (NaoExisteException ex) {
-                Logger.getLogger(FachadaController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            return novaEditora;
+       Editora novaEditora = new Editora(nome,null);
+       try {
+          Editora buscaEditora = FachadaController.getInstance().buscarEditora(nome);  
+          if(buscaEditora == null){
+                FachadaController.getInstance().novaEditora(novaEditora);
+          }
+        } catch (NaoExisteException ex) {
+           Logger.getLogger(FachadaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       	return novaEditora;
 	}
         
-        public List<Livro> listarLivros () {
+    public List<Livro> listarLivros () {
             return FachadaController.getInstance().controladorLivro.listarLivros();
     }
         
-        public boolean novaEditora(Editora editora){
-            try {
-                return controladorEditora.novaEditora(editora);
-            } catch (JaExisteException ex) {
-                Logger.getLogger(FachadaController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            return false;
+    public boolean novaEditora(Editora editora){
+        try {
+            return controladorEditora.novaEditora(editora);
+       } catch (JaExisteException ex) {
+            Logger.getLogger(FachadaController.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return false;
 	}
 
 	public boolean deleteEditora(Usuario usuario, Editora editora) throws NaoPodeException {
@@ -221,8 +211,8 @@ public class FachadaController {
 		controladorLivro.alterarEditora(usuario, livro, editora);
 	}
 
-	public static Livro buscarLivro(String nome) throws NaoPodeException {
-		return ControladorLivro.getInstance().buscarLivro(nome);
+	public Livro buscarLivro(String nome) throws NaoPodeException {
+		return controladorLivro.buscarLivro(nome);
 	}
 
 	public List<Livro> listarPorEditora(Editora editora) {
@@ -236,59 +226,50 @@ public class FachadaController {
 	public List<Livro> listarPorGenero(Genero genero) {
 		return controladorLivro.listarPorGenero(genero);
 	}
-/*
-<<<<<<< HEAD
-	public boolean adicionarUsuario(Usuario user) throws JaExisteException, JaExisteException {
+	
+	public boolean adicionarUsuario(Usuario user) throws JaExisteException, CPFinvalidoExeption {
 		return controladorUsuario.adicionar(user);
 	}
 
 	public boolean removerUsuario(Usuario user) throws NaoPodeException {
 		return controladorUsuario.remover(user);
-======= */
-	
-	public static boolean adicionarUsuario(Usuario user) throws JaExisteException, CPFinvalidoExeption {
-		return ControladorUsuarios.getInstancia().adicionar(user);
+
 	}
 
-	public static boolean removerUsuario(Usuario user) throws NaoPodeException {
-		return ControladorUsuarios.getInstancia().remover(user);
-//>>>>>>> d67718a85693628502ec7c1fd34f369e64c7155e
+	public boolean editarNomeUsuario(Usuario user, String nome) throws NaoPodeException {
+		return controladorUsuario.editarNome(user, nome);
 	}
 
-	public static boolean editarNomeUsuario(Usuario user, String nome) throws NaoPodeException {
-		return ControladorUsuarios.getInstancia().editarNome(user, nome);
+	public boolean editarLoginUsuario(Usuario user, String login) throws NaoPodeException, JaExisteException {
+		return controladorUsuario.editarLogin(user, login);
 	}
 
-	public static boolean editarLoginUsuario(Usuario user, String login) throws NaoPodeException, JaExisteException {
-		return ControladorUsuarios.getInstancia().editarLogin(user, login);
+	public boolean editarSenhaUsuario(Usuario user, String senha) throws NaoPodeException {
+		return controladorUsuario.editarSenha(user, senha);
 	}
 
-	public static boolean editarSenhaUsuario(Usuario user, String senha) throws NaoPodeException {
-		return ControladorUsuarios.getInstancia().editarSenha(user, senha);
+	public Usuario buscarUsuario(String login) throws NaoExisteException {
+		return controladorUsuario.buscar(login);
 	}
 
-	public static Usuario buscarUsuario(String login) throws NaoExisteException {
-		return ControladorUsuarios.getInstancia().buscar(login);
+	public boolean adicionarLivroUsuario(Usuario user, MeuLivro userLivro) throws JaExisteException {
+		return controladorUsuario.adicionarLivroUsuario(user, userLivro);
 	}
 
-	public static boolean adicionarLivroUsuario(Usuario user, MeuLivro userLivro) throws JaExisteException {
-		return ControladorUsuarios.getInstancia().adicionarLivroUsuario(user, userLivro);
-	}
-
-	public static boolean removerLivroUsuario(Usuario user, MeuLivro userLivro) throws NaoExisteException {
-		return ControladorUsuarios.getInstancia().removerLivroUsuario(user, userLivro);
+	public boolean removerLivroUsuario(Usuario user, MeuLivro userLivro) throws NaoExisteException {
+		return controladorUsuario.removerLivroUsuario(user, userLivro);
 	}
 
 	public MeuLivro buscarLivroUsuario(Usuario user, String nome) throws NaoExisteException {
-		return ControladorUsuarios.getInstancia().buscarLivroUsuario(user, nome);
+		return controladorUsuario.buscarLivroUsuario(user, nome);
 	}
 
 	public List<Usuario> listarUsuario() {
-		return ControladorUsuarios.getInstancia().listar();
+		return controladorUsuario.listar();
 	}
 
-	public static ArrayList<MeuLivro> listarLivrosUsuario(Usuario user) {
-		return ControladorUsuarios.getInstancia().listarLivrosUsuario(user);
+	public ArrayList<MeuLivro> listarLivrosUsuario(Usuario user) {
+		return controladorUsuario.listarLivrosUsuario(user);
 	}
     
 }

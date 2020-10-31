@@ -58,7 +58,7 @@ public class TelaLivrosController implements Initializable{
     
     @FXML
     private Button btnVerCard;
-	
+    private FachadaController fachada;
 	private MainTestes maintestes;
     
 
@@ -77,8 +77,7 @@ public class TelaLivrosController implements Initializable{
         informacoes = new Label();
         chboxStatus = new  ChoiceBox<Status>();
         btnVerCard = new Button();
-    	
-
+		this.fachada = FachadaController.getInstance();
 		this.maintestes = MainTestes.getInstance();
 		
     	System.out.println("estou no controle");
@@ -86,9 +85,9 @@ public class TelaLivrosController implements Initializable{
     }
     
     public void initialize(URL location, ResourceBundle resources) {
-    	this.informacoes.setText(FachadaController.getOnLivro().getLivro().toString());
+    	this.informacoes.setText(fachada.getOnLivro().getLivro().toString());
     	this.chboxStatus.getItems().addAll(Status.values());
-    	String nota = String.valueOf(FachadaController.getOnLivro().getNota());
+    	String nota = String.valueOf(fachada.getOnLivro().getNota());
     	this.minhaNota.setText(nota);
     	
     	System.out.println("estou iniciando");
@@ -101,7 +100,7 @@ public class TelaLivrosController implements Initializable{
     
     @FXML
     void voltar(ActionEvent event) throws IOException {
-    	FachadaController.setOnLivro(null);
+    	fachada.setOnLivro(null);
     	maintestes.escolherTela(3);
     }
     
@@ -112,12 +111,12 @@ public class TelaLivrosController implements Initializable{
         
     @FXML
     void salvar(ActionEvent event) throws IOException {
-    	int index = FachadaController.getUsuarioLogado().getEstante().indexOf(FachadaController.getOnLivro());
+    	int index = fachada.getUsuarioLogado().getEstante().indexOf(fachada.getOnLivro());
     	int nota =  Integer.parseInt(minhaNota.getText());
-    	FachadaController.getUsuarioLogado().getEstante().get(index).setNota(nota);
-    	FachadaController.getUsuarioLogado().getEstante().get(index).setStatus(chboxStatus.getValue());
+    	fachada.getUsuarioLogado().getEstante().get(index).setNota(nota);
+    	fachada.getUsuarioLogado().getEstante().get(index).setStatus(chboxStatus.getValue());
     	
-    	FachadaController.setOnLivro(null);
+    	fachada.setOnLivro(null);
     	maintestes.escolherTela(3);
     }
 

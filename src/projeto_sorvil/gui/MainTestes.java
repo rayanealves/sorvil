@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.dados.UsuarioRepositorio;
+import projeto_sorvil.model.Card;
 import projeto_sorvil.model.MeuLivro;
 
 public class MainTestes extends Application {
@@ -22,6 +23,7 @@ public class MainTestes extends Application {
 	, cenaTelaLogin, cenaTelaBuscarLivro ;
 	private static Stage estagioPrimario;
 	private static MainTestes instance;
+	private FachadaController fachada = FachadaController.getInstance();
 	
     public static MainTestes getInstance() {
 	if(instance == null) {
@@ -82,12 +84,13 @@ public class MainTestes extends Application {
     				estagioPrimario.setScene(cenaTelaLogin);			
     				break;
     			case 2:
-        			Parent telaCadastro =FXMLLoader.load(getClass().getResource("TelaCadastro.fxml"));
-        			cenaTelaCadastro = new Scene(telaCadastro);
+	        		FXMLLoader telaCadastro = new FXMLLoader(getClass().getResource("TelaCadastro.fxml"));
+	        		telaCadastro.setController(new TelaCadastroController());
+	        		Parent parentTelatelaCadastro = telaCadastro.load();
+        			cenaTelaCadastro = new Scene(parentTelatelaCadastro);
         			estagioPrimario.setScene(cenaTelaCadastro);
     				break;
-    			case 3:
-	    						
+    			case 3:			
 	        		FXMLLoader telaBibliotecaPessoal = new FXMLLoader(getClass().getResource("TelaBibliotecaPessoal.fxml"));
 	        		telaBibliotecaPessoal.setController(new TelaBibliotecaPessoalController(atualizarListaPessoal()));
 	        		Parent parentTelaBibliotecaPessoal = telaBibliotecaPessoal.load();
@@ -102,8 +105,10 @@ public class MainTestes extends Application {
     				estagioPrimario.setScene(cenaTelaAdicionarLivro);
     				break;
     			case 5:
-    				Parent telaEditarUsuario = FXMLLoader.load(getClass().getResource("TelaEditarUsuario.fxml"));
-    	    		cenaTelaEditarUsuario = new Scene(telaEditarUsuario);
+    				FXMLLoader telaEditarUsuario = new FXMLLoader(getClass().getResource("TelaEditarUsuario.fxml"));
+    				telaEditarUsuario.setController(new TelaEditarUsuarioController());
+    				Parent parentTelaEditarUsuario = telaEditarUsuario.load();
+    	    		cenaTelaEditarUsuario = new Scene(parentTelaEditarUsuario);
     				estagioPrimario.setScene(cenaTelaEditarUsuario);
     				break;	
     			case 6:
@@ -114,20 +119,26 @@ public class MainTestes extends Application {
     				estagioPrimario.setScene(cenaTelaLivros);
     				break;	
     			case 7:
-    				Parent telaCards = FXMLLoader.load(getClass().getResource("TelaCards.fxml"));
-    	    		cenaTelaCards = new Scene(telaCards);
+    				FXMLLoader telaCards = new FXMLLoader(getClass().getResource("TelaCards.fxml"));
+    				telaCards.setController(new TelaCardsController(atualizarListaCards()));
+    				Parent parentTelaCards = telaCards.load();
+    	    		cenaTelaCards = new Scene(parentTelaCards);
     				estagioPrimario.setScene(cenaTelaCards);
     				break;
     			case 8:
-    				Parent telaCriacaoCards = FXMLLoader.load(getClass().getResource("TelaCriacaoCards.fxml"));
-    	    		cenaTelaCriacaoCards = new Scene(telaCriacaoCards);
+    				FXMLLoader telaCriacaoCards = new FXMLLoader(getClass().getResource("TelaCriacaoCards.fxml"));
+    				telaCriacaoCards.setController(new TelaCriacaoCardsController());
+    				Parent parentTelaCriacaoCards = telaCriacaoCards.load();
+    	    		cenaTelaCriacaoCards = new Scene(parentTelaCriacaoCards);
     				estagioPrimario.setScene(cenaTelaCriacaoCards);
     				break;
     			case 9:
-    				Parent telaBuscarLivro = FXMLLoader.load(getClass().getResource("TelaBuscarLivro.fxml"));
-    	    		cenaTelaBuscarLivro = new Scene(telaBuscarLivro);
+    				FXMLLoader telaBuscarLivro = new FXMLLoader(getClass().getResource("TelaBuscarLivro.fxml"));
+    				telaBuscarLivro.setController(new TelaBuscarLivroController());
+    				Parent parentTelaBuscarLivro = telaBuscarLivro.load();
+    	    		cenaTelaBuscarLivro = new Scene(parentTelaBuscarLivro);
     				estagioPrimario.setScene(cenaTelaBuscarLivro);
-    				break;	
+    				break;
  
     			default:
     			
@@ -141,16 +152,16 @@ public class MainTestes extends Application {
     
     
   	public  ObservableList<MeuLivro> atualizarListaPessoal() {
-      	
-  		ArrayList<MeuLivro> estante = new ArrayList<MeuLivro>(FachadaController.listarLivrosUsuario(FachadaController.getUsuarioLogado()));
-  		//estante = FachadaController.listarLivrosUsuario(FachadaController.getUsuarioLogado());
-  		ObservableList<MeuLivro> obsListPessoal =  FXCollections.observableArrayList(estante);
+  		ArrayList<MeuLivro> estante = new ArrayList<MeuLivro>(fachada.listarLivrosUsuario(fachada.getUsuarioLogado()));
+  		ObservableList<MeuLivro> obsListPessoal =  FXCollections.observableArrayList(estante);  
+  		return obsListPessoal;	 	
+    }
+  	
+  	public  ObservableList<Card> atualizarListaCards() {
+  		ArrayList<Card> listaCards = new ArrayList<Card>(fachada.listarCardsUsuario(fachada.getUsuarioLogado()));
   		
-  		
-         
-  		return obsListPessoal;
-      	
-      	 	
+  		ObservableList<Card> obsListaCards =  FXCollections.observableArrayList(listaCards);
+  		return obsListaCards;	 	
     }
   	
     

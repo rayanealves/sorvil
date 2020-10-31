@@ -37,7 +37,7 @@ public class TelaBibliotecaPessoalController implements Initializable {
     private Button btnAdicionarLivro;
 
     @FXML
-    private ListView<MeuLivro> lvListaPessoalLivros = new ListView<MeuLivro>();;
+    private ListView<MeuLivro> lvListaPessoalLivros;
 
     @FXML
     private TextField txtLivro;
@@ -49,13 +49,16 @@ public class TelaBibliotecaPessoalController implements Initializable {
     private Button btnBuscarNome;
 	
 	private MainTestes maintestes;
-	
+    private FachadaController fachada;
+
 	private MeuLivro livroBuscado;
     
-    private static ObservableList<MeuLivro> obsListPessoal;
+    private ObservableList<MeuLivro> obsListPessoal;
     
     
 	public TelaBibliotecaPessoalController(ObservableList<MeuLivro> ob) {
+		lvListaPessoalLivros = new ListView<MeuLivro>();
+		this.fachada = FachadaController.getInstance();
 		this.maintestes = MainTestes.getInstance();
 		obsListPessoal = ob;
 		
@@ -73,7 +76,7 @@ public class TelaBibliotecaPessoalController implements Initializable {
     void fechar(ActionEvent event) throws IOException {
     	obsListPessoal = null;
     	lvListaPessoalLivros.setItems(obsListPessoal);
-    	FachadaController.setUsuarioLogado(null);
+    	fachada.setUsuarioLogado(null);
     	maintestes.escolherTela(1);
     	
     }
@@ -82,8 +85,8 @@ public class TelaBibliotecaPessoalController implements Initializable {
     @FXML
     void irParaLivro(ActionEvent event) throws IOException {
     	MeuLivro onLivro =  this.lvListaPessoalLivros.getSelectionModel().getSelectedItem();
-    	FachadaController.setOnLivro(onLivro);
-    	if(FachadaController.getOnLivro() != null) {
+    	fachada.setOnLivro(onLivro);
+    	if(fachada.getOnLivro() != null) {
     		maintestes.escolherTela(6);
     	}
     }
@@ -112,7 +115,7 @@ public class TelaBibliotecaPessoalController implements Initializable {
 
     @FXML
     void mostrarLivroNome(ActionEvent event) throws NaoExisteException {
-        livroBuscado = FachadaController.getInstance().buscarLivroUsuario(FachadaController.getUsuarioLogado(), txtLivro.getText());
+        livroBuscado = fachada.buscarLivroUsuario(fachada.getUsuarioLogado(), txtLivro.getText());
     	obsListPessoal.add(livroBuscado);
     	lvListaPessoalLivros.setItems(obsListPessoal); 
     }

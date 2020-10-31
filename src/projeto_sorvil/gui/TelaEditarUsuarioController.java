@@ -8,12 +8,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.exceptions.NaoPodeException;
-import projeto_sorvil.model.Usuario;
 
 public class TelaEditarUsuarioController {
 
@@ -43,12 +41,11 @@ public class TelaEditarUsuarioController {
 
     @FXML
     private Button botaoEditar;
-	
+    private FachadaController fachada;
 	private MainTestes maintestes;
-
-    private static Usuario usuarioLogado = null;
     
 	public TelaEditarUsuarioController() {
+		this.fachada = FachadaController.getInstance();
 		this.maintestes = MainTestes.getInstance();
     }
 
@@ -56,12 +53,6 @@ public class TelaEditarUsuarioController {
     	
     }
 	
-    @FXML
-    void iniciar(MouseEvent event) {
-    	if(TelaEditarUsuarioController.usuarioLogado == null) {
-    		TelaEditarUsuarioController.usuarioLogado = FachadaController.getUsuarioLogado();
-    	}	
-    }
     
     @FXML
     void cancelar(ActionEvent event) throws IOException {
@@ -74,13 +65,13 @@ public class TelaEditarUsuarioController {
     @FXML
     void editar(ActionEvent event) throws NaoPodeException, JaExisteException, IOException {
     	if(nome.getText() != null & nome.getText() != "") {
-    		FachadaController.editarNomeUsuario(TelaEditarUsuarioController.usuarioLogado, nome.getText());  					
+    		fachada.editarNomeUsuario(fachada.getUsuarioLogado(), nome.getText());  					
     	}
     	if(login.getText() != null & login.getText() != "") {
-    		FachadaController.editarLoginUsuario(TelaEditarUsuarioController.usuarioLogado, login.getText());  					
+    		fachada.editarLoginUsuario(fachada.getUsuarioLogado(), login.getText());  					
     	}
     	if(senha.getText() != null & senha.getText() != "") {
-    		FachadaController.editarSenhaUsuario(TelaEditarUsuarioController.usuarioLogado, senha.getText());  					
+    		fachada.editarSenhaUsuario(fachada.getUsuarioLogado(), senha.getText());  					
     	}
     	
     	login.clear();
