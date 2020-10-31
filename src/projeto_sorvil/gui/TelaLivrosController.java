@@ -120,8 +120,8 @@ public class TelaLivrosController implements Initializable{
     	int nota =  Integer.parseInt(minhaNota.getText());
     	fachada.getUsuarioLogado().getEstante().get(index).setNota(nota);
     	fachada.getUsuarioLogado().getEstante().get(index).setStatus(chboxStatus.getValue());
-        //chboxStatus.getSelectionModel();
-    	
+        boolean favorito = chFavorito.selectedProperty().getValue();
+    	fachada.getUsuarioLogado().getEstante().get(index).setFavorito(favorito);
     	fachada.setOnLivro(null);
     	maintestes.escolherTela(3);
     }
