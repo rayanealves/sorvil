@@ -7,18 +7,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="tela" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#iniciar" onMouseDragged="#iniciar" onMouseEntered="#iniciar" onMouseExited="#iniciar" onMouseMoved="#iniciar" onMousePressed="#iniciar" onMouseReleased="#iniciar" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_sorvil.gui.TelaBibliotecaPessoalController">
+<AnchorPane fx:id="tela" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="btnDeletarLivro" layoutX="401.0" layoutY="146.0" mnemonicParsing="false" onAction="#DeletarLivroPessoal" text="Deletar Livro" />
-      <Button fx:id="btnSair" layoutX="425.0" layoutY="347.0" mnemonicParsing="false" onAction="#fechar" text="Sair" />
-      <Button fx:id="btnEditarUsuario" layoutX="396.0" layoutY="256.0" mnemonicParsing="false" onAction="#telaEditarUsuario" text="Editar Usuario" />
-      <Button fx:id="btnAdicionarLivro" layoutX="395.0" layoutY="200.0" mnemonicParsing="false" onAction="#telaAdicionarLivro" text="Adicionar Livro" />
+      <Button fx:id="btnDeletarLivro" layoutX="342.0" layoutY="200.0" mnemonicParsing="false" onAction="#DeletarLivroPessoal" text="Deletar Livro" />
+      <Button fx:id="btnSair" layoutX="400.0" layoutY="355.0" mnemonicParsing="false" onAction="#fechar" text="Sair" />
+      <Button fx:id="btnEditarUsuario" layoutX="372.0" layoutY="311.0" mnemonicParsing="false" onAction="#telaEditarUsuario" text="Editar Usuario" />
+      <Button fx:id="btnAdicionarLivro" layoutX="370.0" layoutY="262.0" mnemonicParsing="false" onAction="#telaAdicionarLivro" text="Adicionar Livro" />
       <ListView fx:id="lvListaPessoalLivros" prefHeight="400.0" prefWidth="228.0" />
-      <TextField fx:id="txtLivro" layoutX="328.0" layoutY="84.0" prefHeight="25.0" prefWidth="228.0" />
-      <Text fx:id="titulo" layoutX="366.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Biblioteca Pessoal" textAlignment="CENTER">
+      <TextField fx:id="txtLivro" layoutX="304.0" layoutY="85.0" prefHeight="25.0" prefWidth="228.0" />
+      <Text fx:id="titulo" layoutX="342.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Biblioteca Pessoal" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
+      <Button fx:id="btnBuscarNome" layoutX="393.0" layoutY="150.0" mnemonicParsing="false" onAction="#mostrarLivroNome" text="Buscar" />
+      <Button fx:id="btnVerLivro" layoutX="444.0" layoutY="200.0" mnemonicParsing="false" onAction="#irParaLivro" text="Ver Livro" />
    </children>
 </AnchorPane>

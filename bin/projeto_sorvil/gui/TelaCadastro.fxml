@@ -21,20 +21,22 @@
       </Text>
       <Text fx:id="logintxt" layoutX="169.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite um login:" />
       <Text fx:id="nometxt" layoutX="169.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite seu nome:" />
-      <Text fx:id="senhatxt" layoutX="166.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite uma senha:" />
-      <Label fx:id="mensagem" layoutX="183.0" layoutY="245.0" prefHeight="25.0" prefWidth="121.0" underline="true">
+      <Text fx:id="senhatxt" layoutX="171.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite uma senha:" />
+      <Label fx:id="mensagem" layoutX="176.0" layoutY="348.0" prefHeight="25.0" prefWidth="121.0" underline="true">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="cadastrar" layoutX="171.0" layoutY="343.0" mnemonicParsing="false" onAction="#cadastrarUsuario" text="Cadastrar nova conta" />
-      <Button fx:id="voltar" layoutX="211.0" layoutY="393.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
-      <PasswordField fx:id="senha" layoutX="167.0" layoutY="212.0" />
-      <RadioButton fx:id="radioadm" layoutX="171.0" layoutY="292.0" mnemonicParsing="false" selected="true" text="Usuario administrador">
+      <Button fx:id="cadastrar" layoutX="172.0" layoutY="377.0" mnemonicParsing="false" onAction="#cadastrarUsuario" text="Cadastrar nova conta" />
+      <Button fx:id="voltar" layoutX="212.0" layoutY="418.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
+      <PasswordField fx:id="senha" layoutX="166.0" layoutY="263.0" />
+      <RadioButton fx:id="radioadm" layoutX="171.0" layoutY="324.0" mnemonicParsing="false" selected="true" text="Usuario administrador">
          <toggleGroup>
             <ToggleGroup fx:id="tipoDeUsuario" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="radiopadrao" layoutX="169.0" layoutY="262.0" mnemonicParsing="false" selected="true" text="Usuario padrão" toggleGroup="$tipoDeUsuario" />
+      <RadioButton fx:id="radiopadrao" layoutX="172.0" layoutY="296.0" mnemonicParsing="false" selected="true" text="Usuario padrão" toggleGroup="$tipoDeUsuario" />
+      <Text fx:id="cpftxt" layoutX="171.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF" />
+      <TextField fx:id="cpf" layoutX="169.0" layoutY="205.0" />
    </children>
 </AnchorPane>

@@ -23,24 +23,16 @@
     <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <ScrollPane fx:id="rolarCard" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <content>
-            <TextArea prefHeight="257.0" prefWidth="230.0" />
+            <TextArea fx:id="textoDoCard" prefHeight="257.0" prefWidth="230.0" />
          </content>
          <GridPane.margin>
             <Insets right="5.0" />
          </GridPane.margin>
       </ScrollPane>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comentarios e Resenhas:" textAlignment="CENTER" wrappingWidth="212.13671875" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo do Card:" textAlignment="CENTER" wrappingWidth="138.150390625" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comentarios e Resenhas:" textAlignment="CENTER" wrappingWidth="212.13671875" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo do Card:" textAlignment="CENTER" wrappingWidth="138.150390625" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
       <TextField fx:id="tituloCard" onAction="#criarCard" prefHeight="25.0" prefWidth="137.0" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets left="5.0" top="40.0" />
@@ -52,9 +44,6 @@
          </GridPane.margin>
       </TextField>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Página em que esta:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-         <font>
-            <Font size="14.0" />
-         </font>
          <GridPane.margin>
             <Insets top="100.0" />
          </GridPane.margin>
