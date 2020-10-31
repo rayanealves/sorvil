@@ -1,11 +1,11 @@
 package projeto_sorvil.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 
 public class Livro implements Serializable{
 
-   
 	private static final long serialVersionUID = -1617802494947681773L;
 	private String nome;
 	private String ISBN;
@@ -99,6 +99,21 @@ public class Livro implements Serializable{
 		return result;
 	}
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Livro other = (Livro) obj;
+        return Objects.equals(this.ISBN, other.ISBN);
+    }
+
 	
 	public int getNumPaginas() {
 		return numPaginas;
@@ -116,24 +131,10 @@ public class Livro implements Serializable{
 		this.edicao = edicao;
 	}
 	
-	public boolean equals(Livro livro) {
-            if(livro != null){
-                return this.ISBN.equals(livro.ISBN);
-            }
-            else {
-            	return false;
-            }
-	}
-
-	
         @Override
 	public String toString() {
 		return " Nome: " + nome + "\n ID: " + ISBN + "\n Editora: " + editora + "\n Autor: " + autor + "\n Genero:" + genero
 			+ "\n Paginas: " + numPaginas + "\n Editora: " + edicao + " " + this.getAnoPubli();
-	}
-
-    
-    
-	
+	}	
 	
 }

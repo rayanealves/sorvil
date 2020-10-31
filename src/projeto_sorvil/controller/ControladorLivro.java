@@ -103,6 +103,9 @@ public class ControladorLivro {
         
     }
     
+     public List<Livro> listarLivros () {
+            return this.repositorioLivro.listar();
+    }
     public List<Livro> listarPorEditora (Editora editora) {
         if (editora != null){
             return this.repositorioLivro.listar(editora);

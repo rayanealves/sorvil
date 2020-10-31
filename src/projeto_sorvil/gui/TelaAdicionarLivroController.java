@@ -6,7 +6,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -94,6 +93,7 @@ public class TelaAdicionarLivroController implements Initializable {
 
     
     
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
     	this.boxGenero.getItems().addAll(Genero.values());
     }
@@ -116,9 +116,11 @@ public class TelaAdicionarLivroController implements Initializable {
     	
     	Livro livroAdicionado = new Livro(nomeLivro.getText(), isbn.getText() , novaEditora, novoAutor, onGenero ,numeroPag ,
     			anoEdicao, anoPublica);
+        
     	
         try {
             FachadaController.getInstance().novoLivro(livroAdicionado);
+            System.out.println(FachadaController.getInstance().listarLivros().size());
         } catch (JaExisteException ex) {
             AlertBox.display("Você não pode adicionar esse liivro", ex.getMessage());
             Logger.getLogger(TelaAdicionarLivroController.class.getName()).log(Level.SEVERE, null, ex);

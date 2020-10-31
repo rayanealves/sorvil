@@ -189,6 +189,10 @@ public class FachadaController {
             return novaEditora;
 	}
         
+        public List<Livro> listarLivros () {
+            return FachadaController.getInstance().controladorLivro.listarLivros();
+    }
+        
         public boolean novaEditora(Editora editora){
             try {
                 return controladorEditora.novaEditora(editora);
