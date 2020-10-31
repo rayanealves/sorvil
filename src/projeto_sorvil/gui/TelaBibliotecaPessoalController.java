@@ -81,14 +81,19 @@ public class TelaBibliotecaPessoalController implements Initializable {
 
     @FXML
     void irParaLivro(ActionEvent event) throws IOException {
-    	MeuLivro onLivro = new MeuLivro(null, null, 0);
+    	MeuLivro onLivro =  this.lvListaPessoalLivros.getSelectionModel().getSelectedItem();
     	FachadaController.setOnLivro(onLivro);
-    	maintestes.escolherTela(6);
+    	if(FachadaController.getOnLivro() != null) {
+    		maintestes.escolherTela(6);
+    	}
     }
     
 
     @FXML
     void DeletarLivroPessoal(ActionEvent event) {
+    	@SuppressWarnings("unused")
+		MeuLivro deleteLivro =this.lvListaPessoalLivros.getSelectionModel().getSelectedItem();
+    	
     	obsListPessoal = null;
 
     }
