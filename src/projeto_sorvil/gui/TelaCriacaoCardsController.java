@@ -2,15 +2,21 @@ package projeto_sorvil.gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
+import projeto_sorvil.model.Livro;
+import projeto_sorvil.model.Usuario;
+import projeto_sorvil.model.Card;
 import projeto_sorvil.model.MeuLivro;
 
 public class TelaCriacaoCardsController {
@@ -28,9 +34,16 @@ public class TelaCriacaoCardsController {
     @FXML
     private TextArea textoDoCard;
     @FXML
-    private Label txtLivro; 
-	private FachadaController fachada;
-	private MainTestes maintestes;
+    private Label txtLivro;
+    
+    @FXML
+    private Text publico;
+
+    @FXML
+    private CheckBox chPublico;
+    
+    private FachadaController fachada;
+    private MainTestes maintestes;
 	
 	
     public TelaCriacaoCardsController() {
@@ -48,9 +61,16 @@ public class TelaCriacaoCardsController {
     }
 
     @FXML
-    void criarCard(ActionEvent event) {
-    	MeuLivro livro = fachada.getOnLivro();
-    	livro.getLivro();
+    void criarCard(ActionEvent event) throws IOException {
+    	int pagina = Integer.parseInt(paginaAtual.getText());
+        Usuario user = fachada.getUsuarioLogado();
+        Livro livro = fachada.getOnLivro().getLivro();
+        LocalDateTime data = LocalDateTime.now();
+        //boolean publico;
+        //publico = chPublico.selectedProperty().getValue();
+        Card card;
+        card = new Card(tituloCard.getText(), null, textoDoCard.getText(), user, livro, data, chPublico.selectedProperty().getValue(), pagina);
+        maintestes.escolherTela(6);
     }
 
 }
