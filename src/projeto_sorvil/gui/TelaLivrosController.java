@@ -83,8 +83,8 @@ public class TelaLivrosController implements Initializable{
     	this.chboxStatus.getItems().addAll(Status.values());
     	this.chboxStatus.setValue(fachada.getOnLivro().getStatus());
     	this.chboxMinhaNota.getItems().addAll(Nota.values());
-    	//this.chboxMinhaNota.setValue(fachada.getOnLivro().getNota());
-    	chFavorito.selectedProperty().setValue(fachada.getOnLivro().getFavorito());
+    	this.chboxMinhaNota.setValue(fachada.getOnLivro().getNota());
+    	this.chFavorito.selectedProperty().setValue(fachada.getOnLivro().getFavorito());
     	System.out.println("estou iniciando");
     }
     

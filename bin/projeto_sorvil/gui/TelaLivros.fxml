@@ -68,6 +68,6 @@
             <Insets left="5.0" top="10.0" />
          </GridPane.margin>
       </CheckBox>
-      <ChoiceBox fx:id="minhaNota" prefHeight="25.0" prefWidth="69.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM" />
+      <ChoiceBox fx:id="chboxMinhaNota" prefHeight="25.0" prefWidth="73.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM" />
    </children>
 </GridPane>
