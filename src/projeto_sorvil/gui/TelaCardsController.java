@@ -97,6 +97,8 @@ public class TelaCardsController implements Initializable {
     void excluirCard(ActionEvent event) throws NaoPodeException {
     	Card cardExcluido = this.lvCards.getSelectionModel().getSelectedItem();
         fachada.deleteCard(fachada.getUsuarioLogado(),cardExcluido);
+        this.obsListCards.clear();
+        lvCards.refresh();
     }
     
     @FXML
@@ -125,6 +127,4 @@ public class TelaCardsController implements Initializable {
         String pag = String.valueOf(fachada.getOnCard().getPagina());
         this.pagAtual.setText(pag);
     }
-    
-
 }

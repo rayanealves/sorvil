@@ -26,7 +26,7 @@
   </rowConstraints>
    <children>
       <Button fx:id="botaoVoltar" mnemonicParsing="false" onAction="#voltar" text="Voltar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-      <Button fx:id="botaoCriarCard" mnemonicParsing="false" onAction="#TelacriarCard" text="Criar Novo Card" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <Button fx:id="botaoCriarCard" mnemonicParsing="false" onAction="#telacriarCard" text="Criar Novo Card" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
       <Text fx:id="txtStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="Status:" GridPane.columnIndex="1">
          <GridPane.margin>
             <Insets left="5.0" />
