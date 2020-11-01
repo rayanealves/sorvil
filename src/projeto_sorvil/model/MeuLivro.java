@@ -55,7 +55,7 @@ public class MeuLivro implements Serializable{
 	@Override
 	public String toString() {
 		return "====================\n" + livro.toString() + "\n Nota: " + nota
-                        + " | Status: " + status + "\n, favorito: "
+                        + " | Status: " + status + "\nFavorito: "
                         + favorito + "\n====================";
 	}
 
