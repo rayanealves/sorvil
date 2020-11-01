@@ -6,7 +6,19 @@ import java.io.Serializable;
 public class MeuLivro implements Serializable{
 
     private static final long serialVersionUID = 1955524342716143140L;
-    private int nota;
+    private Nota nota;
+
+    public Nota getNota() {
+        return nota;
+    }
+
+    public boolean isFavorito() {
+        return favorito;
+    }
+
+    public void setNota(Nota nota) {
+        this.nota = nota;
+    }
     private Status status;
     private boolean favorito;
     private Livro livro;
@@ -14,17 +26,11 @@ public class MeuLivro implements Serializable{
     public MeuLivro(Livro livro) {
     	this.favorito = false;
         this.status = Status.EM_BRANCO;
-        this.nota = 0;
+        this.nota = Nota.SEM_NOTA;
         this.livro = livro;
     }
     
-    public int getNota(){
-        return this.nota;
-    }
     
-    public void setNota(int nota){
-        this.nota = nota;
-    }
     
     public Status getStatus(){
         return this.status;

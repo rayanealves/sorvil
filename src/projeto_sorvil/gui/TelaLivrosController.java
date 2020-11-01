@@ -106,13 +106,15 @@ public class TelaLivrosController implements Initializable{
     @FXML
     void salvar(ActionEvent event) throws IOException, NaoExisteException, NaoPodeException {
     	int nota =  Integer.parseInt(minhaNota.getText());
-    	fachada.getOnLivro().setNota(nota);
-    	fachada.getOnLivro().setStatus(chboxStatus.getValue());
-    	fachada.getOnLivro().setFavorito(chFavorito.isSelected());
-    	fachada.atualizarLivroUsuario(fachada.getUsuarioLogado(),fachada.getOnLivro());
     	
-    	fachada.setOnLivro(null);
-    	maintestes.escolherTela(3);
+            fachada.getOnLivro().setNota(nota);
+            fachada.getOnLivro().setStatus(chboxStatus.getValue());
+            fachada.getOnLivro().setFavorito(chFavorito.isSelected());
+            fachada.atualizarLivroUsuario(fachada.getUsuarioLogado(),fachada.getOnLivro());    	
+            fachada.setOnLivro(null);
+            maintestes.escolherTela(3);
+        
+        
     }
 
 }
