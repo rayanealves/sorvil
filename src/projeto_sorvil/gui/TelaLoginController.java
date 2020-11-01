@@ -57,7 +57,14 @@ public class TelaLoginController  implements Initializable {
 
 	@FXML
 	void fazerLogin(ActionEvent event) throws IOException, Exception {
-		Usuario user = fachada.buscarUsuario(login.getText());
+            
+            Usuario user = null;
+            try {
+                 user = fachada.buscarUsuario(login.getText());
+            } catch (Exception e) {
+                AlertBox.display("Você ainda não foi cadastrado :( ", "Não fique triste, pode se cadastrar quando quiser :)");
+            }
+           
 		if(user != null) {
 			if(user.getSenha().equals(senha.getText())) {
 				fachada.setUsuarioLogado(user);
@@ -73,9 +80,7 @@ public class TelaLoginController  implements Initializable {
                                     + "Talvez em algum momento dê certo");
                         }
 		}
-                else{
-                    AlertBox.display("Você ainda não foi cadastrado :( ", "Não fique triste, pode se cadastrar quando quiser :)");
-                }
+                
 	}
 
 

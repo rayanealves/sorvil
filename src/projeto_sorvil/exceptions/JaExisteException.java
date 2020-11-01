@@ -7,7 +7,7 @@ private static final long serialVersionUID = -3040088524270012847L;
 private Object objeto;
     
     public JaExisteException(Object obj) {
-        super("Elemento j· existe");
+        super("Elemento j√° existe");
         this.objeto = obj;        
     }
 
