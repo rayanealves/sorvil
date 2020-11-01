@@ -6,13 +6,13 @@
 package projeto_sorvil.controller;
 
 import java.util.UUID;
+
 import projeto_sorvil.dados.EditoraRepositorio;
 import projeto_sorvil.dados.IrepositorioEditora;
+import projeto_sorvil.exceptions.JaExisteException;
+import projeto_sorvil.exceptions.NaoPodeException;
 import projeto_sorvil.model.Editora;
 import projeto_sorvil.model.Usuario;
-import projeto_sorvil.exceptions.JaExisteException;
-import projeto_sorvil.exceptions.NaoExisteException;
-import projeto_sorvil.exceptions.NaoPodeException;
 
 /**
  *

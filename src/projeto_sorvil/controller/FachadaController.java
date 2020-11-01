@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import projeto_sorvil.exceptions.CPFinvalidoExeption;
 
+import projeto_sorvil.exceptions.CPFinvalidoExeption;
 import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.exceptions.NaoExisteException;
 import projeto_sorvil.exceptions.NaoPodeException;
-import projeto_sorvil.gui.TelaAdicionarLivroController;
 import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Card;
 import projeto_sorvil.model.Editora;

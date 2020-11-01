@@ -14,10 +14,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
+import projeto_sorvil.model.Card;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.Usuario;
-import projeto_sorvil.model.Card;
-import projeto_sorvil.model.MeuLivro;
 
 public class TelaCriacaoCardsController {
 
@@ -68,9 +67,10 @@ public class TelaCriacaoCardsController {
         LocalDateTime data = LocalDateTime.now();
         //boolean publico;
         //publico = chPublico.selectedProperty().getValue();
-        Card card;
-        card = new Card(tituloCard.getText(), null, textoDoCard.getText(), user, livro, data, chPublico.selectedProperty().getValue(), pagina);
+
+        Card card = new Card(tituloCard.getText(), null, textoDoCard.getText(), user, livro, data, chPublico.selectedProperty().getValue(), pagina);
         maintestes.escolherTela(6);
+        
     }
 
 }
