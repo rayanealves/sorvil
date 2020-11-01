@@ -73,7 +73,6 @@ public class TelaBuscarLivroController implements Initializable {
     
     private static Autor autorBuscado = null;
   
-	@SuppressWarnings("unused")
 	private static Editora editoraBuscada = null;
 	
 	
@@ -118,7 +117,7 @@ public class TelaBuscarLivroController implements Initializable {
     }
     
     @FXML
-    void AdicionarLivroPessoal(ActionEvent event) throws JaExisteException, IOException {
+    void AdicionarLivroPessoal(ActionEvent event) throws IOException, NaoPodeException, JaExisteException {
     	//tabelaContas.getSelectionModel (). selectedItemProperty () .addListener ((observable, oldValue, newValue) -> mostrarDetalhesConta (newValue));
 
     	TelaBuscarLivroController.livroBuscado = lvLivrosBuscados.getSelectionModel().getSelectedItem();

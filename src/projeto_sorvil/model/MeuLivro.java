@@ -54,7 +54,21 @@ public class MeuLivro implements Serializable{
 	public String toString() {
 		return  livro.toString() + "\n nota=" + nota + ", status=" + status + "\n, favorito=" + favorito;
 	}
+
+
+	public boolean equals(MeuLivro outro) {
+		if (outro == null) {
+				return false;
+		} 
+		else if (this.livro.equals(outro.getLivro())) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
     
+	
     
     
 }

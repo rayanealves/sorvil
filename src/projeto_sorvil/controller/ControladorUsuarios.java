@@ -156,6 +156,30 @@ public class ControladorUsuarios {
 
 	}
 	
+	public boolean atualizarLivroUsuario(Usuario user, MeuLivro userLivro) throws  NaoExisteException, NaoPodeException{
+		
+		if(userLivro != null) {
+			Usuario usuario  = repositorioUsuarios.buscar(user.getLogin());
+			MeuLivro livroBuscado = usuario.buscarLivro(userLivro.getLivro().getNome());
+			if (livroBuscado == null ) {
+	    		throw new NaoExisteException(livroBuscado);
+			}
+			else if (userLivro.getLivro().equals(livroBuscado.getLivro())){
+				repositorioUsuarios.atualizarLivro(user, userLivro);
+				return true;
+			}
+			else {
+				throw new NaoPodeException(livroBuscado);
+			}
+    	}
+    	else {
+    		throw new NaoPodeException(userLivro);
+    	}
+		
+
+	}
+	
+	
 	
 	public boolean removerLivroUsuario(Usuario user, MeuLivro userLivro) throws NaoExisteException{
 		

@@ -252,7 +252,7 @@ public class FachadaController {
 		return controladorUsuario.buscar(login);
 	}
 
-	public boolean adicionarLivroUsuario(Usuario user, MeuLivro userLivro) throws JaExisteException {
+	public boolean adicionarLivroUsuario(Usuario user, MeuLivro userLivro) throws NaoPodeException, JaExisteException {
 		return controladorUsuario.adicionarLivroUsuario(user, userLivro);
 	}
 
@@ -270,6 +270,10 @@ public class FachadaController {
 
 	public ArrayList<MeuLivro> listarLivrosUsuario(Usuario user) {
 		return controladorUsuario.listarLivrosUsuario(user);
+	}
+
+	public boolean atualizarLivroUsuario(Usuario user, MeuLivro userLivro) throws NaoExisteException, NaoPodeException {
+		return controladorUsuario.atualizarLivroUsuario(user, userLivro);
 	}
     
 }

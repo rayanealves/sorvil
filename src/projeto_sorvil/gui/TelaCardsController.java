@@ -75,7 +75,7 @@ public class TelaCardsController implements Initializable {
     
     @FXML
     void editarCard(ActionEvent event) {
-
+    	
     }
 
     @FXML

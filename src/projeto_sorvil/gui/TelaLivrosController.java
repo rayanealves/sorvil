@@ -14,6 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
+import projeto_sorvil.exceptions.NaoExisteException;
+import projeto_sorvil.exceptions.NaoPodeException;
 import projeto_sorvil.model.Status;
 
 public class TelaLivrosController implements Initializable{
@@ -102,12 +104,12 @@ public class TelaLivrosController implements Initializable{
     }
         
     @FXML
-    void salvar(ActionEvent event) throws IOException {
-    	int index = fachada.getUsuarioLogado().getEstante().indexOf(fachada.getOnLivro());
+    void salvar(ActionEvent event) throws IOException, NaoExisteException, NaoPodeException {
     	int nota =  Integer.parseInt(minhaNota.getText());
-    	fachada.getUsuarioLogado().getEstante().get(index).setNota(nota);
-    	fachada.getUsuarioLogado().getEstante().get(index).setStatus(chboxStatus.getValue());
-        //chboxStatus.getSelectionModel();
+    	fachada.getOnLivro().setNota(nota);
+    	fachada.getOnLivro().setStatus(chboxStatus.getValue());
+    	fachada.getOnLivro().setFavorito(chFavorito.isSelected());
+    	fachada.atualizarLivroUsuario(fachada.getUsuarioLogado(),fachada.getOnLivro());
     	
     	fachada.setOnLivro(null);
     	maintestes.escolherTela(3);
