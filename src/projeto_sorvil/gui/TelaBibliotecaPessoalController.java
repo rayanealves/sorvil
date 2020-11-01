@@ -95,7 +95,7 @@ public class TelaBibliotecaPessoalController implements Initializable {
     
 
     @FXML
-    void DeletarLivroPessoal(ActionEvent event)  {
+    void deletarLivroPessoal(ActionEvent event)  {
     	MeuLivro deleteLivro = this.lvListaPessoalLivros.getSelectionModel().getSelectedItem();
         try {
             fachada.removerLivroUsuario(fachada.getUsuarioLogado(), deleteLivro);

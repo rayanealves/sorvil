@@ -103,6 +103,7 @@ public class TelaBuscarLivroController implements Initializable {
     @FXML
     void buscarPorAutor(ActionEvent event){
         autorBuscado = fachada.bucarAutorPorNome(livro.getText());
+        obsListBuscada.clear();
       if(autorBuscado != null){
         System.out.println(autorBuscado);
         obsListBuscada.addAll(fachada.listarPorAutor(autorBuscado));  

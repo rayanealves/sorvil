@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
@@ -48,14 +49,20 @@ public class TelaCardsController implements Initializable {
     private Label tituloCard;
     @FXML
     private TextField pagAtual;
-    @FXML
-    private MenuButton menuPublicoPrivado;
-	private FachadaController fachada;
-	private MainTestes maintestes;
     
-    MenuItem item1 = new MenuItem("Privado");
-    MenuItem item2 = new MenuItem("Publico");
-    //MenuButton menuPublicoPrivado = new MenuButton("Selecione", null, item1,item2);
+    @FXML
+    private CheckBox chPublico;
+
+    @FXML
+    private CheckBox chPrivado;
+
+    @FXML
+    private Button btnSelecionar;
+    
+    private FachadaController fachada;
+    private MainTestes maintestes;
+    
+    
     private ObservableList<Card> obsListCards =  FXCollections.observableArrayList();
     
   
@@ -67,15 +74,18 @@ public class TelaCardsController implements Initializable {
 		this.obsListCards = ob;
 	}
   
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
-    	lvCards.setItems(obsListCards);
+    	obsListCards.addAll(fachada.listarCardsLivroUsuario(fachada.getUsuarioLogado(), fachada.getOnLivro().getLivro()));
+        obsListCards.addAll(fachada.listarCardsPublicosLivro(fachada.getOnLivro().getLivro()));
+        lvCards.setItems(obsListCards);
     	lvCards.refresh();
-    	menuPublicoPrivado.getItems().addAll(item1,item2);
+    	//menuPublicoPrivado.getItems().addAll(item1,item2);
     }
     
     @FXML
     void editarCard(ActionEvent event) {
-    	
+        fachada.editarCard(fachada.getOnCard(), fachada.getUsuarioLogado(), comentarioCard.getText());
     }
 
     @FXML
@@ -90,14 +100,19 @@ public class TelaCardsController implements Initializable {
     
     @FXML
     void selecionarTipoCards(ActionEvent event) {
-        if(item1.getText().equals(menuPublicoPrivado.getText())) {
-        	
-        
+        if(chPublico.selectedProperty().getValue() == true && chPrivado.selectedProperty().getValue() == false){
+           obsListCards.clear();
+           obsListCards.addAll(fachada.listarCardsPublicosLivro(fachada.getOnLivro().getLivro()));
+           lvCards.refresh();
+           lvCards.setItems(obsListCards);
         }
-        else if(item2.getText().equals(menuPublicoPrivado.getText())) {
-        	
-        
-        }
+        else{
+            
+            obsListCards.clear();
+            obsListCards.addAll(fachada.listarCardsLivroUsuario(fachada.getUsuarioLogado(), fachada.getOnLivro().getLivro()));
+            lvCards.refresh();
+            lvCards.setItems(obsListCards); 
+            }
     }
     
     @FXML
