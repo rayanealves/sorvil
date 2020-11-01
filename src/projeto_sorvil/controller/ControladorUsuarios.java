@@ -107,7 +107,7 @@ public class ControladorUsuarios {
 		
 		if(user != null & senha != null & !senha.equals("")) {
     		if (repositorioUsuarios.buscar(user.getLogin()) == user ) {
-    			repositorioUsuarios.editarLogin(user, senha);
+    			repositorioUsuarios.editarSenha(user, senha);
     			return true;
     		}
     		else {
