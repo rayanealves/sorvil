@@ -85,7 +85,8 @@ public class TelaCardsController implements Initializable {
     
     @FXML
     void editarCard(ActionEvent event) {
-        fachada.editarCard(fachada.getOnCard(), fachada.getUsuarioLogado(), comentarioCard.getText());
+        System.out.println(lvCards.getSelectionModel().getSelectedItem());
+        fachada.editarCard(lvCards.getSelectionModel().getSelectedItem(), fachada.getUsuarioLogado(), comentarioCard.getText());
     }
 
     @FXML
@@ -95,7 +96,8 @@ public class TelaCardsController implements Initializable {
     
      @FXML
     void excluirCard(ActionEvent event) throws NaoPodeException {
-    	 fachada.deleteCard(fachada.getUsuarioLogado(), fachada.getOnCard() );
+    	Card cardExcluido = this.lvCards.getSelectionModel().getSelectedItem();
+        fachada.deleteCard(fachada.getUsuarioLogado(),cardExcluido);
     }
     
     @FXML

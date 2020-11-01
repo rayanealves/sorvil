@@ -170,8 +170,10 @@ public class TelaBuscarLivroController implements Initializable {
     }
     
     @FXML
-    void excluirLivro(ActionEvent event) {
-        
+    void excluirLivro(ActionEvent event) throws NaoPodeException {
+        Livro livroExcluido = this.lvLivrosBuscados.getSelectionModel().getSelectedItem();
+        fachada.deleteLivro(fachada.getUsuarioLogado(), livroExcluido);
+        lvLivrosBuscados.refresh();
     }
     
 }
