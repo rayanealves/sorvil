@@ -2,11 +2,60 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group/>
+=======
         <group>
-            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/gui/TelaCardsController.java</file>
-            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/gui/TelaAdicionarLivroController.java</file>
-            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/gui/TelaBibliotecaPessoalController.java</file>
-            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/gui/TelaBuscarLivroController.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/TelaLoginController.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/exceptions/CPFinvalidoException.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/model/Livro.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/TelaCriacaoCardsController.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/TelaEditarUsuarioController.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/dados/IrepositorioUsuario.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/model/Autor.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/controller/ControladorCards.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/controller/ControladorAutor.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/exceptions/ISBNInvalidoException.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/model/Genero.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/TelaCadastro.fxml</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/TelaBibliotecaPessoal.fxml</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/controller/ControladorEditora.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/dados/EditoraRepositorio.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/dados/CardRepositorio.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/dados/IrepositorioAutor.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/TelaBuscarLivro.fxml</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/model/Editora.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/application/Main.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/dados/IrepositorioLivro.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/TelaAdicionarLivroController.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/uSORVIL%20(2)%20(1).png</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/exceptions/NaoPodeException.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/TelaLivrosController.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/dados/DAO.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/dados/LivroRepositorio.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/TelaCardsController.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/AlertBox.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/model/Card.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/model/MeuLivro.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/model/Status.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/TelaCards.fxml</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/controller/ControladorLivro.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/TelaBibliotecaPessoalController.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/TelaAdicionarLivro.fxml</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/controller/FachadaController.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/exceptions/JaExisteException.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/dados/IrepositorioCards.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/model/Usuario.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/model/Nota.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/dados/UsuarioRepositorio.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/controller/ControladorUsuarios.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/TelaLogin.fxml</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/TelaBuscarLivroController.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/dados/AutorRepositorio.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/exceptions/NaoPodeSerApagadoException.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/MainTestes.java</file>
+            <file>file:/C:/Users/usuario/eclipse-workspace/projeto/sorvil/src/projeto_sorvil/gui/TelaCadastroController.java</file>
         </group>
+>>>>>>> 60e8d2498d5695067bc562c50a905ee8722feee1
     </open-files>
 </project-private>
