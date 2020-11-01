@@ -56,7 +56,7 @@ public class TelaCardsController implements Initializable {
     MenuItem item1 = new MenuItem("Privado");
     MenuItem item2 = new MenuItem("Publico");
     //MenuButton menuPublicoPrivado = new MenuButton("Selecione", null, item1,item2);
-	private ObservableList<Card> obsListCards =  FXCollections.observableArrayList();
+    private ObservableList<Card> obsListCards =  FXCollections.observableArrayList();
     
   
     public TelaCardsController(ObservableList<Card> ob) {
