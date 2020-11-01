@@ -15,8 +15,8 @@
   <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="445.0" minWidth="10.0" prefWidth="151.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="445.0" minWidth="10.0" prefWidth="90.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="445.0" minWidth="10.0" prefWidth="88.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="445.0" minWidth="10.0" prefWidth="79.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="445.0" minWidth="10.0" prefWidth="89.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="291.0" minWidth="10.0" prefWidth="284.0" />
   </columnConstraints>
   <rowConstraints>
@@ -54,7 +54,7 @@
          </font>
       </Text>
       <Button fx:id="btnVerCard" mnemonicParsing="false" onAction="#verCard" text="Ver Cards" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-      <Label fx:id="informacoes" alignment="CENTER" prefHeight="311.0" prefWidth="281.0" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="1">
+      <Label fx:id="informacoes" alignment="CENTER" prefHeight="311.0" prefWidth="281.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font></Label>
@@ -68,6 +68,6 @@
             <Insets left="5.0" top="10.0" />
          </GridPane.margin>
       </CheckBox>
-      <ChoiceBox fx:id="minhaNota" prefHeight="25.0" prefWidth="72.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM" />
+      <ChoiceBox fx:id="chboxMinhaNota" prefHeight="25.0" prefWidth="73.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM" />
    </children>
 </GridPane>

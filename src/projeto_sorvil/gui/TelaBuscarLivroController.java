@@ -23,7 +23,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.exceptions.JaExisteException;
-import projeto_sorvil.exceptions.NaoExisteException;
 import projeto_sorvil.exceptions.NaoPodeException;
 import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Editora;

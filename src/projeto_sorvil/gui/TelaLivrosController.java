@@ -77,14 +77,14 @@ public class TelaLivrosController implements Initializable{
     	System.out.println("estou no controle");
 		
     }
-    
+   
     public void initialize(URL location, ResourceBundle resources) {
     	this.informacoes.setText(fachada.getOnLivro().getLivro().toString());
     	this.chboxStatus.getItems().addAll(Status.values());
     	this.chboxStatus.setValue(fachada.getOnLivro().getStatus());
     	this.chboxMinhaNota.getItems().addAll(Nota.values());
     	this.chboxMinhaNota.setValue(fachada.getOnLivro().getNota());
-    	chFavorito.selectedProperty().setValue(fachada.getOnLivro().getFavorito());
+    	this.chFavorito.selectedProperty().setValue(fachada.getOnLivro().getFavorito());
     	System.out.println("estou iniciando");
     }
     
