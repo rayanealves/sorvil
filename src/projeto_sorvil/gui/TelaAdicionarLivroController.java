@@ -109,7 +109,7 @@ public class TelaAdicionarLivroController implements Initializable {
             fachada.novoLivro(livroAdicionado);
             System.out.println(fachada.listarLivros().size());
         } catch (JaExisteException ex) {
-            AlertBox.display("Você não pode adicionar esse liivro", ex.getMessage());
+            AlertBox.display("Você não pode adicionar esse livro", ex.getMessage());
             Logger.getLogger(TelaAdicionarLivroController.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println(anoPublica);

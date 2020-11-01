@@ -35,4 +35,6 @@ public interface IrepositorioUsuario {
 
 	public boolean removerLivro(Usuario user, MeuLivro livroUser);
 
+	public boolean atualizarLivro(Usuario user, MeuLivro userLivro);
+
 }

@@ -27,7 +27,6 @@ import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Editora;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.MeuLivro;
-import projeto_sorvil.model.Status;
 
 
 public class TelaBuscarLivroController implements Initializable {
@@ -74,7 +73,6 @@ public class TelaBuscarLivroController implements Initializable {
     
     private static Autor autorBuscado = null;
   
-	@SuppressWarnings("unused")
 	private static Editora editoraBuscada = null;
 	
 	
@@ -94,37 +92,45 @@ public class TelaBuscarLivroController implements Initializable {
     @FXML
     void buscarLivro(ActionEvent event) throws NaoPodeException {
     	livroBuscado = fachada.buscarLivro(livro.getText());
-    	obsListBuscada.add(livroBuscado); 
+        obsListBuscada.clear();
+    	obsListBuscada.add(livroBuscado);
+        lvLivrosBuscados.refresh();
     	lvLivrosBuscados.setItems(obsListBuscada);	
     }
     
     @FXML
     void buscarPorAutor(ActionEvent event) throws NaoExisteException {
         autorBuscado = fachada.bucarAutorPorNome(livro.getText());
+
         System.out.println(autorBuscado);
         obsListBuscada.addAll(fachada.listarPorAutor(autorBuscado));
+
+        
+        lvLivrosBuscados.refresh();
+
         lvLivrosBuscados.setItems(obsListBuscada);
     }
 
     @FXML
+
     void buscarPorEditora(ActionEvent event) {
         editoraBuscada = fachada.buscarEditora(livro.getText());
         obsListBuscada.clear();
         obsListBuscada.addAll(FXCollections
                 .observableArrayList(fachada
                 .listarPorEditora(editoraBuscada)));
+
         lvLivrosBuscados.refresh();
         lvLivrosBuscados.setItems(obsListBuscada);
     }
     
     @FXML
-    void AdicionarLivroPessoal(ActionEvent event) throws JaExisteException, IOException {
+    void AdicionarLivroPessoal(ActionEvent event) throws IOException, NaoPodeException, JaExisteException {
     	//tabelaContas.getSelectionModel (). selectedItemProperty () .addListener ((observable, oldValue, newValue) -> mostrarDetalhesConta (newValue));
 
     	TelaBuscarLivroController.livroBuscado = lvLivrosBuscados.getSelectionModel().getSelectedItem();
-
-    	Status status =  Status.EM_BRANCO;
-    	MeuLivro livroUser = new MeuLivro(TelaBuscarLivroController.livroBuscado, status , 0);
+    	
+    	MeuLivro livroUser = new MeuLivro(TelaBuscarLivroController.livroBuscado);
     	fachada.adicionarLivroUsuario(fachada.getUsuarioLogado(), livroUser);
     	//FachadaController.getUsuarioLogado().adicionarLivro(livroUser);
     	TelaBuscarLivroController.livroBuscado = null;
@@ -151,7 +157,7 @@ public class TelaBuscarLivroController implements Initializable {
     
     @FXML
     void excluirLivro(ActionEvent event) {
-
+        
     }
     
 }

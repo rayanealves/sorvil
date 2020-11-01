@@ -13,6 +13,7 @@ public class ControladorAutor {
 	
 	private IrepositorioAutor repositorioAutores;
 	private static ControladorAutor instance;
+
         
         public static ControladorAutor getInstance() {
         if (instance == null) {
@@ -23,6 +24,12 @@ public class ControladorAutor {
          public ControladorAutor() {
         this.repositorioAutores = AutorRepositorio.getInstance();
     }
+
+	
+	
+	
+	
+
 	
 	private boolean confereID(String id){
         return this.repositorioAutores.idExiste(id);

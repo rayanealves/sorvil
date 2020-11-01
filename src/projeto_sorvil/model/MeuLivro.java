@@ -1,4 +1,4 @@
-
+ 
 package projeto_sorvil.model;
 
 import java.io.Serializable;
@@ -8,13 +8,13 @@ public class MeuLivro implements Serializable{
     private static final long serialVersionUID = 1955524342716143140L;
     private int nota;
     private Status status;
-    private boolean favorito = false;
+    private boolean favorito;
     private Livro livro;
     
-    public MeuLivro(Livro livro, Status status, int nota) {
-        
-        this.status = status;
-        this.nota = nota;
+    public MeuLivro(Livro livro) {
+    	this.favorito = false;
+        this.status = Status.EM_BRANCO;
+        this.nota = 0;
         this.livro = livro;
     }
     
@@ -34,7 +34,7 @@ public class MeuLivro implements Serializable{
 		this.status = status;
 	}
 
-	public boolean isFavorito() {
+	public boolean getFavorito() {
         return favorito;
     }
 
@@ -54,7 +54,21 @@ public class MeuLivro implements Serializable{
 	public String toString() {
 		return  livro.toString() + "\n nota=" + nota + ", status=" + status + "\n, favorito=" + favorito;
 	}
+
+
+	public boolean equals(MeuLivro outro) {
+		if (outro == null) {
+				return false;
+		} 
+		else if (this.livro.equals(outro.getLivro())) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
     
+	
     
     
 }

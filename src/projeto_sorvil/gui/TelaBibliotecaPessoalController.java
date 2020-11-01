@@ -95,7 +95,7 @@ public class TelaBibliotecaPessoalController implements Initializable {
     @FXML
     void DeletarLivroPessoal(ActionEvent event) {
     	@SuppressWarnings("unused")
-		MeuLivro deleteLivro =this.lvListaPessoalLivros.getSelectionModel().getSelectedItem();
+	MeuLivro deleteLivro =this.lvListaPessoalLivros.getSelectionModel().getSelectedItem();
     	
     	obsListPessoal = null;
 
@@ -116,7 +116,9 @@ public class TelaBibliotecaPessoalController implements Initializable {
     @FXML
     void mostrarLivroNome(ActionEvent event) throws NaoExisteException {
         livroBuscado = fachada.buscarLivroUsuario(fachada.getUsuarioLogado(), txtLivro.getText());
-    	obsListPessoal.add(livroBuscado);
+    	obsListPessoal.clear();
+        obsListPessoal.add(livroBuscado);
+        lvListaPessoalLivros.refresh();
     	lvListaPessoalLivros.setItems(obsListPessoal); 
     }
     

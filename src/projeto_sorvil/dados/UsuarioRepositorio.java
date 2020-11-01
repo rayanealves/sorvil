@@ -133,9 +133,23 @@ public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
                 return true;
             }
     		
-    		return false;	
+    		return false;
     	}
-	
+        
+        public boolean atualizarLivro(Usuario user, MeuLivro livroUser) {
+    		int index = usuarios.indexOf(user);
+    		user.removerLivro(livroUser);
+    		user.adicionarLivro(livroUser);
+    		if(index > -1){
+                usuarios.add(index, user);
+       		 	DAO.salvarArquivo(instancia, ROTA);
+                return true;
+            }
+    		
+    		return false;
+    	}
+        
+        
 	
         @Override
     	public boolean removerLivro(Usuario user, MeuLivro livroUser) {
