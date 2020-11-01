@@ -137,9 +137,11 @@ public class ControladorCards {
     }
     
     public boolean editar(Card card, Usuario usuario, String texto) {
-    	if(texto.equals("") && card.getUsuario().equals(usuario)) {
-    		this.repositorioCards.editar(card, texto);
-    		return true;
+    	if(texto.length() > 0) {
+            if (card.getUsuario().equals(usuario)) {
+                this.repositorioCards.editar(card, texto);
+                return true;
+            }
     	}
     	return false;
     }
