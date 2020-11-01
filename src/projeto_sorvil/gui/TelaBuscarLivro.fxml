@@ -49,7 +49,7 @@
             <Insets />
          </GridPane.margin>
       </ListView>
-      <Button fx:id="btnADDMinhaBiblioteca" mnemonicParsing="false" onAction="#AdicionarLivroPessoal" text="Adicionar à minha biblioteca" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+      <Button fx:id="btnADDMinhaBiblioteca" mnemonicParsing="false" onAction="#adicionarLivroPessoal" text="Adicionar à minha biblioteca" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets bottom="5.0" />
          </GridPane.margin>

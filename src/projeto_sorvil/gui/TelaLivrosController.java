@@ -89,7 +89,7 @@ public class TelaLivrosController implements Initializable{
     }
     
     @FXML
-    void TelacriarCard(ActionEvent event) throws IOException {
+    void telacriarCard(ActionEvent event) throws IOException {
     	maintestes.escolherTela(8);
     }
     

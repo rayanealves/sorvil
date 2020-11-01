@@ -127,6 +127,4 @@ public class TelaCardsController implements Initializable {
         String pag = String.valueOf(fachada.getOnCard().getPagina());
         this.pagAtual.setText(pag);
     }
-    
-
 }

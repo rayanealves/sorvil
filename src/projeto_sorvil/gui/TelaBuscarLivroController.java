@@ -131,7 +131,7 @@ public class TelaBuscarLivroController implements Initializable {
     }
     
     @FXML
-    void AdicionarLivroPessoal(ActionEvent event) throws IOException, NaoPodeException{
+    void adicionarLivroPessoal(ActionEvent event) throws IOException, NaoPodeException{
     	//tabelaContas.getSelectionModel (). selectedItemProperty () .addListener ((observable, oldValue, newValue) -> mostrarDetalhesConta (newValue));
 
     	TelaBuscarLivroController.livroBuscado = lvLivrosBuscados.getSelectionModel().getSelectedItem();
