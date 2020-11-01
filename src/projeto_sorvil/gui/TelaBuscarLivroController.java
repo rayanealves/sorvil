@@ -172,6 +172,7 @@ public class TelaBuscarLivroController implements Initializable {
     void excluirLivro(ActionEvent event) throws NaoPodeException {
         Livro livroExcluido = this.lvLivrosBuscados.getSelectionModel().getSelectedItem();
         fachada.deleteLivro(fachada.getUsuarioLogado(), livroExcluido);
+        this.obsListBuscada.clear();
         lvLivrosBuscados.refresh();
     }
     
