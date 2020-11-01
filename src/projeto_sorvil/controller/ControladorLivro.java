@@ -58,7 +58,7 @@ public class ControladorLivro {
     
     public boolean deleteLivro(Usuario usuario, Livro livro) throws NaoPodeException{
         if(livro != null ){
-            if (!this.repositorioLivro.listar().contains(livro) && usuario.isAdmin() == true){
+            if (this.repositorioLivro.listar().contains(livro) && usuario.isAdmin()){
                 return this.repositorioLivro.apagar(livro);
             }
             else{
