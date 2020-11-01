@@ -7,18 +7,6 @@ public class MeuLivro implements Serializable{
 
     private static final long serialVersionUID = 1955524342716143140L;
     private Nota nota;
-
-    public Nota getNota() {
-        return nota;
-    }
-
-    public boolean isFavorito() {
-        return favorito;
-    }
-
-    public void setNota(Nota nota) {
-        this.nota = nota;
-    }
     private Status status;
     private boolean favorito;
     private Livro livro;
@@ -54,6 +42,14 @@ public class MeuLivro implements Serializable{
     
     public void setLivro(Livro livro) {
         this.livro = livro;
+    }
+    
+    public Nota getNota() {
+        return nota;
+    }
+
+    public void setNota(Nota nota) {
+        this.nota = nota;
     }
 
 	@Override

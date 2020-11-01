@@ -3,6 +3,7 @@ package projeto_sorvil.gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,12 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.exceptions.NaoExisteException;
 import projeto_sorvil.exceptions.NaoPodeException;
+import projeto_sorvil.model.Nota;
 import projeto_sorvil.model.Status;
 
 public class TelaLivrosController implements Initializable{
@@ -39,7 +40,7 @@ public class TelaLivrosController implements Initializable{
     @FXML
     private Text txtLivro;
     @FXML
-    private TextField minhaNota;
+    private ChoiceBox<Nota> chboxMinhaNota;
     @FXML
     private Label notaGeral;
     @FXML
@@ -64,10 +65,10 @@ public class TelaLivrosController implements Initializable{
         botaoGuardar = new Button();
         txtInforma = new Text();
         txtLivro = new Text();
-        minhaNota = new TextField();
+        chboxMinhaNota = new ChoiceBox<Nota>();
         notaGeral = new Label();
         informacoes = new Label();
-        chboxStatus = new  ChoiceBox<Status>();
+        chboxStatus = new ChoiceBox<Status>();
         btnVerCard = new Button();
         chFavorito = new CheckBox();
         this.fachada = FachadaController.getInstance();
@@ -81,8 +82,8 @@ public class TelaLivrosController implements Initializable{
     	this.informacoes.setText(fachada.getOnLivro().getLivro().toString());
     	this.chboxStatus.getItems().addAll(Status.values());
     	this.chboxStatus.setValue(fachada.getOnLivro().getStatus());
-    	String nota = String.valueOf(fachada.getOnLivro().getNota());
-    	this.minhaNota.setText(nota);
+    	this.chboxMinhaNota.getItems().addAll(Nota.values());
+    	this.chboxMinhaNota.setValue(fachada.getOnLivro().getNota());
     	chFavorito.selectedProperty().setValue(fachada.getOnLivro().getFavorito());
     	System.out.println("estou iniciando");
     }
@@ -105,9 +106,9 @@ public class TelaLivrosController implements Initializable{
         
     @FXML
     void salvar(ActionEvent event) throws IOException, NaoExisteException, NaoPodeException {
-    	int nota =  Integer.parseInt(minhaNota.getText());
     	
-            fachada.getOnLivro().setNota(nota);
+    	
+            fachada.getOnLivro().setNota(chboxMinhaNota.getValue());
             fachada.getOnLivro().setStatus(chboxStatus.getValue());
             fachada.getOnLivro().setFavorito(chFavorito.isSelected());
             fachada.atualizarLivroUsuario(fachada.getUsuarioLogado(),fachada.getOnLivro());    	
