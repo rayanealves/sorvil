@@ -52,7 +52,7 @@ public class MeuLivro implements Serializable{
 
 	@Override
 	public String toString() {
-		return  livro.toString() + "\n nota=" + nota + ", status=" + status + "\n, favorito=" + favorito;
+		return  livro.toString() + "\n Nota: " + nota + "| Status: " + status + "\n, favorito: " + favorito;
 	}
 
 
@@ -60,12 +60,7 @@ public class MeuLivro implements Serializable{
 		if (outro == null) {
 				return false;
 		} 
-		else if (this.livro.equals(outro.getLivro())) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		else return this.livro.equals(outro.getLivro());
 	}
     
 	

@@ -136,6 +136,7 @@ public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
     		return false;
     	}
         
+        @Override
         public boolean atualizarLivro(Usuario user, MeuLivro livroUser) {
     		int index = usuarios.indexOf(user);
     		user.removerLivro(livroUser);

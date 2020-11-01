@@ -3,6 +3,8 @@ package projeto_sorvil.gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -93,9 +95,14 @@ public class TelaBibliotecaPessoalController implements Initializable {
     
 
     @FXML
-    void DeletarLivroPessoal(ActionEvent event) throws NaoExisteException {
+    void DeletarLivroPessoal(ActionEvent event)  {
     	MeuLivro deleteLivro = this.lvListaPessoalLivros.getSelectionModel().getSelectedItem();
-    	fachada.removerLivroUsuario(fachada.getUsuarioLogado(), deleteLivro);
+        try {
+            fachada.removerLivroUsuario(fachada.getUsuarioLogado(), deleteLivro);
+        } catch (NaoExisteException ex) {
+            AlertBox.display("Esta tentando deletar um livro inexistente", "Não pode deletar o que não existe");
+            Logger.getLogger(TelaBibliotecaPessoalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     	obsListPessoal = maintestes.atualizarListaPessoal();
     	this.lvListaPessoalLivros.setItems(obsListPessoal);
 		this.lvListaPessoalLivros.refresh();
@@ -115,8 +122,15 @@ public class TelaBibliotecaPessoalController implements Initializable {
     }
 
     @FXML
-    void mostrarLivroNome(ActionEvent event) throws NaoExisteException {
-        livroBuscado = fachada.buscarLivroUsuario(fachada.getUsuarioLogado(), txtLivro.getText());
+    void mostrarLivroNome(ActionEvent event) {
+        try {
+            livroBuscado = fachada.buscarLivroUsuario(fachada.getUsuarioLogado(), txtLivro.getText());
+        } catch (NaoExisteException ex) {
+            AlertBox.display("Livro não adicionado", 
+                    "Voce esta buscando um livro que nao esta na sua estante,\n "
+                            + "tente adiciona-lo antes da exclusão");
+            Logger.getLogger(TelaBibliotecaPessoalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     	obsListPessoal.clear();
         obsListPessoal.add(livroBuscado);
         lvListaPessoalLivros.refresh();

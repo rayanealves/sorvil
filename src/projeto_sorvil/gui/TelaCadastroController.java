@@ -90,12 +90,22 @@ public class TelaCadastroController {
         System.out.println(fachada.listarUsuario().size());
     	Usuario user = new Usuario(nome.getText(), cpf.getText(), login.getText(), senha.getText(), tipo, diaCadastro );
 
+       
         try {
-        	fachada.adicionarUsuario(user);
-                System.out.println(fachada.listarUsuario().size());
-        } catch (JaExisteException | CPFinvalidoExeption ex) {
+            fachada.adicionarUsuario(user);
+        } catch (JaExisteException ex) {
+            AlertBox.display(nome.getText() + " já está no sistema",
+                    "Você não pode cadastrar um usuário com o mesmo cpf");
+            Logger.getLogger(TelaCadastroController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (CPFinvalidoExeption ex) {
+            AlertBox.display("Formado de CPF invalido", "ok, você pode inventar um cpf,"
+                    + " mas usa 11 numeros");
             Logger.getLogger(TelaCadastroController.class.getName()).log(Level.SEVERE, null, ex);
         }
+                System.out.println(fachada.listarUsuario().size());
+       
+            
+      
 
     	senha.clear();
     	login.clear();

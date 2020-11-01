@@ -8,6 +8,8 @@ package projeto_sorvil.gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -99,13 +101,17 @@ public class TelaBuscarLivroController implements Initializable {
     }
     
     @FXML
-    void buscarPorAutor(ActionEvent event) throws NaoExisteException {
+    void buscarPorAutor(ActionEvent event){
         autorBuscado = fachada.bucarAutorPorNome(livro.getText());
-
+      if(autorBuscado != null){
         System.out.println(autorBuscado);
-        obsListBuscada.addAll(fachada.listarPorAutor(autorBuscado));
-
-        
+        obsListBuscada.addAll(fachada.listarPorAutor(autorBuscado));  
+      }
+      else{
+          AlertBox.display(" :( ninguém adicionou livros de " + livro.getText() + "no sistema",
+                  "Você pode nos ajudar e adicionar mais livros quando quiser :)");
+      }
+                
         lvLivrosBuscados.refresh();
 
         lvLivrosBuscados.setItems(obsListBuscada);
@@ -125,13 +131,20 @@ public class TelaBuscarLivroController implements Initializable {
     }
     
     @FXML
-    void AdicionarLivroPessoal(ActionEvent event) throws IOException, NaoPodeException, JaExisteException {
+    void AdicionarLivroPessoal(ActionEvent event) throws IOException, NaoPodeException{
     	//tabelaContas.getSelectionModel (). selectedItemProperty () .addListener ((observable, oldValue, newValue) -> mostrarDetalhesConta (newValue));
 
     	TelaBuscarLivroController.livroBuscado = lvLivrosBuscados.getSelectionModel().getSelectedItem();
     	
     	MeuLivro livroUser = new MeuLivro(TelaBuscarLivroController.livroBuscado);
-    	fachada.adicionarLivroUsuario(fachada.getUsuarioLogado(), livroUser);
+        try {
+            fachada.adicionarLivroUsuario(fachada.getUsuarioLogado(), livroUser);
+        } catch (JaExisteException ex) {
+            AlertBox.display("Um velho sábio de algum lugar disse...",
+                    "\"Não se pode adicionar um livro que já está na sua estante,"
+                            + "deverá busca-lo e assim ha de encontra-lo\"");
+            Logger.getLogger(TelaBuscarLivroController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     	//FachadaController.getUsuarioLogado().adicionarLivro(livroUser);
     	TelaBuscarLivroController.livroBuscado = null;
     	this.obsListBuscada.clear();

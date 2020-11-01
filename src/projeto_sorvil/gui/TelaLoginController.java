@@ -67,7 +67,15 @@ public class TelaLoginController  implements Initializable {
 				
 				
 			}
+                        else{
+                            AlertBox.display("Senha inválida", "Tente novamente com outra senha"
+                                    + "\nVocê pode tentar quantas vezes quiser."
+                                    + "Talvez em algum momento dê certo");
+                        }
 		}
+                else{
+                    AlertBox.display("Você ainda não foi cadastrado :( ", "Não fique triste, pode se cadastrar quando quiser :)");
+                }
 	}
 
 

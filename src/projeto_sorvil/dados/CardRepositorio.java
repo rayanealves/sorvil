@@ -100,10 +100,7 @@ public class CardRepositorio implements IrepositorioCards, Serializable{
 
     @Override
     public boolean cardExist(Card card) {
-        if (this.buscar(card) != null){
-            return true;
-        }
-        return false;
+        return this.buscar(card) != null;
     }
 		
 		
