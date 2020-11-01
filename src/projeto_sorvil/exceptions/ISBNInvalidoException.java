@@ -7,7 +7,11 @@ package projeto_sorvil.exceptions;
 
 
 public class ISBNInvalidoException extends Exception{
-    private Object objeto;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -7561180638055734625L;
+	private Object objeto;
     
     public ISBNInvalidoException(String obj) {
         super("Formato Invalido");
