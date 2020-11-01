@@ -16,6 +16,7 @@ import projeto_sorvil.model.Editora;
 import projeto_sorvil.model.Genero;
 import projeto_sorvil.model.Livro;
 import projeto_sorvil.model.MeuLivro;
+import projeto_sorvil.model.Nota;
 import projeto_sorvil.model.Usuario;
 
 
@@ -272,5 +273,21 @@ public class FachadaController {
 	public boolean atualizarLivroUsuario(Usuario user, MeuLivro userLivro) throws NaoExisteException, NaoPodeException {
 		return controladorUsuario.atualizarLivroUsuario(user, userLivro);
 	}
+        
+        public int notaGeralLivro(Livro livro){
+            int quantidade = 0;
+            int total = 0;
+            int media;
+            MeuLivro meuLivro;
+            for(Usuario usuario: FachadaController.getInstance().controladorUsuario.listar()){
+                meuLivro = usuario.buscarLivro(livro.getNome());
+                if(meuLivro != null && meuLivro.getNota() != Nota.SEM_NOTA){
+                    quantidade++;
+                    total += meuLivro.getNota().nota;
+                }
+            }
+            media = (int)total/quantidade;
+            return media;
+        }
     
 }
