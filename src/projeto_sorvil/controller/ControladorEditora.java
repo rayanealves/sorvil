@@ -74,20 +74,18 @@ public class ControladorEditora {
         return false;
     }
     
-    public Editora buscarEditora(String nome) throws NaoExisteException{
+    public Editora buscarEditora(String nome){
         Editora editora = null;
         if (nome != null){
             for(Editora edt : this.respositorioEditora.listar()){
-                if(edt.getNome().equals(nome)){
+                if(edt.getNome().equalsIgnoreCase(nome)){
                     editora = edt;
                 }
             }
             if( editora != null){
                 return editora;
             }
-            else{
-                throw new NaoExisteException(nome);
-            }
+            
         }
         return editora;
     }

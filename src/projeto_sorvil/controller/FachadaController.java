@@ -86,19 +86,17 @@ public class FachadaController {
 	}
         
 	public Autor novoAutorNome(String autor){
-        Autor novoAutor = new Autor(autor, null);
-        try {
-        	Autor buscaAutor = FachadaController.getInstance().bucarAutorPorNome(autor); 
-                if(buscaAutor == null){
-                    FachadaController.getInstance().novoAutor(novoAutor);
+        Autor novoAutor = FachadaController.getInstance().bucarAutorPorNome(autor);
+        	
+                if(novoAutor == null){
+                    novoAutor = new Autor(autor, null);
+                    controladorAutor.novoAutor(novoAutor);
                 }
-        } catch (NaoExisteException | JaExisteException ex) {
-            Logger.getLogger(TelaAdicionarLivroController.class.getName()).log(Level.SEVERE, null, ex);
-        }  
+       
         return novoAutor;
 	}
 
-	public Autor bucarAutorPorNome(String nome) throws NaoExisteException {
+	public Autor bucarAutorPorNome(String nome) {
 		return controladorAutor.bucarPorNome(nome);
 	}
 
@@ -161,15 +159,14 @@ public class FachadaController {
 	}
 
 	public Editora novaEditoraNome(String nome){
-       Editora novaEditora = new Editora(nome,null);
-       try {
-          Editora buscaEditora = FachadaController.getInstance().buscarEditora(nome);  
-          if(buscaEditora == null){
+      
+          Editora novaEditora = FachadaController.getInstance().buscarEditora(nome); 
+     
+          if(novaEditora == null){
+                novaEditora = new Editora(nome, null);
                 FachadaController.getInstance().novaEditora(novaEditora);
           }
-        } catch (NaoExisteException ex) {
-           Logger.getLogger(FachadaController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
        	return novaEditora;
 	}
         
@@ -190,7 +187,7 @@ public class FachadaController {
 		return controladorEditora.deleteEditora(usuario, editora);
 	}
 
-	public Editora buscarEditora(String nome) throws NaoExisteException {
+	public Editora buscarEditora(String nome)  {
          
 		return controladorEditora.buscarEditora(nome);
 	}

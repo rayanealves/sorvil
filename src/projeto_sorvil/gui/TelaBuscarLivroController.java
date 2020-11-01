@@ -101,13 +101,20 @@ public class TelaBuscarLivroController implements Initializable {
     @FXML
     void buscarPorAutor(ActionEvent event) throws NaoExisteException {
         autorBuscado = fachada.bucarAutorPorNome(livro.getText());
-        obsListBuscada.addAll(FXCollections.observableArrayList(fachada.listarPorAutor(autorBuscado)));
+        System.out.println(autorBuscado);
+        obsListBuscada.addAll(fachada.listarPorAutor(autorBuscado));
         lvLivrosBuscados.setItems(obsListBuscada);
     }
 
     @FXML
     void buscarPorEditora(ActionEvent event) {
-
+        editoraBuscada = fachada.buscarEditora(livro.getText());
+        obsListBuscada.clear();
+        obsListBuscada.addAll(FXCollections
+                .observableArrayList(fachada
+                .listarPorEditora(editoraBuscada)));
+        lvLivrosBuscados.refresh();
+        lvLivrosBuscados.setItems(obsListBuscada);
     }
     
     @FXML

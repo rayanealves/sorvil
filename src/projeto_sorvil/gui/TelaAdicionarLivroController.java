@@ -73,6 +73,10 @@ public class TelaAdicionarLivroController implements Initializable {
 		boxGenero = new ChoiceBox<Genero>();
 		this.fachada = FachadaController.getInstance();
 		this.maintestes = MainTestes.getInstance();
+                botaoCancelar= new Button();
+                botaoCriar= new Button(); 
+                btnAbrir= new Button();
+                anoEd = new TextField();
 	}
 
     
