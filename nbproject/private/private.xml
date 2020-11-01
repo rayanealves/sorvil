@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/gui/TelaBuscarLivroController.java</file>
             <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/controller/FachadaController.java</file>
+            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/gui/TelaCardsController.java</file>
+            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/gui/TelaCriacaoCardsController.java</file>
+            <file>file:/C:/Users/Rayan/Documents/NetBeansProjects/sorvil/src/projeto_sorvil/gui/TelaBuscarLivroController.java</file>
         </group>
     </open-files>
 </project-private>

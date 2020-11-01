@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -38,14 +39,14 @@
             <Insets left="5.0" top="40.0" />
          </GridPane.margin>
       </TextField>
-      <TextField fx:id="paginaAtual" onAction="#criarCard" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <TextField fx:id="paginaAtual" onAction="#criarCard" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <GridPane.margin>
-            <Insets bottom="20.0" left="5.0" />
+            <Insets left="5.0" top="50.0" />
          </GridPane.margin>
       </TextField>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Página em que esta:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <GridPane.margin>
-            <Insets top="100.0" />
+            <Insets bottom="30.0" />
          </GridPane.margin>
       </Text>
       <Button fx:id="botaoCancelar" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
@@ -55,5 +56,11 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
+      <Text fx:id="publico" strokeType="OUTSIDE" strokeWidth="0.0" text="Publico" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+         <GridPane.margin>
+            <Insets bottom="30.0" />
+         </GridPane.margin>
+      </Text>
+      <CheckBox fx:id="chPublico" mnemonicParsing="false" text="Sim" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
    </children>
 </GridPane>
