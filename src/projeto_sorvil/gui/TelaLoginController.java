@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
+import projeto_sorvil.exceptions.NaoExisteException;
 import projeto_sorvil.model.Usuario;
 
 
@@ -56,12 +57,12 @@ public class TelaLoginController  implements Initializable {
 	}
 
 	@FXML
-	void fazerLogin(ActionEvent event) throws IOException, Exception {
+	void fazerLogin(ActionEvent event) throws IOException {
             
             Usuario user = null;
             try {
                  user = fachada.buscarUsuario(login.getText());
-            } catch (Exception e) {
+            } catch (NaoExisteException e) {
                 AlertBox.display("Você ainda não foi cadastrado :( ", "Não fique triste, pode se cadastrar quando quiser :)");
             }
            

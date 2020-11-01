@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
-import projeto_sorvil.exceptions.CPFinvalidoExeption;
+import projeto_sorvil.exceptions.CPFinvalidoException;
 import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.model.Usuario;
 
@@ -97,7 +97,7 @@ public class TelaCadastroController {
             AlertBox.display(nome.getText() + " já está no sistema",
                     "Você não pode cadastrar um usuário com o mesmo cpf");
             Logger.getLogger(TelaCadastroController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (CPFinvalidoExeption ex) {
+        } catch (CPFinvalidoException ex) {
             AlertBox.display("Formado de CPF invalido", "ok, você pode inventar um cpf,"
                     + " mas usa 11 numeros");
             Logger.getLogger(TelaCadastroController.class.getName()).log(Level.SEVERE, null, ex);

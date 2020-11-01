@@ -6,14 +6,10 @@
 package projeto_sorvil.exceptions;
 
 
-public class CPFinvalidoExeption extends Exception{
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 8106249242645718877L;
-	private Object objeto;
+public class ISBNInvalidoException extends Exception{
+    private Object objeto;
     
-    public CPFinvalidoExeption(String obj) {
+    public ISBNInvalidoException(String obj) {
         super("Formato Invalido");
         this.objeto = obj;        
     }
@@ -28,6 +24,6 @@ public class CPFinvalidoExeption extends Exception{
     
 	@Override
 	public String toString() {
-		return "CPF Invalido!";
+		return "ISBN Invalido!";
 	}
 }

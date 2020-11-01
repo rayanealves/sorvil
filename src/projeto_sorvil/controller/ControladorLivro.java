@@ -10,6 +10,7 @@ import java.util.List;
 
 import projeto_sorvil.dados.IrepositorioLivro;
 import projeto_sorvil.dados.LivroRepositorio;
+import projeto_sorvil.exceptions.ISBNInvalidoException;
 import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.exceptions.NaoPodeException;
 import projeto_sorvil.model.Autor;
@@ -36,14 +37,20 @@ public class ControladorLivro {
     
    
     
-    public boolean novoLivro(Livro livro) throws JaExisteException{
+    public boolean novoLivro(Livro livro) throws JaExisteException, ISBNInvalidoException{
         if(livro != null){
-            if(!this.repositorioLivro.listar().contains(livro)){
-               return this.repositorioLivro.adicionar(livro); 
+            if(!livro.getISBN().equals("")){
+                    if(!this.repositorioLivro.listar().contains(livro)){
+                        return this.repositorioLivro.adicionar(livro); 
+                    }
+                    else{
+                        throw new JaExisteException(livro);
+                    }
             }
             else{
-                throw new JaExisteException(livro);
+                throw new ISBNInvalidoException(livro.getISBN());
             }
+            
         }
         
         return false;

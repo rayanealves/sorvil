@@ -44,14 +44,19 @@ public class ControladorCards {
         }
     }
     
-    public boolean novoCard(Card card) throws JaExisteException{
+    public boolean novoCard(Card card) throws JaExisteException, NaoPodeException{
         if (card != null){
             card.setId(this.novoID());
-            if(!this.repositorioCards.listar().contains(card)){
-                return this.repositorioCards.adicionar(card);
+            if(!card.getTitulo().equals("")){
+                if(!this.repositorioCards.listar().contains(card)){
+                    return this.repositorioCards.adicionar(card);
+                }
+                else{
+                    throw new JaExisteException(card);
+                }   
             }
-            else{
-                throw new JaExisteException(card);
+            else {
+                throw new NaoPodeException(card);
             }
         }
         return false;

@@ -6,7 +6,7 @@ import java.util.List;
 
 import projeto_sorvil.dados.IrepositorioUsuario;
 import projeto_sorvil.dados.UsuarioRepositorio;
-import projeto_sorvil.exceptions.CPFinvalidoExeption;
+import projeto_sorvil.exceptions.CPFinvalidoException;
 import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.exceptions.NaoExisteException;
 import projeto_sorvil.exceptions.NaoPodeException;
@@ -30,7 +30,7 @@ public class ControladorUsuarios {
         return instancia;
     }	
 	
-    public boolean adicionar(Usuario user) throws JaExisteException, CPFinvalidoExeption {
+    public boolean adicionar(Usuario user) throws JaExisteException, CPFinvalidoException {
     	if(user != null && this.validarCPF(user.getCPF())) {
     	
     		if (!user.equals(repositorioUsuarios.buscar(user.getLogin()))) {
@@ -233,7 +233,7 @@ public class ControladorUsuarios {
 	}
     
 
-	private boolean validarCPF(String cpf) throws CPFinvalidoExeption, JaExisteException{
+	private boolean validarCPF(String cpf) throws CPFinvalidoException, JaExisteException{
         
             boolean retorno = this.confereCPF(cpf);
             if(cpf.matches("[0-9]*") && cpf.length() == 11){
@@ -244,7 +244,7 @@ public class ControladorUsuarios {
                 else throw new JaExisteException(cpf);
                 
              }
-            else throw new CPFinvalidoExeption(cpf);
+            else throw new CPFinvalidoException(cpf);
  
     }
 

@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import projeto_sorvil.exceptions.CPFinvalidoExeption;
+import projeto_sorvil.exceptions.CPFinvalidoException;
+import projeto_sorvil.exceptions.ISBNInvalidoException;
 import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.exceptions.NaoExisteException;
 import projeto_sorvil.exceptions.NaoPodeException;
@@ -109,7 +110,7 @@ public class FachadaController {
 		
 	}
 
-	public boolean novoCard(Card card) throws JaExisteException {
+	public boolean novoCard(Card card) throws JaExisteException, NaoPodeException {
 		return controladorCards.novoCard(card);
 	}
 
@@ -191,7 +192,7 @@ public class FachadaController {
 		return controladorEditora.buscarEditora(nome);
 	}
 
-	public boolean novoLivro(Livro livro) throws JaExisteException {
+	public boolean novoLivro(Livro livro) throws JaExisteException, ISBNInvalidoException {
 		return controladorLivro.novoLivro(livro);
 	}
 
@@ -223,7 +224,7 @@ public class FachadaController {
 		return controladorLivro.listarPorGenero(genero);
 	}
 	
-	public boolean adicionarUsuario(Usuario user) throws JaExisteException, CPFinvalidoExeption {
+	public boolean adicionarUsuario(Usuario user) throws JaExisteException, CPFinvalidoException {
 		return controladorUsuario.adicionar(user);
 	}
 

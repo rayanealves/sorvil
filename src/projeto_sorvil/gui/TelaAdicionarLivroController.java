@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
+import projeto_sorvil.exceptions.ISBNInvalidoException;
 import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.model.Autor;
 import projeto_sorvil.model.Editora;
@@ -110,6 +111,9 @@ public class TelaAdicionarLivroController implements Initializable {
             System.out.println(fachada.listarLivros().size());
         } catch (JaExisteException ex) {
             AlertBox.display("Você não pode adicionar esse livro", ex.getMessage());
+            Logger.getLogger(TelaAdicionarLivroController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ISBNInvalidoException ex) { 
+            AlertBox.display("ISBN invalido", "Se você preencher o campo ISBN, as coisa vão começar a caminhar entre nós");
             Logger.getLogger(TelaAdicionarLivroController.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println(anoPublica);
