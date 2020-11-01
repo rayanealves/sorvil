@@ -93,11 +93,12 @@ public class TelaBibliotecaPessoalController implements Initializable {
     
 
     @FXML
-    void DeletarLivroPessoal(ActionEvent event) {
-    	@SuppressWarnings("unused")
-	MeuLivro deleteLivro =this.lvListaPessoalLivros.getSelectionModel().getSelectedItem();
-    	
-    	obsListPessoal = null;
+    void DeletarLivroPessoal(ActionEvent event) throws NaoExisteException {
+    	MeuLivro deleteLivro = this.lvListaPessoalLivros.getSelectionModel().getSelectedItem();
+    	fachada.removerLivroUsuario(fachada.getUsuarioLogado(), deleteLivro);
+    	obsListPessoal = maintestes.atualizarListaPessoal();
+    	this.lvListaPessoalLivros.setItems(obsListPessoal);
+		this.lvListaPessoalLivros.refresh();
 
     }
 
