@@ -64,13 +64,13 @@ public class TelaEditarUsuarioController {
 
     @FXML
     void editar(ActionEvent event) throws NaoPodeException, JaExisteException, IOException {
-    	if(nome.getText() != null & nome.getText() != "") {
+    	if(nome.getText() != null & nome.getText() != "" & nome.getText() != " " & !fachada.getUsuarioLogado().getNome().equals(nome.getText())) {
     		fachada.editarNomeUsuario(fachada.getUsuarioLogado(), nome.getText());  					
     	}
-    	if(login.getText() != null & login.getText() != "") {
+    	if(login.getText() != null & login.getText() != "" & login.getText() != " " & !fachada.getUsuarioLogado().getLogin().equals(login.getText())) {
     		fachada.editarLoginUsuario(fachada.getUsuarioLogado(), login.getText());  					
     	}
-    	if(senha.getText() != null & senha.getText() != "") {
+    	if(senha.getText() != null & senha.getText() != "" & senha.getText() != " "  & !fachada.getUsuarioLogado().getSenha().equals(senha.getText())) {
     		fachada.editarSenhaUsuario(fachada.getUsuarioLogado(), senha.getText());  					
     	}
     	
