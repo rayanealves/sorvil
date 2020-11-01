@@ -286,7 +286,7 @@ public class FachadaController {
                     total += meuLivro.getNota().nota;
                 }
             }
-            media = (int)total/quantidade;
+            media = (int)(total/quantidade);
             return media;
      }
     
