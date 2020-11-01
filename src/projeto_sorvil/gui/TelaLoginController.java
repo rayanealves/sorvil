@@ -97,9 +97,5 @@ public class TelaLoginController  implements Initializable {
 		 senha.clear();
 		 login.clear();
 		 maintestes.escolherTela(2);
-	 }
-
-
-   
-
+	 } 
 }
