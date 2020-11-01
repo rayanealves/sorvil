@@ -73,12 +73,15 @@ public class TelaLivrosController implements Initializable{
         chFavorito = new CheckBox();
         this.fachada = FachadaController.getInstance();
         this.maintestes = MainTestes.getInstance();
-		
+        
     	System.out.println("estou no controle");
 		
     }
    
     public void initialize(URL location, ResourceBundle resources) {
+    	int mediadasnotas =  fachada.notaGeralLivro(fachada.getOnLivro().getLivro());
+    	String notamedia = String.valueOf(mediadasnotas);
+    	this.notaGeral.setText(notamedia);
     	this.informacoes.setText(fachada.getOnLivro().getLivro().toString());
     	this.chboxStatus.getItems().addAll(Status.values());
     	this.chboxStatus.setValue(fachada.getOnLivro().getStatus());

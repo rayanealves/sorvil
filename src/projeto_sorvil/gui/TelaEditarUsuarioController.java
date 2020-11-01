@@ -38,6 +38,8 @@ public class TelaEditarUsuarioController {
 
     @FXML
     private Button cancelar;
+    @FXML
+    private Button btnExcluir;
 
     @FXML
     private Button botaoEditar;
@@ -79,5 +81,18 @@ public class TelaEditarUsuarioController {
     	senha.clear();
     	maintestes.escolherTela(3);
     }
+    
+
+    @FXML
+    void excluirUser(ActionEvent event) throws NaoPodeException, IOException {
+    	fachada.removerUsuario(fachada.getUsuarioLogado());
+    	fachada.setUsuarioLogado(null);
+
+    	login.clear();
+    	nome.clear();
+    	senha.clear();
+    	maintestes.escolherTela(1);
+    }
+    
 
 }
