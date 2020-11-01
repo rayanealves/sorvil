@@ -53,7 +53,7 @@ public class TelaLivrosController implements Initializable{
     private CheckBox chFavorito;
     private FachadaController fachada;
     private MainTestes maintestes;
-    
+    private String notamedia;
 
     public TelaLivrosController() {
     	this.telaLivro =  new GridPane();
@@ -73,14 +73,13 @@ public class TelaLivrosController implements Initializable{
         chFavorito = new CheckBox();
         this.fachada = FachadaController.getInstance();
         this.maintestes = MainTestes.getInstance();
-        
+        double mediadasnotas =  fachada.notaGeralLivro(fachada.getOnLivro().getLivro());
+    	notamedia = String.valueOf(mediadasnotas);
     	System.out.println("estou no controle");
 		
     }
    
     public void initialize(URL location, ResourceBundle resources) {
-    	int mediadasnotas =  fachada.notaGeralLivro(fachada.getOnLivro().getLivro());
-    	String notamedia = String.valueOf(mediadasnotas);
     	this.notaGeral.setText(notamedia);
     	this.informacoes.setText(fachada.getOnLivro().getLivro().toString());
     	this.chboxStatus.getItems().addAll(Status.values());

@@ -274,7 +274,7 @@ public class FachadaController {
 		return controladorUsuario.atualizarLivroUsuario(user, userLivro);
 	}
         
-    public int notaGeralLivro(Livro livro){
+    public double notaGeralLivro(Livro livro){
             int quantidade = 0;
             int total = 0;
             int media;
@@ -286,8 +286,15 @@ public class FachadaController {
                     total += meuLivro.getNota().nota;
                 }
             }
-            media = (int)(total/quantidade);
-            return media;
+            if(total != 0 | quantidade != 0) {
+            	media = (total/quantidade);
+            	return media;
+            }
+            else {
+            	return 0;
+            }
+            
+            
      }
     
 }

@@ -22,7 +22,7 @@
       <TextArea fx:id="comentarioCard" layoutX="343.0" layoutY="100.0" prefHeight="122.0" prefWidth="253.0" />
       <Button fx:id="btnExcluir" layoutX="500.0" layoutY="249.0" mnemonicParsing="false" onAction="#excluirCard" text="Excluir card" />
       <Button fx:id="btnVerCard" layoutX="338.0" layoutY="249.0" mnemonicParsing="false" onAction="#verCard" text="Ver Card" />
-      <Button fx:id="btnEditar" layoutX="501.0" layoutY="324.0" mnemonicParsing="false" text="Editar Card" />
+      <Button fx:id="btnEditar" layoutX="501.0" layoutY="324.0" mnemonicParsing="false" onAction="#editarCard" text="Editar Card" />
       <Label fx:id="tituloCard" layoutX="369.0" layoutY="15.0" prefHeight="24.0" prefWidth="185.0">
          <font>
             <Font name="Times New Roman" size="14.0" />
