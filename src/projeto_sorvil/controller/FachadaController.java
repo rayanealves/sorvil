@@ -209,7 +209,7 @@ public class FachadaController {
 		controladorLivro.alterarEditora(usuario, livro, editora);
 	}
 
-	public Livro buscarLivro(String nome) throws NaoPodeException {
+	public List<Livro> buscarLivro(String nome) throws NaoPodeException {
 		return controladorLivro.buscarLivro(nome);
 	}
 

@@ -6,6 +6,8 @@
 package projeto_sorvil.controller;
 
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 
 import projeto_sorvil.dados.IrepositorioLivro;
@@ -92,18 +94,21 @@ public class ControladorLivro {
         }
     }
     
-    public Livro buscarLivro(String nome) throws NaoPodeException{
-        Livro livro = null;
+    public List<Livro> buscarLivro(String nome) throws NaoPodeException{
+        
+        List<Livro> livrosNome = null;
         if (nome != null){
-            for(Livro lvr : this.repositorioLivro.listar()){
-                if(lvr.getNome().equals(nome)){
-                    livro = lvr;
-                }
+           livrosNome = this.repositorioLivro.listar()
+                   .stream()
+                   .filter(liv-> liv.getNome().toLowerCase().contains(nome.toLowerCase()))
+                   .collect(Collectors.toList());   
+           
+            
+        }
+        if(livrosNome != null){
+                return livrosNome;
             }
-        }
-        if(livro != null){
-            return livro;
-        }
+        
         else{
             throw new NaoPodeException(nome);
         }

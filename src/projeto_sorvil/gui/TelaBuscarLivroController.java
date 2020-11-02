@@ -92,9 +92,9 @@ public class TelaBuscarLivroController implements Initializable {
  
     @FXML
     void buscarLivro(ActionEvent event) throws NaoPodeException {
-    	livroBuscado = fachada.buscarLivro(livro.getText());
+    	
         obsListBuscada.clear();
-    	obsListBuscada.add(livroBuscado);
+    	obsListBuscada.addAll(fachada.buscarLivro(livro.getText()));
         lvLivrosBuscados.refresh();
     	lvLivrosBuscados.setItems(obsListBuscada);	
     }
