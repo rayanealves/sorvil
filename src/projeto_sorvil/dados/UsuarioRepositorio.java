@@ -51,6 +51,7 @@ public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
 	public boolean remover(Usuario user) {
 			
 		boolean retorno = usuarios.remove(user);
+		System.out.println(retorno);
                 DAO.salvarArquivo(instancia, ROTA);
                 return retorno;
                         
@@ -101,6 +102,7 @@ public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
 	
         @Override
 	public List<Usuario> listar() {
+
 		return usuarios.subList(0, usuarios.size());
 	}
 	
@@ -128,6 +130,7 @@ public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
     		int index = usuarios.indexOf(user);
     		user.adicionarLivro(livroUser);
     		if(index > -1){
+    			usuarios.remove(index);
                 usuarios.add(index, user);
        		 	DAO.salvarArquivo(instancia, ROTA);
                 return true;
@@ -142,6 +145,7 @@ public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
     		user.removerLivro(livroUser);
     		user.adicionarLivro(livroUser);
     		if(index > -1){
+    			usuarios.remove(index);
                 usuarios.add(index, user);
        		 	DAO.salvarArquivo(instancia, ROTA);
                 return true;
@@ -155,8 +159,10 @@ public class UsuarioRepositorio implements IrepositorioUsuario, Serializable {
         @Override
     	public boolean removerLivro(Usuario user, MeuLivro livroUser) {
     		int index = usuarios.indexOf(user);
+    		
     		user.removerLivro(livroUser);
     		if(index > -1){
+    			usuarios.remove(index);
                 usuarios.add(index, user);
        		 	DAO.salvarArquivo(instancia, ROTA);
                 return true;

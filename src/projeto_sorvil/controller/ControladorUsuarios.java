@@ -47,7 +47,7 @@ public class ControladorUsuarios {
     
     public boolean remover(Usuario user) throws NaoPodeException {
     	if(user != null) {
-    		if (repositorioUsuarios.buscar(user.getLogin()) == user) {
+    		if (repositorioUsuarios.buscar(user.getLogin()).equals(user)) {
     			return repositorioUsuarios.remover(user);
     		}
     		else {

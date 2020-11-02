@@ -76,6 +76,7 @@ public class TelaBibliotecaPessoalController implements Initializable {
 
     @FXML
     void fechar(ActionEvent event) throws IOException {
+    	fachada.setUsuarioLogado(null);
     	obsListPessoal = null;
     	lvListaPessoalLivros.setItems(obsListPessoal);
     	fachada.setUsuarioLogado(null);
@@ -118,6 +119,8 @@ public class TelaBibliotecaPessoalController implements Initializable {
     @FXML
     void telaEditarUsuario(ActionEvent event) throws IOException {
     	obsListPessoal  = null;
+    	lvListaPessoalLivros.setItems(obsListPessoal);
+    	lvListaPessoalLivros.refresh();
     	maintestes.escolherTela(5);
     }
 
@@ -133,8 +136,8 @@ public class TelaBibliotecaPessoalController implements Initializable {
         }
     	obsListPessoal.clear();
         obsListPessoal.add(livroBuscado);
-        lvListaPessoalLivros.refresh();
-    	lvListaPessoalLivros.setItems(obsListPessoal); 
+    	lvListaPessoalLivros.setItems(obsListPessoal);
+    	lvListaPessoalLivros.refresh();
     }
     
 }

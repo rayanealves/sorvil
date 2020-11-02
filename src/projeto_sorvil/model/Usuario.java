@@ -121,6 +121,15 @@ public class Usuario implements Serializable{
 		estante.remove(livroUser);		
 		
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "[[[Usuario [nome=" + nome + ", cpf=" + cpf + ", login=" + login + "]]]]\n";
+	}
+	
+	
 	
 
 	
