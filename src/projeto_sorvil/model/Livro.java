@@ -134,7 +134,7 @@ public class Livro implements Serializable{
         @Override
 	public String toString() {
 		return " Nome: " + nome + "\n ID: " + ISBN + "\n Editora: " + editora + "\n Autor: " + autor + "\n Genero:" + genero
-			+ "\n Paginas: " + numPaginas + "\n Edi�ao: " + edicao + "-  ano:" + this.getAnoPubli();
+			+ "\n Paginas: " + numPaginas + "\n Edição: " + edicao + "\n Ano:" + this.getAnoPubli();
 	}	
 	
 }
