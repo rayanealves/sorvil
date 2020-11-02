@@ -1,11 +1,14 @@
 package projeto_sorvil.controller;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import projeto_sorvil.exceptions.CPFinvalidoException;
+import projeto_sorvil.exceptions.CampoNaoPreenchidoException;
 import projeto_sorvil.exceptions.ISBNInvalidoException;
 import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.exceptions.NaoExisteException;
@@ -108,7 +111,8 @@ public class FachadaController {
 	}
 
 	public List<Card> listarCardsLivroUsuario(Usuario usuario, Livro livro) {
-		return controladorCards.listarCardsLivroUsuario(usuario, livro);
+		return controladorCards.listarCardsLivroUsuario(usuario, livro).stream()
+                        .filter(card-> card.isPublico() == false).collect(Collectors.toList());
 	}
 
 	public boolean deleteCard(Usuario usuario, Card card) throws NaoPodeException {
@@ -189,7 +193,7 @@ public class FachadaController {
 		return controladorLivro.listarPorAutor(autor);
 	}
 	
-	public boolean adicionarUsuario(Usuario user) throws JaExisteException, CPFinvalidoException {
+	public boolean adicionarUsuario(Usuario user) throws JaExisteException, CPFinvalidoException, CampoNaoPreenchidoException {
 		return controladorUsuario.adicionar(user);
 	}
 
@@ -238,10 +242,10 @@ public class FachadaController {
 		return controladorUsuario.atualizarLivroUsuario(user, userLivro);
 	}
         
-    public double notaGeralLivro(Livro livro){
-            int quantidade = 0;
-            int total = 0;
-            int media;
+    public String notaGeralLivro(Livro livro){
+            double quantidade = 0;
+            double total = 0;
+            double media;
             MeuLivro meuLivro;
             for(Usuario usuario: FachadaController.getInstance().controladorUsuario.listar()){
                 meuLivro = usuario.buscarLivro(livro.getNome());
@@ -252,10 +256,11 @@ public class FachadaController {
             }
             if(total != 0 | quantidade != 0) {
             	media = (total/quantidade);
-            	return media;
+                DecimalFormat df = new DecimalFormat("0.0");                 
+            	return df.format(media);
             }
             else {
-            	return 0;
+            	return "0.0";
             }
             
             

@@ -7,6 +7,7 @@ import java.util.List;
 import projeto_sorvil.dados.IrepositorioUsuario;
 import projeto_sorvil.dados.UsuarioRepositorio;
 import projeto_sorvil.exceptions.CPFinvalidoException;
+import projeto_sorvil.exceptions.CampoNaoPreenchidoException;
 import projeto_sorvil.exceptions.JaExisteException;
 import projeto_sorvil.exceptions.NaoExisteException;
 import projeto_sorvil.exceptions.NaoPodeException;
@@ -30,18 +31,15 @@ public class ControladorUsuarios {
         return instancia;
     }	
 	
-    public boolean adicionar(Usuario user) throws JaExisteException, CPFinvalidoException {
+    public boolean adicionar(Usuario user) throws JaExisteException, CPFinvalidoException, CampoNaoPreenchidoException {
     	if(user != null && this.validarCPF(user.getCPF())) {
-    	
-    		if (!user.equals(repositorioUsuarios.buscar(user.getLogin()))) {
+            if(!user.getLogin().equals("") && !user.getSenha().equals(""))
+            	if (!user.equals(repositorioUsuarios.buscar(user.getLogin()))) {
     			return repositorioUsuarios.adicionar(user);
     		}
-                else {
-    		 throw new JaExisteException(user);
-          
-                }
-    		 
-    	}
+            else throw new CampoNaoPreenchidoException(user);
+            }
+        else throw new CPFinvalidoException(user);
     	
 		return false;
     	
