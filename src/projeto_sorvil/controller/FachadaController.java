@@ -24,7 +24,7 @@ public class FachadaController {
 	
 	private static Usuario usuarioLogado = null;
 	private static MeuLivro onLivro = null;
-	private static Livro livroBuscado = null;
+	private static Livro livroSelected = null;
 	private static Card onCard =null;
 	private static Editora onEditora =null;
     private ControladorAutor controladorAutor;
@@ -61,11 +61,11 @@ public class FachadaController {
 	public void setOnLivro(MeuLivro onLivro) {
 		FachadaController.onLivro = onLivro;
 	}
-	public  Livro getLivroBuscado() {
-		return livroBuscado;
+	public  Livro getLivroSelected() {
+		return livroSelected;
 	}
-	public void setLivroBuscado(Livro livroBuscado) {
-		FachadaController.livroBuscado = livroBuscado;
+	public void setLivroSelected(Livro livroSelected) {
+		FachadaController.livroSelected = livroSelected;
 	}
 	public Card getOnCard() {
 		return onCard;
