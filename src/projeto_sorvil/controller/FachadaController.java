@@ -26,7 +26,6 @@ public class FachadaController {
 	private static MeuLivro onLivro = null;
 	private static Livro livroSelected = null;
 	private static Card onCard =null;
-	private static Editora onEditora =null;
     private ControladorAutor controladorAutor;
     private ControladorCards controladorCards;
     private ControladorEditora controladorEditora;
@@ -74,13 +73,6 @@ public class FachadaController {
 		FachadaController.onCard = onCard;
 	}
 
-	public Editora getOnEditora() {
-		return onEditora;
-	}
-
-	public void setOnEditora(Editora onEditora) {
-		FachadaController.onEditora = onEditora;
-	}
 	
 	public boolean novoAutor(Autor autor) throws JaExisteException {
 		return controladorAutor.novoAutor(autor);
@@ -101,30 +93,14 @@ public class FachadaController {
 		return controladorAutor.bucarPorNome(nome);
 	}
 
-	public boolean deleteAutor(Autor autor) throws NaoExisteException, NaoPodeException {
-		if(this.listarPorAutor(autor).size() > 0) {
-			return controladorAutor.delete(autor);
-		}
-		else {
-			throw new NaoPodeException(autor);
-		}
-		
-	}
 
 	public boolean novoCard(Card card) throws JaExisteException, NaoPodeException {
 		return controladorCards.novoCard(card);
 	}
 
-	public List<Card> listarCardsPublicos() {
-		return controladorCards.listarCardsPublicos();
-	}
 
 	public List<Card> listarCardsPublicosLivro(Livro livro) {
 		return controladorCards.listarCardsPublicosLivro(livro);
-	}
-
-	public List<Card> listarCardsPublicosUsuario(Usuario usuario) {
-		return controladorCards.listarCardsPublicosUsuario(usuario);
 	}
 
 	public List<Card> listarCardsUsuario(Usuario usuario) {
@@ -137,14 +113,6 @@ public class FachadaController {
 
 	public boolean deleteCard(Usuario usuario, Card card) throws NaoPodeException {
 		return controladorCards.deleteCard(usuario, card);
-	}
-
-	public Card buscarCardPorTitulo(String titulo) throws NaoExisteException {
-		return controladorCards.buscarPorTitulo(titulo);
-	}
-
-	public Card buscarCard(Card card) throws NaoExisteException {
-		return controladorCards.buscar(card);
 	}
 
 	public boolean editarCard(Card card, Usuario usuario, String texto) {
@@ -219,10 +187,6 @@ public class FachadaController {
 
 	public List<Livro> listarPorAutor(Autor autor) {
 		return controladorLivro.listarPorAutor(autor);
-	}
-
-	public List<Livro> listarPorGenero(Genero genero) {
-		return controladorLivro.listarPorGenero(genero);
 	}
 	
 	public boolean adicionarUsuario(Usuario user) throws JaExisteException, CPFinvalidoException {
