@@ -13,7 +13,7 @@ public class CPFinvalidoException extends Exception{
 	private static final long serialVersionUID = 8106249242645718877L;
 	private Object objeto;
     
-    public CPFinvalidoException(String obj) {
+    public CPFinvalidoException(Object obj) {
         super("Formato Invalido");
         this.objeto = obj;        
     }

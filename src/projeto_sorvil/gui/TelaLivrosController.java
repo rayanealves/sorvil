@@ -73,8 +73,7 @@ public class TelaLivrosController implements Initializable{
         chFavorito = new CheckBox();
         this.fachada = FachadaController.getInstance();
         this.maintestes = MainTestes.getInstance();
-        double mediadasnotas =  fachada.notaGeralLivro(fachada.getOnLivro().getLivro());
-    	notamedia = String.valueOf(mediadasnotas);
+    	notamedia =  fachada.notaGeralLivro(fachada.getOnLivro().getLivro());
     	System.out.println("estou no controle");
 		
     }
