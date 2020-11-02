@@ -95,7 +95,7 @@ public class CardRepositorio implements IrepositorioCards, Serializable{
 		public void editar(Card card, String texto) {
 			
 			this.buscar(card).setTexto(texto);
-                        DAO.salvarArquivo(instance, texto);
+                        DAO.salvarArquivo(instance, ROTA);
 		}
 
     @Override
