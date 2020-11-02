@@ -20,7 +20,7 @@ public class MainTestes extends Application {
 	
 	private static Scene cenaTelaAdicionarLivro, cenaTelaBibliotecaPessoal,cenaTelaCadastro
 	, cenaTelaCards , cenaTelaCriacaoCards, cenaTelaEditarUsuario, cenaTelaLivros
-	, cenaTelaLogin, cenaTelaBuscarLivro ;
+	, cenaTelaLogin, cenaTelaBuscarLivro, cenaTelaEditarLivro ;
 	private static Stage estagioPrimario;
 	private static MainTestes instance;
 	private FachadaController fachada = FachadaController.getInstance();
@@ -139,7 +139,14 @@ public class MainTestes extends Application {
     	    		cenaTelaBuscarLivro = new Scene(parentTelaBuscarLivro);
     				estagioPrimario.setScene(cenaTelaBuscarLivro);
     				break;
- 
+    			case 10:
+    				FXMLLoader telaEditarLivro = new FXMLLoader(getClass().getResource("TelaEditarLivro.fxml"));
+    				telaEditarLivro.setController(new TelaEditarLivroController());
+    				Parent parentTelaEditarLivro = telaEditarLivro.load();
+    	    		cenaTelaEditarLivro = new Scene(parentTelaEditarLivro);
+    				estagioPrimario.setScene(cenaTelaEditarLivro);
+    				break;	
+
     			default:
     			
     		}

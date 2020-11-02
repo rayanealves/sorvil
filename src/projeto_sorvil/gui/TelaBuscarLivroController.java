@@ -39,9 +39,6 @@ public class TelaBuscarLivroController implements Initializable {
     private TextField livro;
 
     @FXML
-    private Label aviso;
-
-    @FXML
     private Button btnBuscar;
     
     @FXML
@@ -64,6 +61,10 @@ public class TelaBuscarLivroController implements Initializable {
 
     @FXML
     private Button btnPorEditora;
+    
+    @FXML
+    private Button btnEditarLivro;
+    
     private FachadaController fachada;
 
 	private MainTestes maintestes;
@@ -122,9 +123,8 @@ public class TelaBuscarLivroController implements Initializable {
     void buscarPorEditora(ActionEvent event) {
         editoraBuscada = fachada.buscarEditora(livro.getText());
         obsListBuscada.clear();
-        obsListBuscada.addAll(FXCollections
-                .observableArrayList(fachada
-                .listarPorEditora(editoraBuscada)));
+        obsListBuscada.addAll(fachada
+                .listarPorEditora(editoraBuscada));
 
         lvLivrosBuscados.refresh();
         lvLivrosBuscados.setItems(obsListBuscada);
@@ -174,6 +174,13 @@ public class TelaBuscarLivroController implements Initializable {
         fachada.deleteLivro(fachada.getUsuarioLogado(), livroExcluido);
         this.obsListBuscada.clear();
         lvLivrosBuscados.refresh();
+    }
+    
+    @FXML
+    void editarLivro(ActionEvent event) throws IOException {
+        fachada.setLivroSelected(lvLivrosBuscados.getSelectionModel().getSelectedItem());
+        maintestes.escolherTela(10);
+        
     }
     
 }
