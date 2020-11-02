@@ -135,7 +135,9 @@ public class Card  implements Serializable{
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 		
 		return this.livro.getNome() + "\n" + this.getTitulo() + "\n" + this.getTexto() + "\n" 
-		+ "Pagina: " + this.getPagina() + "\n" + formatter.format(dataHora) ;
+		+ "Pagina: " + this.getPagina() + "\n" 
+                        + formatter.format(dataHora) 
+                        + "\nUsuario: " + this.getUsuario().getNome() ;
 	}
 	
 	

@@ -95,7 +95,7 @@ public class Usuario implements Serializable{
 	}
 
 	public boolean equals(Usuario usuario) {
-		return usuario != null && usuario.cpf.equals(usuario.getCPF());
+		return usuario != null && this.cpf.equals(usuario.getCPF());
                 }
         
 	
