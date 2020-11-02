@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package projeto_sorvil.exceptions;
 
-/**
- *
- * @author usuario
- */
+
 public class CampoNaoPreenchidoException extends Exception{
    
 	private Object objeto;
@@ -21,10 +14,6 @@ public class CampoNaoPreenchidoException extends Exception{
 		this.objeto = obj;
 	}
         
-        public CampoNaoPreenchidoException(String nome) {
-		super(nome + " não existente no sistema");
-		this.nome = nome;
-	}
 
 	public Object getObjeto() {
 		return objeto;
@@ -34,11 +23,7 @@ public class CampoNaoPreenchidoException extends Exception{
 		this.objeto = objeto;
 	}
         
-        public void setNome(String nome) {
-        this.nome = nome;
+      
     }
 
-    public String getNome() {
-        return nome;
-    }
-}
+   
