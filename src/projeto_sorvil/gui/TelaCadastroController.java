@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,7 +20,6 @@ import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.exceptions.CPFinvalidoException;
 import projeto_sorvil.exceptions.CampoNaoPreenchidoException;
 import projeto_sorvil.exceptions.JaExisteException;
-import projeto_sorvil.exceptions.NaoPodeException;
 import projeto_sorvil.model.Usuario;
 
 public class TelaCadastroController {
