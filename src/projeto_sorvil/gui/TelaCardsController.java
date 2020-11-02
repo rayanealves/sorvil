@@ -80,7 +80,6 @@ public class TelaCardsController implements Initializable {
     
     @FXML
     void editarCard(ActionEvent event) {
-        System.out.println(lvCards.getSelectionModel().getSelectedItem());
         fachada.editarCard(lvCards.getSelectionModel().getSelectedItem(), fachada.getUsuarioLogado(), comentarioCard.getText());
     }
 

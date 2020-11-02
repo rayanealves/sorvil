@@ -17,7 +17,9 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 import projeto_sorvil.controller.FachadaController;
 import projeto_sorvil.exceptions.CPFinvalidoException;
+import projeto_sorvil.exceptions.CampoNaoPreenchidoException;
 import projeto_sorvil.exceptions.JaExisteException;
+import projeto_sorvil.exceptions.NaoPodeException;
 import projeto_sorvil.model.Usuario;
 
 public class TelaCadastroController {
@@ -87,7 +89,6 @@ public class TelaCadastroController {
     		tipo = true;
     	}
     	diaCadastro = LocalDate.now();
-        System.out.println(fachada.listarUsuario().size());
     	Usuario user = new Usuario(nome.getText(), cpf.getText(), login.getText(), senha.getText(), tipo, diaCadastro );
 
        
@@ -101,17 +102,16 @@ public class TelaCadastroController {
             AlertBox.display("Formado de CPF invalido", "ok, você pode inventar um cpf,"
                     + " mas usa 11 numeros");
             Logger.getLogger(TelaCadastroController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (CampoNaoPreenchidoException ex) {
+            AlertBox.display("Campos não preenchidos", "Acredito que sem senha ou login não será possivel"
+                    + " fazer muitas coisas nesse programa");
+            Logger.getLogger(TelaCadastroController.class.getName()).log(Level.SEVERE, null, ex);
         }
-                System.out.println(fachada.listarUsuario().size());
-       
-            
-      
-
+  
     	senha.clear();
     	login.clear();
     	nome.clear();
         cpf.clear();
-        System.out.println(fachada.listarLivrosUsuario(user).size());
         maintestes.escolherTela(1);
     }
     

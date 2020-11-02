@@ -105,7 +105,6 @@ public class TelaBuscarLivroController implements Initializable {
         autorBuscado = fachada.bucarAutorPorNome(livro.getText());
         obsListBuscada.clear();
       if(autorBuscado != null){
-        System.out.println(autorBuscado);
         obsListBuscada.addAll(fachada.listarPorAutor(autorBuscado));  
       }
       else{

@@ -108,7 +108,6 @@ public class TelaAdicionarLivroController implements Initializable {
     	
         try {
             fachada.novoLivro(livroAdicionado);
-            System.out.println(fachada.listarLivros().size());
         } catch (JaExisteException ex) {
             AlertBox.display("Você não pode adicionar esse livro", ex.getMessage());
             Logger.getLogger(TelaAdicionarLivroController.class.getName()).log(Level.SEVERE, null, ex);
@@ -116,8 +115,6 @@ public class TelaAdicionarLivroController implements Initializable {
             AlertBox.display("ISBN invalido", "Se você preencher o campo ISBN, as coisa vão começar a caminhar entre nós");
             Logger.getLogger(TelaAdicionarLivroController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(anoPublica);
-        System.out.println(numeroPag);
         
         maintestes.escolherTela(9);
     			

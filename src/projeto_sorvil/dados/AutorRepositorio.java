@@ -37,10 +37,7 @@ public class AutorRepositorio implements IrepositorioAutor, Serializable {
 	@Override
 	public boolean adicionar(Autor autor) {
 		boolean retorno = autores.add(autor);
-                System.out.println("aqui");
                 DAO.salvarArquivo(instance, ROTA);
-                System.out.println(retorno);
-                System.out.println(instance.listar());
                 return retorno;
 	}
 
