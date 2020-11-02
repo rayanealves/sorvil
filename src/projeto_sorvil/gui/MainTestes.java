@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import projeto_sorvil.controller.FachadaController;
+import projeto_sorvil.dados.UsuarioRepositorio;
 import projeto_sorvil.model.Card;
 import projeto_sorvil.model.MeuLivro;
 
@@ -64,7 +65,7 @@ public class MainTestes extends Application {
     public static void main(String[] args) {
     	//UsuarioRepositorio.getInstancia().getUsuarios().clear();
     	//DAO.salvarArquivo(UsuarioRepositorio.getInstancia(), "src/usuarios.dat");
-    	
+    	System.out.println(UsuarioRepositorio.getInstancia().getUsuarios().size());
     	
         launch(args);
 
