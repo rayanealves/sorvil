@@ -65,7 +65,10 @@ public class TelaCriacaoCardsController {
 
     @FXML
     void criarCard(ActionEvent event) throws IOException {
-    	int pagina = Integer.parseInt(paginaAtual.getText());
+    	int pagina;
+    	if(paginaAtual.getText() != "") {
+    		pagina = Integer.parseInt(paginaAtual.getText());
+    	}else {pagina = 0; }
         Usuario user = fachada.getUsuarioLogado();
         Livro livro = fachada.getOnLivro().getLivro();
         LocalDateTime data = LocalDateTime.now();
