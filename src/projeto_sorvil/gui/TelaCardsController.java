@@ -75,10 +75,6 @@ public class TelaCardsController implements Initializable {
   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    	obsListCards.addAll(fachada.listarCardsLivroUsuario(fachada.getUsuarioLogado(), fachada.getOnLivro().getLivro()));
-        obsListCards.addAll(fachada.listarCardsPublicosLivro(fachada.getOnLivro().getLivro()));
-        lvCards.setItems(obsListCards);
-    	lvCards.refresh();
     	//menuPublicoPrivado.getItems().addAll(item1,item2);
     }
     
@@ -103,19 +99,31 @@ public class TelaCardsController implements Initializable {
     
     @FXML
     void selecionarTipoCards(ActionEvent event) {
-        if(chPublico.selectedProperty().getValue() == true && chPrivado.selectedProperty().getValue() == false){
+        if(chPublico.selectedProperty().getValue() == true & chPrivado.selectedProperty().getValue() == false){
            obsListCards.clear();
            obsListCards.addAll(fachada.listarCardsPublicosLivro(fachada.getOnLivro().getLivro()));
-           lvCards.refresh();
            lvCards.setItems(obsListCards);
+           lvCards.refresh();
         }
-        else{
+        else if(chPublico.selectedProperty().getValue() == false & chPrivado.selectedProperty().getValue() == true){
             
             obsListCards.clear();
             obsListCards.addAll(fachada.listarCardsLivroUsuario(fachada.getUsuarioLogado(), fachada.getOnLivro().getLivro()));
-            lvCards.refresh();
             lvCards.setItems(obsListCards); 
-            }
+            lvCards.refresh();
+        }
+        else if(chPublico.selectedProperty().getValue() == true & chPrivado.selectedProperty().getValue() == true) {
+        	 obsListCards.clear();
+             obsListCards.addAll(fachada.listarCardsLivroUsuario(fachada.getUsuarioLogado(), fachada.getOnLivro().getLivro()));
+             obsListCards.addAll(fachada.listarCardsPublicosLivro(fachada.getOnLivro().getLivro()));
+             lvCards.setItems(obsListCards);
+         	 lvCards.refresh();
+        }
+        else if(chPublico.selectedProperty().getValue() == false & chPrivado.selectedProperty().getValue() == false) {
+        	obsListCards.clear();
+            lvCards.setItems(obsListCards); 
+            lvCards.refresh();
+        }
     }
     
     @FXML
